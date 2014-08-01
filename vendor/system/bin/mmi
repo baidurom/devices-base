@@ -1,0 +1,17 @@
+# Script to start "am" on the device, which has a very rudimentary
+# shell.
+#
+base=/system
+export CLASSPATH=$base/framework/mmi.jar
+if [[ "$@" = "chargeoff" ]]
+then
+echo 0x00 >/sys/bus/platform/devices/mt6320-battery/power_status
+elif [[ "$@" = "chargeon" ]]
+then
+echo 0x01 >/sys/bus/platform/devices/mt6320-battery/power_status
+elif [[ "$@" = "chargestatus" ]]
+then
+cat /sys/bus/platform/devices/mt6320-battery/power_status
+else
+exec app_process $base/bin com.ztb.mmi.Mmi "$@"
+fi
