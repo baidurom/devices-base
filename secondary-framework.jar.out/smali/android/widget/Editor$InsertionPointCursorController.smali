@@ -128,6 +128,8 @@
     .locals 1
 
     .prologue
+    invoke-static {}, Landroid/widget/Editor$BaiduEditorInjector;->dismiss()V
+
     .line 3478
     iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
 

@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/net/NetworkPolicyManagerService$BaiduInjector;,
         Lcom/android/server/net/NetworkPolicyManagerService$XmlUtils;
     }
 .end annotation
@@ -7746,6 +7747,10 @@
 
     .line 2221
     :cond_2
+    invoke-static {v2, v3}, Lcom/android/server/net/NetworkPolicyManagerService$BaiduInjector;->getUidRules(II)I
+
+    move-result v3
+
     if-nez v3, :cond_3
 
     .line 2222

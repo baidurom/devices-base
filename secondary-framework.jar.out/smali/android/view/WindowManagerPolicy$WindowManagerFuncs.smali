@@ -46,3 +46,7 @@
 
 .method public abstract switchKeyboardLayout(II)V
 .end method
+
+.method public abstract reboot(Ljava/lang/String;Z)V
+.end method
+
