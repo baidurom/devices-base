@@ -15845,7 +15845,7 @@
 
     iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveActivity:Landroid/content/pm/ActivityInfo;
 
-    const v10, 0x1030302
+    const v10, #style@Theme.DeviceDefault.Light.Dialog.Alert#t
 
     iput v10, v3, Landroid/content/pm/ActivityInfo;->theme:I
 
@@ -17647,7 +17647,7 @@
 
     .line 4085
     .local v21, dataPathString:Ljava/lang/String;
-    invoke-static/range {p1 .. p1}, Lcom/android/server/pm/PackageManagerService;->isSystemApp(Landroid/content/pm/PackageParser$Package;)Z
+    invoke-static/range {p1 .. p1}, Lcom/android/server/pm/PackageManagerService;->isSystemAppBaidu(Landroid/content/pm/PackageParser$Package;)Z
 
     move-result v3
 
@@ -39865,4 +39865,14 @@
 
     .line 5699
     return-void
+.end method
+
+.method private static isSystemAppBaidu(Landroid/content/pm/PackageParser$Package;)Z
+    .locals 1
+    .parameter "pkg"
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
 .end method

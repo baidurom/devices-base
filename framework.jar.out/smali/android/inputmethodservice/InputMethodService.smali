@@ -8,7 +8,8 @@
     value = {
         Landroid/inputmethodservice/InputMethodService$Insets;,
         Landroid/inputmethodservice/InputMethodService$InputMethodSessionImpl;,
-        Landroid/inputmethodservice/InputMethodService$InputMethodImpl;
+        Landroid/inputmethodservice/InputMethodService$InputMethodImpl;,
+        Landroid/inputmethodservice/InputMethodService$BaiduInjector;
     }
 .end annotation
 
@@ -1748,6 +1749,8 @@
 
     .line 1493
     :cond_0
+    invoke-static {p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeHide(Landroid/inputmethodservice/InputMethodService;)V
+
     return-void
 .end method
 
@@ -3635,6 +3638,8 @@
     .locals 0
 
     .prologue
+    invoke-static {p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeShown(Landroid/inputmethodservice/InputMethodService;)V
+
     .line 1502
     return-void
 .end method

@@ -44822,3 +44822,17 @@
 
     return-object v0
 .end method
+
+.method public reboot(Z)V
+    .locals 2
+    .parameter "confirm"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1, p1}, Lcom/android/server/power/ShutdownThread;->reboot(Landroid/content/Context;Ljava/lang/String;Z)V
+
+    return-void
+.end method

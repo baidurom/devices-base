@@ -2228,6 +2228,8 @@
 
     move-result v62
 
+    const v62, #drawable@yi_text_select_handle_left#t
+
     move/from16 v0, v62
 
     move-object/from16 v1, p0
@@ -2246,6 +2248,8 @@
 
     move-result v62
 
+    const v62, #drawable@yi_text_select_handle_right#t
+
     move/from16 v0, v62
 
     move-object/from16 v1, p0
@@ -2263,6 +2267,8 @@
     invoke-virtual {v5, v9, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v62
+
+    const v62, #drawable@yi_text_select_handle_middle#t
 
     move/from16 v0, v62
 

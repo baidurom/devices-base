@@ -102,6 +102,8 @@
     .locals 2
 
     .prologue
+    invoke-static {p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->getOffset(Lcom/android/internal/widget/ActionBarView$HomeView;)V
+
     .line 1387
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/view/View;
 
@@ -786,4 +788,14 @@
     const/16 v0, 0x8
 
     goto :goto_0
+.end method
+
+.method setmUpWidth(I)V
+    .locals 0
+    .parameter "w"
+
+    .prologue
+    iput p1, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpWidth:I
+
+    return-void
 .end method

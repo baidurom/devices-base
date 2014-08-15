@@ -68,7 +68,7 @@ vendor_modify_images := boot
 ##############################################################################
 # Vendor apks you want to use
 #-----------------------------------------------------------------------------
-#vendor_saved_apps := Bluetooth Nfc
+vendor_saved_apps := Bluetooth Nfc
 
 ##############################################################################
 # Apks build from current project root directory
