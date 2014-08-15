@@ -4579,8 +4579,6 @@
 
     invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->processBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
 
-    goto :goto_baidu_0
-
     :cond_baidu_0
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->addDefaultWidgets()V
@@ -4621,7 +4619,6 @@
     invoke-direct {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->updateSecurityViews()V
 
     .line 290
-    :goto_baidu_0
     return-void
 
     .line 263
