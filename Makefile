@@ -158,7 +158,7 @@ override_property += \
 # remove_property: this property will remove from the build.prop
 #-----------------------------------------------------------------------------
 # remove_property += \
-#    dev.defaultwallpaper
+#     dev.defaultwallpaper
 
 
 ##############################################################################
@@ -171,7 +171,6 @@ override_property += \
 # Otherwise if FORMAT_PARAM_NUM is 5:
 # format("ext4", "EMMC", "/dev/block/platform/hi_mci.1/by-name/system", "0", "/system");
 #-----------------------------------------------------------------------------
-
 # FORMAT_PARAM_NUM := 4
 
 
