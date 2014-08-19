@@ -1,4 +1,4 @@
-.class public Landroid/view/VolumePanel$StreamControl;
+.class Landroid/view/VolumePanel$StreamControl;
 .super Ljava/lang/Object;
 .source "VolumePanel.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x2
     name = "StreamControl"
 .end annotation
 
@@ -31,7 +31,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Landroid/view/VolumePanel;)V
+.method private constructor <init>(Landroid/view/VolumePanel;)V
     .locals 0
     .parameter
 

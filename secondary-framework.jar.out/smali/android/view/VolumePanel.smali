@@ -52,7 +52,7 @@
 
 .field public static final PLAY_SOUND_DELAY:I = 0x12c
 
-.field protected static final STREAMS:[Landroid/view/VolumePanel$StreamResources; = null
+.field private static final STREAMS:[Landroid/view/VolumePanel$StreamResources; = null
 
 .field private static final STREAM_MASTER:I = -0x64
 
@@ -70,7 +70,7 @@
 
 
 # instance fields
-.field protected mActiveStreamType:I
+.field private mActiveStreamType:I
 
 .field private mAudioManager:Landroid/media/AudioManager;
 
@@ -92,9 +92,9 @@
 
 .field private mShowCombinedVolumes:Z
 
-.field protected final mSliderGroup:Landroid/view/ViewGroup;
+.field private final mSliderGroup:Landroid/view/ViewGroup;
 
-.field protected mStreamControls:Ljava/util/HashMap;
+.field private mStreamControls:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -716,8 +716,7 @@
     return-void
 .end method
 
-# virtual methods
-.method protected addOtherVolumes()V
+.method private addOtherVolumes()V
     .locals 5
 
     .prologue
@@ -793,7 +792,7 @@
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 477
-    invoke-virtual {p0, v1}, Landroid/view/VolumePanel;->updateSlider(Landroid/view/VolumePanel$StreamControl;)V
+    invoke-direct {p0, v1}, Landroid/view/VolumePanel;->updateSlider(Landroid/view/VolumePanel$StreamControl;)V
 
     goto :goto_1
 .end method
@@ -850,7 +849,7 @@
     return-void
 .end method
 
-.method protected createSliders()V
+.method private createSliders()V
     .locals 10
 
     .prologue
@@ -1020,7 +1019,7 @@
     :goto_1
     iget-object v7, v4, Landroid/view/VolumePanel$StreamControl;->seekbarView:Landroid/widget/SeekBar;
 
-    invoke-virtual {p0, v6}, Landroid/view/VolumePanel;->getStreamMaxVolume(I)I
+    invoke-direct {p0, v6}, Landroid/view/VolumePanel;->getStreamMaxVolume(I)I
 
     move-result v8
 
@@ -1252,7 +1251,7 @@
     throw v1
 .end method
 
-.method protected getStreamMaxVolume(I)I
+.method private getStreamMaxVolume(I)I
     .locals 1
     .parameter "streamType"
 
@@ -1521,7 +1520,7 @@
 
     .line 463
     :goto_0
-    invoke-virtual {p0}, Landroid/view/VolumePanel;->addOtherVolumes()V
+    invoke-direct {p0}, Landroid/view/VolumePanel;->addOtherVolumes()V
 
     .line 464
     return-void
@@ -1545,7 +1544,7 @@
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     .line 460
-    invoke-virtual {p0, v0}, Landroid/view/VolumePanel;->updateSlider(Landroid/view/VolumePanel$StreamControl;)V
+    invoke-direct {p0, v0}, Landroid/view/VolumePanel;->updateSlider(Landroid/view/VolumePanel$StreamControl;)V
 
     goto :goto_0
 .end method
@@ -1673,7 +1672,7 @@
     goto :goto_0
 .end method
 
-.method protected updateSlider(Landroid/view/VolumePanel$StreamControl;)V
+.method private updateSlider(Landroid/view/VolumePanel$StreamControl;)V
     .locals 4
     .parameter "sc"
 
@@ -1820,7 +1819,7 @@
 
     .line 527
     .local v2, sc:Landroid/view/VolumePanel$StreamControl;
-    invoke-virtual {p0, v2}, Landroid/view/VolumePanel;->updateSlider(Landroid/view/VolumePanel$StreamControl;)V
+    invoke-direct {p0, v2}, Landroid/view/VolumePanel;->updateSlider(Landroid/view/VolumePanel$StreamControl;)V
 
     .line 525
     add-int/lit8 v1, v1, 0x1
@@ -2700,7 +2699,7 @@
 
     .line 659
     :cond_0
-    invoke-virtual {p0, p1}, Landroid/view/VolumePanel;->getStreamMaxVolume(I)I
+    invoke-direct {p0, p1}, Landroid/view/VolumePanel;->getStreamMaxVolume(I)I
 
     move-result v1
 
@@ -3587,7 +3586,7 @@
     if-nez v0, :cond_1
 
     .line 584
-    invoke-virtual {p0}, Landroid/view/VolumePanel;->createSliders()V
+    invoke-direct {p0}, Landroid/view/VolumePanel;->createSliders()V
 
     .line 586
     :cond_1
@@ -3684,7 +3683,7 @@
     if-nez v0, :cond_1
 
     .line 546
-    invoke-virtual {p0}, Landroid/view/VolumePanel;->createSliders()V
+    invoke-direct {p0}, Landroid/view/VolumePanel;->createSliders()V
 
     .line 548
     :cond_1
@@ -3748,7 +3747,7 @@
     if-nez v0, :cond_1
 
     .line 535
-    invoke-virtual {p0}, Landroid/view/VolumePanel;->createSliders()V
+    invoke-direct {p0}, Landroid/view/VolumePanel;->createSliders()V
 
     .line 537
     :cond_1
@@ -3792,11 +3791,12 @@
 .end method
 
 
+# virtual methods
 .method createSlidersBaidu()V
     .locals 0
 
     .prologue
-    invoke-virtual {p0}, Landroid/view/VolumePanel;->createSliders()V
+    invoke-direct {p0}, Landroid/view/VolumePanel;->createSliders()V
 
     return-void
 .end method
