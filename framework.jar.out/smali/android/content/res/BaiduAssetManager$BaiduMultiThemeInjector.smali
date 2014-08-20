@@ -19,6 +19,7 @@
     .locals 0
 
     .prologue
+    .line 271
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,10 +34,12 @@
     .parameter "isIcon"
 
     .prologue
+    .line 310
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
+    .line 311
     .local v0, result:Ljava/io/File;
     if-eqz v0, :cond_0
 
@@ -46,6 +49,7 @@
 
     if-nez v1, :cond_2
 
+    .line 312
     :cond_0
     invoke-virtual {p3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -59,12 +63,15 @@
 
     if-eqz v1, :cond_3
 
+    .line 313
     const/16 p0, 0xf0
 
+    .line 314
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
+    .line 315
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -77,13 +84,16 @@
 
     if-ne v1, p0, :cond_2
 
+    .line 316
     :cond_1
     const/16 p0, 0x140
 
+    .line 317
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
+    .line 348
     :cond_2
     :goto_0
     if-eqz v0, :cond_7
@@ -94,23 +104,29 @@
 
     if-eqz v1, :cond_7
 
+    .line 349
     iput p0, p1, Landroid/util/TypedValue;->density:I
 
+    .line 353
     :goto_1
     return-object v0
 
+    .line 320
     :cond_3
     sparse-switch p0, :sswitch_data_0
 
     goto :goto_0
 
+    .line 330
     :sswitch_0
     const/16 p0, 0x140
 
+    .line 331
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
+    .line 332
     if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -119,22 +135,27 @@
 
     if-nez v1, :cond_2
 
+    .line 333
     :cond_4
     const/16 p0, 0x1e0
 
+    .line 334
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 322
     :sswitch_1
     const/16 p0, 0x1e0
 
+    .line 323
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
+    .line 324
     if-eqz v0, :cond_5
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -143,22 +164,27 @@
 
     if-nez v1, :cond_2
 
+    .line 325
     :cond_5
     const/16 p0, 0xf0
 
+    .line 326
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 338
     :sswitch_2
     const/16 p0, 0x140
 
+    .line 339
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
+    .line 340
     if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -167,20 +193,24 @@
 
     if-nez v1, :cond_2
 
+    .line 341
     :cond_6
     const/16 p0, 0xf0
 
+    .line 342
     invoke-static {p2, p0, p3, p4}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->getFileUnderDpi(Ljava/lang/String;ILjava/lang/String;Z)Ljava/io/File;
 
     move-result-object v0
 
     goto :goto_0
 
+    .line 351
     :cond_7
     const/4 v0, 0x0
 
     goto :goto_1
 
+    .line 320
     :sswitch_data_0
     .sparse-switch
         0xf0 -> :sswitch_0
@@ -197,28 +227,35 @@
     .parameter "isIcon"
 
     .prologue
+    .line 282
     new-instance v2, Ljava/lang/StringBuffer;
 
     invoke-direct {v2, p0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
+    .line 284
     .local v2, tempPath:Ljava/lang/StringBuffer;
     sparse-switch p1, :sswitch_data_0
 
+    .line 295
     :goto_0
     const-string v1, ""
 
+    .line 296
     .local v1, realFile:Ljava/lang/String;
     if-nez p3, :cond_1
 
+    .line 297
     const-string v3, "/"
 
     invoke-virtual {p2, v3}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v0
 
+    .line 298
     .local v0, lastIndex:I
     if-ltz v0, :cond_0
 
+    .line 299
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -227,11 +264,13 @@
 
     move-result-object v1
 
+    .line 304
     .end local v0           #lastIndex:I
     :cond_0
     :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 305
     new-instance v3, Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -242,6 +281,7 @@
 
     return-object v3
 
+    .line 286
     .end local v1           #realFile:Ljava/lang/String;
     :sswitch_0
     const-string v3, "/res/drawable-xhdpi/"
@@ -250,6 +290,7 @@
 
     goto :goto_0
 
+    .line 289
     :sswitch_1
     const-string v3, "/res/drawable-hdpi/"
 
@@ -257,6 +298,7 @@
 
     goto :goto_0
 
+    .line 292
     :sswitch_2
     const-string v3, "/res/drawable-xxhdpi/"
 
@@ -264,12 +306,14 @@
 
     goto :goto_0
 
+    .line 302
     .restart local v1       #realFile:Ljava/lang/String;
     :cond_1
     move-object v1, p2
 
     goto :goto_1
 
+    .line 284
     nop
 
     :sswitch_data_0
@@ -285,10 +329,12 @@
     .parameter "am"
 
     .prologue
+    .line 273
     const-string v0, "/system/framework/framework-res-yi.apk"
 
     invoke-virtual {p0, v0}, Landroid/content/res/AssetManager;->addAssetPath(Ljava/lang/String;)I
 
+    .line 274
     return-void
 .end method
 
@@ -300,8 +346,10 @@
     .parameter "isIcon"
 
     .prologue
+    .line 359
     const/4 v3, 0x0
 
+    .line 362
     .local v3, inputStream:Ljava/io/InputStream;
     if-eqz p1, :cond_0
 
@@ -314,17 +362,20 @@
 
     if-nez v8, :cond_0
 
+    .line 364
     new-instance v7, Ljava/lang/StringBuffer;
 
     const-string v8, "/data/data/com.baidu.thememanager.ui/files"
 
     invoke-direct {v7, v8}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
+    .line 366
     .local v7, sb:Ljava/lang/StringBuffer;
     sget-object v8, Ljava/io/File;->separator:Ljava/lang/String;
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 367
     if-eqz p3, :cond_1
 
     const-string v8, "icons"
@@ -332,11 +383,13 @@
     :goto_0
     invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 368
     sget-object v8, Ljava/io/File;->separator:Ljava/lang/String;
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-static {}, Landroid/content/res/BaiduAssetManager;->access$sget-sDpi-c0b92c()I
+    .line 370
+    invoke-static {}, Landroid/content/res/BaiduAssetManager;->access$000()I
 
     move-result v8
 
@@ -348,6 +401,7 @@
 
     move-result-object v0
 
+    .line 372
     .local v0, accurateFile:Ljava/io/File;
     if-nez v0, :cond_2
 
@@ -363,6 +417,7 @@
 
     invoke-direct {v2, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 375
     .local v2, file:Ljava/io/File;
     :goto_1
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
@@ -371,6 +426,7 @@
 
     if-eqz v8, :cond_3
 
+    .line 376
     new-instance v4, Ljava/io/FileInputStream;
 
     invoke-direct {v4, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
@@ -379,6 +435,7 @@
     .local v4, inputStream:Ljava/io/InputStream;
     move-object v3, v4
 
+    .line 396
     .end local v0           #accurateFile:Ljava/io/File;
     .end local v2           #file:Ljava/io/File;
     .end local v4           #inputStream:Ljava/io/InputStream;
@@ -394,14 +451,17 @@
     :cond_1
     move-object v8, p2
 
+    .line 367
     goto :goto_0
 
     .restart local v0       #accurateFile:Ljava/io/File;
     :cond_2
     move-object v2, v0
 
+    .line 372
     goto :goto_1
 
+    .line 379
     .restart local v2       #file:Ljava/io/File;
     :cond_3
     new-instance v6, Ljava/lang/StringBuffer;
@@ -410,11 +470,13 @@
 
     invoke-direct {v6, v8}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
+    .line 380
     .local v6, ovlPath:Ljava/lang/StringBuffer;
     sget-object v8, Ljava/io/File;->separator:Ljava/lang/String;
 
     invoke-virtual {v6, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 381
     if-eqz p3, :cond_4
 
     const-string p2, "icons"
@@ -423,12 +485,15 @@
     :cond_4
     invoke-virtual {v6, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 382
     sget-object v8, Ljava/io/File;->separator:Ljava/lang/String;
 
     invoke-virtual {v6, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 383
     invoke-virtual {v6, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 384
     new-instance v5, Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -437,6 +502,7 @@
 
     invoke-direct {v5, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 385
     .local v5, ovlFile:Ljava/io/File;
     invoke-virtual {v5}, Ljava/io/File;->exists()Z
 
@@ -444,6 +510,7 @@
 
     if-eqz v8, :cond_0
 
+    .line 386
     new-instance v4, Ljava/io/FileInputStream;
 
     invoke-direct {v4, v5}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
@@ -458,6 +525,7 @@
     .restart local v3       #inputStream:Ljava/io/InputStream;
     goto :goto_2
 
+    .line 392
     .end local v0           #accurateFile:Ljava/io/File;
     .end local v2           #file:Ljava/io/File;
     .end local v5           #ovlFile:Ljava/io/File;
@@ -466,6 +534,7 @@
     :catch_0
     move-exception v1
 
+    .line 393
     .local v1, e:Ljava/io/FileNotFoundException;
     invoke-virtual {v1}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
@@ -477,11 +546,13 @@
     .parameter "am"
 
     .prologue
+    .line 277
     invoke-static {}, Landroid/content/ThemeDefine;->getIconPath()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/res/BaiduAssetManager;->mIconPath:Ljava/util/HashMap;
 
+    .line 278
     return-void
 .end method

@@ -35,7 +35,7 @@ MINI_SYSTEM := false
 # NULL, check boot.img/recovery.img in project root directory, if it exists,
 # use a prebuilt boot.img/recovery.img, if not, nothing to do
 #-----------------------------------------------------------------------------
-# vendor_modify_images := boot recovery
+vendor_modify_images := boot recovery
 
 ##############################################################################
 # Directorys which you want to remove in vendor directory

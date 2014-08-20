@@ -420,6 +420,8 @@
 
     .prologue
     .line 3036
+    invoke-static {}, Landroid/widget/Editor$BaiduEditorInjector;->dismiss()V
+
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/Editor$HandleView;->mIsDragging:Z
@@ -446,7 +448,6 @@
     .locals 1
 
     .prologue
-    invoke-static {}, Landroid/widget/Editor$BaiduEditorInjector;->dismiss()V
 
     invoke-virtual {p0}, Landroid/widget/Editor$HandleView;->hideActionPopupWindow()V
 
