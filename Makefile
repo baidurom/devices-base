@@ -104,7 +104,7 @@ vendor_saved_apps := Bluetooth
 # you need decode android.policy.jar to the project directory (use apktool d android.policy.jar) first
 # then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := framework framework2 pm services telephony-common
+vendor_modify_jars := framework framework2 pm services telephony-common android.policy
 
 ##############################################################################
 # Directorys which you want to saved in baidu directory
@@ -125,7 +125,7 @@ vendor_modify_jars := framework framework2 pm services telephony-common
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-baidu_modify_apps := Phone
+baidu_modify_apps := Contacts
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar

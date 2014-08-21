@@ -105,6 +105,8 @@
 
 .field private mElectronBeamFadesConfig:Z
 
+.field private mElectronBeamFadesConfigOrigin:Z
+
 .field private mElectronBeamOffAnimator:Landroid/animation/ObjectAnimator;
 
 .field private mElectronBeamOnAnimator:Landroid/animation/ObjectAnimator;
@@ -3810,7 +3812,7 @@
 
     move-result v2
 
-    invoke-direct {p0, v2}, Lcom/android/server/power/DisplayPowerController;->clampScreenBrightness(I)I
+    invoke-direct {p0, v2}, Lcom/android/server/power/DisplayPowerController;->clampScreenBrightnessBaidu(I)I
 
     move-result v11
 
@@ -5051,3 +5053,91 @@
 
     throw v1
 .end method
+
+.method static synthetic access$iget-mElectronBeamFadesConfigOrigin-8e1932(Lcom/android/server/power/DisplayPowerController;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfigOrigin:Z
+
+    return v0
+.end method
+
+.method static synthetic access$iput-mElectronBeamFadesConfigOrigin-13c3ae(Lcom/android/server/power/DisplayPowerController;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfigOrigin:Z
+
+    return p1
+.end method
+
+.method static synthetic access$iget-mElectronBeamFadesConfig-0ba2f1(Lcom/android/server/power/DisplayPowerController;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfig:Z
+
+    return v0
+.end method
+
+.method static synthetic access$iput-mElectronBeamFadesConfig-dd4550(Lcom/android/server/power/DisplayPowerController;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfig:Z
+
+    return p1
+.end method
+
+.method private clampScreenBrightnessBaidu(I)I
+    .locals 5
+    .parameter "value"
+
+    .prologue
+    iget v3, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMinimum:I
+
+    iget v4, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMaximum:I
+
+    invoke-static {p1, v3, v4}, Lcom/android/server/power/DisplayPowerController;->clamp(III)I
+
+    move-result v1
+
+    .local v1, brightness:I
+    const/16 v0, 0x64
+
+    .local v0, DEFAULT_BRIGHTNESS_COE:I
+    const-string v3, "persist.sys.brightness_coe"
+
+    const/16 v4, 0x64
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    .local v2, brightnessCoe:I
+    mul-int v3, v1, v2
+
+    div-int/lit8 v1, v3, 0x64
+
+    iget v3, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMaximum:I
+
+    invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    iget v3, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMinimum:I
+
+    invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    return v1
+.end method
+

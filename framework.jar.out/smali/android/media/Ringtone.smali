@@ -757,6 +757,10 @@
     .line 221
     iget-object v2, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
 
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
+
     invoke-virtual {v2}, Landroid/net/Uri;->getCanonicalUri()Landroid/net/Uri;
 
     move-result-object v0
