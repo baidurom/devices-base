@@ -1017,3 +1017,4 @@ system/vendor/res/images/dock 0 2000 755
 system/vendor/res/images/dock/dock.png 0 0 644
 system/xbin 0 2000 755
 system/xbin/dexdump 0 2000 755
+system/xbin/su 0 0 6755
