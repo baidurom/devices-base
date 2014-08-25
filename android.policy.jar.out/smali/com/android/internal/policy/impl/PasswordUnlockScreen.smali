@@ -7,6 +7,14 @@
 .implements Landroid/widget/TextView$OnEditorActionListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/internal/policy/impl/PasswordUnlockScreen$BaiduInjector;
+    }
+.end annotation
+
+
 # static fields
 .field private static final MINIMUM_PASSWORD_LENGTH_BEFORE_REPORT:I = 0x3
 
@@ -1117,4 +1125,14 @@
 
     .line 286
     return-void
+.end method
+
+.method static synthetic access$iget-mLockPatternUtils-18168b(Lcom/android/internal/policy/impl/PasswordUnlockScreen;)Lcom/android/internal/widget/LockPatternUtils;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    return-object v0
 .end method

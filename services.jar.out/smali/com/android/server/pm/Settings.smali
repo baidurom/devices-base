@@ -3,6 +3,14 @@
 .source "Settings.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/pm/Settings$BaiduInjector;
+    }
+.end annotation
+
+
 # static fields
 .field private static final ATTR_ENABLED:Ljava/lang/String; = "enabled"
 
@@ -1604,6 +1612,10 @@
     .end local v14           #user:Landroid/content/pm/UserInfo;
     .end local v16           #users:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     :cond_8
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v3}, Lcom/android/server/pm/Settings$BaiduInjector;->setBaiduStopped(Lcom/android/server/pm/Settings;Lcom/android/server/pm/PackageSetting;)V
+
     if-eqz p4, :cond_9
 
     .line 446
@@ -16085,4 +16097,16 @@
 
     .line 1312
     return-void
+.end method
+
+.method static synthetic access$invoke-getAllUsers-2e2378(Lcom/android/server/pm/Settings;)Ljava/util/List;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    invoke-direct {p0}, Lcom/android/server/pm/Settings;->getAllUsers()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
 .end method

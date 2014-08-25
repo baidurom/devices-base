@@ -62,6 +62,10 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
+
+    invoke-static {v0}, Lcom/android/internal/policy/impl/PasswordUnlockScreen$BaiduInjector;->autoVerifyPasswordAndUnlock(Lcom/android/internal/policy/impl/PasswordUnlockScreen;)V
+
     .line 177
     :cond_0
     return-void

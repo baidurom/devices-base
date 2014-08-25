@@ -177,7 +177,7 @@
     if-nez v3, :cond_2
 
     .line 904
-    new-instance v21, Lcom/android/server/am/AppErrorDialog;
+    new-instance v21, Lcom/android/server/am/BaiduAppErrorDialog;
 
     move-object/from16 v0, p0
 
@@ -191,7 +191,7 @@
 
     move-object/from16 v2, v38
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/android/server/am/AppErrorDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
+    invoke-direct {v0, v3, v1, v2}, Lcom/android/server/am/BaiduAppErrorDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
 
     .line 905
     .local v21, d:Landroid/app/Dialog;
@@ -394,7 +394,7 @@
     if-eqz v3, :cond_5
 
     .line 935
-    new-instance v21, Lcom/android/server/am/AppNotRespondingDialog;
+    new-instance v21, Lcom/android/server/am/BaiduAppNotRespondingDialog;
 
     move-object/from16 v0, p0
 
@@ -420,7 +420,7 @@
 
     move-object/from16 v1, v38
 
-    invoke-direct {v0, v4, v5, v1, v3}, Lcom/android/server/am/AppNotRespondingDialog;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;)V
+    invoke-direct {v0, v4, v5, v1, v3}, Lcom/android/server/am/BaiduAppNotRespondingDialog;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;)V
 
     .line 937
     .restart local v21       #d:Landroid/app/Dialog;

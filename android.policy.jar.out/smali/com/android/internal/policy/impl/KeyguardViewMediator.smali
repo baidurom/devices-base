@@ -10,7 +10,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/policy/impl/KeyguardViewMediator$5;
+        Lcom/android/internal/policy/impl/KeyguardViewMediator$5;,
+	Lcom/android/internal/policy/impl/KeyguardViewMediator$BaiduInjector;
     }
 .end annotation
 
@@ -960,6 +961,8 @@
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     invoke-virtual {v2, v1}, Landroid/app/StatusBarManager;->disable(I)V
+
+    invoke-static {p0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator$BaiduInjector;->processStatusBarExpandEnable(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
     goto :goto_0
 
@@ -3398,4 +3401,24 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+.end method
+
+.method static synthetic access$iget-mStatusBarManager-216b72(Lcom/android/internal/policy/impl/KeyguardViewMediator;)Landroid/app/StatusBarManager;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
+
+    return-object v0
+.end method
+
+.method static synthetic access$iget-mUpdateMonitor-c3d0c7(Lcom/android/internal/policy/impl/KeyguardViewMediator;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    return-object v0
 .end method

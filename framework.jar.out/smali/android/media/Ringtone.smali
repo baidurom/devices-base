@@ -588,6 +588,10 @@
 
     iget-object v3, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
 
+    if-eqz v3, :cond_baidu_0
+
+    iget-object v3, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
+
     iget v4, p0, Landroid/media/Ringtone;->mStreamType:I
 
     invoke-interface {v1, v2, v3, v4}, Landroid/media/IRingtonePlayer;->play(Landroid/os/IBinder;Landroid/net/Uri;I)V
@@ -629,6 +633,7 @@
     .line 234
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_2
+    :cond_baidu_0
     const-string v1, "Ringtone"
 
     const-string v2, "Neither local nor remote playback available"

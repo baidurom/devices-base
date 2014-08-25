@@ -1131,9 +1131,9 @@
 
     .line 1298
     .local v0, ai:Landroid/content/pm/ApplicationInfo;
-    new-instance v1, Landroid/content/res/AssetManager;
+    new-instance v1, Landroid/content/res/BaiduAssetManager;
 
-    invoke-direct {v1}, Landroid/content/res/AssetManager;-><init>()V
+    invoke-direct {v1}, Landroid/content/res/BaiduAssetManager;-><init>()V
 
     .line 1299
     .local v1, am:Landroid/content/res/AssetManager;
@@ -1142,13 +1142,13 @@
     invoke-virtual {v1, v6}, Landroid/content/res/AssetManager;->addAssetPath(Ljava/lang/String;)I
 
     .line 1300
-    new-instance v4, Landroid/content/res/Resources;
+    new-instance v4, Landroid/content/res/BaiduResources;
 
     const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    invoke-direct {v4, v1, v6, v7}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
+    invoke-direct {v4, v1, v6, v7}, Landroid/content/res/BaiduResources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

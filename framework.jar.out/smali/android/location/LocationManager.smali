@@ -963,7 +963,7 @@
 
     move-result-object v2
 
-    invoke-interface {v1, p1, v2}, Landroid/location/ILocationManager;->getLastKnownLocation(Ljava/lang/String;Ljava/lang/String;)Landroid/location/Location;
+    invoke-direct {p0, p1, v2}, Landroid/location/LocationManager;->getLastKnownLocationBaidu(Ljava/lang/String;Ljava/lang/String;)Landroid/location/Location;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1538,7 +1538,7 @@
 
     move-object v7, p5
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 833
     return-void
@@ -1596,7 +1596,7 @@
 
     move-object v8, p6
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 646
     return-void
@@ -1651,7 +1651,7 @@
 
     move-object v7, p5
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 757
     return-void
@@ -1708,7 +1708,7 @@
 
     move-object v8, v2
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 487
     return-void
@@ -1766,7 +1766,7 @@
 
     move-object v8, p6
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 572
     return-void
@@ -1819,7 +1819,7 @@
 
     move-object v7, p2
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 994
     return-void
@@ -1875,7 +1875,7 @@
 
     move-object v8, p3
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 926
     return-void
@@ -1928,7 +1928,7 @@
 
     move-object v7, p2
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 959
     return-void
@@ -1984,7 +1984,7 @@
 
     move-object v8, p3
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 887
     return-void
@@ -2172,6 +2172,150 @@
     const-string/jumbo v1, "setTestProviderStatus: RemoteException"
 
     invoke-static {v0, v1, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method private checkDynamicPermission()Z
+    .locals 4
+
+    .prologue
+    const/4 v1, 0x0
+
+    const/4 v0, 0x1
+
+    const/4 v2, 0x2
+
+    new-array v3, v1, [Ljava/lang/Object;
+
+    invoke-static {v2, v0, v3}, Lcom/baidu/server/dp/DynamicPermissionManager;->checkPermission(IZ[Ljava/lang/Object;)I
+
+    move-result v2
+
+    if-eq v2, v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method private getLastKnownLocationBaidu(Ljava/lang/String;Ljava/lang/String;)Landroid/location/Location;
+    .locals 1
+    .parameter "provider"
+    .parameter "packageName"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-direct {p0}, Landroid/location/LocationManager;->checkDynamicPermission()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Landroid/location/LocationManager;->mService:Landroid/location/ILocationManager;
+
+    invoke-interface {v0, p1, p2}, Landroid/location/ILocationManager;->getLastKnownLocation(Ljava/lang/String;Ljava/lang/String;)Landroid/location/Location;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method private _requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    .locals 8
+    .parameter "provider"
+    .parameter "criteria"
+    .parameter "minTime"
+    .parameter "minDistance"
+    .parameter "singleShot"
+    .parameter "intent"
+
+    .prologue
+    invoke-direct {p0}, Landroid/location/LocationManager;->checkDynamicPermission()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-wide v3, p3
+
+    move v5, p5
+
+    move v6, p6
+
+    move-object v7, p7
+
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+
+    goto :goto_0
+.end method
+
+.method private _requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    .locals 9
+    .parameter "provider"
+    .parameter "criteria"
+    .parameter "minTime"
+    .parameter "minDistance"
+    .parameter "singleShot"
+    .parameter "listener"
+    .parameter "looper"
+
+    .prologue
+    invoke-direct {p0}, Landroid/location/LocationManager;->checkDynamicPermission()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-wide v3, p3
+
+    move v5, p5
+
+    move v6, p6
+
+    move-object/from16 v7, p7
+
+    move-object/from16 v8, p8
+
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     goto :goto_0
 .end method

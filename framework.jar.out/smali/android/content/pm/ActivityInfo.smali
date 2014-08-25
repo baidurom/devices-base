@@ -6,6 +6,14 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/content/pm/ActivityInfo$BaiduInjector;
+    }
+.end annotation
+
+
 # static fields
 .field public static final CONFIG_FONT_SCALE:I = 0x40000000
 
@@ -30,6 +38,8 @@
 .field public static final CONFIG_SCREEN_SIZE:I = 0x400
 
 .field public static final CONFIG_SMALLEST_SCREEN_SIZE:I = 0x800
+
+.field public static final CONFIG_THEME:I = -0x80000000
 
 .field public static final CONFIG_TOUCHSCREEN:I = 0x8
 
@@ -423,6 +433,10 @@
 
     .line 397
     :cond_1
+    invoke-static {p0, v1}, Landroid/content/pm/ActivityInfo$BaiduInjector;->setOutputBaidu(II)I
+
+    move-result v1
+
     return v1
 .end method
 
