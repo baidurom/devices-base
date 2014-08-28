@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<features>
+  <feature description="These files are diff from ./autopatch/aosp/ and ./autopatch/bosp/">
+    <revise action="MERGE" target="framework.jar.out/smali/android/content/res/AssetManager.smali"/>
+    <revise action="MERGE" target="framework.jar.out/smali/android/widget/TextView$SelectionStartHandleView.smali"/>
+    <revise action="MERGE" target="framework.jar.out/smali/android/widget/TextView$SelectionEndHandleView.smali"/>
+  </feature>
+</features>
