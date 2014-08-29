@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<LocationService version="1">
+  <!--This configuration file will decide which provider the location service framework will bind in the booting process-->
+   <!--  lenovo_xm huangzye 2012.04.18 change location provider begin-->
+   <NetworkServiceName>com.mapabc.lbs.ClsLocationProvider</NetworkServiceName>
+   <PrivateInnerGeocoderServiceName>com.mapabc.lbs.ClsGeocodeProvider</PrivateInnerGeocoderServiceName>
+   <!--  lenovo_xm huangzye 2012.04.18 change location provider end-->
+</LocationService>
