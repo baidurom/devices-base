@@ -31,7 +31,16 @@
     .parameter "flags"
 
     .prologue
-    .line 1427
+    move v0, p1
+
+    .local v0, f:I
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mShowing:Z
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$iget-mShowing-2d9652(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/keyguard/KeyguardUpdateMonitor;
     invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$800(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)Lcom/android/internal/policy/impl/keyguard/KeyguardUpdateMonitor;
 
@@ -43,16 +52,11 @@
 
     if-nez v1, :cond_0
 
-    .line 1428
-    move v0, p1
-
-    .line 1429
-    .local v0, f:I
     const/high16 v1, 0x1
 
     or-int/2addr v0, v1
 
-    .line 1430
+    :cond_0
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
     invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$iget-mStatusBarManager-216b72(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)Landroid/app/StatusBarManager;
 
@@ -60,8 +64,5 @@
 
     invoke-virtual {v1, v0}, Landroid/app/StatusBarManager;->disable(I)V
 
-    .line 1432
-    .end local v0           #f:I
-    :cond_0
     return-void
 .end method

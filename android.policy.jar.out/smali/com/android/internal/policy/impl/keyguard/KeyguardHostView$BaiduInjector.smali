@@ -250,10 +250,6 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 1636
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->removeAllViews()V
-
-    .line 1637
     new-instance v1, Landroid/widget/FrameLayout;
 
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mContext:Landroid/content/Context;
@@ -286,7 +282,9 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->addView(Landroid/view/View;)V
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->addView(Landroid/view/View;I)V
 
     .line 1642
     invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->addBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
@@ -302,21 +300,21 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->setSystemUiVisibility(I)V
 
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->switchBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+
     .line 1644
     return-void
 .end method
 
-.method public static resumeBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;I)V
+.method private static resumeBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;I)V
     .locals 3
     .parameter "keyguardHostView"
     .parameter "reason"
 
     .prologue
-    .line 1618
-    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mBaiduKeyguardContainer:Landroid/widget/FrameLayout;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mBaiduKeyguardContainer-224b04(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/widget/FrameLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->switchBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
 
-    move-result-object v1
+    move-result v1
 
     if-nez v1, :cond_1
 
@@ -422,4 +420,83 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method private static switchBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+    .locals 3
+    .parameter "keyguardHostView"
+
+    .prologue
+    const/16 v2, 0x8
+
+    const/4 v0, 0x0
+
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mBaiduKeyguardContainer:Landroid/widget/FrameLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mBaiduKeyguardContainer-224b04(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/widget/FrameLayout;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mSlidingChallengeLayout:Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mSlidingChallengeLayout-3ce008(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mSlidingChallengeLayout:Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mSlidingChallengeLayout-3ce008(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;->setVisibility(I)V
+
+    :cond_1
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mBaiduKeyguardContainer:Landroid/widget/FrameLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mBaiduKeyguardContainer-224b04(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/widget/FrameLayout;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
+
+    :goto_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mSlidingChallengeLayout:Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mSlidingChallengeLayout-3ce008(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mSlidingChallengeLayout:Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mSlidingChallengeLayout-3ce008(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/internal/policy/impl/keyguard/SlidingChallengeLayout;->setVisibility(I)V
+
+    :cond_3
+    #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mBaiduKeyguardContainer:Landroid/widget/FrameLayout;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mBaiduKeyguardContainer-224b04(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/widget/FrameLayout;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
+
+    goto :goto_1
 .end method

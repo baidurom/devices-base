@@ -3330,3 +3330,13 @@
 
     return-object v0
 .end method
+
+.method static synthetic access$iget-mShowing-2d9652(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mShowing:Z
+
+    return v0
+.end method
