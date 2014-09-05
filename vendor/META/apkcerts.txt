@@ -1,0 +1,6 @@
+name="*.apk:" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
+name="directory" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
+name="file" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
+name="No" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
+name="or" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
+name="such" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
