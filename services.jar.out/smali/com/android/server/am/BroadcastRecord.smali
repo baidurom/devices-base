@@ -157,31 +157,6 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;IILjava/lang/String;Ljava/util/List;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;ZZZI)V
-    .locals 0
-    .parameter "_queue"
-    .parameter "_intent"
-    .parameter "_callerApp"
-    .parameter "_callerPackage"
-    .parameter "_callingPid"
-    .parameter "_callingUid"
-    .parameter "_requiredPermission"
-    .parameter "_receivers"
-    .parameter "_resultTo"
-    .parameter "_resultCode"
-    .parameter "_resultData"
-    .parameter "_resultExtras"
-    .parameter "_serialized"
-    .parameter "_sticky"
-    .parameter "_initialSticky"
-    .parameter "_userId"
-
-    .prologue
-    invoke-direct/range {p0 .. p15}, Lcom/android/server/am/BroadcastRecord;-><init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;IILjava/lang/String;Ljava/util/List;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;ZZZ)V
-
-    return-void
-.end method
-
 
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V

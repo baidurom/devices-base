@@ -1651,7 +1651,7 @@
 
     move-object v7, p5
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 757
     return-void
@@ -1708,7 +1708,7 @@
 
     move-object v8, v2
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 487
     return-void
@@ -1766,7 +1766,7 @@
 
     move-object v8, p6
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 572
     return-void
@@ -1819,7 +1819,7 @@
 
     move-object v7, p2
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 994
     return-void
@@ -1875,7 +1875,7 @@
 
     move-object v8, p3
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 926
     return-void
@@ -1928,7 +1928,7 @@
 
     move-object v7, p2
 
-    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
+    invoke-direct/range {v0 .. v7}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/app/PendingIntent;)V
 
     .line 959
     return-void
@@ -1984,7 +1984,7 @@
 
     move-object v8, p3
 
-    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdatesBaidu(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
+    invoke-direct/range {v0 .. v8}, Landroid/location/LocationManager;->_requestLocationUpdates(Ljava/lang/String;Landroid/location/Criteria;JFZLandroid/location/LocationListener;Landroid/os/Looper;)V
 
     .line 887
     return-void
