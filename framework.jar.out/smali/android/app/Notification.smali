@@ -153,6 +153,10 @@
 
 .field public priority:I
 
+.field public simId:J
+
+.field public simInfoType:I
+
 .field public sound:Landroid/net/Uri;
 
 .field public tickerText:Ljava/lang/CharSequence;
@@ -209,6 +213,8 @@
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/app/Notification;->priority:I
+
+    invoke-direct {p0}, Landroid/app/Notification;->setSimIdAndInfoType()V
 
     .line 546
     return-void
@@ -294,6 +300,8 @@
     move-result-object v0
 
     invoke-virtual {p0, p1, p6, p7, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+
+    invoke-direct {p0}, Landroid/app/Notification;->setSimIdAndInfoType()V
 
     .line 559
     return-void
@@ -494,6 +502,8 @@
 
     .line 615
     :cond_6
+    invoke-direct {p0, p1}, Landroid/app/Notification;->setSimIdAndInfoType(Landroid/os/Parcel;)V
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -823,6 +833,14 @@
     iget v7, p0, Landroid/app/Notification;->audioStreamType:I
 
     iput v7, p1, Landroid/app/Notification;->audioStreamType:I
+
+    iget v7, p0, Landroid/app/Notification;->simInfoType:I
+
+    iput v7, p1, Landroid/app/Notification;->simInfoType:I
+
+    iget-wide v7, p0, Landroid/app/Notification;->simId:J
+
+    iput-wide v7, p1, Landroid/app/Notification;->simId:J
 
     .line 677
     iget-object v6, p0, Landroid/app/Notification;->vibrate:[J
@@ -1703,6 +1721,14 @@
 
     .line 819
     :goto_6
+    iget v0, p0, Landroid/app/Notification;->simInfoType:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-wide v0, p0, Landroid/app/Notification;->simId:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
     iget v0, p0, Landroid/app/Notification;->audioStreamType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -1836,4 +1862,39 @@
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_8
+.end method
+
+.method private setSimIdAndInfoType()V
+    .locals 2
+
+    .prologue
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/app/Notification;->simInfoType:I
+
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Landroid/app/Notification;->simId:J
+
+    return-void
+.end method
+
+.method private setSimIdAndInfoType(Landroid/os/Parcel;)V
+    .locals 2
+    .parameter "parcel"
+
+    .prologue
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/app/Notification;->simInfoType:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/app/Notification;->simId:J
+
+    return-void
 .end method

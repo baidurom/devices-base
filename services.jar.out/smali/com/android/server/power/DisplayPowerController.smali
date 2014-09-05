@@ -3693,7 +3693,7 @@
 
     move-result v2
 
-    invoke-direct {p0, v2}, Lcom/android/server/power/DisplayPowerController;->clampScreenBrightness(I)I
+    invoke-direct {p0, v2}, Lcom/android/server/power/DisplayPowerController;->clampScreenBrightnessBaidu(I)I
 
     move-result v11
 
@@ -4933,4 +4933,49 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
+.end method
+
+.method private clampScreenBrightnessBaidu(I)I
+    .locals 5
+    .parameter "value"
+
+    .prologue
+    iget v3, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMinimum:I
+
+    iget v4, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMaximum:I
+
+    invoke-static {p1, v3, v4}, Lcom/android/server/power/DisplayPowerController;->clamp(III)I
+
+    move-result v1
+
+    .local v1, brightness:I
+    const/16 v0, 0x64
+
+    .local v0, DEFAULT_BRIGHTNESS_COE:I
+    const-string v3, "persist.sys.brightness_coe"
+
+    const/16 v4, 0x64
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    .local v2, brightnessCoe:I
+    mul-int v3, v1, v2
+
+    div-int/lit8 v1, v3, 0x64
+
+    iget v3, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMaximum:I
+
+    invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    iget v3, p0, Lcom/android/server/power/DisplayPowerController;->mScreenBrightnessRangeMinimum:I
+
+    invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    return v1
 .end method

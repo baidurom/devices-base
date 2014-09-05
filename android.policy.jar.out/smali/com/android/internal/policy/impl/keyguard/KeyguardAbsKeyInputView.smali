@@ -8,6 +8,14 @@
 .implements Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityView;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/internal/policy/impl/keyguard/KeyguardAbsKeyInputView$BaiduInjector;
+    }
+.end annotation
+
+
 # static fields
 .field protected static final MINIMUM_PASSWORD_LENGTH_BEFORE_REPORT:I = 0x3
 

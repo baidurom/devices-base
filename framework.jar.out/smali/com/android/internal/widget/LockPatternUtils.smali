@@ -1639,6 +1639,12 @@
 
     invoke-direct {p0, v0, v2, v3}, Lcom/android/internal/widget/LockPatternUtils;->setLong(Ljava/lang/String;J)V
 
+    const-string v0, "lockscreen.lockmode_type"
+
+    const-wide/16 v1, 0x2
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->setLong(Ljava/lang/String;J)V
+
     .line 443
     return-void
 .end method

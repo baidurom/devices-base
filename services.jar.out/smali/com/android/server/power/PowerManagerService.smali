@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/power/PowerManagerService$BaiduInjector;,
         Lcom/android/server/power/PowerManagerService$DisplayBlankerImpl;,
         Lcom/android/server/power/PowerManagerService$ScreenOnBlockerImpl;,
         Lcom/android/server/power/PowerManagerService$SuspendBlockerImpl;,
@@ -3845,6 +3846,8 @@
     .line 1133
     :cond_3
     invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->updateSuspendBlockerLocked()V
+
+    invoke-static {p0}, Lcom/android/server/power/PowerManagerService$BaiduInjector;->updateButtonLightLocked(Lcom/android/server/power/PowerManagerService;)V
 
     goto :goto_0
 .end method
@@ -8010,6 +8013,8 @@
     .line 505
     invoke-direct/range {p0 .. p0}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
 
+    invoke-static/range {p0 .. p0}, Lcom/android/server/power/PowerManagerService$BaiduInjector;->regitsterButtonLightReceiver(Lcom/android/server/power/PowerManagerService;)V
+
     .line 506
     monitor-exit v17
 
@@ -8381,4 +8386,24 @@
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
+.end method
+
+.method static synthetic access$iget-mSettingsObserver-0db185(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/power/PowerManagerService$SettingsObserver;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mSettingsObserver:Lcom/android/server/power/PowerManagerService$SettingsObserver;
+
+    return-object v0
+.end method
+
+.method static synthetic access$iget-mLightsService-24a2db(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/LightsService;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mLightsService:Lcom/android/server/LightsService;
+
+    return-object v0
 .end method

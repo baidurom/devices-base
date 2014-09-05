@@ -129,6 +129,8 @@
 
 .field public static final cancel:I = 0x1020283
 
+.field public static final cancel_button:I = #id@cancel_button#t
+
 .field public static final candidatesArea:I = 0x102001d
 
 .field public static final carrier_text:I = 0x10202b4

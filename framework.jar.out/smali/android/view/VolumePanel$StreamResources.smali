@@ -1,4 +1,4 @@
-.class final enum Landroid/view/VolumePanel$StreamResources;
+.class public final enum Landroid/view/VolumePanel$StreamResources;
 .super Ljava/lang/Enum;
 .source "VolumePanel.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x401a
+    accessFlags = 0x401c
     name = "StreamResources"
 .end annotation
 

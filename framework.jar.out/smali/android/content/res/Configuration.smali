@@ -8,6 +8,12 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/content/res/Configuration$BaiduInjector;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -198,6 +204,8 @@
 
 .field public smallestScreenWidthDp:I
 
+.field public themeChanged:I
+
 .field public touchscreen:I
 
 .field public uiMode:I
@@ -295,7 +303,7 @@
 .end method
 
 .method public static needNewResources(II)Z
-    .locals 1
+    .locals 2
     .parameter "configChanges"
     .parameter "interestingChanges"
 
@@ -304,6 +312,10 @@
     const/high16 v0, 0x4000
 
     or-int/2addr v0, p1
+
+    const/high16 v1, -0x8000
+
+    or-int/2addr v0, v1
 
     and-int/2addr v0, p0
 
@@ -762,6 +774,10 @@
 
     sub-int v2, v3, v4
 
+    invoke-static {p0, p1, v2}, Landroid/content/res/Configuration$BaiduInjector;->compareTo(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+
+    move-result v2
+
     .line 1166
     goto/16 :goto_0
 .end method
@@ -1089,6 +1105,10 @@
 
     .line 982
     :cond_11
+    invoke-static {p0, p1, v0}, Landroid/content/res/Configuration$BaiduInjector;->multiTheme_dealThemeChange2(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+
+    move-result v0
+
     return v0
 .end method
 
@@ -1318,6 +1338,10 @@
     iget v2, p0, Landroid/content/res/Configuration;->densityDpi:I
 
     add-int v0, v1, v2
+
+    invoke-static {p0, v0}, Landroid/content/res/Configuration$BaiduInjector;->hashCode(Landroid/content/res/Configuration;I)I
+
+    move-result v0
 
     .line 1202
     return v0
@@ -1612,6 +1636,8 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
+    invoke-static {p0, p1}, Landroid/content/res/Configuration$BaiduInjector;->readFromParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+
     .line 1098
     return-void
 
@@ -1799,6 +1825,8 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
+    invoke-static {p0, p1}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChanged(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
+
     .line 581
     return-void
 .end method
@@ -1874,6 +1902,8 @@
 
     .line 741
     iput v1, p0, Landroid/content/res/Configuration;->seq:I
+
+    invoke-static {p0}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChangedToDefault(Landroid/content/res/Configuration;)V
 
     .line 742
     return-void
@@ -2253,6 +2283,8 @@
 
     .line 716
     :cond_0
+    invoke-static {p0, v1}, Landroid/content/res/Configuration$BaiduInjector;->appendToString(Landroid/content/res/Configuration;Ljava/lang/StringBuilder;)V
+
     const/16 v2, 0x7d
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3278,6 +3310,10 @@
 
     .line 877
     :cond_18
+    invoke-static {p0, p1, v0}, Landroid/content/res/Configuration$BaiduInjector;->multiTheme_dealThemeChange(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
+
+    move-result v0
+
     return v0
 
     .line 774
@@ -3423,6 +3459,8 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    invoke-static {p0, p1}, Landroid/content/res/Configuration$BaiduInjector;->writeToParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+
     .line 1070
     return-void
 
@@ -3464,4 +3502,17 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_1
+.end method
+
+.method public updateTheme()V
+    .locals 1
+
+    .prologue
+    iget v0, p0, Landroid/content/res/Configuration;->themeChanged:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Landroid/content/res/Configuration;->themeChanged:I
+
+    return-void
 .end method

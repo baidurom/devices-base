@@ -135,6 +135,11 @@ on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     mount yaffs2 mtd@system /system
+
+    # change mode for su, you can set in the init.rc when mount the system partition in the rw mode.
+    # chown root root /system/xbin/su
+    # chmod 6755 /system/xbin/su
+
     mount yaffs2 mtd@system /system ro remount
     mount yaffs2 mtd@userdata /data nosuid nodev
     mount yaffs2 mtd@cache /cache nosuid nodev
@@ -543,3 +548,11 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
+
+# add baidu services
+service WordSegService /system/bin/WordSegService
+    class main
+    oneshot
+
+service serviceext /sbin/serviceext
+    class main
