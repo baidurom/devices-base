@@ -126,7 +126,7 @@ vendor_modify_jars := framework services telephony-common pm android.policy
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-#baidu_modify_apps := HomePro Phone BaiduGallery3D Settings
+baidu_modify_apps := SystemUI Phone Settings
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar
