@@ -1087,7 +1087,7 @@
 
     if-ne v3, v4, :cond_3
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->hasDefaultStatusWidget(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->hasDefaultStatusWidget(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
 
     move-result v3
 
@@ -3265,7 +3265,7 @@
     .locals 3
 
     .prologue
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
 
     move-result v0
 
@@ -3784,7 +3784,7 @@
     .line 950
     invoke-interface {v6}, Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityView;->onPause()V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->pauseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->pauseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
 
     .line 951
     iget-object v8, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mNullCallback:Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityCallback;
@@ -3797,7 +3797,7 @@
 
     invoke-interface {v5, v8}, Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityView;->onResume(I)V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->resumeBaiduKeyguardViewRevealed(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->resumeBaiduKeyguardViewRevealed(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
 
     .line 954
     iget-object v8, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mCallback:Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityCallback;
@@ -4376,7 +4376,7 @@
     .end local v1           #appWidgetId:I
     :cond_3
     :goto_3
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->hasDefaultStatusWidget(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->hasDefaultStatusWidget(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
 
     move-result v7
 
@@ -4958,13 +4958,13 @@
     .line 378
     invoke-direct {p0, v4}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->setBackButtonEnabled(Z)V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
 
     move-result v2
 
     if-eqz v2, :cond_baidu_0
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->processBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->processBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
 
     :cond_baidu_0
 
@@ -5275,7 +5275,7 @@
 
     invoke-interface {v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityView;->onPause()V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->pauseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->pauseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
 
     .line 1017
     invoke-direct {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->findCameraPage()Lcom/android/internal/policy/impl/keyguard/CameraWidgetFrame;
@@ -5353,7 +5353,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityView;->onResume(I)V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->resumeBaiduKeyguardScreenOn(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->resumeBaiduKeyguardScreenOn(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)V
 
     .line 996
     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
@@ -5381,7 +5381,7 @@
     .parameter "ev"
 
     .prologue
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView$BaiduInjector;->shouldUseBaiduKeyguard(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Z
 
     move-result v0
 

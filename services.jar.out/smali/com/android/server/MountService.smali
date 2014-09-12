@@ -372,7 +372,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {p0}, Lcom/android/server/MountService;->setupVolumeStatesBaidu()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/MountService;->setupVolumeStatesBaidu()V
 
     .line 1315
     const-string v0, "package"
@@ -3964,7 +3964,7 @@
     .line 690
     :cond_1
     :goto_1
-    invoke-direct {p0, p1, p2}, Lcom/android/server/MountService;->updateAsecVolumeStateBaidu(Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
+    invoke-direct/range {p0 .. p2}, Lcom/android/server/MountService;->updateAsecVolumeStateBaidu(Landroid/os/storage/StorageVolume;Ljava/lang/String;)V
 
     iget-object v7, p0, Lcom/android/server/MountService;->mListeners:Ljava/util/ArrayList;
 

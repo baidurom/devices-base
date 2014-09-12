@@ -154,6 +154,9 @@ override_property += \
 override_property += \
     phone_book_index_supported=false
 
+override_property += \
+    ro.build.version.release=4.3
+
 ##############################################################################
 # remove_property: this property will remove from the build.prop
 #-----------------------------------------------------------------------------

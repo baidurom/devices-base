@@ -1749,7 +1749,7 @@
 
     .line 1500
     :cond_0
-    invoke-static {p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeHide(Landroid/inputmethodservice/InputMethodService;)V
+    invoke-static/range {p0 .. p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeHide(Landroid/inputmethodservice/InputMethodService;)V
 
     return-void
 .end method
@@ -3631,7 +3631,6 @@
 
     .prologue
     .line 1517
-    .line 1509
     return-void
 .end method
 
@@ -3639,7 +3638,7 @@
     .locals 0
 
     .prologue
-    invoke-static {p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeShown(Landroid/inputmethodservice/InputMethodService;)V
+    invoke-static/range {p0 .. p0}, Landroid/inputmethodservice/InputMethodService$BaiduInjector;->broadcastImeShown(Landroid/inputmethodservice/InputMethodService;)V
 
     .line 1509
     return-void

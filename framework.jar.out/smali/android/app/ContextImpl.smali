@@ -1705,6 +1705,25 @@
     return v0
 .end method
 
+.method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
+    .locals 1
+    .parameter "service"
+    .parameter "conn"
+    .parameter "flags"
+    .parameter "userHandle"
+
+    .prologue
+    new-instance v0, Landroid/os/UserHandle;
+
+    invoke-direct {v0, p4}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Landroid/app/ContextImpl;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
     .locals 11
     .parameter "service"

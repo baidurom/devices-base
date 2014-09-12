@@ -365,7 +365,7 @@
 
     .line 189
     .local v4, flags:I
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewManager$BaiduInjector;->addNoLimitsFlag(Lcom/android/internal/policy/impl/keyguard/KeyguardViewManager;)I
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewManager$BaiduInjector;->addNoLimitsFlag(Lcom/android/internal/policy/impl/keyguard/KeyguardViewManager;)I
 
     move-result v4
 

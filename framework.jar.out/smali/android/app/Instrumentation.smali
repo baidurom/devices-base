@@ -1146,9 +1146,13 @@
     .parameter "userId"
 
     .prologue
-    move-object/from16 v0, p5
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, p1, v0}, Landroid/app/Instrumentation;->checkDynamicPermission(Landroid/content/Context;[Landroid/content/Intent;)Z
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p5
+
+    invoke-direct {v0, v1, v2}, Landroid/app/Instrumentation;->checkDynamicPermission(Landroid/content/Context;[Landroid/content/Intent;)Z
 
     move-result v0
 

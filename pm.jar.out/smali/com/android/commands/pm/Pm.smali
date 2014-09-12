@@ -1102,16 +1102,19 @@
 
     move-result-object v0
 
+    .line 1392
     .local v0, ai:Landroid/content/pm/ApplicationInfo;
     new-instance v1, Landroid/content/res/BaiduAssetManager;
 
     invoke-direct {v1}, Landroid/content/res/BaiduAssetManager;-><init>()V
 
+    .line 1393
     .local v1, am:Landroid/content/res/AssetManager;
     iget-object v6, v0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
     invoke-virtual {v1, v6}, Landroid/content/res/AssetManager;->addAssetPath(Ljava/lang/String;)I
 
+    .line 1394
     new-instance v4, Landroid/content/res/BaiduResources;
 
     const/4 v6, 0x0

@@ -106,7 +106,7 @@
     .locals 2
 
     .prologue
-    invoke-static {p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->getOffset(Lcom/android/internal/widget/ActionBarView$HomeView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->getOffset(Lcom/android/internal/widget/ActionBarView$HomeView;)V
 
     .line 1473
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/widget/ImageView;
