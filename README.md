@@ -1,6 +1,5 @@
 devices/base
 
-示例机型，作为所有机型“插桩”的参考。
+基础机型，是所有机型“插桩”的基础，也是生产“patch”的工厂。
 
-
-Demo device, as a reference for patch other devices.
+Base device, as a basis for all the other patch devices, but also as a factory of producing patch.
