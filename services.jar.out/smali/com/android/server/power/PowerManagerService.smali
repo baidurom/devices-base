@@ -3973,7 +3973,7 @@
     :cond_3
     invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->updateSuspendBlockerLocked()V
 
-    invoke-static {p0}, Lcom/android/server/power/PowerManagerService$BaiduInjector;->updateButtonLightLocked(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/server/power/PowerManagerService$BaiduInjector;->updateButtonLightLocked(Lcom/android/server/power/PowerManagerService;)V
 
     goto :goto_0
 .end method
@@ -8695,74 +8695,6 @@
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
-.end method
-
-.method static synthetic access$iget-mWakefulness-e85404(Lcom/android/server/power/PowerManagerService;)I
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget v0, p0, Lcom/android/server/power/PowerManagerService;->mWakefulness:I
-
-    return v0
-.end method
-
-.method static synthetic access$invoke-wakeUpNoUpdateLocked-2d1a9f(Lcom/android/server/power/PowerManagerService;J)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-direct {p0, p1, p2}, Lcom/android/server/power/PowerManagerService;->wakeUpNoUpdateLocked(J)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$invoke-sendPendingNotificationsLocked-f2c9c0(Lcom/android/server/power/PowerManagerService;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->sendPendingNotificationsLocked()V
-
-    return-void
-.end method
-
-.method static synthetic access$iget-mNotifier-fa1993(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/power/Notifier;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mNotifier:Lcom/android/server/power/Notifier;
-
-    return-object v0
-.end method
-
-.method static synthetic access$iput-mSendWakeUpFinishedNotificationWhenReady-63a563(Lcom/android/server/power/PowerManagerService;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/power/PowerManagerService;->mSendWakeUpFinishedNotificationWhenReady:Z
-
-    return p1
-.end method
-
-.method static synthetic access$invoke-goToSleepNoUpdateLocked-2ee6d7(Lcom/android/server/power/PowerManagerService;JI)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-
-    .prologue
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/power/PowerManagerService;->goToSleepNoUpdateLocked(JI)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method static synthetic access$iget-mSettingsObserver-0db185(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/power/PowerManagerService$SettingsObserver;

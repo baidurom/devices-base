@@ -148,8 +148,8 @@ baidu_modify_apps := Contacts
 # You should configure the property according to your device.
 # In general, most devices support the phone book index, so the property default value is true.
 # Becareful about the initial number of index, some devices start from 0, while others start from 1.
-# override_property += \
-#     phone_book_index_supported=true
+override_property += \
+    phone_book_index_supported=false
 
 ##############################################################################
 # remove_property: this property will remove from the build.prop

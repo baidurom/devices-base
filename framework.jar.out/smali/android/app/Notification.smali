@@ -508,7 +508,7 @@
 
     .line 740
     :cond_6
-    invoke-direct {p0, p1}, Landroid/app/Notification;->setSimIdAndInfoType(Landroid/os/Parcel;)V
+    invoke-direct/range {p0 .. p1}, Landroid/app/Notification;->setSimIdAndInfoType(Landroid/os/Parcel;)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 

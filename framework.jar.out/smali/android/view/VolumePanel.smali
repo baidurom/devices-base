@@ -681,8 +681,6 @@
     return-object v0
 .end method
 
-
-# virtual methods
 .method protected addOtherVolumes()V
     .locals 5
 
@@ -890,7 +888,7 @@
     :cond_0
     new-instance v4, Landroid/view/VolumePanel$StreamControl;
 
-    invoke-direct {v4, p0}, Landroid/view/VolumePanel$StreamControl;-><init>(Landroid/view/VolumePanel;)V
+    invoke-direct {v4, p0, v9}, Landroid/view/VolumePanel$StreamControl;-><init>(Landroid/view/VolumePanel;Landroid/view/VolumePanel$1;)V
 
     .line 415
     .local v4, sc:Landroid/view/VolumePanel$StreamControl;
@@ -1408,10 +1406,6 @@
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 350
-    const-string v1, "android.intent.action.THEME_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
     iget-object v1, p0, Landroid/view/VolumePanel;->mContext:Landroid/content/Context;
 
     new-instance v2, Landroid/view/VolumePanel$4;
@@ -1766,6 +1760,8 @@
     goto :goto_1
 .end method
 
+
+# virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
     .parameter "msg"
@@ -3555,7 +3551,7 @@
 
     if-nez v0, :cond_1
 
-    .line 647
+    .line 573
     invoke-virtual {p0}, Landroid/view/VolumePanel;->createSliders()V
 
     .line 575

@@ -105,8 +105,6 @@
 
 .field private mElectronBeamFadesConfig:Z
 
-.field private mElectronBeamFadesConfigOrigin:Z
-
 .field private mElectronBeamOffAnimator:Landroid/animation/ObjectAnimator;
 
 .field private mElectronBeamOnAnimator:Landroid/animation/ObjectAnimator;
@@ -5054,48 +5052,6 @@
     throw v1
 .end method
 
-.method static synthetic access$iget-mElectronBeamFadesConfigOrigin-8e1932(Lcom/android/server/power/DisplayPowerController;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfigOrigin:Z
-
-    return v0
-.end method
-
-.method static synthetic access$iput-mElectronBeamFadesConfigOrigin-13c3ae(Lcom/android/server/power/DisplayPowerController;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfigOrigin:Z
-
-    return p1
-.end method
-
-.method static synthetic access$iget-mElectronBeamFadesConfig-0ba2f1(Lcom/android/server/power/DisplayPowerController;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfig:Z
-
-    return v0
-.end method
-
-.method static synthetic access$iput-mElectronBeamFadesConfig-dd4550(Lcom/android/server/power/DisplayPowerController;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/power/DisplayPowerController;->mElectronBeamFadesConfig:Z
-
-    return p1
-.end method
-
 .method private clampScreenBrightnessBaidu(I)I
     .locals 5
     .parameter "value"
@@ -5140,4 +5096,3 @@
 
     return v1
 .end method
-

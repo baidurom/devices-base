@@ -152,8 +152,6 @@
 
 .field public static final EGG_MODE:Ljava/lang/String; = "egg_mode"
 
-.field public static final ENABLE_MWI_NOTIFICATION:Ljava/lang/String; = "enable_mwi_notification"
-
 .field public static final END_BUTTON_BEHAVIOR:Ljava/lang/String; = "end_button_behavior"
 
 .field public static final END_BUTTON_BEHAVIOR_DEFAULT:I = 0x2
@@ -312,8 +310,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final PREVENT_WAKEUP:Ljava/lang/String; = "prevent_wakeup"
 
 .field public static final RADIO_BLUETOOTH:Ljava/lang/String; = "bluetooth"
     .annotation runtime Ljava/lang/Deprecated;

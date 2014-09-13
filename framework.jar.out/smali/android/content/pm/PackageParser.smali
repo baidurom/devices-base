@@ -12063,7 +12063,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_baidu_0
 
     .line 857
     new-instance v4, Ljava/lang/StringBuilder;
@@ -12100,6 +12100,7 @@
 
     .line 862
     :cond_6
+    :cond_baidu_0
     invoke-virtual {v1}, Ljava/lang/String;->intern()Ljava/lang/String;
 
     move-result-object v3
@@ -16752,9 +16753,11 @@
 
     move-result v25
 
+    .line 520
     .local v25, cookie:I
     if-eqz v25, :cond_4
 
+    .line 521
     new-instance v32, Landroid/content/res/BaiduResources;
 
     const/4 v6, 0x0

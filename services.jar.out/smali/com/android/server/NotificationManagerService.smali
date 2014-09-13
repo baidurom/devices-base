@@ -3644,7 +3644,7 @@
     .locals 7
 
     .prologue
-    invoke-direct {p0}, Lcom/android/server/NotificationManagerService;->updateLightsLockedHook()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/NotificationManagerService;->updateLightsLockedHook()Z
 
     move-result v0
 
@@ -7605,7 +7605,6 @@
 
     return p1
 .end method
-
 
 .method private isBlockedPackage(Ljava/lang/String;ILandroid/app/Notification;)Z
     .locals 5
