@@ -6354,7 +6354,7 @@
     .parameter "handled"
 
     .prologue
-    invoke-static {p0}, Landroid/widget/Editor$BaiduEditorInjector;->onEventWordSearch(Landroid/widget/Editor;)V
+    invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->onEventWordSearch(Landroid/widget/Editor;)V
 
     .line 781
     if-nez p1, :cond_0

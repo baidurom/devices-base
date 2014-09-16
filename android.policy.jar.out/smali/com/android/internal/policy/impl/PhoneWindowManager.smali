@@ -7339,7 +7339,7 @@
 
     .line 941
     :cond_2
-    invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashRegister(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashRegister(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
     const-string v4, "vibrator"
 
@@ -9502,6 +9502,8 @@
     .local v10, result:I
     :cond_a
     :goto_5
+    invoke-static/range {p0 .. p1}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->interceptKeyBeforeQueueingHook(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;)V
+
     sparse-switch v7, :sswitch_data_0
 
     goto :goto_3
@@ -9594,8 +9596,6 @@
 
     .line 3274
     :sswitch_1
-    invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->wakeUpWithVolumeKey(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-
     const/16 v12, 0x19
 
     if-ne v7, v12, :cond_11
@@ -9905,12 +9905,6 @@
 
     .line 3378
     if-eqz v2, :cond_1f
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/KeyEvent;->getKeyCode()I
-
-    move-result v0
-
-    invoke-static {p0, v0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashClose(Lcom/android/internal/policy/impl/PhoneWindowManager;I)Z
 
     .line 3379
     if-eqz p3, :cond_1a

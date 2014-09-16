@@ -145,7 +145,7 @@
     .line 180
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BaiduInjector;->initExtParams(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BaiduInjector;->initExtParams(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
 
     .line 182
     new-instance v2, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$1;

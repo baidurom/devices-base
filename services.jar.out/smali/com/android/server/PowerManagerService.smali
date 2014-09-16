@@ -9410,7 +9410,7 @@
 
     invoke-virtual {v9, v1, v2}, Lcom/android/server/PowerManagerService$SettingsObserver;->update(Ljava/util/Observable;Ljava/lang/Object;)V
 
-    invoke-static {p0}, Lcom/android/server/PowerManagerService$BaiduInjector;->regitsterBaiduSettingsObserver(Lcom/android/server/PowerManagerService;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/server/PowerManagerService$BaiduInjector;->regitsterBaiduSettingsObserver(Lcom/android/server/PowerManagerService;)V
 
     .line 681
     new-instance v6, Landroid/content/IntentFilter;

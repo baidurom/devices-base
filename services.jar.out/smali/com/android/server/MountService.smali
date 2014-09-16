@@ -3113,7 +3113,7 @@
     .line 624
     :cond_1
     :goto_1
-    invoke-direct {p0, p1, p2}, Lcom/android/server/MountService;->updateAsecVolumeStateBaidu(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {p0 .. p2}, Lcom/android/server/MountService;->updateAsecVolumeStateBaidu(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v6, p0, Lcom/android/server/MountService;->mListeners:Ljava/util/ArrayList;
 

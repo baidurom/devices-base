@@ -1102,15 +1102,17 @@
     .parameter "options"
 
     .prologue
-    move-object/from16 v0, p5
+    move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-direct {p0, v1, v0}, Landroid/app/Instrumentation;->checkDynamicPermission(Landroid/content/Context;[Landroid/content/Intent;)Z
+    move-object/from16 v2, p5
 
-    move-result v1
+    invoke-direct {v0, v1, v2}, Landroid/app/Instrumentation;->checkDynamicPermission(Landroid/content/Context;[Landroid/content/Intent;)Z
 
-    if-nez v1, :cond_baidu_0
+    move-result v0
+
+    if-nez v0, :cond_baidu_0
 
     goto :goto_baidu_0
 
@@ -1331,9 +1333,9 @@
 
     invoke-direct {v0, v1, v2}, Landroid/app/Instrumentation;->checkDynamicPermission(Landroid/content/Context;Landroid/content/Intent;)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_baidu_0
+    if-nez v0, :cond_baidu_0
 
     const/4 v2, 0x0
 
@@ -1572,9 +1574,9 @@
 
     invoke-direct {v0, v1, v2}, Landroid/app/Instrumentation;->checkDynamicPermission(Landroid/content/Context;Landroid/content/Intent;)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_baidu_0
+    if-nez v0, :cond_baidu_0
 
     const/4 v2, 0x0
 

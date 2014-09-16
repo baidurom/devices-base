@@ -5250,7 +5250,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-static {p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->setUseCustomIcon(Lcom/android/internal/widget/ActionBarView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->setUseCustomIcon(Lcom/android/internal/widget/ActionBarView;)V
 
     .line 641
     :cond_1
@@ -5326,7 +5326,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-static {p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->setUseCustomIcon(Lcom/android/internal/widget/ActionBarView;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView$BaiduInjector;->setUseCustomIcon(Lcom/android/internal/widget/ActionBarView;)V
 
     .line 655
     :cond_0
