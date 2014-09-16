@@ -119,6 +119,11 @@ baidu_modify_apps := Phone
 # override_property: this property will override the build.prop
 #-----------------------------------------------------------------------------
 
+# The property decide your ID on the backend server which statistical data for your device.
+# You should configure the property according to your ID, ie, replace "Coron" with your ID.
+# override_property += \
+    ro.baidu.romer=Coron
+
 # hide the soft mainkeys
 # override_property += \
 #    qemu.hw.mainkeys=1
