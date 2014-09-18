@@ -92,7 +92,7 @@
     .locals 3
 
     .prologue
-    invoke-direct {p0}, Lcom/android/server/NotificationManagerService$SettingsObserver;->updateHook()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/NotificationManagerService$SettingsObserver;->updateHook()Z
 
     move-result v0
 

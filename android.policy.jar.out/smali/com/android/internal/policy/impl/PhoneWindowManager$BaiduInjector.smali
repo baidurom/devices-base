@@ -969,3 +969,66 @@
 
     return v0
 .end method
+
+.method public static interceptKeyBeforeQueueingHook(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;)V
+    .locals 3
+    .parameter "phoneWindowManager"
+    .parameter "event"
+
+    .prologue
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const/4 v0, 0x1
+
+    .local v0, down:Z
+    :goto_0
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
+
+    move-result v1
+
+    .local v1, keyCode:I
+    sparse-switch v1, :sswitch_data_0
+
+    :cond_0
+    :goto_1
+    return-void
+
+    .end local v0           #down:Z
+    .end local v1           #keyCode:I
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    .restart local v0       #down:Z
+    .restart local v1       #keyCode:I
+    :sswitch_0
+    invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->wakeUpWithVolumeKey(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+
+    goto :goto_1
+
+    :sswitch_1
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
+
+    move-result v2
+
+    invoke-static {p0, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashClose(Lcom/android/internal/policy/impl/PhoneWindowManager;I)Z
+
+    goto :goto_1
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x18 -> :sswitch_0
+        0x19 -> :sswitch_0
+        0x1a -> :sswitch_1
+        0xa4 -> :sswitch_0
+    .end sparse-switch
+.end method

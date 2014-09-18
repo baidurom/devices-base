@@ -135,7 +135,7 @@
     :try_start_0
     invoke-direct {p0}, Landroid/content/res/AssetManager;->init()V
 
-    invoke-static {p0}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->init(Landroid/content/res/AssetManager;)V
+    invoke-static/range {p0 .. p0}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->init(Landroid/content/res/AssetManager;)V
 
     .line 95
     invoke-static {}, Landroid/content/res/AssetManager;->ensureSystemAssets()V
@@ -195,7 +195,7 @@
     .line 116
     invoke-direct {p0}, Landroid/content/res/AssetManager;->init()V
 
-    invoke-static {p0}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->init(Landroid/content/res/AssetManager;)V
+    invoke-static/range {p0 .. p0}, Landroid/content/res/BaiduAssetManager$BaiduMultiThemeInjector;->init(Landroid/content/res/AssetManager;)V
 
     .line 118
     return-void

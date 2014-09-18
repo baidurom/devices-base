@@ -448,7 +448,7 @@
     .locals 1
 
     .prologue
-    invoke-virtual {p0}, Landroid/widget/Editor$HandleView;->hideActionPopupWindow()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/Editor$HandleView;->hideActionPopupWindow()V
 
     .line 3020
     invoke-virtual {p0}, Landroid/widget/Editor$HandleView;->dismiss()V
@@ -803,7 +803,7 @@
     .local v2, newPosY:F
     invoke-virtual {p0, v1, v2}, Landroid/widget/Editor$HandleView;->updatePosition(FF)V
 
-    invoke-static {p0}, Landroid/widget/Editor$BaiduEditorInjector;->update(Landroid/widget/Editor$HandleView;)V
+    invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->update(Landroid/widget/Editor$HandleView;)V
 
     goto :goto_0
 

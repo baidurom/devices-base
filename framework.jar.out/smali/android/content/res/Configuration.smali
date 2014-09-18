@@ -1628,7 +1628,7 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
-    invoke-static {p0, p1}, Landroid/content/res/Configuration$BaiduInjector;->readFromParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+    invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->readFromParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
 
     .line 1098
     return-void
@@ -1817,7 +1817,7 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
-    invoke-static {p0, p1}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChanged(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
+    invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChanged(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
 
     .line 581
     return-void
@@ -1895,7 +1895,7 @@
     .line 741
     iput v1, p0, Landroid/content/res/Configuration;->seq:I
 
-    invoke-static {p0}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChangedToDefault(Landroid/content/res/Configuration;)V
+    invoke-static/range {p0 .. p0}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChangedToDefault(Landroid/content/res/Configuration;)V
 
     .line 742
     return-void
@@ -3451,7 +3451,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-static {p0, p1}, Landroid/content/res/Configuration$BaiduInjector;->writeToParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
+    invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->writeToParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
 
     .line 1070
     return-void

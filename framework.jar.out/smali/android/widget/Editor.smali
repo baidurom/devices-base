@@ -208,7 +208,7 @@
     .line 195
     iput-object p1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    invoke-static {p0}, Landroid/widget/Editor$BaiduEditorInjector;->enableMagnifier(Landroid/widget/Editor;)V
+    invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->enableMagnifier(Landroid/widget/Editor;)V
 
     .line 196
     return-void
@@ -6520,7 +6520,7 @@
     .parameter "handled"
 
     .prologue
-    invoke-static {p0}, Landroid/widget/Editor$BaiduEditorInjector;->onEventWordSearch(Landroid/widget/Editor;)V
+    invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->onEventWordSearch(Landroid/widget/Editor;)V
 
     .line 809
     if-nez p1, :cond_0

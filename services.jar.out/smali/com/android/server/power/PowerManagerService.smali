@@ -3873,7 +3873,7 @@
     :cond_3
     invoke-direct {p0}, Lcom/android/server/power/PowerManagerService;->updateSuspendBlockerLocked()V
 
-    invoke-static {p0}, Lcom/android/server/power/PowerManagerService$BaiduInjector;->updateButtonLightLocked(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/server/power/PowerManagerService$BaiduInjector;->updateButtonLightLocked(Lcom/android/server/power/PowerManagerService;)V
 
     goto :goto_0
 .end method

@@ -191,7 +191,7 @@
 
     iput-object v6, p0, Landroid/os/Environment$UserEnvironment;->mExternalStorageAndroidMedia:Ljava/io/File;
 
-    invoke-direct {p0}, Landroid/os/Environment$UserEnvironment;->initSecondaryStorage()V
+    invoke-direct/range {p0 .. p0}, Landroid/os/Environment$UserEnvironment;->initSecondaryStorage()V
 
     .line 134
     return-void

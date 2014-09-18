@@ -173,7 +173,7 @@
 
     iput v0, p0, Landroid/app/Notification;->priority:I
 
-    invoke-direct {p0}, Landroid/app/Notification;->setSimIdAndInfoType()V
+    invoke-direct/range {p0 .. p0}, Landroid/app/Notification;->setSimIdAndInfoType()V
 
     .line 508
     return-void
@@ -246,7 +246,7 @@
 
     invoke-virtual {p0, p1, p6, p7, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    invoke-direct {p0}, Landroid/app/Notification;->setSimIdAndInfoType()V
+    invoke-direct/range {p0 .. p0}, Landroid/app/Notification;->setSimIdAndInfoType()V
 
     .line 521
     return-void
@@ -440,7 +440,7 @@
 
     .line 577
     :cond_6
-    invoke-direct {p0, p1}, Landroid/app/Notification;->setSimIdAndInfoType(Landroid/os/Parcel;)V
+    invoke-direct/range {p0 .. p1}, Landroid/app/Notification;->setSimIdAndInfoType(Landroid/os/Parcel;)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 

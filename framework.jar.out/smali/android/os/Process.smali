@@ -415,7 +415,7 @@
     .parameter "pid"
 
     .prologue
-    invoke-static {p0}, Landroid/os/Process;->killChildProcess(I)V
+    invoke-static/range {p0 .. p0}, Landroid/os/Process;->killChildProcess(I)V
 
     .line 933
     const/16 v0, 0x9

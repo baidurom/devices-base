@@ -175,7 +175,7 @@
     .line 92
     invoke-virtual {p0, p0}, Landroid/widget/QuickContactBadge;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-direct {p0}, Landroid/widget/QuickContactBadge;->initPadding()V
+    invoke-direct/range {p0 .. p0}, Landroid/widget/QuickContactBadge;->initPadding()V
 
     .line 93
     return-void
@@ -623,7 +623,7 @@
     goto :goto_0
 
     :cond_baidu_0
-    invoke-static {p0, p1}, Landroid/widget/QuickContactBadge$BaiduInjector;->onDraw(Landroid/widget/QuickContactBadge;Landroid/graphics/Canvas;)V
+    invoke-static/range {p0 .. p1}, Landroid/widget/QuickContactBadge$BaiduInjector;->onDraw(Landroid/widget/QuickContactBadge;Landroid/graphics/Canvas;)V
 
     goto :goto_baidu_0
 .end method

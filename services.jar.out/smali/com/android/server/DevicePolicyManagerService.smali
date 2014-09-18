@@ -3210,7 +3210,7 @@
 
     .line 718
     :cond_1
-    invoke-direct {p0, p1, p2}, Lcom/android/server/DevicePolicyManagerService;->validateAdmin(Landroid/content/ComponentName;I)V
+    invoke-direct/range {p0 .. p2}, Lcom/android/server/DevicePolicyManagerService;->validateAdmin(Landroid/content/ComponentName;I)V
 
     :try_start_0
     new-instance v4, Landroid/app/admin/DeviceAdminInfo;
