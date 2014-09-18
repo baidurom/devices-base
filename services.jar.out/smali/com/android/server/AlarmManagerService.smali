@@ -13,7 +13,7 @@
         Lcom/android/server/AlarmManagerService$AlarmThread;,
         Lcom/android/server/AlarmManagerService$Alarm;,
         Lcom/android/server/AlarmManagerService$IncreasingTimeOrder;,
-        Lcom/android/server/AlarmManagerService$Injector;,
+        Lcom/android/server/AlarmManagerService$BaiduInjector;,
         Lcom/android/server/AlarmManagerService$BroadcastStats;,
         Lcom/android/server/AlarmManagerService$FilterStats;,
         Lcom/android/server/AlarmManagerService$InFlight;
@@ -3002,7 +3002,7 @@
 
     .line 236
     :cond_1
-    invoke-static {p0, v0, v1}, Lcom/android/server/AlarmManagerService$Injector;->setLockAgain(Lcom/android/server/AlarmManagerService;Lcom/android/server/AlarmManagerService$Alarm;I)V
+    invoke-static {p0, v0, v1}, Lcom/android/server/AlarmManagerService$BaiduInjector;->setLockAgain(Lcom/android/server/AlarmManagerService;Lcom/android/server/AlarmManagerService$Alarm;I)V
 
     monitor-exit v3
 
@@ -3402,7 +3402,7 @@
     .prologue
     iget-object v0, p0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/server/AlarmManagerService$Injector;->isEnabled(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/server/AlarmManagerService$BaiduInjector;->isEnabled(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -3436,7 +3436,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v0, p2, p3, p4, v8}, Lcom/android/server/AlarmManagerService$Injector;->getAddInterval(Landroid/content/Context;IJLjava/util/ArrayList;)J
+    invoke-static {v0, p2, p3, p4, v8}, Lcom/android/server/AlarmManagerService$BaiduInjector;->getAddInterval(Landroid/content/Context;IJLjava/util/ArrayList;)J
 
     move-result-wide v6
 
@@ -3517,7 +3517,7 @@
 
     iget-object v14, v0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v14}, Lcom/android/server/AlarmManagerService$Injector;->isEnabled(Landroid/content/Context;)Z
+    invoke-static {v14}, Lcom/android/server/AlarmManagerService$BaiduInjector;->isEnabled(Landroid/content/Context;)Z
 
     move-result v14
 
@@ -3568,7 +3568,7 @@
 
     iget-object v14, v0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v14}, Lcom/android/server/AlarmManagerService$Injector;->getAddInterval(Landroid/content/Context;)J
+    invoke-static {v14}, Lcom/android/server/AlarmManagerService$BaiduInjector;->getAddInterval(Landroid/content/Context;)J
 
     move-result-wide v14
 
@@ -3579,7 +3579,7 @@
     .local v5, interval:J
     move-wide/from16 v0, p3
 
-    invoke-static {v0, v1, v5, v6}, Lcom/android/server/AlarmManagerService$Injector;->next(JJ)J
+    invoke-static {v0, v1, v5, v6}, Lcom/android/server/AlarmManagerService$BaiduInjector;->next(JJ)J
 
     move-result-wide v9
 
@@ -3668,7 +3668,7 @@
 
     iget-object v14, v0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v14, v2}, Lcom/android/server/AlarmManagerService$Injector;->isWhiteApp(Landroid/content/Context;Lcom/android/server/AlarmManagerService$Alarm;)Z
+    invoke-static {v14, v2}, Lcom/android/server/AlarmManagerService$BaiduInjector;->isWhiteApp(Landroid/content/Context;Lcom/android/server/AlarmManagerService$Alarm;)Z
 
     move-result v14
 
