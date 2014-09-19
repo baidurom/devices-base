@@ -151,6 +151,11 @@ baidu_modify_apps := Contacts
 override_property += \
     phone_book_index_supported=false
 
+# The property decide your ID on the backend server which statistical data for your device.
+# You should configure the property according to your ID, ie, replace "Coron" with your ID.
+# override_property += \
+    ro.baidu.romer=Coron
+
 ##############################################################################
 # remove_property: this property will remove from the build.prop
 #-----------------------------------------------------------------------------
