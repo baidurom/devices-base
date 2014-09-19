@@ -426,6 +426,27 @@
     const/4 v2, 0x0
 
     .line 156
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "alarm_align_enable"
+
+    invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    .line 157
+    sput-boolean v2, Lcom/android/server/AlarmManagerService$BaiduInjector;->isEnabled:Z
+
+    .line 196
+    :goto_0
+    return v2
+
+    .line 161
+    :cond_0
     invoke-static {p0}, Lcom/android/server/AlarmManagerService$BaiduInjector;->getAddInterval(Landroid/content/Context;)J
 
     move-result-wide v4
@@ -434,17 +455,15 @@
 
     cmp-long v4, v4, v6
 
-    if-gtz v4, :cond_0
+    if-gtz v4, :cond_1
 
     .line 157
     sput-boolean v2, Lcom/android/server/AlarmManagerService$BaiduInjector;->isEnabled:Z
 
-    .line 191
-    :goto_0
-    return v2
+    goto :goto_0
 
     .line 161
-    :cond_0
+    :cond_1
     sput-boolean v3, Lcom/android/server/AlarmManagerService$BaiduInjector;->isEnabled:Z
 
     .line 162
@@ -460,7 +479,7 @@
 
     .line 163
     .local v1, range:Ljava/lang/String;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     move v2, v3
 
@@ -468,12 +487,12 @@
     goto :goto_0
 
     .line 169
-    :cond_1
+    :cond_2
     invoke-static {v1}, Lcom/android/server/AlarmManagerService$BaiduInjector;->hitRange(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     move v2, v3
 
@@ -481,7 +500,7 @@
     goto :goto_0
 
     .line 175
-    :cond_2
+    :cond_3
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -492,7 +511,7 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_3
+    if-ne v4, v3, :cond_4
 
     .line 176
     const-string v4, "power"
@@ -509,7 +528,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     move v2, v3
 
@@ -518,7 +537,7 @@
 
     .line 190
     .end local v0           #pm:Landroid/os/PowerManager;
-    :cond_3
+    :cond_4
     sput-boolean v2, Lcom/android/server/AlarmManagerService$BaiduInjector;->isEnabled:Z
 
     goto :goto_0
