@@ -132,7 +132,7 @@ baidu_modify_apps := SystemUI Phone Settings
 # baidu_modify_jars: which base the baidu's jar
 # just append *.smali.part
 #-----------------------------------------------------------------------------
-#baidu_modify_jars := framework-yi android.policy framework
+baidu_modify_jars := framework-yi
 
 ##############################################################################
 # override_property: this property will override the build.prop
