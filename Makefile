@@ -5,7 +5,7 @@
 # Default DALVIK_VM_BUILD setting is 27
 # Only used for odex, if not, ignore...
 #-----------------------------------------------------------------------------
-DALVIK_VM_BUILD := 27
+DALVIK_VM_BUILD := 28
 
 ##############################################################################
 # Default DENSITY setting is hdpi
@@ -58,7 +58,7 @@ SIGN_OTA := true
 ##############################################################################
 # Directorys which you want to remove in vendor directory
 #-----------------------------------------------------------------------------
-vendor_remove_dirs := app vendor/operator/app
+vendor_remove_dirs := app
 
 ##############################################################################
 # Files which you want to remove in vendor directory
@@ -153,7 +153,7 @@ override_property += \
 
 # The property decide your ID on the backend server which statistical data for your device.
 # You should configure the property according to your ID, ie, replace "Coron" with your ID.
-# override_property += \
+override_property += \
     ro.baidu.romer=Coron
 
 ##############################################################################
