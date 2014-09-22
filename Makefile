@@ -2,12 +2,6 @@
 # Please use this file as the project Makefile reference
 
 ##############################################################################
-# This value defines which base this project should choose, only for baidu internal.
-# Support values: S710, JRD77SS, YINS, YIGN, I9250
-#-----------------------------------------------------------------------------
-BAIDU_BASE_DEVICE := I9250
-
-##############################################################################
 # Default DALVIK_VM_BUILD setting is 27
 # Only used for odex, if not, ignore...
 #-----------------------------------------------------------------------------
@@ -56,6 +50,12 @@ SIGN_OTA := true
 vendor_modify_images := boot
 
 ##############################################################################
+# customize weather add assert in update-script of ota package
+# set false if you don't need this assert fuction
+#-----------------------------------------------------------------------------
+# recovery_ota_assert := false
+
+##############################################################################
 # Directorys which you want to remove in vendor directory
 #-----------------------------------------------------------------------------
 #vendor_remove_dirs := app vendor/operator/app backup_apps media/video media/theme
@@ -68,7 +68,7 @@ vendor_modify_images := boot
 ##############################################################################
 # Vendor apks you want to use
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth Nfc
+vendor_saved_apps := Bluetooth
 
 ##############################################################################
 # Apks build from current project root directory
@@ -156,7 +156,7 @@ override_property += \
 
 # The property decide your ID on the backend server which statistical data for your device.
 # You should configure the property according to your ID, ie, replace "Coron" with your ID.
-# override_property += \
+override_property += \
     ro.baidu.romer=Coron
 
 ##############################################################################
