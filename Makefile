@@ -38,6 +38,12 @@ MINI_SYSTEM := false
 vendor_modify_images := boot recovery
 
 ##############################################################################
+# customize weather add assert in update-script of ota package
+# set false if you don't need this assert fuction
+#-----------------------------------------------------------------------------
+# recovery_ota_assert := false
+
+##############################################################################
 # Directorys which you want to remove in vendor directory
 #-----------------------------------------------------------------------------
 vendor_remove_dirs := app vendor/operator/app
@@ -121,7 +127,7 @@ baidu_modify_apps := Phone
 
 # The property decide your ID on the backend server which statistical data for your device.
 # You should configure the property according to your ID, ie, replace "Coron" with your ID.
-# override_property += \
+override_property += \
     ro.baidu.romer=Coron
 
 # hide the soft mainkeys
