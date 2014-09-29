@@ -7930,6 +7930,7 @@
     .end local v21           #now:J
     .end local v28           #timeoutTime:J
     :goto_1
+    :goto_baidu_0
     return-wide v32
 
     .line 1728
@@ -7980,11 +7981,27 @@
 
     .line 1761
     :cond_3
+    const/16 v32, -0x1
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->longPressKiller(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;)V
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->longPressKiller(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;)I
+
+    move-result v33
+
+    move/from16 v0, v32
+
+    move/from16 v1, v33
+
+    if-ne v0, v1, :cond_baidu_1
+
+    const-wide/16 v32, -0x1
+
+    goto :goto_baidu_0
+
+    :cond_baidu_1
 
     const/16 v32, 0x3
 

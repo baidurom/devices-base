@@ -2,6 +2,13 @@
 # Please use this file as the project Makefile reference
 
 ##############################################################################
+# The value decides which base device should choose for patchall and upgrade.
+# You can configure the property according to your device and the default value is base.
+# Support values: base, base_cm, and other devices in the future.
+#-----------------------------------------------------------------------------
+#BASE := base
+
+##############################################################################
 # Default DALVIK_VM_BUILD setting is 27
 # Only used for odex, if not, ignore...
 #-----------------------------------------------------------------------------

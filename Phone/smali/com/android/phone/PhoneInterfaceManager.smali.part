@@ -1,0 +1,122 @@
+.method public disableQos(I)I
+    .locals 1
+    .parameter "qosId"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1076
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public enableQos(Lcom/android/internal/telephony/QosSpec;Ljava/lang/String;)I
+    .locals 1
+    .parameter "qosSpec"
+    .parameter "type"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1071
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public getIccPin1RetryCount()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1141
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public getIccPinPukRetryTimes()I
+    .locals 1
+
+    .prologue
+    .line 969
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public getQosStatus(I)I
+    .locals 1
+    .parameter "qosId"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1096
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public modifyQos(ILcom/android/internal/telephony/QosSpec;)I
+    .locals 1
+    .parameter "qosId"
+    .parameter "qosSpec"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1081
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public resumeQos(I)I
+    .locals 1
+    .parameter "qosId"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1091
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public suspendQos(I)I
+    .locals 1
+    .parameter "qosId"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1086
+    const/4 v0, 0x1
+
+    return v0
+.end method
