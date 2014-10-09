@@ -10021,15 +10021,7 @@
 
     .line 1973
     :cond_7
-    invoke-static {}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->access$sget-mIsFlashlightOn-9f90c5()Z
-
-    move-result v3
-
-    if-nez v3, :cond_baidu_0
-
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->launchHomeFromHotKey()V
-
-    :cond_baidu_0
 
     .line 1974
     const-wide/16 v5, -0x1
