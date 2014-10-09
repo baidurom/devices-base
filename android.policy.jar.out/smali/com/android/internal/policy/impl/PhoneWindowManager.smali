@@ -8041,12 +8041,6 @@
     .line 1769
     if-nez v13, :cond_8
 
-    invoke-static {}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->access$sget-mIsFlashlightOn-9f90c5()Z
-
-    move-result v0
-
-    if-nez v0, :cond_baidu_0
-
     .line 1771
     :try_start_0
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getStatusBarService()Lcom/android/internal/statusbar/IStatusBarService;
@@ -8186,7 +8180,6 @@
     .line 1810
     .end local v13           #homeWasLongPressed:Z
     :cond_8
-    :cond_baidu_0
     if-eqz p1, :cond_a
 
     invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
