@@ -289,7 +289,7 @@
     .line 508
     new-instance v0, Landroid/util/AndroidRuntimeException;
 
-    const-string v1, "no length for fd"
+    const-string/jumbo v1, "no length for fd"
 
     invoke-direct {v0, v1}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
 

@@ -806,13 +806,13 @@
 
     sub-int v2, v3, v4
 
-    .line 1219
     if-nez v2, :cond_0
 
     invoke-static {p0, p1, v2}, Landroid/content/res/Configuration$BaiduInjector;->compareTo(Landroid/content/res/Configuration;Landroid/content/res/Configuration;I)I
 
     move-result v2
 
+    .line 1219
     goto/16 :goto_0
 .end method
 
@@ -1392,12 +1392,11 @@
 
     add-int v0, v1, v2
 
-    .line 1255
-
     invoke-static {p0, v0}, Landroid/content/res/Configuration$BaiduInjector;->hashCode(Landroid/content/res/Configuration;I)I
 
     move-result v0
 
+    .line 1255
     return v0
 
     .line 1241
@@ -1690,9 +1689,9 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
-    .line 1151
     invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->readFromParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
 
+    .line 1151
     return-void
 
     .line 1133
@@ -1879,9 +1878,9 @@
 
     iput v0, p0, Landroid/content/res/Configuration;->seq:I
 
-    .line 621
     invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChanged(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
 
+    .line 621
     return-void
 .end method
 
@@ -1957,10 +1956,9 @@
     .line 781
     iput v1, p0, Landroid/content/res/Configuration;->seq:I
 
-    .line 782
-
     invoke-static/range {p0 .. p0}, Landroid/content/res/Configuration$BaiduInjector;->setThemeChangedToDefault(Landroid/content/res/Configuration;)V
 
+    .line 782
     return-void
 .end method
 
@@ -3556,9 +3554,9 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1123
     invoke-static/range {p0 .. p1}, Landroid/content/res/Configuration$BaiduInjector;->writeToParcel(Landroid/content/res/Configuration;Landroid/os/Parcel;)V
 
+    .line 1123
     return-void
 
     .line 1096

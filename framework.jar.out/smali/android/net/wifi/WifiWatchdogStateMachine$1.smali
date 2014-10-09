@@ -60,7 +60,7 @@
 
     const v2, 0x21003
 
-    const-string v3, "newRssi"
+    const-string/jumbo v3, "newRssi"
 
     const/16 v4, -0xc8
 

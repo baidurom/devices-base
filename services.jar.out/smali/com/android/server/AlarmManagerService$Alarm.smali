@@ -29,46 +29,52 @@
 
 .field public whenElapsed:J
 
+.field public windowLength:J
+
 .field public workSource:Landroid/os/WorkSource;
 
 
 # direct methods
-.method public constructor <init>(IJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
+.method public constructor <init>(IJJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
     .locals 0
     .parameter "_type"
     .parameter "_when"
     .parameter "_whenElapsed"
+    .parameter "_windowLength"
     .parameter "_maxWhen"
     .parameter "_interval"
     .parameter "_op"
     .parameter "_ws"
 
     .prologue
-    .line 1087
+    .line 1093
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1088
+    .line 1094
     iput p1, p0, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
-    .line 1089
+    .line 1095
     iput-wide p2, p0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
-    .line 1090
+    .line 1096
     iput-wide p4, p0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
 
-    .line 1091
-    iput-wide p6, p0, Lcom/android/server/AlarmManagerService$Alarm;->maxWhen:J
+    .line 1097
+    iput-wide p6, p0, Lcom/android/server/AlarmManagerService$Alarm;->windowLength:J
 
-    .line 1092
-    iput-wide p8, p0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
+    .line 1098
+    iput-wide p8, p0, Lcom/android/server/AlarmManagerService$Alarm;->maxWhen:J
 
-    .line 1093
-    iput-object p10, p0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
+    .line 1099
+    iput-wide p10, p0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
-    .line 1094
-    iput-object p11, p0, Lcom/android/server/AlarmManagerService$Alarm;->workSource:Landroid/os/WorkSource;
+    .line 1100
+    iput-object p12, p0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    .line 1095
+    .line 1101
+    iput-object p13, p0, Lcom/android/server/AlarmManagerService$Alarm;->workSource:Landroid/os/WorkSource;
+
+    .line 1102
     return-void
 .end method
 
@@ -81,7 +87,7 @@
     .parameter "now"
 
     .prologue
-    .line 1112
+    .line 1119
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "type="
@@ -92,7 +98,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 1113
+    .line 1120
     const-string v0, " whenElapsed="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -101,7 +107,7 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 1114
+    .line 1121
     const-string v0, " when="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -110,7 +116,16 @@
 
     invoke-static {v0, v1, p3, p4, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    .line 1115
+    .line 1122
+    const-string v0, " window="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/server/AlarmManagerService$Alarm;->windowLength:J
+
+    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
+
+    .line 1123
     const-string v0, " repeatInterval="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -119,7 +134,7 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 1116
+    .line 1124
     const-string v0, " count="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -128,7 +143,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 1117
+    .line 1125
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "operation="
@@ -139,7 +154,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 1118
+    .line 1126
     return-void
 .end method
 
@@ -147,20 +162,20 @@
     .locals 2
 
     .prologue
-    .line 1100
+    .line 1107
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1101
+    .line 1108
     .local v0, sb:Ljava/lang/StringBuilder;
     const-string v1, "Alarm{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1102
+    .line 1109
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v1
@@ -171,22 +186,22 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1103
+    .line 1110
     const-string v1, " type "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1104
+    .line 1111
     iget v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1105
+    .line 1112
     const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1106
+    .line 1113
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
     invoke-virtual {v1}, Landroid/app/PendingIntent;->getTargetPackage()Ljava/lang/String;
@@ -195,12 +210,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1107
+    .line 1114
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1108
+    .line 1115
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

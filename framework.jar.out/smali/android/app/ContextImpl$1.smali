@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 302
+    .line 309
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -32,7 +32,7 @@
     .parameter "ctx"
 
     .prologue
-    .line 304
+    .line 311
     new-instance v0, Landroid/app/WallpaperManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;

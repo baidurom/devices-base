@@ -30,7 +30,7 @@
     invoke-virtual {p0, v4}, Landroid/app/Dialog;->setCancelable(Z)V
 
     .line 29
-    const v1, 0x104035b
+    const v1, 0x104035f
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -44,7 +44,7 @@
     .line 31
     const/4 v1, -0x1
 
-    const v2, 0x104035e
+    const v2, 0x1040362
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

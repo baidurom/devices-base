@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private authTokenCache:Ljava/util/HashMap;
+.field private final authTokenCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -79,7 +79,7 @@
     .end annotation
 .end field
 
-.field private userDataCache:Ljava/util/HashMap;
+.field private final userDataCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",

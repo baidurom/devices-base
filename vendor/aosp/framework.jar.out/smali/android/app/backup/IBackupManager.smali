@@ -55,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract clearBackupData(Ljava/lang/String;)V
+.method public abstract clearBackupData(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

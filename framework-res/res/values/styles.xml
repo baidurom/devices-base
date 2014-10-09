@@ -1141,7 +1141,7 @@
         <item name="dialogTitleIconsDecorLayout">@layout/dialog_title_icons_holo</item>
         <item name="dialogCustomTitleDecorLayout">@layout/dialog_custom_title_holo</item>
         <item name="dialogTitleDecorLayout">@layout/dialog_title_holo</item>
-        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
+        <item name="toastFrameBackground">@drawable/toast_frame</item>
         <item name="searchDropdownBackground">@drawable/search_dropdown_dark</item>
         <item name="searchDialogTheme">@style/Theme.Holo.SearchBar</item>
         <item name="preferenceFrameLayoutStyle">@style/Widget.Holo.PreferenceFrameLayout</item>
@@ -1388,7 +1388,7 @@
         <item name="dialogTitleIconsDecorLayout">@layout/dialog_title_icons_holo</item>
         <item name="dialogCustomTitleDecorLayout">@layout/dialog_custom_title_holo</item>
         <item name="dialogTitleDecorLayout">@layout/dialog_title_holo</item>
-        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
+        <item name="toastFrameBackground">@drawable/toast_frame</item>
         <item name="searchDropdownBackground">@drawable/search_dropdown_light</item>
         <item name="searchDialogTheme">@style/Theme.Holo.Light.SearchBar</item>
         <item name="preferenceFrameLayoutStyle">@style/Widget.Holo.PreferenceFrameLayout</item>

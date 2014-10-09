@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 578
+    .line 586
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -32,20 +32,20 @@
     .parameter "ctx"
 
     .prologue
-    .line 580
+    .line 588
     const-string/jumbo v2, "print"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 581
+    .line 589
     .local v0, iBinder:Landroid/os/IBinder;
     invoke-static {v0}, Landroid/print/IPrintManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/print/IPrintManager;
 
     move-result-object v1
 
-    .line 582
+    .line 590
     .local v1, service:Landroid/print/IPrintManager;
     new-instance v2, Landroid/print/PrintManager;
 

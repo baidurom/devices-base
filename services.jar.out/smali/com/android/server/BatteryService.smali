@@ -393,9 +393,9 @@
     .parameter "level"
 
     .prologue
-    const v0, 0x108059b
+    const v0, 0x108059d
 
-    const v1, 0x108058d
+    const v1, 0x108058f
 
     .line 576
     iget-object v2, p0, Lcom/android/server/BatteryService;->mBatteryProps:Landroid/os/BatteryProperties;
@@ -470,7 +470,7 @@
 
     .line 589
     :cond_5
-    const v0, 0x10805a9
+    const v0, 0x10805ab
 
     goto :goto_0
 .end method

@@ -29,5 +29,5 @@
     <item type="drawable" name="screen_background_holo_dark">#ff000000</item>
     <item type="drawable" name="notification_template_icon_bg">#3333b5e5</item>
     <item type="drawable" name="notification_template_icon_low_bg">#0cffffff</item>
-    <item type="drawable" name="APKTOOL_DUMMY_05f5">false</item>
+    <item type="drawable" name="APKTOOL_DUMMY_05f7">false</item>
 </resources>

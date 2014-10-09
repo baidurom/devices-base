@@ -1769,13 +1769,13 @@
 
     invoke-direct {p0, v0, v2, v3}, Lcom/android/internal/widget/LockPatternUtils;->setLong(Ljava/lang/String;J)V
 
-    .line 442
     const-string v0, "lockscreen.lockmode_type"
 
     const-wide/16 v1, 0x2
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->setLong(Ljava/lang/String;J)V
 
+    .line 442
     return-void
 .end method
 
@@ -2650,7 +2650,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110039
+    const v1, 0x1110038
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2670,7 +2670,7 @@
 
     move-result-object v0
 
-    const v1, 0x111002e
+    const v1, 0x111002d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2969,7 +2969,7 @@
 
     move-result-object v0
 
-    const v1, 0x111002d
+    const v1, 0x111002c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -4575,7 +4575,7 @@
     if-ne p2, v4, :cond_2
 
     .line 1274
-    const v2, 0x104030b
+    const v2, 0x104030f
 
     .line 1275
     .local v2, textId:I
@@ -4616,7 +4616,7 @@
     .line 1278
     .end local v2           #textId:I
     :cond_2
-    const v2, 0x104030a
+    const v2, 0x104030e
 
     .line 1279
     .restart local v2       #textId:I

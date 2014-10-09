@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Még %d próbálkozása van, mielőtt zároljuk a SIM kártyát.</item>
+        <item quantity="one">Még %d próbálkozása van, mielőtt zároljuk a SIM kártyát.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d másodperce</item>
         <item quantity="one">1 másodperce</item>

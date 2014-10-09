@@ -339,7 +339,7 @@
 
     .line 580
     .restart local v0       #intent:Landroid/content/Intent;
-    const-string v3, "newState"
+    const-string/jumbo v3, "newState"
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -413,8 +413,6 @@
     goto/16 :goto_1
 
     .line 539
-    nop
-
     :pswitch_data_0
     .packed-switch 0x21001
         :pswitch_1

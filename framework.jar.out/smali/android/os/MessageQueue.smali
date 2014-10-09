@@ -44,27 +44,27 @@
     .parameter "quitAllowed"
 
     .prologue
-    .line 104
+    .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
+    .line 41
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/os/MessageQueue;->mIdleHandlers:Ljava/util/ArrayList;
 
-    .line 105
+    .line 106
     iput-boolean p1, p0, Landroid/os/MessageQueue;->mQuitAllowed:Z
 
-    .line 106
+    .line 107
     invoke-static {}, Landroid/os/MessageQueue;->nativeInit()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/MessageQueue;->mPtr:I
 
-    .line 107
+    .line 108
     return-void
 .end method
 
@@ -72,24 +72,52 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 122
     iget v0, p0, Landroid/os/MessageQueue;->mPtr:I
 
     if-eqz v0, :cond_0
 
-    .line 122
+    .line 123
     iget v0, p0, Landroid/os/MessageQueue;->mPtr:I
 
     invoke-static {v0}, Landroid/os/MessageQueue;->nativeDestroy(I)V
 
-    .line 123
+    .line 124
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/os/MessageQueue;->mPtr:I
 
-    .line 125
+    .line 126
     :cond_0
     return-void
+.end method
+
+.method private isIdlingLocked()Z
+    .locals 1
+
+    .prologue
+    .line 405
+    iget-boolean v0, p0, Landroid/os/MessageQueue;->mQuitting:Z
+
+    if-nez v0, :cond_0
+
+    iget v0, p0, Landroid/os/MessageQueue;->mPtr:I
+
+    invoke-static {v0}, Landroid/os/MessageQueue;->nativeIsIdling(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private static native nativeDestroy(I)V
@@ -111,71 +139,71 @@
     .locals 6
 
     .prologue
-    .line 514
+    .line 520
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
-    .line 515
+    .line 521
     .local v1, now:J
     iget-object v3, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 516
+    .line 522
     .local v3, p:Landroid/os/Message;
     if-eqz v3, :cond_0
 
-    .line 517
+    .line 523
     iget-wide v4, v3, Landroid/os/Message;->when:J
 
     cmp-long v4, v4, v1
 
     if-lez v4, :cond_2
 
-    .line 518
+    .line 524
     invoke-direct {p0}, Landroid/os/MessageQueue;->removeAllMessagesLocked()V
 
-    .line 539
+    .line 545
     :cond_0
     :goto_0
     return-void
 
-    .line 529
+    .line 535
     .local v0, n:Landroid/os/Message;
     :cond_1
     move-object v3, v0
 
-    .line 522
+    .line 528
     .end local v0           #n:Landroid/os/Message;
     :cond_2
     iget-object v0, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 523
+    .line 529
     .restart local v0       #n:Landroid/os/Message;
     if-eqz v0, :cond_0
 
-    .line 526
+    .line 532
     iget-wide v4, v0, Landroid/os/Message;->when:J
 
     cmp-long v4, v4, v1
 
     if-lez v4, :cond_1
 
-    .line 531
+    .line 537
     const/4 v4, 0x0
 
     iput-object v4, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 533
+    .line 539
     :cond_3
     move-object v3, v0
 
-    .line 534
+    .line 540
     iget-object v0, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 535
+    .line 541
     invoke-virtual {v3}, Landroid/os/Message;->recycle()V
 
-    .line 536
+    .line 542
     if-nez v0, :cond_3
 
     goto :goto_0
@@ -185,35 +213,35 @@
     .locals 3
 
     .prologue
-    .line 504
+    .line 510
     iget-object v1, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 505
+    .line 511
     .local v1, p:Landroid/os/Message;
     :goto_0
     if-eqz v1, :cond_0
 
-    .line 506
+    .line 512
     iget-object v0, v1, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 507
+    .line 513
     .local v0, n:Landroid/os/Message;
     invoke-virtual {v1}, Landroid/os/Message;->recycle()V
 
-    .line 508
+    .line 514
     move-object v1, v0
 
-    .line 509
+    .line 515
     goto :goto_0
 
-    .line 510
+    .line 516
     .end local v0           #n:Landroid/os/Message;
     :cond_0
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 511
+    .line 517
     return-void
 .end method
 
@@ -224,10 +252,10 @@
     .parameter "handler"
 
     .prologue
-    .line 83
+    .line 84
     if-nez p1, :cond_0
 
-    .line 84
+    .line 85
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Can\'t add a null IdleHandler"
@@ -236,23 +264,23 @@
 
     throw v0
 
-    .line 86
+    .line 87
     :cond_0
     monitor-enter p0
 
-    .line 87
+    .line 88
     :try_start_0
     iget-object v0, p0, Landroid/os/MessageQueue;->mIdleHandlers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 88
+    .line 89
     monitor-exit p0
 
-    .line 89
+    .line 90
     return-void
 
-    .line 88
+    .line 89
     :catchall_0
     move-exception v0
 
@@ -261,6 +289,158 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
+.end method
+
+.method dump(Landroid/util/Printer;Ljava/lang/String;)V
+    .locals 6
+    .parameter "pw"
+    .parameter "prefix"
+
+    .prologue
+    .line 548
+    monitor-enter p0
+
+    .line 549
+    :try_start_0
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    .line 550
+    .local v2, now:J
+    const/4 v1, 0x0
+
+    .line 551
+    .local v1, n:I
+    iget-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
+
+    .local v0, msg:Landroid/os/Message;
+    :goto_0
+    if-eqz v0, :cond_0
+
+    .line 552
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "Message "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ": "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Message;->toString(J)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {p1, v4}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
+    .line 553
+    add-int/lit8 v1, v1, 0x1
+
+    .line 551
+    iget-object v0, v0, Landroid/os/Message;->next:Landroid/os/Message;
+
+    goto :goto_0
+
+    .line 555
+    :cond_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "(Total messages: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ", idling="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-direct {p0}, Landroid/os/MessageQueue;->isIdlingLocked()Z
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ", quitting="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-boolean v5, p0, Landroid/os/MessageQueue;->mQuitting:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ")"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {p1, v4}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
+    .line 557
+    monitor-exit p0
+
+    .line 558
+    return-void
+
+    .line 557
+    .end local v0           #msg:Landroid/os/Message;
+    .end local v1           #n:I
+    .end local v2           #now:J
+    :catchall_0
+    move-exception v4
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v4
 .end method
 
 .method enqueueMessage(Landroid/os/Message;J)Z
@@ -273,14 +453,14 @@
 
     const/4 v1, 0x0
 
-    .line 309
+    .line 311
     invoke-virtual {p1}, Landroid/os/Message;->isInUse()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    .line 310
+    .line 312
     new-instance v4, Landroid/util/AndroidRuntimeException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -305,13 +485,13 @@
 
     throw v4
 
-    .line 312
+    .line 314
     :cond_0
     iget-object v5, p1, Landroid/os/Message;->target:Landroid/os/Handler;
 
     if-nez v5, :cond_1
 
-    .line 313
+    .line 315
     new-instance v4, Landroid/util/AndroidRuntimeException;
 
     const-string v5, "Message must have a target."
@@ -320,17 +500,17 @@
 
     throw v4
 
-    .line 316
+    .line 318
     :cond_1
     monitor-enter p0
 
-    .line 317
+    .line 319
     :try_start_0
     iget-boolean v5, p0, Landroid/os/MessageQueue;->mQuitting:Z
 
     if-eqz v5, :cond_2
 
-    .line 318
+    .line 320
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -355,7 +535,7 @@
 
     invoke-direct {v0, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 320
+    .line 322
     .local v0, e:Ljava/lang/RuntimeException;
     const-string v4, "MessageQueue"
 
@@ -365,22 +545,22 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 321
+    .line 323
     monitor-exit p0
 
-    .line 357
+    .line 359
     .end local v0           #e:Ljava/lang/RuntimeException;
     :goto_0
     return v1
 
-    .line 324
+    .line 326
     :cond_2
     iput-wide p2, p1, Landroid/os/Message;->when:J
 
-    .line 325
+    .line 327
     iget-object v2, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 327
+    .line 329
     .local v2, p:Landroid/os/Message;
     if-eqz v2, :cond_3
 
@@ -396,36 +576,36 @@
 
     if-gez v5, :cond_5
 
-    .line 329
+    .line 331
     :cond_3
     iput-object v2, p1, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 330
+    .line 332
     iput-object p1, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 331
+    .line 333
     iget-boolean v1, p0, Landroid/os/MessageQueue;->mBlocked:Z
 
-    .line 353
+    .line 355
     .local v1, needWake:Z
     :goto_1
     if-eqz v1, :cond_4
 
-    .line 354
+    .line 356
     iget v5, p0, Landroid/os/MessageQueue;->mPtr:I
 
     invoke-static {v5}, Landroid/os/MessageQueue;->nativeWake(I)V
 
-    .line 356
+    .line 358
     :cond_4
     monitor-exit p0
 
     move v1, v4
 
-    .line 357
+    .line 359
     goto :goto_0
 
-    .line 336
+    .line 338
     .end local v1           #needWake:Z
     :cond_5
     iget-boolean v5, p0, Landroid/os/MessageQueue;->mBlocked:Z
@@ -444,17 +624,17 @@
 
     move v1, v4
 
-    .line 339
+    .line 341
     .restart local v1       #needWake:Z
     :cond_6
     :goto_2
     move-object v3, v2
 
-    .line 340
+    .line 342
     .local v3, prev:Landroid/os/Message;
     iget-object v2, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 341
+    .line 343
     if-eqz v2, :cond_7
 
     iget-wide v5, v2, Landroid/os/Message;->when:J
@@ -463,16 +643,16 @@
 
     if-gez v5, :cond_8
 
-    .line 348
+    .line 350
     :cond_7
     iput-object v2, p1, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 349
+    .line 351
     iput-object p1, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
     goto :goto_1
 
-    .line 356
+    .line 358
     .end local v1           #needWake:Z
     .end local v2           #p:Landroid/os/Message;
     .end local v3           #prev:Landroid/os/Message;
@@ -485,7 +665,7 @@
 
     throw v4
 
-    .line 344
+    .line 346
     .restart local v1       #needWake:Z
     .restart local v2       #p:Landroid/os/Message;
     .restart local v3       #prev:Landroid/os/Message;
@@ -501,7 +681,7 @@
 
     if-eqz v5, :cond_6
 
-    .line 345
+    .line 347
     const/4 v1, 0x0
 
     goto :goto_2
@@ -512,10 +692,10 @@
     .parameter "when"
 
     .prologue
-    .line 252
+    .line 253
     monitor-enter p0
 
-    .line 253
+    .line 254
     :try_start_0
     iget v3, p0, Landroid/os/MessageQueue;->mNextBarrierToken:I
 
@@ -523,24 +703,27 @@
 
     iput v4, p0, Landroid/os/MessageQueue;->mNextBarrierToken:I
 
-    .line 254
+    .line 255
     .local v3, token:I
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 255
+    .line 256
     .local v0, msg:Landroid/os/Message;
-    iput v3, v0, Landroid/os/Message;->arg1:I
+    iput-wide p1, v0, Landroid/os/Message;->when:J
 
     .line 257
+    iput v3, v0, Landroid/os/Message;->arg1:I
+
+    .line 259
     const/4 v2, 0x0
 
-    .line 258
+    .line 260
     .local v2, prev:Landroid/os/Message;
     iget-object v1, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 259
+    .line 261
     .local v1, p:Landroid/os/Message;
     const-wide/16 v4, 0x0
 
@@ -548,7 +731,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 260
+    .line 262
     :goto_0
     if-eqz v1, :cond_0
 
@@ -558,40 +741,40 @@
 
     if-gtz v4, :cond_0
 
-    .line 261
+    .line 263
     move-object v2, v1
 
-    .line 262
+    .line 264
     iget-object v1, v1, Landroid/os/Message;->next:Landroid/os/Message;
 
     goto :goto_0
 
-    .line 265
+    .line 267
     :cond_0
     if-eqz v2, :cond_1
 
-    .line 266
+    .line 268
     iput-object v1, v0, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 267
+    .line 269
     iput-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 272
+    .line 274
     :goto_1
     monitor-exit p0
 
     return v3
 
-    .line 269
+    .line 271
     :cond_1
     iput-object v1, v0, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 270
+    .line 272
     iput-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
     goto :goto_1
 
-    .line 273
+    .line 275
     .end local v0           #msg:Landroid/os/Message;
     .end local v1           #p:Landroid/os/Message;
     .end local v2           #prev:Landroid/os/Message;
@@ -615,19 +798,19 @@
     .end annotation
 
     .prologue
-    .line 112
+    .line 113
     :try_start_0
     invoke-direct {p0}, Landroid/os/MessageQueue;->dispose()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 114
+    .line 115
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 116
+    .line 117
     return-void
 
-    .line 114
+    .line 115
     :catchall_0
     move-exception v0
 
@@ -645,27 +828,27 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 361
+    .line 363
     if-nez p1, :cond_0
 
-    .line 373
+    .line 375
     :goto_0
     return v1
 
-    .line 365
+    .line 367
     :cond_0
     monitor-enter p0
 
-    .line 366
+    .line 368
     :try_start_0
     iget-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 367
+    .line 369
     .local v0, p:Landroid/os/Message;
     :goto_1
     if-eqz v0, :cond_3
 
-    .line 368
+    .line 370
     iget-object v2, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     if-ne v2, p1, :cond_2
@@ -680,7 +863,7 @@
 
     if-ne v2, p3, :cond_2
 
-    .line 369
+    .line 371
     :cond_1
     const/4 v1, 0x1
 
@@ -688,7 +871,7 @@
 
     goto :goto_0
 
-    .line 374
+    .line 376
     .end local v0           #p:Landroid/os/Message;
     :catchall_0
     move-exception v1
@@ -699,7 +882,7 @@
 
     throw v1
 
-    .line 371
+    .line 373
     .restart local v0       #p:Landroid/os/Message;
     :cond_2
     :try_start_1
@@ -707,7 +890,7 @@
 
     goto :goto_1
 
-    .line 373
+    .line 375
     :cond_3
     monitor-exit p0
     :try_end_1
@@ -725,27 +908,27 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 378
+    .line 380
     if-nez p1, :cond_0
 
-    .line 390
+    .line 392
     :goto_0
     return v1
 
-    .line 382
+    .line 384
     :cond_0
     monitor-enter p0
 
-    .line 383
+    .line 385
     :try_start_0
     iget-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 384
+    .line 386
     .local v0, p:Landroid/os/Message;
     :goto_1
     if-eqz v0, :cond_3
 
-    .line 385
+    .line 387
     iget-object v2, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     if-ne v2, p1, :cond_2
@@ -760,7 +943,7 @@
 
     if-ne v2, p3, :cond_2
 
-    .line 386
+    .line 388
     :cond_1
     const/4 v1, 0x1
 
@@ -768,7 +951,7 @@
 
     goto :goto_0
 
-    .line 391
+    .line 393
     .end local v0           #p:Landroid/os/Message;
     :catchall_0
     move-exception v1
@@ -779,7 +962,7 @@
 
     throw v1
 
-    .line 388
+    .line 390
     .restart local v0       #p:Landroid/os/Message;
     :cond_2
     :try_start_1
@@ -787,7 +970,7 @@
 
     goto :goto_1
 
-    .line 390
+    .line 392
     :cond_3
     monitor-exit p0
     :try_end_1
@@ -800,34 +983,18 @@
     .locals 1
 
     .prologue
-    .line 395
+    .line 397
     monitor-enter p0
 
     .line 398
     :try_start_0
-    iget-boolean v0, p0, Landroid/os/MessageQueue;->mQuitting:Z
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Landroid/os/MessageQueue;->mPtr:I
-
-    invoke-static {v0}, Landroid/os/MessageQueue;->nativeIsIdling(I)Z
+    invoke-direct {p0}, Landroid/os/MessageQueue;->isIdlingLocked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
     monitor-exit p0
 
     return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 
     .line 399
     :catchall_0
@@ -844,45 +1011,45 @@
     .locals 14
 
     .prologue
-    .line 128
+    .line 129
     const/4 v7, -0x1
 
-    .line 129
+    .line 130
     .local v7, pendingIdleHandlerCount:I
     const/4 v4, 0x0
 
-    .line 131
+    .line 132
     .local v4, nextPollTimeoutMillis:I
     :goto_0
     if-eqz v4, :cond_0
 
-    .line 132
+    .line 133
     invoke-static {}, Landroid/os/Binder;->flushPendingCommands()V
 
-    .line 137
+    .line 138
     :cond_0
     iget v10, p0, Landroid/os/MessageQueue;->mPtr:I
 
     invoke-static {v10, v4}, Landroid/os/MessageQueue;->nativePollOnce(II)V
 
-    .line 139
+    .line 140
     monitor-enter p0
 
-    .line 141
+    .line 142
     :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v5
 
-    .line 142
+    .line 143
     .local v5, now:J
     const/4 v8, 0x0
 
-    .line 143
+    .line 144
     .local v8, prevMsg:Landroid/os/Message;
     iget-object v3, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 144
+    .line 145
     .local v3, msg:Landroid/os/Message;
     if-eqz v3, :cond_2
 
@@ -890,14 +1057,14 @@
 
     if-nez v10, :cond_2
 
-    .line 147
+    .line 148
     :cond_1
     move-object v8, v3
 
-    .line 148
+    .line 149
     iget-object v3, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 149
+    .line 150
     if-eqz v3, :cond_2
 
     invoke-virtual {v3}, Landroid/os/Message;->isAsynchronous()Z
@@ -906,18 +1073,18 @@
 
     if-eqz v10, :cond_1
 
-    .line 151
+    .line 152
     :cond_2
     if-eqz v3, :cond_5
 
-    .line 152
+    .line 153
     iget-wide v10, v3, Landroid/os/Message;->when:J
 
     cmp-long v10, v5, v10
 
     if-gez v10, :cond_3
 
-    .line 154
+    .line 155
     iget-wide v10, v3, Landroid/os/Message;->when:J
 
     sub-long/2addr v10, v5
@@ -930,16 +1097,16 @@
 
     long-to-int v4, v10
 
-    .line 174
+    .line 175
     :goto_1
     iget-boolean v10, p0, Landroid/os/MessageQueue;->mQuitting:Z
 
     if-eqz v10, :cond_6
 
-    .line 175
+    .line 176
     invoke-direct {p0}, Landroid/os/MessageQueue;->dispose()V
 
-    .line 176
+    .line 177
     const/4 v3, 0x0
 
     monitor-exit p0
@@ -948,36 +1115,36 @@
     :goto_2
     return-object v3
 
-    .line 157
+    .line 158
     .restart local v3       #msg:Landroid/os/Message;
     :cond_3
     const/4 v10, 0x0
 
     iput-boolean v10, p0, Landroid/os/MessageQueue;->mBlocked:Z
 
-    .line 158
+    .line 159
     if-eqz v8, :cond_4
 
-    .line 159
+    .line 160
     iget-object v10, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
     iput-object v10, v8, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 163
+    .line 164
     :goto_3
     const/4 v10, 0x0
 
     iput-object v10, v3, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 165
+    .line 166
     invoke-virtual {v3}, Landroid/os/Message;->markInUse()V
 
-    .line 166
+    .line 167
     monitor-exit p0
 
     goto :goto_2
 
-    .line 196
+    .line 197
     .end local v3           #msg:Landroid/os/Message;
     .end local v5           #now:J
     .end local v8           #prevMsg:Landroid/os/Message;
@@ -990,7 +1157,7 @@
 
     throw v10
 
-    .line 161
+    .line 162
     .restart local v3       #msg:Landroid/os/Message;
     .restart local v5       #now:J
     .restart local v8       #prevMsg:Landroid/os/Message;
@@ -1002,13 +1169,13 @@
 
     goto :goto_3
 
-    .line 170
+    .line 171
     :cond_5
     const/4 v4, -0x1
 
     goto :goto_1
 
-    .line 182
+    .line 183
     :cond_6
     if-gez v7, :cond_8
 
@@ -1024,7 +1191,7 @@
 
     if-gez v10, :cond_8
 
-    .line 184
+    .line 185
     :cond_7
     iget-object v10, p0, Landroid/os/MessageQueue;->mIdleHandlers:Ljava/util/ArrayList;
 
@@ -1032,27 +1199,27 @@
 
     move-result v7
 
-    .line 186
+    .line 187
     :cond_8
     if-gtz v7, :cond_9
 
-    .line 188
+    .line 189
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Landroid/os/MessageQueue;->mBlocked:Z
 
-    .line 189
+    .line 190
     monitor-exit p0
 
     goto :goto_0
 
-    .line 192
+    .line 193
     :cond_9
     iget-object v10, p0, Landroid/os/MessageQueue;->mPendingIdleHandlers:[Landroid/os/MessageQueue$IdleHandler;
 
     if-nez v10, :cond_a
 
-    .line 193
+    .line 194
     const/4 v10, 0x4
 
     invoke-static {v7, v10}, Ljava/lang/Math;->max(II)I
@@ -1063,7 +1230,7 @@
 
     iput-object v10, p0, Landroid/os/MessageQueue;->mPendingIdleHandlers:[Landroid/os/MessageQueue$IdleHandler;
 
-    .line 195
+    .line 196
     :cond_a
     iget-object v10, p0, Landroid/os/MessageQueue;->mIdleHandlers:Ljava/util/ArrayList;
 
@@ -1077,24 +1244,24 @@
 
     iput-object v10, p0, Landroid/os/MessageQueue;->mPendingIdleHandlers:[Landroid/os/MessageQueue$IdleHandler;
 
-    .line 196
+    .line 197
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 200
+    .line 201
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_4
     if-ge v0, v7, :cond_c
 
-    .line 201
+    .line 202
     iget-object v10, p0, Landroid/os/MessageQueue;->mPendingIdleHandlers:[Landroid/os/MessageQueue$IdleHandler;
 
     aget-object v1, v10, v0
 
-    .line 202
+    .line 203
     .local v1, idler:Landroid/os/MessageQueue$IdleHandler;
     iget-object v10, p0, Landroid/os/MessageQueue;->mPendingIdleHandlers:[Landroid/os/MessageQueue$IdleHandler;
 
@@ -1102,10 +1269,10 @@
 
     aput-object v11, v10, v0
 
-    .line 204
+    .line 205
     const/4 v2, 0x0
 
-    .line 206
+    .line 207
     .local v2, keep:Z
     :try_start_2
     invoke-interface {v1}, Landroid/os/MessageQueue$IdleHandler;->queueIdle()Z
@@ -1114,35 +1281,35 @@
 
     move-result v2
 
-    .line 211
+    .line 212
     :goto_5
     if-nez v2, :cond_b
 
-    .line 212
+    .line 213
     monitor-enter p0
 
-    .line 213
+    .line 214
     :try_start_3
     iget-object v10, p0, Landroid/os/MessageQueue;->mIdleHandlers:Ljava/util/ArrayList;
 
     invoke-virtual {v10, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 214
+    .line 215
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 200
+    .line 201
     :cond_b
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_4
 
-    .line 207
+    .line 208
     :catch_0
     move-exception v9
 
-    .line 208
+    .line 209
     .local v9, t:Ljava/lang/Throwable;
     const-string v10, "MessageQueue"
 
@@ -1152,7 +1319,7 @@
 
     goto :goto_5
 
-    .line 214
+    .line 215
     .end local v9           #t:Ljava/lang/Throwable;
     :catchall_1
     move-exception v10
@@ -1164,13 +1331,13 @@
 
     throw v10
 
-    .line 219
+    .line 220
     .end local v1           #idler:Landroid/os/MessageQueue$IdleHandler;
     .end local v2           #keep:Z
     :cond_c
     const/4 v7, 0x0
 
-    .line 223
+    .line 224
     const/4 v4, 0x0
 
     goto/16 :goto_0
@@ -1181,12 +1348,12 @@
     .parameter "safe"
 
     .prologue
-    .line 228
+    .line 229
     iget-boolean v0, p0, Landroid/os/MessageQueue;->mQuitAllowed:Z
 
     if-nez v0, :cond_0
 
-    .line 229
+    .line 230
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Main thread not allowed to quit."
@@ -1195,42 +1362,42 @@
 
     throw v0
 
-    .line 232
+    .line 233
     :cond_0
     monitor-enter p0
 
-    .line 233
+    .line 234
     :try_start_0
     iget-boolean v0, p0, Landroid/os/MessageQueue;->mQuitting:Z
 
     if-eqz v0, :cond_1
 
-    .line 234
+    .line 235
     monitor-exit p0
 
-    .line 247
+    .line 248
     :goto_0
     return-void
 
-    .line 236
+    .line 237
     :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/os/MessageQueue;->mQuitting:Z
 
-    .line 238
+    .line 239
     if-eqz p1, :cond_2
 
-    .line 239
+    .line 240
     invoke-direct {p0}, Landroid/os/MessageQueue;->removeAllFutureMessagesLocked()V
 
-    .line 245
+    .line 246
     :goto_1
     iget v0, p0, Landroid/os/MessageQueue;->mPtr:I
 
     invoke-static {v0}, Landroid/os/MessageQueue;->nativeWake(I)V
 
-    .line 246
+    .line 247
     monitor-exit p0
 
     goto :goto_0
@@ -1244,7 +1411,7 @@
 
     throw v0
 
-    .line 241
+    .line 242
     :cond_2
     :try_start_1
     invoke-direct {p0}, Landroid/os/MessageQueue;->removeAllMessagesLocked()V
@@ -1260,22 +1427,22 @@
     .parameter "object"
 
     .prologue
-    .line 471
+    .line 477
     if-nez p1, :cond_0
 
-    .line 501
+    .line 507
     :goto_0
     return-void
 
-    .line 475
+    .line 481
     :cond_0
     monitor-enter p0
 
-    .line 476
+    .line 482
     :try_start_0
     iget-object v2, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 480
+    .line 486
     .local v2, p:Landroid/os/Message;
     :goto_1
     if-eqz v2, :cond_2
@@ -1290,37 +1457,37 @@
 
     if-ne v3, p2, :cond_2
 
-    .line 481
+    .line 487
     :cond_1
     iget-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 482
+    .line 488
     .local v0, n:Landroid/os/Message;
     iput-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 483
+    .line 489
     invoke-virtual {v2}, Landroid/os/Message;->recycle()V
 
-    .line 484
+    .line 490
     move-object v2, v0
 
-    .line 485
+    .line 491
     goto :goto_1
 
-    .line 488
+    .line 494
     .end local v0           #n:Landroid/os/Message;
     :cond_2
     :goto_2
     if-eqz v2, :cond_5
 
-    .line 489
+    .line 495
     iget-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 490
+    .line 496
     .restart local v0       #n:Landroid/os/Message;
     if-eqz v0, :cond_4
 
-    .line 491
+    .line 497
     iget-object v3, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     if-ne v3, p1, :cond_4
@@ -1331,20 +1498,20 @@
 
     if-ne v3, p2, :cond_4
 
-    .line 492
+    .line 498
     :cond_3
     iget-object v1, v0, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 493
+    .line 499
     .local v1, nn:Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->recycle()V
 
-    .line 494
+    .line 500
     iput-object v1, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
     goto :goto_2
 
-    .line 500
+    .line 506
     .end local v0           #n:Landroid/os/Message;
     .end local v1           #nn:Landroid/os/Message;
     .end local v2           #p:Landroid/os/Message;
@@ -1357,16 +1524,16 @@
 
     throw v3
 
-    .line 498
+    .line 504
     .restart local v0       #n:Landroid/os/Message;
     .restart local v2       #p:Landroid/os/Message;
     :cond_4
     move-object v2, v0
 
-    .line 499
+    .line 505
     goto :goto_2
 
-    .line 500
+    .line 506
     .end local v0           #n:Landroid/os/Message;
     :cond_5
     :try_start_1
@@ -1382,22 +1549,22 @@
     .parameter "handler"
 
     .prologue
-    .line 99
+    .line 100
     monitor-enter p0
 
-    .line 100
+    .line 101
     :try_start_0
     iget-object v0, p0, Landroid/os/MessageQueue;->mIdleHandlers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 101
+    .line 102
     monitor-exit p0
 
-    .line 102
+    .line 103
     return-void
 
-    .line 101
+    .line 102
     :catchall_0
     move-exception v0
 
@@ -1415,22 +1582,22 @@
     .parameter "object"
 
     .prologue
-    .line 403
+    .line 409
     if-nez p1, :cond_0
 
-    .line 434
+    .line 440
     :goto_0
     return-void
 
-    .line 407
+    .line 413
     :cond_0
     monitor-enter p0
 
-    .line 408
+    .line 414
     :try_start_0
     iget-object v2, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 412
+    .line 418
     .local v2, p:Landroid/os/Message;
     :goto_1
     if-eqz v2, :cond_2
@@ -1449,37 +1616,37 @@
 
     if-ne v3, p3, :cond_2
 
-    .line 413
+    .line 419
     :cond_1
     iget-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 414
+    .line 420
     .local v0, n:Landroid/os/Message;
     iput-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 415
+    .line 421
     invoke-virtual {v2}, Landroid/os/Message;->recycle()V
 
-    .line 416
+    .line 422
     move-object v2, v0
 
-    .line 417
+    .line 423
     goto :goto_1
 
-    .line 420
+    .line 426
     .end local v0           #n:Landroid/os/Message;
     :cond_2
     :goto_2
     if-eqz v2, :cond_5
 
-    .line 421
+    .line 427
     iget-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 422
+    .line 428
     .restart local v0       #n:Landroid/os/Message;
     if-eqz v0, :cond_4
 
-    .line 423
+    .line 429
     iget-object v3, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     if-ne v3, p1, :cond_4
@@ -1494,20 +1661,20 @@
 
     if-ne v3, p3, :cond_4
 
-    .line 425
+    .line 431
     :cond_3
     iget-object v1, v0, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 426
+    .line 432
     .local v1, nn:Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->recycle()V
 
-    .line 427
+    .line 433
     iput-object v1, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
     goto :goto_2
 
-    .line 433
+    .line 439
     .end local v0           #n:Landroid/os/Message;
     .end local v1           #nn:Landroid/os/Message;
     .end local v2           #p:Landroid/os/Message;
@@ -1520,16 +1687,16 @@
 
     throw v3
 
-    .line 431
+    .line 437
     .restart local v0       #n:Landroid/os/Message;
     .restart local v2       #p:Landroid/os/Message;
     :cond_4
     move-object v2, v0
 
-    .line 432
+    .line 438
     goto :goto_2
 
-    .line 433
+    .line 439
     .end local v0           #n:Landroid/os/Message;
     :cond_5
     :try_start_1
@@ -1547,25 +1714,25 @@
     .parameter "object"
 
     .prologue
-    .line 437
+    .line 443
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 468
+    .line 474
     :cond_0
     :goto_0
     return-void
 
-    .line 441
+    .line 447
     :cond_1
     monitor-enter p0
 
-    .line 442
+    .line 448
     :try_start_0
     iget-object v2, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 446
+    .line 452
     .local v2, p:Landroid/os/Message;
     :goto_1
     if-eqz v2, :cond_3
@@ -1584,37 +1751,37 @@
 
     if-ne v3, p3, :cond_3
 
-    .line 447
+    .line 453
     :cond_2
     iget-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 448
+    .line 454
     .local v0, n:Landroid/os/Message;
     iput-object v0, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 449
+    .line 455
     invoke-virtual {v2}, Landroid/os/Message;->recycle()V
 
-    .line 450
+    .line 456
     move-object v2, v0
 
-    .line 451
+    .line 457
     goto :goto_1
 
-    .line 454
+    .line 460
     .end local v0           #n:Landroid/os/Message;
     :cond_3
     :goto_2
     if-eqz v2, :cond_6
 
-    .line 455
+    .line 461
     iget-object v0, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 456
+    .line 462
     .restart local v0       #n:Landroid/os/Message;
     if-eqz v0, :cond_5
 
-    .line 457
+    .line 463
     iget-object v3, v0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     if-ne v3, p1, :cond_5
@@ -1629,20 +1796,20 @@
 
     if-ne v3, p3, :cond_5
 
-    .line 459
+    .line 465
     :cond_4
     iget-object v1, v0, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 460
+    .line 466
     .local v1, nn:Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->recycle()V
 
-    .line 461
+    .line 467
     iput-object v1, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
     goto :goto_2
 
-    .line 467
+    .line 473
     .end local v0           #n:Landroid/os/Message;
     .end local v1           #nn:Landroid/os/Message;
     .end local v2           #p:Landroid/os/Message;
@@ -1655,16 +1822,16 @@
 
     throw v3
 
-    .line 465
+    .line 471
     .restart local v0       #n:Landroid/os/Message;
     .restart local v2       #p:Landroid/os/Message;
     :cond_5
     move-object v2, v0
 
-    .line 466
+    .line 472
     goto :goto_2
 
-    .line 467
+    .line 473
     .end local v0           #n:Landroid/os/Message;
     :cond_6
     :try_start_1
@@ -1680,18 +1847,18 @@
     .parameter "token"
 
     .prologue
-    .line 279
+    .line 281
     monitor-enter p0
 
-    .line 280
+    .line 282
     const/4 v2, 0x0
 
-    .line 281
+    .line 283
     .local v2, prev:Landroid/os/Message;
     :try_start_0
     iget-object v1, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 282
+    .line 284
     .local v1, p:Landroid/os/Message;
     :goto_0
     if-eqz v1, :cond_1
@@ -1704,20 +1871,20 @@
 
     if-eq v3, p1, :cond_1
 
-    .line 283
+    .line 285
     :cond_0
     move-object v2, v1
 
-    .line 284
+    .line 286
     iget-object v1, v1, Landroid/os/Message;->next:Landroid/os/Message;
 
     goto :goto_0
 
-    .line 286
+    .line 288
     :cond_1
     if-nez v1, :cond_2
 
-    .line 287
+    .line 289
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "The specified message queue synchronization  barrier token has not been posted or has already been removed."
@@ -1726,7 +1893,7 @@
 
     throw v3
 
-    .line 305
+    .line 307
     .end local v1           #p:Landroid/os/Message;
     :catchall_0
     move-exception v3
@@ -1737,52 +1904,52 @@
 
     throw v3
 
-    .line 291
+    .line 293
     .restart local v1       #p:Landroid/os/Message;
     :cond_2
     if-eqz v2, :cond_4
 
-    .line 292
+    .line 294
     :try_start_1
     iget-object v3, v1, Landroid/os/Message;->next:Landroid/os/Message;
 
     iput-object v3, v2, Landroid/os/Message;->next:Landroid/os/Message;
 
-    .line 293
+    .line 295
     const/4 v0, 0x0
 
-    .line 298
+    .line 300
     .local v0, needWake:Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Message;->recycle()V
 
-    .line 302
+    .line 304
     if-eqz v0, :cond_3
 
     iget-boolean v3, p0, Landroid/os/MessageQueue;->mQuitting:Z
 
     if-nez v3, :cond_3
 
-    .line 303
+    .line 305
     iget v3, p0, Landroid/os/MessageQueue;->mPtr:I
 
     invoke-static {v3}, Landroid/os/MessageQueue;->nativeWake(I)V
 
-    .line 305
+    .line 307
     :cond_3
     monitor-exit p0
 
-    .line 306
+    .line 308
     return-void
 
-    .line 295
+    .line 297
     .end local v0           #needWake:Z
     :cond_4
     iget-object v3, v1, Landroid/os/Message;->next:Landroid/os/Message;
 
     iput-object v3, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
-    .line 296
+    .line 298
     iget-object v3, p0, Landroid/os/MessageQueue;->mMessages:Landroid/os/Message;
 
     if-eqz v3, :cond_5

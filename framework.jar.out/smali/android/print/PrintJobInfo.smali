@@ -50,6 +50,8 @@
 
 
 # instance fields
+.field private mAdvancedOptions:Landroid/os/Bundle;
+
 .field private mAppId:I
 
 .field private mAttributes:Landroid/print/PrintAttributes;
@@ -84,7 +86,7 @@
     .locals 1
 
     .prologue
-    .line 679
+    .line 749
     new-instance v0, Landroid/print/PrintJobInfo$1;
 
     invoke-direct {v0}, Landroid/print/PrintJobInfo$1;-><init>()V
@@ -98,10 +100,10 @@
     .locals 0
 
     .prologue
-    .line 165
+    .line 171
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 167
+    .line 173
     return-void
 .end method
 
@@ -110,14 +112,14 @@
     .parameter "parcel"
 
     .prologue
-    const/4 v6, 0x0
-
     const/4 v3, 0x1
 
-    .line 187
+    const/4 v6, 0x0
+
+    .line 194
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 188
+    .line 195
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
@@ -126,14 +128,14 @@
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
 
-    .line 189
+    .line 196
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
 
-    .line 190
+    .line 197
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
@@ -142,76 +144,72 @@
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
 
-    .line 191
+    .line 198
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
 
-    .line 192
+    .line 199
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, p0, Landroid/print/PrintJobInfo;->mState:I
 
-    .line 193
+    .line 200
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, p0, Landroid/print/PrintJobInfo;->mAppId:I
 
-    .line 194
+    .line 201
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
 
-    .line 195
+    .line 202
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
     iput-wide v4, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
 
-    .line 196
+    .line 203
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, p0, Landroid/print/PrintJobInfo;->mCopies:I
 
-    .line 197
+    .line 204
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
 
-    .line 198
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_0
-
-    .line 199
+    .line 205
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
 
     move-result-object v1
 
-    .line 200
+    .line 206
     .local v1, parcelables:[Landroid/os/Parcelable;
+    if-eqz v1, :cond_0
+
+    .line 207
     array-length v2, v1
 
     new-array v2, v2, [Landroid/print/PageRange;
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
-    .line 201
+    .line 208
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -220,7 +218,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 202
+    .line 209
     iget-object v4, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
     aget-object v2, v1, v0
@@ -229,25 +227,15 @@
 
     aput-object v2, v4, v0
 
-    .line 201
+    .line 208
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 205
+    .line 212
     .end local v0           #i:I
-    .end local v1           #parcelables:[Landroid/os/Parcelable;
     :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_1
-
-    .line 206
-    sget-object v2, Landroid/print/PrintAttributes;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v2, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
@@ -255,18 +243,8 @@
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
-    .line 208
-    :cond_1
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_2
-
-    .line 209
-    sget-object v2, Landroid/print/PrintDocumentInfo;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v2, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .line 213
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
@@ -274,24 +252,30 @@
 
     iput-object v2, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
 
-    .line 211
-    :cond_2
+    .line 214
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_1
 
     move v2, v3
 
     :goto_1
     iput-boolean v2, p0, Landroid/print/PrintJobInfo;->mCanceling:Z
 
-    .line 212
+    .line 215
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    iput-object v2, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    .line 216
     return-void
 
-    .line 211
-    :cond_3
+    .line 214
+    :cond_1
     const/4 v2, 0x0
 
     goto :goto_1
@@ -303,7 +287,7 @@
     .parameter "x1"
 
     .prologue
-    .line 27
+    .line 31
     invoke-direct {p0, p1}, Landroid/print/PrintJobInfo;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -314,80 +298,85 @@
     .parameter "other"
 
     .prologue
-    .line 170
+    .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 171
+    .line 177
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
 
-    .line 172
+    .line 178
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
 
-    .line 173
+    .line 179
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
 
-    .line 174
+    .line 180
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
 
-    .line 175
+    .line 181
     iget v0, p1, Landroid/print/PrintJobInfo;->mState:I
 
     iput v0, p0, Landroid/print/PrintJobInfo;->mState:I
 
-    .line 176
+    .line 182
     iget v0, p1, Landroid/print/PrintJobInfo;->mAppId:I
 
     iput v0, p0, Landroid/print/PrintJobInfo;->mAppId:I
 
-    .line 177
+    .line 183
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
 
-    .line 178
+    .line 184
     iget-wide v0, p1, Landroid/print/PrintJobInfo;->mCreationTime:J
 
     iput-wide v0, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
 
-    .line 179
+    .line 185
     iget v0, p1, Landroid/print/PrintJobInfo;->mCopies:I
 
     iput v0, p0, Landroid/print/PrintJobInfo;->mCopies:I
 
-    .line 180
+    .line 186
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
 
-    .line 181
+    .line 187
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
-    .line 182
+    .line 188
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
-    .line 183
+    .line 189
     iget-object v0, p1, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
 
     iput-object v0, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
 
-    .line 184
+    .line 190
     iget-boolean v0, p1, Landroid/print/PrintJobInfo;->mCanceling:Z
 
     iput-boolean v0, p0, Landroid/print/PrintJobInfo;->mCanceling:Z
 
-    .line 185
+    .line 191
+    iget-object v0, p1, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    iput-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    .line 192
     return-void
 .end method
 
@@ -397,7 +386,7 @@
     .parameter "x1"
 
     .prologue
-    .line 27
+    .line 31
     iput p1, p0, Landroid/print/PrintJobInfo;->mCopies:I
 
     return p1
@@ -409,7 +398,7 @@
     .parameter "x1"
 
     .prologue
-    .line 27
+    .line 31
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
     return-object p1
@@ -421,8 +410,31 @@
     .parameter "x1"
 
     .prologue
-    .line 27
+    .line 31
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
+
+    return-object p1
+.end method
+
+.method static synthetic access$300(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 31
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method static synthetic access$302(Landroid/print/PrintJobInfo;Landroid/os/Bundle;)Landroid/os/Bundle;
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 31
+    iput-object p1, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
 
     return-object p1
 .end method
@@ -432,58 +444,58 @@
     .parameter "state"
 
     .prologue
-    .line 576
+    .line 640
     packed-switch p0, :pswitch_data_0
 
-    .line 599
+    .line 663
     const-string v0, "STATE_UNKNOWN"
 
     :goto_0
     return-object v0
 
-    .line 578
+    .line 642
     :pswitch_0
     const-string v0, "STATE_CREATED"
 
     goto :goto_0
 
-    .line 581
+    .line 645
     :pswitch_1
     const-string v0, "STATE_QUEUED"
 
     goto :goto_0
 
-    .line 584
+    .line 648
     :pswitch_2
     const-string v0, "STATE_STARTED"
 
     goto :goto_0
 
-    .line 587
+    .line 651
     :pswitch_3
     const-string v0, "STATE_BLOCKED"
 
     goto :goto_0
 
-    .line 590
+    .line 654
     :pswitch_4
     const-string v0, "STATE_FAILED"
 
     goto :goto_0
 
-    .line 593
+    .line 657
     :pswitch_5
     const-string v0, "STATE_COMPLETED"
 
     goto :goto_0
 
-    .line 596
+    .line 660
     :pswitch_6
     const-string v0, "STATE_CANCELED"
 
     goto :goto_0
 
-    .line 576
+    .line 640
     nop
 
     :pswitch_data_0
@@ -504,17 +516,81 @@
     .locals 1
 
     .prologue
-    .line 516
+    .line 593
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public getAdvancedIntOption(Ljava/lang/String;)I
+    .locals 1
+    .parameter "key"
+
+    .prologue
+    .line 563
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    if-eqz v0, :cond_0
+
+    .line 564
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    invoke-virtual {v0, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    .line 566
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getAdvancedOptions()Landroid/os/Bundle;
+    .locals 1
+
+    .prologue
+    .line 577
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method public getAdvancedStringOption(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+    .parameter "key"
+
+    .prologue
+    .line 548
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    if-eqz v0, :cond_0
+
+    .line 549
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    invoke-virtual {v0, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 551
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getAppId()I
     .locals 1
 
     .prologue
-    .line 324
+    .line 336
     iget v0, p0, Landroid/print/PrintJobInfo;->mAppId:I
 
     return v0
@@ -524,7 +600,7 @@
     .locals 1
 
     .prologue
-    .line 456
+    .line 468
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
     return-object v0
@@ -534,7 +610,7 @@
     .locals 1
 
     .prologue
-    .line 389
+    .line 401
     iget v0, p0, Landroid/print/PrintJobInfo;->mCopies:I
 
     return v0
@@ -544,7 +620,7 @@
     .locals 2
 
     .prologue
-    .line 366
+    .line 378
     iget-wide v0, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
 
     return-wide v0
@@ -554,7 +630,7 @@
     .locals 1
 
     .prologue
-    .line 478
+    .line 490
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
 
     return-object v0
@@ -564,7 +640,7 @@
     .locals 1
 
     .prologue
-    .line 220
+    .line 224
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
 
     return-object v0
@@ -574,7 +650,7 @@
     .locals 1
 
     .prologue
-    .line 240
+    .line 244
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
 
     return-object v0
@@ -584,7 +660,7 @@
     .locals 1
 
     .prologue
-    .line 436
+    .line 448
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
     return-object v0
@@ -594,7 +670,7 @@
     .locals 1
 
     .prologue
-    .line 260
+    .line 264
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
 
     return-object v0
@@ -604,7 +680,7 @@
     .locals 1
 
     .prologue
-    .line 282
+    .line 286
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
 
     return-object v0
@@ -614,7 +690,7 @@
     .locals 1
 
     .prologue
-    .line 302
+    .line 314
     iget v0, p0, Landroid/print/PrintJobInfo;->mState:I
 
     return v0
@@ -624,7 +700,7 @@
     .locals 1
 
     .prologue
-    .line 415
+    .line 427
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
 
     return-object v0
@@ -634,20 +710,61 @@
     .locals 1
 
     .prologue
-    .line 346
+    .line 358
     iget-object v0, p0, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public hasAdvancedOption(Ljava/lang/String;)Z
+    .locals 1
+    .parameter "key"
+
+    .prologue
+    .line 536
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    invoke-virtual {v0, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public isCancelling()Z
     .locals 1
 
     .prologue
-    .line 500
+    .line 512
     iget-boolean v0, p0, Landroid/print/PrintJobInfo;->mCanceling:Z
 
     return v0
+.end method
+
+.method public setAdvancedOptions(Landroid/os/Bundle;)V
+    .locals 0
+    .parameter "options"
+
+    .prologue
+    .line 588
+    iput-object p1, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    .line 589
+    return-void
 .end method
 
 .method public setAppId(I)V
@@ -655,10 +772,10 @@
     .parameter "appId"
 
     .prologue
-    .line 335
+    .line 347
     iput p1, p0, Landroid/print/PrintJobInfo;->mAppId:I
 
-    .line 336
+    .line 348
     return-void
 .end method
 
@@ -667,10 +784,10 @@
     .parameter "attributes"
 
     .prologue
-    .line 467
+    .line 479
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
 
-    .line 468
+    .line 480
     return-void
 .end method
 
@@ -679,10 +796,10 @@
     .parameter "cancelling"
 
     .prologue
-    .line 511
+    .line 523
     iput-boolean p1, p0, Landroid/print/PrintJobInfo;->mCanceling:Z
 
-    .line 512
+    .line 524
     return-void
 .end method
 
@@ -691,12 +808,12 @@
     .parameter "copyCount"
 
     .prologue
-    .line 400
+    .line 412
     const/4 v0, 0x1
 
     if-ge p1, v0, :cond_0
 
-    .line 401
+    .line 413
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Copies must be more than one."
@@ -705,11 +822,11 @@
 
     throw v0
 
-    .line 403
+    .line 415
     :cond_0
     iput p1, p0, Landroid/print/PrintJobInfo;->mCopies:I
 
-    .line 404
+    .line 416
     return-void
 .end method
 
@@ -718,14 +835,14 @@
     .parameter "creationTime"
 
     .prologue
-    .line 377
+    .line 389
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 378
+    .line 390
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "creationTime must be non-negative."
@@ -734,11 +851,11 @@
 
     throw v0
 
-    .line 380
+    .line 392
     :cond_0
     iput-wide p1, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
 
-    .line 381
+    .line 393
     return-void
 .end method
 
@@ -747,10 +864,10 @@
     .parameter "info"
 
     .prologue
-    .line 489
+    .line 501
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
 
-    .line 490
+    .line 502
     return-void
 .end method
 
@@ -759,10 +876,10 @@
     .parameter "id"
 
     .prologue
-    .line 231
+    .line 235
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
 
-    .line 232
+    .line 236
     return-void
 .end method
 
@@ -771,10 +888,10 @@
     .parameter "label"
 
     .prologue
-    .line 251
+    .line 255
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
 
-    .line 252
+    .line 256
     return-void
 .end method
 
@@ -783,10 +900,10 @@
     .parameter "pageRanges"
 
     .prologue
-    .line 447
+    .line 459
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
 
-    .line 448
+    .line 460
     return-void
 .end method
 
@@ -795,10 +912,10 @@
     .parameter "printerId"
 
     .prologue
-    .line 271
+    .line 275
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
 
-    .line 272
+    .line 276
     return-void
 .end method
 
@@ -807,10 +924,10 @@
     .parameter "printerName"
 
     .prologue
-    .line 293
+    .line 297
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
 
-    .line 294
+    .line 298
     return-void
 .end method
 
@@ -819,10 +936,10 @@
     .parameter "state"
 
     .prologue
-    .line 313
+    .line 325
     iput p1, p0, Landroid/print/PrintJobInfo;->mState:I
 
-    .line 314
+    .line 326
     return-void
 .end method
 
@@ -831,10 +948,10 @@
     .parameter "stateReason"
 
     .prologue
-    .line 427
+    .line 439
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
 
-    .line 428
+    .line 440
     return-void
 .end method
 
@@ -843,10 +960,10 @@
     .parameter "tag"
 
     .prologue
-    .line 357
+    .line 369
     iput-object p1, p0, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
 
-    .line 358
+    .line 370
     return-void
 .end method
 
@@ -856,18 +973,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 554
+    .line 617
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 555
+    .line 618
     .local v0, builder:Ljava/lang/StringBuilder;
     const-string v1, "PrintJobInfo{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 556
+    .line 619
     const-string v1, "label: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -878,7 +995,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 557
+    .line 620
     const-string v1, ", id: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -889,7 +1006,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 558
+    .line 621
     const-string v1, ", state: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -904,7 +1021,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 559
+    .line 622
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -927,7 +1044,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 560
+    .line 623
     const-string v1, ", tag: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -938,7 +1055,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 561
+    .line 624
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -961,7 +1078,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 562
+    .line 625
     const-string v1, ", copies: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -972,7 +1089,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 563
+    .line 626
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1004,7 +1121,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 565
+    .line 628
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1036,7 +1153,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 567
+    .line 630
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1059,7 +1176,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 568
+    .line 631
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1091,12 +1208,40 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 570
+    .line 633
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, ", hasAdvancedOptions: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+
+    if-eqz v1, :cond_3
+
+    const/4 v1, 0x1
+
+    :goto_2
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 634
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 571
+    .line 635
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1106,150 +1251,110 @@
     :cond_1
     move-object v1, v2
 
-    .line 563
-    goto :goto_0
+    .line 626
+    goto/16 :goto_0
 
     :cond_2
     move-object v1, v2
 
-    .line 565
+    .line 628
     goto :goto_1
+
+    .line 633
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_2
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 4
+    .locals 3
     .parameter "parcel"
     .parameter "flags"
 
     .prologue
+    const/4 v0, 0x0
+
+    .line 598
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
+
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+
+    .line 599
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 600
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
+
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+
+    .line 601
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 602
+    iget v1, p0, Landroid/print/PrintJobInfo;->mState:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 603
+    iget v1, p0, Landroid/print/PrintJobInfo;->mAppId:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 604
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 605
+    iget-wide v1, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
+
+    invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
+
+    .line 606
+    iget v1, p0, Landroid/print/PrintJobInfo;->mCopies:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 607
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 608
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
+
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
+
+    .line 609
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
+
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+
+    .line 610
+    iget-object v1, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+
+    .line 611
+    iget-boolean v1, p0, Landroid/print/PrintJobInfo;->mCanceling:Z
+
+    if-eqz v1, :cond_0
+
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
-
-    .line 521
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mId:Landroid/print/PrintJobId;
-
-    invoke-virtual {p1, v2, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
-
-    .line 522
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mLabel:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 523
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mPrinterId:Landroid/print/PrinterId;
-
-    invoke-virtual {p1, v2, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
-
-    .line 524
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mPrinterName:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 525
-    iget v2, p0, Landroid/print/PrintJobInfo;->mState:I
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 526
-    iget v2, p0, Landroid/print/PrintJobInfo;->mAppId:I
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 527
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mTag:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 528
-    iget-wide v2, p0, Landroid/print/PrintJobInfo;->mCreationTime:J
-
-    invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
-
-    .line 529
-    iget v2, p0, Landroid/print/PrintJobInfo;->mCopies:I
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 530
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mStateReason:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 531
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
-
-    if-eqz v2, :cond_0
-
-    .line 532
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 533
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
-
-    invoke-virtual {p1, v2, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
-
-    .line 537
-    :goto_0
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
-
-    if-eqz v2, :cond_1
-
-    .line 538
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 539
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
-
-    invoke-virtual {v2, p1, p2}, Landroid/print/PrintAttributes;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 543
-    :goto_1
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
-
-    if-eqz v2, :cond_2
-
-    .line 544
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 545
-    iget-object v2, p0, Landroid/print/PrintJobInfo;->mDocumentInfo:Landroid/print/PrintDocumentInfo;
-
-    invoke-virtual {v2, p1, p2}, Landroid/print/PrintDocumentInfo;->writeToParcel(Landroid/os/Parcel;I)V
-
-    .line 549
-    :goto_2
-    iget-boolean v2, p0, Landroid/print/PrintJobInfo;->mCanceling:Z
-
-    if-eqz v2, :cond_3
-
-    :goto_3
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 550
-    return-void
-
-    .line 535
     :cond_0
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_0
+    .line 612
+    iget-object v0, p0, Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
 
-    .line 541
-    :cond_1
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    goto :goto_1
-
-    .line 547
-    :cond_2
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_2
-
-    :cond_3
-    move v0, v1
-
-    .line 549
-    goto :goto_3
+    .line 613
+    return-void
 .end method

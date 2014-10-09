@@ -96,7 +96,7 @@
     .line 581
     new-instance v3, Landroid/accounts/AuthenticatorException;
 
-    const-string v4, "no result in response"
+    const-string/jumbo v4, "no result in response"
 
     invoke-direct {v3, v4}, Landroid/accounts/AuthenticatorException;-><init>(Ljava/lang/String;)V
 

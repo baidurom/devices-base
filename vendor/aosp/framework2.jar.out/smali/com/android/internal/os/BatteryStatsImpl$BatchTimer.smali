@@ -44,17 +44,17 @@
     .end annotation
 
     .prologue
-    .line 963
+    .line 965
     .local p3, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;-><init>(ILjava/util/ArrayList;)V
 
-    .line 964
+    .line 966
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mUid:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    .line 965
+    .line 967
     iput-boolean p4, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mInDischarge:Z
 
-    .line 966
+    .line 968
     return-void
 .end method
 
@@ -80,31 +80,31 @@
     .end annotation
 
     .prologue
-    .line 954
+    .line 956
     .local p3, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p2, p3, p5}, Lcom/android/internal/os/BatteryStatsImpl$Timer;-><init>(ILjava/util/ArrayList;Landroid/os/Parcel;)V
 
-    .line 955
+    .line 957
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mUid:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    .line 956
+    .line 958
     invoke-virtual {p5}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
-    .line 957
+    .line 959
     invoke-virtual {p5}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
 
-    .line 958
+    .line 960
     iput-boolean p4, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mInDischarge:Z
 
-    .line 959
+    .line 961
     return-void
 .end method
 
@@ -115,14 +115,14 @@
     .prologue
     const-wide/16 v0, 0x0
 
-    .line 1001
+    .line 1003
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
     cmp-long v2, v2, v0
 
     if-lez v2, :cond_0
 
-    .line 1002
+    .line 1004
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mLastTime:J
 
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
@@ -131,7 +131,7 @@
 
     sub-long/2addr v0, p1
 
-    .line 1004
+    .line 1006
     :cond_0
     return-wide v0
 .end method
@@ -144,46 +144,46 @@
     .prologue
     const-wide/16 v4, 0x0
 
-    .line 1008
+    .line 1010
     invoke-direct {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->computeOverage(J)J
 
     move-result-wide v0
 
-    .line 1009
+    .line 1011
     .local v0, overage:J
     cmp-long v2, v0, v4
 
     if-lez v2, :cond_1
 
-    .line 1013
+    .line 1015
     iget-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mInDischarge:Z
 
     if-eqz v2, :cond_0
 
-    .line 1014
+    .line 1016
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
     sub-long/2addr v2, v0
 
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
-    .line 1016
+    .line 1018
     :cond_0
     if-eqz p3, :cond_2
 
-    .line 1017
+    .line 1019
     iput-wide v4, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
-    .line 1023
+    .line 1025
     :cond_1
     :goto_0
     return-void
 
-    .line 1019
+    .line 1021
     :cond_2
     iput-wide p1, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
-    .line 1020
+    .line 1022
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
 
     sub-long/2addr v2, v0
@@ -200,7 +200,7 @@
     .parameter "stats"
 
     .prologue
-    .line 1037
+    .line 1039
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
@@ -209,13 +209,13 @@
 
     mul-long v0, v2, v4
 
-    .line 1038
+    .line 1040
     .local v0, now:J
     const/4 v2, 0x1
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
 
-    .line 1039
+    .line 1041
     return-void
 .end method
 
@@ -227,33 +227,33 @@
     .prologue
     const-wide/16 v4, 0x3e8
 
-    .line 1026
+    .line 1028
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     mul-long v0, v2, v4
 
-    .line 1027
+    .line 1029
     .local v0, now:J
     const/4 v2, 0x1
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
 
-    .line 1028
+    .line 1030
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
-    .line 1029
+    .line 1031
     mul-long v2, p2, v4
 
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
 
-    .line 1030
+    .line 1032
     iget-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mInDischarge:Z
 
     if-eqz v2, :cond_0
 
-    .line 1031
+    .line 1033
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
     iget-wide v4, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
@@ -262,14 +262,14 @@
 
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
-    .line 1032
+    .line 1034
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mCount:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mCount:I
 
-    .line 1034
+    .line 1036
     :cond_0
     return-void
 .end method
@@ -278,7 +278,7 @@
     .locals 1
 
     .prologue
-    .line 1043
+    .line 1045
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mCount:I
 
     return v0
@@ -289,7 +289,7 @@
     .parameter "curBatteryRealtime"
 
     .prologue
-    .line 1048
+    .line 1050
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
@@ -302,7 +302,7 @@
 
     move-result-wide v0
 
-    .line 1049
+    .line 1051
     .local v0, overage:J
     const-wide/16 v2, 0x0
 
@@ -310,10 +310,10 @@
 
     if-lez v2, :cond_0
 
-    .line 1050
+    .line 1052
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
-    .line 1052
+    .line 1054
     .end local v0           #overage:J
     :goto_0
     return-wide v0
@@ -331,10 +331,10 @@
     .parameter "prefix"
 
     .prologue
-    .line 995
+    .line 997
     invoke-super {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->logState(Landroid/util/Printer;Ljava/lang/String;)V
 
-    .line 996
+    .line 998
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -373,7 +373,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 998
+    .line 1000
     return-void
 .end method
 
@@ -386,7 +386,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 977
+    .line 979
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -397,13 +397,13 @@
 
     invoke-direct {p0, v0, v1, v4}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
 
-    .line 978
+    .line 980
     iput-boolean v4, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mInDischarge:Z
 
-    .line 979
+    .line 981
     invoke-super/range {p0 .. p6}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->plug(JJJ)V
 
-    .line 980
+    .line 982
     return-void
 .end method
 
@@ -417,7 +417,7 @@
 
     const/4 v4, 0x1
 
-    .line 1057
+    .line 1059
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
@@ -426,11 +426,11 @@
 
     mul-long v0, v6, v8
 
-    .line 1058
+    .line 1060
     .local v0, now:J
     invoke-direct {p0, v0, v1, v4}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
 
-    .line 1059
+    .line 1061
     iget-wide v6, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
     cmp-long v3, v6, v0
@@ -439,7 +439,7 @@
 
     move v2, v4
 
-    .line 1060
+    .line 1062
     .local v2, stillActive:Z
     :goto_0
     if-nez v2, :cond_1
@@ -451,7 +451,7 @@
     :goto_1
     invoke-super {p0, p1, v3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->reset(Lcom/android/internal/os/BatteryStatsImpl;Z)Z
 
-    .line 1061
+    .line 1063
     if-nez v2, :cond_2
 
     :goto_2
@@ -461,20 +461,20 @@
     :cond_0
     move v2, v5
 
-    .line 1059
+    .line 1061
     goto :goto_0
 
     .restart local v2       #stillActive:Z
     :cond_1
     move v3, v5
 
-    .line 1060
+    .line 1062
     goto :goto_1
 
     :cond_2
     move v4, v5
 
-    .line 1061
+    .line 1063
     goto :goto_2
 .end method
 
@@ -485,24 +485,24 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 984
+    .line 986
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->recomputeLastDuration(JZ)V
 
-    .line 985
+    .line 987
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mInDischarge:Z
 
-    .line 987
+    .line 989
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
     cmp-long v0, v0, p1
 
     if-nez v0, :cond_0
 
-    .line 988
+    .line 990
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
@@ -511,11 +511,11 @@
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
 
-    .line 990
+    .line 992
     :cond_0
     invoke-super/range {p0 .. p6}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->unplug(JJJ)V
 
-    .line 991
+    .line 993
     return-void
 .end method
 
@@ -525,19 +525,19 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 970
+    .line 972
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->writeToParcel(Landroid/os/Parcel;J)V
 
-    .line 971
+    .line 973
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 972
+    .line 974
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$BatchTimer;->mLastAddedDuration:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 973
+    .line 975
     return-void
 .end method

@@ -286,7 +286,7 @@
     :try_start_8
     const-string v2, "RemoteController"
 
-    const-string v4, "no metadata to apply"
+    const-string/jumbo v4, "no metadata to apply"
 
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_8

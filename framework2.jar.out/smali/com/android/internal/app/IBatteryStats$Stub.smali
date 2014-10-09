@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.app.IBatteryStats"
 
-.field static final TRANSACTION_getAwakeTimeBattery:I = 0x2c
+.field static final TRANSACTION_getAwakeTimeBattery:I = 0x2e
 
-.field static final TRANSACTION_getAwakeTimePlugged:I = 0x2d
+.field static final TRANSACTION_getAwakeTimePlugged:I = 0x2f
 
 .field static final TRANSACTION_getStatistics:I = 0x1
 
@@ -46,9 +46,9 @@
 
 .field static final TRANSACTION_noteInputEvent:I = 0xf
 
-.field static final TRANSACTION_noteNetworkInterfaceType:I = 0x29
+.field static final TRANSACTION_noteNetworkInterfaceType:I = 0x2b
 
-.field static final TRANSACTION_noteNetworkStatsEnabled:I = 0x2a
+.field static final TRANSACTION_noteNetworkStatsEnabled:I = 0x2c
 
 .field static final TRANSACTION_notePhoneDataConnectionState:I = 0x14
 
@@ -88,13 +88,17 @@
 
 .field static final TRANSACTION_noteVibratorOn:I = 0x8
 
+.field static final TRANSACTION_noteWifiBatchedScanStartedFromSource:I = 0x27
+
+.field static final TRANSACTION_noteWifiBatchedScanStoppedFromSource:I = 0x28
+
 .field static final TRANSACTION_noteWifiMulticastDisabled:I = 0x22
 
-.field static final TRANSACTION_noteWifiMulticastDisabledFromSource:I = 0x28
+.field static final TRANSACTION_noteWifiMulticastDisabledFromSource:I = 0x2a
 
 .field static final TRANSACTION_noteWifiMulticastEnabled:I = 0x21
 
-.field static final TRANSACTION_noteWifiMulticastEnabledFromSource:I = 0x27
+.field static final TRANSACTION_noteWifiMulticastEnabledFromSource:I = 0x29
 
 .field static final TRANSACTION_noteWifiOff:I = 0x17
 
@@ -114,7 +118,7 @@
 
 .field static final TRANSACTION_noteWifiStopped:I = 0x1a
 
-.field static final TRANSACTION_setBatteryState:I = 0x2b
+.field static final TRANSACTION_setBatteryState:I = 0x2d
 
 
 # direct methods
@@ -206,7 +210,7 @@
     .line 38
     sparse-switch p1, :sswitch_data_0
 
-    .line 541
+    .line 571
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -1453,42 +1457,49 @@
 
     check-cast v1, Landroid/os/WorkSource;
 
-    .line 469
+    .line 470
     .restart local v1       #_arg0:Landroid/os/WorkSource;
     :goto_d
-    invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    .line 470
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result v2
 
     .line 471
+    .local v2, _arg1:I
+    invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiBatchedScanStartedFromSource(Landroid/os/WorkSource;I)V
+
+    .line 472
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 473
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
     .line 467
     .end local v1           #_arg0:Landroid/os/WorkSource;
+    .end local v2           #_arg1:I
     :cond_c
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
     goto :goto_d
 
-    .line 475
+    .line 477
     .end local v1           #_arg0:Landroid/os/WorkSource;
     :sswitch_28
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 477
+    .line 479
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     if-eqz v0, :cond_d
 
-    .line 478
+    .line 480
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1497,20 +1508,20 @@
 
     check-cast v1, Landroid/os/WorkSource;
 
-    .line 483
+    .line 485
     .restart local v1       #_arg0:Landroid/os/WorkSource;
     :goto_e
-    invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiBatchedScanStoppedFromSource(Landroid/os/WorkSource;)V
 
-    .line 484
+    .line 486
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 485
+    .line 487
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 481
+    .line 483
     .end local v1           #_arg0:Landroid/os/WorkSource;
     :cond_d
     const/4 v1, 0x0
@@ -1518,91 +1529,179 @@
     .restart local v1       #_arg0:Landroid/os/WorkSource;
     goto :goto_e
 
-    .line 489
+    .line 491
     .end local v1           #_arg0:Landroid/os/WorkSource;
     :sswitch_29
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 491
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 493
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    .line 494
+    sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 493
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    check-cast v1, Landroid/os/WorkSource;
 
-    move-result v2
+    .line 499
+    .restart local v1       #_arg0:Landroid/os/WorkSource;
+    :goto_f
+    invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
 
-    .line 494
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteNetworkInterfaceType(Ljava/lang/String;I)V
-
-    .line 495
+    .line 500
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 496
+    .line 501
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 500
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:I
+    .line 497
+    .end local v1           #_arg0:Landroid/os/WorkSource;
+    :cond_e
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg0:Landroid/os/WorkSource;
+    goto :goto_f
+
+    .line 505
+    .end local v1           #_arg0:Landroid/os/WorkSource;
     :sswitch_2a
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 501
-    invoke-virtual {p0}, Lcom/android/internal/app/IBatteryStats$Stub;->noteNetworkStatsEnabled()V
+    .line 507
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    .line 502
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    .line 508
+    sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/WorkSource;
+
+    .line 513
+    .restart local v1       #_arg0:Landroid/os/WorkSource;
+    :goto_10
+    invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
+
+    .line 514
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 503
+    .line 515
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 507
+    .line 511
+    .end local v1           #_arg0:Landroid/os/WorkSource;
+    :cond_f
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg0:Landroid/os/WorkSource;
+    goto :goto_10
+
+    .line 519
+    .end local v1           #_arg0:Landroid/os/WorkSource;
     :sswitch_2b
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 509
+    .line 521
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 523
+    .local v1, _arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 524
+    .restart local v2       #_arg1:I
+    invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteNetworkInterfaceType(Ljava/lang/String;I)V
+
+    .line 525
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 526
+    const/4 v0, 0x1
+
+    goto/16 :goto_0
+
+    .line 530
+    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v2           #_arg1:I
+    :sswitch_2c
+    const-string v0, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 531
+    invoke-virtual {p0}, Lcom/android/internal/app/IBatteryStats$Stub;->noteNetworkStatsEnabled()V
+
+    .line 532
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 533
+    const/4 v0, 0x1
+
+    goto/16 :goto_0
+
+    .line 537
+    :sswitch_2d
+    const-string v0, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 539
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 511
+    .line 541
     .local v1, _arg0:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 513
+    .line 543
     .restart local v2       #_arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 515
+    .line 545
     .local v3, _arg2:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 517
+    .line 547
     .restart local v4       #_arg3:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 519
+    .line 549
     .local v5, _arg4:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -1611,66 +1710,66 @@
     .local v6, _arg5:I
     move-object v0, p0
 
-    .line 520
+    .line 550
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/IBatteryStats$Stub;->setBatteryState(IIIIII)V
 
-    .line 521
+    .line 551
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 522
+    .line 552
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 526
+    .line 556
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
     .end local v4           #_arg3:I
     .end local v5           #_arg4:I
     .end local v6           #_arg5:I
-    :sswitch_2c
+    :sswitch_2e
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 527
+    .line 557
     invoke-virtual {p0}, Lcom/android/internal/app/IBatteryStats$Stub;->getAwakeTimeBattery()J
 
     move-result-wide v9
 
-    .line 528
+    .line 558
     .local v9, _result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 529
+    .line 559
     invoke-virtual {p3, v9, v10}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 530
+    .line 560
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 534
+    .line 564
     .end local v9           #_result:J
-    :sswitch_2d
+    :sswitch_2f
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 535
+    .line 565
     invoke-virtual {p0}, Lcom/android/internal/app/IBatteryStats$Stub;->getAwakeTimePlugged()J
 
     move-result-wide v9
 
-    .line 536
+    .line 566
     .restart local v9       #_result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 537
+    .line 567
     invoke-virtual {p3, v9, v10}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 538
+    .line 568
     const/4 v0, 0x1
 
     goto/16 :goto_0
@@ -1723,6 +1822,8 @@
         0x2b -> :sswitch_2b
         0x2c -> :sswitch_2c
         0x2d -> :sswitch_2d
+        0x2e -> :sswitch_2e
+        0x2f -> :sswitch_2f
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

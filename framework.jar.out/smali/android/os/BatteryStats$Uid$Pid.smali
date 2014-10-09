@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 323
+    .line 333
     iput-object p1, p0, Landroid/os/BatteryStats$Uid$Pid;->this$0:Landroid/os/BatteryStats$Uid;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

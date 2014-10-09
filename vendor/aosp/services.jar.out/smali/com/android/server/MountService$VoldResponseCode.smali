@@ -49,6 +49,10 @@
 
 .field public static final VolumeStateChange:I = 0x25d
 
+.field public static final VolumeUserLabelChange:I = 0x266
+
+.field public static final VolumeUuidChange:I = 0x265
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/server/MountService;
@@ -60,7 +64,7 @@
     .parameter
 
     .prologue
-    .line 145
+    .line 146
     iput-object p1, p0, Lcom/android/server/MountService$VoldResponseCode;->this$0:Lcom/android/server/MountService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

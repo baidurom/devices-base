@@ -25,13 +25,13 @@
     .parameter "cr"
 
     .prologue
-    .line 304
+    .line 306
     iput-object p1, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
-    .line 305
+    .line 307
     invoke-direct {p0, p2}, Landroid/content/AsyncQueryHandler;-><init>(Landroid/content/ContentResolver;)V
 
-    .line 306
+    .line 308
     return-void
 .end method
 
@@ -44,18 +44,18 @@
     .parameter "cursor"
 
     .prologue
-    .line 310
+    .line 312
     const/4 v6, 0x0
 
-    .line 311
+    .line 313
     .local v6, lookupUri:Landroid/net/Uri;
     const/4 v2, 0x0
 
-    .line 312
+    .line 314
     .local v2, createUri:Landroid/net/Uri;
     const/4 v7, 0x0
 
-    .line 313
+    .line 315
     .local v7, trigger:Z
     if-eqz p2, :cond_3
 
@@ -64,38 +64,38 @@
     .end local p2
     move-object v3, p2
 
-    .line 315
+    .line 317
     .local v3, extras:Landroid/os/Bundle;
     :goto_0
     packed-switch p1, :pswitch_data_0
 
-    .line 346
+    .line 348
     :cond_0
     :goto_1
     if-eqz p3, :cond_1
 
-    .line 347
+    .line 349
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
-    .line 351
+    .line 353
     :cond_1
     iget-object v8, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
     #setter for: Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
     invoke-static {v8, v6}, Landroid/widget/QuickContactBadge;->access$002(Landroid/widget/QuickContactBadge;Landroid/net/Uri;)Landroid/net/Uri;
 
-    .line 352
+    .line 354
     iget-object v8, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
     #calls: Landroid/widget/QuickContactBadge;->onContactUriChanged()V
     invoke-static {v8}, Landroid/widget/QuickContactBadge;->access$100(Landroid/widget/QuickContactBadge;)V
 
-    .line 354
+    .line 356
     if-eqz v7, :cond_5
 
     if-eqz v6, :cond_5
 
-    .line 356
+    .line 358
     iget-object v8, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
     invoke-virtual {v8}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -112,12 +112,12 @@
 
     invoke-static {v8, v9, v6, v10, v11}, Landroid/provider/ContactsContract$QuickContact;->showQuickContact(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)V
 
-    .line 367
+    .line 369
     :cond_2
     :goto_2
     return-void
 
-    .line 313
+    .line 315
     .end local v3           #extras:Landroid/os/Bundle;
     .restart local p2
     :cond_3
@@ -127,13 +127,13 @@
 
     goto :goto_0
 
-    .line 317
+    .line 319
     .end local p2
     .restart local v3       #extras:Landroid/os/Bundle;
     :pswitch_0
     const/4 v7, 0x1
 
-    .line 318
+    .line 320
     :try_start_0
     const-string/jumbo v8, "tel"
 
@@ -149,7 +149,7 @@
 
     move-result-object v2
 
-    .line 322
+    .line 324
     :pswitch_1
     if-eqz p3, :cond_0
 
@@ -159,14 +159,14 @@
 
     if-eqz v8, :cond_0
 
-    .line 323
+    .line 325
     const/4 v8, 0x0
 
     invoke-interface {p3, v8}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v0
 
-    .line 324
+    .line 326
     .local v0, contactId:J
     const/4 v8, 0x1
 
@@ -174,22 +174,22 @@
 
     move-result-object v5
 
-    .line 325
+    .line 327
     .local v5, lookupKey:Ljava/lang/String;
     invoke-static {v0, v1, v5}, Landroid/provider/ContactsContract$Contacts;->getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
 
     move-result-object v6
 
-    .line 326
+    .line 328
     goto :goto_1
 
-    .line 331
+    .line 333
     .end local v0           #contactId:J
     .end local v5           #lookupKey:Ljava/lang/String;
     :pswitch_2
     const/4 v7, 0x1
 
-    .line 332
+    .line 334
     const-string v8, "mailto"
 
     const-string/jumbo v9, "uri_content"
@@ -204,7 +204,7 @@
 
     move-result-object v2
 
-    .line 337
+    .line 339
     :pswitch_3
     if-eqz p3, :cond_0
 
@@ -214,14 +214,14 @@
 
     if-eqz v8, :cond_0
 
-    .line 338
+    .line 340
     const/4 v8, 0x0
 
     invoke-interface {p3, v8}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v0
 
-    .line 339
+    .line 341
     .restart local v0       #contactId:J
     const/4 v8, 0x1
 
@@ -229,7 +229,7 @@
 
     move-result-object v5
 
-    .line 340
+    .line 342
     .restart local v5       #lookupKey:Ljava/lang/String;
     invoke-static {v0, v1, v5}, Landroid/provider/ContactsContract$Contacts;->getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
     :try_end_0
@@ -239,7 +239,7 @@
 
     goto :goto_1
 
-    .line 346
+    .line 348
     .end local v0           #contactId:J
     .end local v5           #lookupKey:Ljava/lang/String;
     :catchall_0
@@ -247,36 +247,36 @@
 
     if-eqz p3, :cond_4
 
-    .line 347
+    .line 349
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
     :cond_4
     throw v8
 
-    .line 358
+    .line 360
     :cond_5
     if-eqz v2, :cond_2
 
-    .line 360
+    .line 362
     new-instance v4, Landroid/content/Intent;
 
     const-string v8, "com.android.contacts.action.SHOW_OR_CREATE_CONTACT"
 
     invoke-direct {v4, v8, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 361
+    .line 363
     .local v4, intent:Landroid/content/Intent;
     if-eqz v3, :cond_6
 
-    .line 362
+    .line 364
     const-string/jumbo v8, "uri_content"
 
     invoke-virtual {v3, v8}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
 
-    .line 363
+    .line 365
     invoke-virtual {v4, v3}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 365
+    .line 367
     :cond_6
     iget-object v8, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
@@ -288,7 +288,7 @@
 
     goto :goto_2
 
-    .line 315
+    .line 317
     nop
 
     :pswitch_data_0

@@ -209,7 +209,7 @@
 
     move-result-object v0
 
-    const v1, 0x104054c
+    const v1, 0x1040555
 
     const/4 v2, 0x4
 
@@ -273,7 +273,7 @@
 
     move-result-object v1
 
-    const v2, 0x104054d
+    const v2, 0x1040556
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -496,7 +496,7 @@
 
     .line 183
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v1, 0x1090070
+    const v1, 0x109006d
 
     const/4 v3, 0x0
 
@@ -516,7 +516,7 @@
     .line 187
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x10202e8
+    const v3, 0x10202eb
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -573,7 +573,7 @@
     .line 196
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x10202e9
+    const v3, 0x10202ec
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -93,14 +93,14 @@
     .locals 1
 
     .prologue
-    .line 336
+    .line 355
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/BitmapFactory$Options;->mCancel:Z
 
-    .line 337
+    .line 356
     invoke-direct {p0}, Landroid/graphics/BitmapFactory$Options;->requestCancel()V
 
-    .line 338
+    .line 357
     return-void
 .end method

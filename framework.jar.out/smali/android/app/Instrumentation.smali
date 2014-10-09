@@ -1146,7 +1146,6 @@
     .parameter "userId"
 
     .prologue
-    .line 1455
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1163,6 +1162,7 @@
 
     :cond_baidu_0
 
+    .line 1455
     move-object v2, p2
 
     check-cast v2, Landroid/app/IApplicationThread;
@@ -1382,7 +1382,6 @@
     .parameter "options"
 
     .prologue
-    .line 1400
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1401,6 +1400,7 @@
 
     :cond_baidu_0
 
+    .line 1400
     move-object/from16 v3, p2
 
     check-cast v3, Landroid/app/IApplicationThread;
@@ -1866,7 +1866,6 @@
     .parameter "options"
 
     .prologue
-    .line 1517
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1885,6 +1884,7 @@
 
     :cond_baidu_0
 
+    .line 1517
     move-object/from16 v3, p2
 
     check-cast v3, Landroid/app/IApplicationThread;

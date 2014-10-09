@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 235
+    .line 239
     iput-object p1, p0, Landroid/widget/ActivityChooserView$3;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-direct {p0}, Landroid/view/View$AccessibilityDelegate;-><init>()V
@@ -40,14 +40,14 @@
     .parameter "info"
 
     .prologue
-    .line 238
+    .line 242
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    .line 239
+    .line 243
     const/4 v0, 0x1
 
     invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCanOpenPopup(Z)V
 
-    .line 240
+    .line 244
     return-void
 .end method

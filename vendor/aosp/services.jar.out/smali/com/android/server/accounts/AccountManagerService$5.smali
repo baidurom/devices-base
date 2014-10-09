@@ -35,7 +35,7 @@
     .parameter
 
     .prologue
-    .line 1243
+    .line 1254
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$5;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     iput-object p7, p0, Lcom/android/server/accounts/AccountManagerService$5;->val$accountType:Ljava/lang/String;
@@ -54,38 +54,38 @@
     .parameter "result"
 
     .prologue
-    .line 1258
+    .line 1269
     if-eqz p1, :cond_0
 
-    .line 1259
+    .line 1270
     const-string v2, "authTokenLabelKey"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1260
+    .line 1271
     .local v1, label:Ljava/lang/String;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 1261
+    .line 1272
     .local v0, bundle:Landroid/os/Bundle;
     const-string v2, "authTokenLabelKey"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1262
+    .line 1273
     invoke-super {p0, v0}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
-    .line 1267
+    .line 1278
     .end local v0           #bundle:Landroid/os/Bundle;
     .end local v1           #label:Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 1265
+    .line 1276
     :cond_0
     invoke-super {p0, p1}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
@@ -101,14 +101,14 @@
     .end annotation
 
     .prologue
-    .line 1253
+    .line 1264
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$Session;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$5;->val$authTokenType:Ljava/lang/String;
 
     invoke-interface {v0, p0, v1}, Landroid/accounts/IAccountAuthenticator;->getAuthTokenLabel(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
 
-    .line 1254
+    .line 1265
     return-void
 .end method
 
@@ -117,7 +117,7 @@
     .parameter "now"
 
     .prologue
-    .line 1246
+    .line 1257
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

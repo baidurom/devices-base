@@ -1150,7 +1150,7 @@
 
     .line 299
     .local v3, r:Landroid/content/res/Resources;
-    const v4, 0x10403be
+    const v4, 0x10403c2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

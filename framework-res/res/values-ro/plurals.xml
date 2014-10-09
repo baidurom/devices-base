@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">V-au mai rămas %d încercări până la blocarea cardului SIM.</item>
+        <item quantity="one">V-a mai rămas %d încercare până la blocarea cardului SIM.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">cu %d (de) secunde în urmă</item>
         <item quantity="one">cu 1 secundă în urmă</item>

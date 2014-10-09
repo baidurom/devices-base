@@ -27,16 +27,16 @@
     .parameter "wifiStateMachine"
 
     .prologue
-    .line 238
+    .line 241
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    .line 239
+    .line 242
     invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
 
-    .line 240
+    .line 243
     iput-object p2, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
-    .line 241
+    .line 244
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .parameter "scope"
 
     .prologue
-    .line 256
+    .line 259
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
@@ -64,7 +64,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 261
+    .line 264
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     const v1, 0x2008d
@@ -75,7 +75,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 263
+    .line 266
     :cond_0
     return-void
 .end method
@@ -88,7 +88,7 @@
     .parameter "scope"
 
     .prologue
-    .line 245
+    .line 248
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
@@ -102,7 +102,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 250
+    .line 253
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$InterfaceObserver;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     const v1, 0x2008c
@@ -113,7 +113,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 252
+    .line 255
     :cond_0
     return-void
 .end method

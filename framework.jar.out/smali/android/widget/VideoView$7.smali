@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 578
+    .line 588
     iput-object p1, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,19 +49,19 @@
 
     const/4 v3, 0x0
 
-    .line 582
+    .line 592
     iget-object v4, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #setter for: Landroid/widget/VideoView;->mSurfaceWidth:I
     invoke-static {v4, p3}, Landroid/widget/VideoView;->access$1002(Landroid/widget/VideoView;I)I
 
-    .line 583
+    .line 593
     iget-object v4, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #setter for: Landroid/widget/VideoView;->mSurfaceHeight:I
     invoke-static {v4, p4}, Landroid/widget/VideoView;->access$1102(Landroid/widget/VideoView;I)I
 
-    .line 584
+    .line 594
     iget-object v4, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->mTargetState:I
@@ -75,7 +75,7 @@
 
     move v1, v2
 
-    .line 585
+    .line 595
     .local v1, isValidState:Z
     :goto_0
     iget-object v4, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
@@ -98,7 +98,7 @@
 
     move v0, v2
 
-    .line 586
+    .line 596
     .local v0, hasValidSize:Z
     :goto_1
     iget-object v2, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
@@ -114,7 +114,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 587
+    .line 597
     iget-object v2, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->mSeekWhenPrepared:I
@@ -124,7 +124,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 588
+    .line 598
     iget-object v2, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     iget-object v3, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
@@ -136,13 +136,13 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/VideoView;->seekTo(I)V
 
-    .line 590
+    .line 600
     :cond_0
     iget-object v2, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     invoke-virtual {v2}, Landroid/widget/VideoView;->start()V
 
-    .line 592
+    .line 602
     :cond_1
     return-void
 
@@ -151,14 +151,14 @@
     :cond_2
     move v1, v3
 
-    .line 584
+    .line 594
     goto :goto_0
 
     .restart local v1       #isValidState:Z
     :cond_3
     move v0, v3
 
-    .line 585
+    .line 595
     goto :goto_1
 .end method
 
@@ -167,19 +167,19 @@
     .parameter "holder"
 
     .prologue
-    .line 596
+    .line 606
     iget-object v0, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #setter for: Landroid/widget/VideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
     invoke-static {v0, p1}, Landroid/widget/VideoView;->access$2002(Landroid/widget/VideoView;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
 
-    .line 597
+    .line 607
     iget-object v0, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #calls: Landroid/widget/VideoView;->openVideo()V
     invoke-static {v0}, Landroid/widget/VideoView;->access$2100(Landroid/widget/VideoView;)V
 
-    .line 598
+    .line 608
     return-void
 .end method
 
@@ -188,7 +188,7 @@
     .parameter "holder"
 
     .prologue
-    .line 603
+    .line 613
     iget-object v0, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     const/4 v1, 0x0
@@ -196,7 +196,7 @@
     #setter for: Landroid/widget/VideoView;->mSurfaceHolder:Landroid/view/SurfaceHolder;
     invoke-static {v0, v1}, Landroid/widget/VideoView;->access$2002(Landroid/widget/VideoView;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
 
-    .line 604
+    .line 614
     iget-object v0, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->mMediaController:Landroid/widget/MediaController;
@@ -215,7 +215,7 @@
 
     invoke-virtual {v0}, Landroid/widget/MediaController;->hide()V
 
-    .line 605
+    .line 615
     :cond_0
     iget-object v0, p0, Landroid/widget/VideoView$7;->this$0:Landroid/widget/VideoView;
 
@@ -224,6 +224,6 @@
     #calls: Landroid/widget/VideoView;->release(Z)V
     invoke-static {v0, v1}, Landroid/widget/VideoView;->access$2200(Landroid/widget/VideoView;Z)V
 
-    .line 606
+    .line 616
     return-void
 .end method

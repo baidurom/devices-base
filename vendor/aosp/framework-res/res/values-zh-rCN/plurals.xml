@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">您还有%d次尝试机会。如果仍然失败，SIM 卡将被锁定。</item>
+        <item quantity="one">您还有%d次尝试机会。如果仍然失败，SIM 卡将被锁定。</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d 秒前</item>
         <item quantity="one">1 秒前</item>

@@ -155,41 +155,41 @@
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 76
-    const v1, 0x10202a8
+    const v1, 0x10202a9
 
-    const v2, 0x10202a9
+    const v2, 0x10202aa
 
-    const v3, 0x10202aa
+    const v3, 0x10202ab
 
     iget-object v4, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCurApp:Ljava/lang/String;
 
-    const v5, 0x1040415
+    const v5, 0x1040419
 
-    const v6, 0x1040416
+    const v6, 0x104041a
 
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setIconAndText(IIILjava/lang/String;II)V
 
     .line 78
-    const v1, 0x10202ac
+    const v1, 0x10202ad
 
-    const v2, 0x10202ad
+    const v2, 0x10202ae
 
-    const v3, 0x10202ae
+    const v3, 0x10202af
 
     iget-object v4, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mNewApp:Ljava/lang/String;
 
-    const v5, 0x1040417
+    const v5, 0x104041b
 
-    const v6, 0x1040418
+    const v6, 0x104041c
 
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setIconAndText(IIILjava/lang/String;II)V
 
     .line 81
-    const v0, 0x10202a7
+    const v0, 0x10202a8
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -202,7 +202,7 @@
     invoke-virtual {v7, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 83
-    const v0, 0x10202ab
+    const v0, 0x10202ac
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -214,7 +214,7 @@
     invoke-virtual {v7, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 85
-    const v0, 0x102028d
+    const v0, 0x102028e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

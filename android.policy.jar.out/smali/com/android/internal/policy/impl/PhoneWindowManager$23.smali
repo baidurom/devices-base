@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 5089
+    .line 5114
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->val$visibility:I
@@ -51,7 +51,7 @@
     .locals 4
 
     .prologue
-    .line 5093
+    .line 5118
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -59,35 +59,35 @@
 
     move-result-object v1
 
-    .line 5094
+    .line 5119
     .local v1, statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     if-eqz v1, :cond_0
 
-    .line 5095
+    .line 5120
     iget v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->val$visibility:I
 
     const/4 v3, -0x1
 
     invoke-interface {v1, v2, v3}, Lcom/android/internal/statusbar/IStatusBarService;->setSystemUiVisibility(II)V
 
-    .line 5096
+    .line 5121
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->val$needsMenu:Z
 
     invoke-interface {v1, v2}, Lcom/android/internal/statusbar/IStatusBarService;->topAppWindowChanged(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 5102
+    .line 5127
     .end local v1           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     :cond_0
     :goto_0
     return-void
 
-    .line 5098
+    .line 5123
     :catch_0
     move-exception v0
 
-    .line 5100
+    .line 5125
     .local v0, e:Landroid/os/RemoteException;
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 

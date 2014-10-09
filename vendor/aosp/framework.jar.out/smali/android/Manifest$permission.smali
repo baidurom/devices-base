@@ -95,6 +95,8 @@
 
 .field public static final BIND_REMOTEVIEWS:Ljava/lang/String; = "android.permission.BIND_REMOTEVIEWS"
 
+.field public static final BIND_REMOTE_DISPLAY:Ljava/lang/String; = "android.permission.BIND_REMOTE_DISPLAY"
+
 .field public static final BIND_TEXT_SERVICE:Ljava/lang/String; = "android.permission.BIND_TEXT_SERVICE"
 
 .field public static final BIND_VPN_SERVICE:Ljava/lang/String; = "android.permission.BIND_VPN_SERVICE"

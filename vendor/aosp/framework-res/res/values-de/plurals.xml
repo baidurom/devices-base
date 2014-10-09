@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Sie haben noch %d Versuche, bevor Ihre SIM-Karte gesperrt wird.</item>
+        <item quantity="one">Sie haben noch %d Versuch, bevor Ihre SIM-Karte gesperrt wird.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">vor %d Sekunden</item>
         <item quantity="one">vor 1 Sekunde</item>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Teil on enne SIM-i lukustumist jäänud veel %d katset.</item>
+        <item quantity="one">Teil on enne SIM-i lukustumist jäänud veel %d katse.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d sekundit tagasi</item>
         <item quantity="one">1 sekund tagasi</item>

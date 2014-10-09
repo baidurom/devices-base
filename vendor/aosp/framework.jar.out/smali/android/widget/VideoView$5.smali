@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 474
+    .line 484
     iput-object p1, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
     const/4 v5, -0x1
 
-    .line 476
+    .line 486
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->TAG:Ljava/lang/String;
@@ -86,19 +86,19 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 477
+    .line 487
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #setter for: Landroid/widget/VideoView;->mCurrentState:I
     invoke-static {v2, v5}, Landroid/widget/VideoView;->access$202(Landroid/widget/VideoView;I)I
 
-    .line 478
+    .line 488
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #setter for: Landroid/widget/VideoView;->mTargetState:I
     invoke-static {v2, v5}, Landroid/widget/VideoView;->access$1202(Landroid/widget/VideoView;I)I
 
-    .line 479
+    .line 489
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->mMediaController:Landroid/widget/MediaController;
@@ -108,7 +108,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 480
+    .line 490
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->mMediaController:Landroid/widget/MediaController;
@@ -118,7 +118,7 @@
 
     invoke-virtual {v2}, Landroid/widget/MediaController;->hide()V
 
-    .line 484
+    .line 494
     :cond_0
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
@@ -129,7 +129,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 485
+    .line 495
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/widget/VideoView;->mOnErrorListener:Landroid/media/MediaPlayer$OnErrorListener;
@@ -150,12 +150,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 521
+    .line 531
     :cond_1
     :goto_0
     return v6
 
-    .line 495
+    .line 505
     :cond_2
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
@@ -165,7 +165,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 496
+    .line 506
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
     #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
@@ -177,16 +177,16 @@
 
     move-result-object v1
 
-    .line 499
+    .line 509
     .local v1, r:Landroid/content/res/Resources;
     const/16 v2, 0xc8
 
     if-ne p2, v2, :cond_3
 
-    .line 500
+    .line 510
     const v0, 0x1040015
 
-    .line 505
+    .line 515
     .local v0, messageId:I
     :goto_1
     new-instance v2, Landroid/app/AlertDialog$Builder;
@@ -224,7 +224,7 @@
 
     goto :goto_0
 
-    .line 502
+    .line 512
     .end local v0           #messageId:I
     :cond_3
     const v0, 0x1040011

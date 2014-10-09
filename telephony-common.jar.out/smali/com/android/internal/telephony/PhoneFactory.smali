@@ -58,12 +58,12 @@
     .locals 5
 
     .prologue
-    .line 169
+    .line 172
     sget-object v2, Lcom/android/internal/telephony/PhoneProxy;->lockForRadioTechnologyChange:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 170
+    .line 173
     :try_start_0
     invoke-static {}, Landroid/telephony/TelephonyManager;->getLteOnCdmaModeStatic()I
 
@@ -71,7 +71,7 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 178
+    .line 181
     new-instance v0, Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     sget-object v1, Lcom/android/internal/telephony/PhoneFactory;->sContext:Landroid/content/Context;
@@ -82,15 +82,15 @@
 
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/telephony/cdma/CDMAPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
 
-    .line 182
+    .line 185
     .local v0, phone:Lcom/android/internal/telephony/Phone;
     :goto_0
     monitor-exit v2
 
-    .line 183
+    .line 186
     return-object v0
 
-    .line 172
+    .line 175
     .end local v0           #phone:Lcom/android/internal/telephony/Phone;
     :pswitch_0
     new-instance v0, Lcom/android/internal/telephony/cdma/CDMALTEPhone;
@@ -103,11 +103,11 @@
 
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/telephony/cdma/CDMALTEPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
 
-    .line 173
+    .line 176
     .restart local v0       #phone:Lcom/android/internal/telephony/Phone;
     goto :goto_0
 
-    .line 182
+    .line 185
     .end local v0           #phone:Lcom/android/internal/telephony/Phone;
     :catchall_0
     move-exception v1
@@ -118,7 +118,7 @@
 
     throw v1
 
-    .line 170
+    .line 173
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -129,7 +129,7 @@
     .locals 2
 
     .prologue
-    .line 156
+    .line 159
     sget-object v0, Lcom/android/internal/telephony/PhoneFactory;->sLooper:Landroid/os/Looper;
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -138,7 +138,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 157
+    .line 160
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "PhoneFactory.getDefaultPhone must be called from Looper thread"
@@ -147,13 +147,13 @@
 
     throw v0
 
-    .line 161
+    .line 164
     :cond_0
     sget-boolean v0, Lcom/android/internal/telephony/PhoneFactory;->sMadeDefaults:Z
 
     if-nez v0, :cond_1
 
-    .line 162
+    .line 165
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Default phones haven\'t been made yet!"
@@ -162,7 +162,7 @@
 
     throw v0
 
-    .line 164
+    .line 167
     :cond_1
     sget-object v0, Lcom/android/internal/telephony/PhoneFactory;->sProxyPhone:Lcom/android/internal/telephony/Phone;
 
@@ -173,12 +173,12 @@
     .locals 5
 
     .prologue
-    .line 187
+    .line 190
     sget-object v2, Lcom/android/internal/telephony/PhoneProxy;->lockForRadioTechnologyChange:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 188
+    .line 191
     :try_start_0
     new-instance v0, Lcom/android/internal/telephony/gsm/GSMPhone;
 
@@ -190,13 +190,13 @@
 
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/telephony/gsm/GSMPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/PhoneNotifier;)V
 
-    .line 189
+    .line 192
     .local v0, phone:Lcom/android/internal/telephony/Phone;
     monitor-exit v2
 
     return-object v0
 
-    .line 190
+    .line 193
     :catchall_0
     move-exception v1
 
@@ -249,7 +249,7 @@
 
     throw v9
 
-    .line 152
+    .line 155
     :catchall_0
     move-exception v9
 
@@ -467,12 +467,15 @@
 
     invoke-static {v9, v11}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
+    .line 151
+    invoke-static {p0}, Lcom/android/internal/telephony/SmsApplication;->initSmsPackageMonitor(Landroid/content/Context;)V
+
+    .line 153
     const/4 v9, 0x1
 
     sput-boolean v9, Lcom/android/internal/telephony/PhoneFactory;->sMadeDefaults:Z
 
-    .line 152
+    .line 155
     .end local v0           #cdmaSubscription:I
     .end local v1           #componentName:Landroid/content/ComponentName;
     .end local v3           #hasException:Z
@@ -484,7 +487,7 @@
     :cond_4
     monitor-exit v10
 
-    .line 153
+    .line 156
     return-void
 
     .line 83
@@ -605,8 +608,6 @@
     goto :goto_2
 
     .line 125
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -630,7 +631,7 @@
     .parameter "sipUri"
 
     .prologue
-    .line 199
+    .line 202
     sget-object v0, Lcom/android/internal/telephony/PhoneFactory;->sContext:Landroid/content/Context;
 
     sget-object v1, Lcom/android/internal/telephony/PhoneFactory;->sPhoneNotifier:Lcom/android/internal/telephony/PhoneNotifier;

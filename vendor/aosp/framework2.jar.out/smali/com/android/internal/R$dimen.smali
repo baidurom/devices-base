@@ -109,7 +109,13 @@
 
 .field public static final volume_panel_top:I = 0x105004f
 
-.field public static final webviewchromium_color_picker_gradient_margin:I = 0x1050084
+.field public static final webviewchromium_autofill_text_divider_height:I = 0x1050087
+
+.field public static final webviewchromium_autofill_text_height:I = 0x1050086
+
+.field public static final webviewchromium_color_button_height:I = 0x1050084
+
+.field public static final webviewchromium_color_picker_gradient_margin:I = 0x1050085
 
 .field public static final webviewchromium_link_preview_overlay_radius:I = 0x1050083
 
@@ -119,7 +125,7 @@
     .locals 0
 
     .prologue
-    .line 12090
+    .line 12105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

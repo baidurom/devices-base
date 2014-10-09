@@ -7154,7 +7154,6 @@
     .end annotation
 
     .prologue
-    .line 1990
     sget-object v0, Landroid/content/res/Resources;->sPreloadedDrawables:[Landroid/util/LongSparseArray;
 
     return-object v0

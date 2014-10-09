@@ -207,9 +207,9 @@
     .line 209
     iput-object p1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
 
-    .line 210
     invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->enableMagnifier(Landroid/widget/Editor;)V
 
+    .line 210
     return-void
 .end method
 
@@ -2302,7 +2302,7 @@
 
     move-result-object v2
 
-    const v3, 0x10900ac
+    const v3, 0x10900a9
 
     const/4 v4, 0x0
 
@@ -3631,7 +3631,7 @@
 
     .line 288
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x10900b4
+    const v4, 0x10900b1
 
     const/4 v5, 0x0
 
@@ -6527,9 +6527,9 @@
     .parameter "handled"
 
     .prologue
-    .line 829
     invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->onEventWordSearch(Landroid/widget/Editor;)V
 
+    .line 829
     if-nez p1, :cond_0
 
     iget v6, p0, Landroid/widget/Editor;->mLastDownPositionX:F
@@ -7029,7 +7029,7 @@
     .line 311
     iget-object v0, p0, Landroid/widget/Editor;->mError:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     .line 312
     invoke-direct {p0, v1}, Landroid/widget/Editor;->setErrorIcon(Landroid/graphics/drawable/Drawable;)V
@@ -7057,13 +7057,19 @@
     :cond_0
     iput-object v1, p0, Landroid/widget/Editor;->mErrorPopup:Landroid/widget/Editor$ErrorPopup;
 
-    .line 327
+    .line 320
     :cond_1
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/Editor;->mShowErrorAfterAttach:Z
+
+    .line 327
+    :cond_2
     :goto_0
     return-void
 
     .line 322
-    :cond_2
+    :cond_3
     invoke-direct {p0, p2}, Landroid/widget/Editor;->setErrorIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 323
@@ -7073,7 +7079,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     .line 324
     invoke-direct {p0}, Landroid/widget/Editor;->showError()V

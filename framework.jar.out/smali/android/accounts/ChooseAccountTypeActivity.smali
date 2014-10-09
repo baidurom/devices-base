@@ -565,7 +565,7 @@
     .local v1, bundle:Landroid/os/Bundle;
     const-string v10, "errorMessage"
 
-    const-string v11, "no allowable account types"
+    const-string/jumbo v11, "no allowable account types"
 
     invoke-virtual {v1, v10, v11}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1422
+    .line 1443
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
 
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$2$1;->val$memInfos:Ljava/util/ArrayList;
@@ -43,7 +43,7 @@
     .locals 37
 
     .prologue
-    .line 1424
+    .line 1445
     new-instance v23, Landroid/util/SparseArray;
 
     move-object/from16 v0, p0
@@ -58,7 +58,7 @@
 
     invoke-direct {v0, v4}, Landroid/util/SparseArray;-><init>(I)V
 
-    .line 1426
+    .line 1447
     .local v23, infoMap:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Lcom/android/server/am/ProcessMemInfo;>;"
     const/16 v22, 0x0
 
@@ -79,7 +79,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1427
+    .line 1448
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->val$memInfos:Ljava/util/ArrayList;
@@ -92,7 +92,7 @@
 
     check-cast v3, Lcom/android/server/am/ProcessMemInfo;
 
-    .line 1428
+    .line 1449
     .local v3, mi:Lcom/android/server/am/ProcessMemInfo;
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->pid:I
 
@@ -100,12 +100,12 @@
 
     invoke-virtual {v0, v4, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 1426
+    .line 1447
     add-int/lit8 v22, v22, 0x1
 
     goto :goto_0
 
-    .line 1430
+    .line 1451
     .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
     :cond_0
     move-object/from16 v0, p0
@@ -116,7 +116,7 @@
 
     invoke-virtual {v4}, Lcom/android/server/am/ActivityManagerService;->updateCpuStatsNow()V
 
-    .line 1431
+    .line 1452
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -127,7 +127,7 @@
 
     monitor-enter v10
 
-    .line 1432
+    .line 1453
     :try_start_0
     move-object/from16 v0, p0
 
@@ -141,7 +141,7 @@
 
     move-result v18
 
-    .line 1433
+    .line 1454
     const/16 v22, 0x0
 
     :goto_1
@@ -151,7 +151,7 @@
 
     if-ge v0, v1, :cond_2
 
-    .line 1434
+    .line 1455
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -166,7 +166,7 @@
 
     move-result-object v32
 
-    .line 1435
+    .line 1456
     .local v32, st:Lcom/android/internal/os/ProcessCpuTracker$Stats;
     move-object/from16 v0, v32
 
@@ -178,7 +178,7 @@
 
     if-lez v4, :cond_1
 
-    .line 1436
+    .line 1457
     move-object/from16 v0, v32
 
     iget v4, v0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->pid:I
@@ -189,7 +189,7 @@
 
     move-result-wide v30
 
-    .line 1437
+    .line 1458
     .local v30, pss:J
     const-wide/16 v4, 0x0
 
@@ -197,7 +197,7 @@
 
     if-lez v4, :cond_1
 
-    .line 1438
+    .line 1459
     move-object/from16 v0, v32
 
     iget v4, v0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->pid:I
@@ -210,7 +210,7 @@
 
     if-gez v4, :cond_1
 
-    .line 1439
+    .line 1460
     new-instance v3, Lcom/android/server/am/ProcessMemInfo;
 
     move-object/from16 v0, v32
@@ -231,20 +231,20 @@
 
     invoke-direct/range {v3 .. v9}, Lcom/android/server/am/ProcessMemInfo;-><init>(Ljava/lang/String;IIILjava/lang/String;Ljava/lang/String;)V
 
-    .line 1441
+    .line 1462
     .restart local v3       #mi:Lcom/android/server/am/ProcessMemInfo;
     move-wide/from16 v0, v30
 
     iput-wide v0, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
-    .line 1442
+    .line 1463
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->val$memInfos:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1433
+    .line 1454
     .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
     .end local v30           #pss:J
     :cond_1
@@ -252,17 +252,17 @@
 
     goto :goto_1
 
-    .line 1447
+    .line 1468
     .end local v32           #st:Lcom/android/internal/os/ProcessCpuTracker$Stats;
     :cond_2
     monitor-exit v10
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1449
+    .line 1470
     const-wide/16 v35, 0x0
 
-    .line 1450
+    .line 1471
     .local v35, totalPss:J
     const/16 v22, 0x0
 
@@ -281,7 +281,7 @@
 
     if-ge v0, v1, :cond_4
 
-    .line 1451
+    .line 1472
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->val$memInfos:Ljava/util/ArrayList;
@@ -294,7 +294,7 @@
 
     check-cast v3, Lcom/android/server/am/ProcessMemInfo;
 
-    .line 1452
+    .line 1473
     .restart local v3       #mi:Lcom/android/server/am/ProcessMemInfo;
     iget-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
@@ -304,7 +304,7 @@
 
     if-nez v4, :cond_3
 
-    .line 1453
+    .line 1474
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->pid:I
 
     const/4 v5, 0x0
@@ -315,18 +315,18 @@
 
     iput-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
-    .line 1455
+    .line 1476
     :cond_3
     iget-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
     add-long v35, v35, v4
 
-    .line 1450
+    .line 1471
     add-int/lit8 v22, v22, 0x1
 
     goto :goto_2
 
-    .line 1447
+    .line 1468
     .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
     .end local v35           #totalPss:J
     :catchall_0
@@ -339,7 +339,7 @@
 
     throw v4
 
-    .line 1457
+    .line 1478
     .restart local v35       #totalPss:J
     :cond_4
     move-object/from16 v0, p0
@@ -354,7 +354,7 @@
 
     invoke-static {v4, v5}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 1469
+    .line 1490
     new-instance v34, Ljava/lang/StringBuilder;
 
     const/16 v4, 0x80
@@ -363,7 +363,7 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1470
+    .line 1491
     .local v34, tag:Ljava/lang/StringBuilder;
     new-instance v33, Ljava/lang/StringBuilder;
 
@@ -373,7 +373,7 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1471
+    .line 1492
     .local v33, stack:Ljava/lang/StringBuilder;
     const-string v4, "Low on memory -- "
 
@@ -381,7 +381,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1472
+    .line 1493
     const-string v4, "total"
 
     const/4 v5, 0x0
@@ -392,7 +392,7 @@
 
     invoke-static {v0, v1, v2, v4, v5}, Lcom/android/server/am/ActivityManagerService;->appendMemBucket(Ljava/lang/StringBuilder;JLjava/lang/String;Z)V
 
-    .line 1473
+    .line 1494
     const-string v4, "total"
 
     const/4 v5, 0x1
@@ -403,7 +403,7 @@
 
     invoke-static {v0, v1, v2, v4, v5}, Lcom/android/server/am/ActivityManagerService;->appendMemBucket(Ljava/lang/StringBuilder;JLjava/lang/String;Z)V
 
-    .line 1475
+    .line 1496
     new-instance v27, Ljava/lang/StringBuilder;
 
     const/16 v4, 0x400
@@ -412,7 +412,7 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1476
+    .line 1497
     .local v27, logBuilder:Ljava/lang/StringBuilder;
     const-string v4, "Low on memory:\n"
 
@@ -420,14 +420,14 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1478
+    .line 1499
     const/16 v21, 0x1
 
-    .line 1479
+    .line 1500
     .local v21, firstLine:Z
     const/high16 v26, -0x8000
 
-    .line 1480
+    .line 1501
     .local v26, lastOomAdj:I
     const/16 v22, 0x0
 
@@ -446,7 +446,7 @@
 
     if-ge v0, v1, :cond_10
 
-    .line 1481
+    .line 1502
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->val$memInfos:Ljava/util/ArrayList;
@@ -459,7 +459,7 @@
 
     check-cast v3, Lcom/android/server/am/ProcessMemInfo;
 
-    .line 1483
+    .line 1504
     .restart local v3       #mi:Lcom/android/server/am/ProcessMemInfo;
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
@@ -485,7 +485,7 @@
 
     if-ne v4, v5, :cond_e
 
-    .line 1487
+    .line 1508
     :cond_5
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
@@ -493,43 +493,43 @@
 
     if-eq v0, v4, :cond_c
 
-    .line 1488
+    .line 1509
     iget v0, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     move/from16 v26, v0
 
-    .line 1489
+    .line 1510
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     if-gtz v4, :cond_6
 
-    .line 1490
+    .line 1511
     const-string v4, " / "
 
     move-object/from16 v0, v34
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1492
+    .line 1513
     :cond_6
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     if-ltz v4, :cond_b
 
-    .line 1493
+    .line 1514
     if-eqz v21, :cond_7
 
-    .line 1494
+    .line 1515
     const-string v4, ":"
 
     move-object/from16 v0, v33
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1495
+    .line 1516
     const/16 v21, 0x0
 
-    .line 1497
+    .line 1518
     :cond_7
     const-string v4, "\n\t at "
 
@@ -537,13 +537,13 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1505
+    .line 1526
     :goto_4
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     if-gtz v4, :cond_8
 
-    .line 1506
+    .line 1527
     iget-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
     iget-object v8, v3, Lcom/android/server/am/ProcessMemInfo;->name:Ljava/lang/String;
@@ -554,7 +554,7 @@
 
     invoke-static {v0, v4, v5, v8, v9}, Lcom/android/server/am/ActivityManagerService;->appendMemBucket(Ljava/lang/StringBuilder;JLjava/lang/String;Z)V
 
-    .line 1508
+    .line 1529
     :cond_8
     iget-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
@@ -566,7 +566,7 @@
 
     invoke-static {v0, v4, v5, v8, v9}, Lcom/android/server/am/ActivityManagerService;->appendMemBucket(Ljava/lang/StringBuilder;JLjava/lang/String;Z)V
 
-    .line 1509
+    .line 1530
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     if-ltz v4, :cond_e
@@ -595,7 +595,7 @@
 
     if-eq v4, v0, :cond_e
 
-    .line 1511
+    .line 1532
     :cond_9
     const-string v4, "("
 
@@ -603,7 +603,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1512
+    .line 1533
     const/16 v25, 0x0
 
     .local v25, k:I
@@ -616,7 +616,7 @@
 
     if-ge v0, v4, :cond_d
 
-    .line 1513
+    .line 1534
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->DUMP_MEM_OOM_ADJ:[I
 
     aget v4, v4, v25
@@ -625,7 +625,7 @@
 
     if-ne v4, v5, :cond_a
 
-    .line 1514
+    .line 1535
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->DUMP_MEM_OOM_LABEL:[Ljava/lang/String;
 
     aget-object v4, v4, v25
@@ -634,14 +634,14 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1515
+    .line 1536
     const-string v4, ":"
 
     move-object/from16 v0, v33
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1516
+    .line 1537
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->DUMP_MEM_OOM_ADJ:[I
 
     aget v4, v4, v25
@@ -650,13 +650,13 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1512
+    .line 1533
     :cond_a
     add-int/lit8 v25, v25, 0x1
 
     goto :goto_5
 
-    .line 1499
+    .line 1520
     .end local v25           #k:I
     :cond_b
     const-string v4, "$"
@@ -667,7 +667,7 @@
 
     goto :goto_4
 
-    .line 1502
+    .line 1523
     :cond_c
     const-string v4, " "
 
@@ -675,7 +675,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1503
+    .line 1524
     const-string v4, "$"
 
     move-object/from16 v0, v33
@@ -684,7 +684,7 @@
 
     goto :goto_4
 
-    .line 1519
+    .line 1540
     .restart local v25       #k:I
     :cond_d
     const-string v4, ")"
@@ -693,7 +693,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1523
+    .line 1544
     .end local v25           #k:I
     :cond_e
     const-string v4, "  "
@@ -702,7 +702,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1524
+    .line 1545
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
     invoke-static {v4}, Lcom/android/server/am/ProcessList;->makeOomAdjString(I)Ljava/lang/String;
@@ -713,14 +713,14 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1525
+    .line 1546
     const/16 v4, 0x20
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1526
+    .line 1547
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->procState:I
 
     invoke-static {v4}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
@@ -731,102 +731,102 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1527
+    .line 1548
     const/16 v4, 0x20
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1528
+    .line 1549
     iget-wide v4, v3, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
     move-object/from16 v0, v27
 
     invoke-static {v0, v4, v5}, Lcom/android/server/am/ProcessList;->appendRamKb(Ljava/lang/StringBuilder;J)V
 
-    .line 1529
+    .line 1550
     const-string v4, " kB: "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1530
+    .line 1551
     iget-object v4, v3, Lcom/android/server/am/ProcessMemInfo;->name:Ljava/lang/String;
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1531
+    .line 1552
     const-string v4, " ("
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1532
+    .line 1553
     iget v4, v3, Lcom/android/server/am/ProcessMemInfo;->pid:I
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1533
+    .line 1554
     const-string v4, ") "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1534
+    .line 1555
     iget-object v4, v3, Lcom/android/server/am/ProcessMemInfo;->adjType:Ljava/lang/String;
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1535
+    .line 1556
     const/16 v4, 0xa
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1536
+    .line 1557
     iget-object v4, v3, Lcom/android/server/am/ProcessMemInfo;->adjReason:Ljava/lang/String;
 
     if-eqz v4, :cond_f
 
-    .line 1537
+    .line 1558
     const-string v4, "                      "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1538
+    .line 1559
     iget-object v4, v3, Lcom/android/server/am/ProcessMemInfo;->adjReason:Ljava/lang/String;
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1539
+    .line 1560
     const/16 v4, 0xa
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1480
+    .line 1501
     :cond_f
     add-int/lit8 v22, v22, 0x1
 
     goto/16 :goto_3
 
-    .line 1543
+    .line 1564
     .end local v3           #mi:Lcom/android/server/am/ProcessMemInfo;
     :cond_10
     const-string v4, "           "
@@ -835,39 +835,39 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1544
+    .line 1565
     move-object/from16 v0, v27
 
     move-wide/from16 v1, v35
 
     invoke-static {v0, v1, v2}, Lcom/android/server/am/ProcessList;->appendRamKb(Ljava/lang/StringBuilder;J)V
 
-    .line 1545
+    .line 1566
     const-string v4, " kB: TOTAL\n"
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1547
+    .line 1568
     const/16 v4, 0x9
 
     new-array v0, v4, [J
 
     move-object/from16 v24, v0
 
-    .line 1548
+    .line 1569
     .local v24, infos:[J
     invoke-static/range {v24 .. v24}, Landroid/os/Debug;->getMemInfo([J)V
 
-    .line 1549
+    .line 1570
     const-string v4, "  MemInfo: "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1550
+    .line 1571
     const/4 v4, 0x5
 
     aget-wide v4, v24, v4
@@ -882,7 +882,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1551
+    .line 1572
     const/4 v4, 0x4
 
     aget-wide v4, v24, v4
@@ -897,7 +897,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1552
+    .line 1573
     const/4 v4, 0x2
 
     aget-wide v4, v24, v4
@@ -912,7 +912,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1553
+    .line 1574
     const/4 v4, 0x3
 
     aget-wide v4, v24, v4
@@ -927,7 +927,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1554
+    .line 1575
     const/4 v4, 0x1
 
     aget-wide v4, v24, v4
@@ -942,7 +942,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1555
+    .line 1576
     const/16 v4, 0x8
 
     aget-wide v4, v24, v4
@@ -953,14 +953,14 @@
 
     if-eqz v4, :cond_11
 
-    .line 1556
+    .line 1577
     const-string v4, "  ZRAM: "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1557
+    .line 1578
     const/16 v4, 0x8
 
     aget-wide v4, v24, v4
@@ -969,14 +969,14 @@
 
     invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 1558
+    .line 1579
     const-string v4, " kB RAM, "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1559
+    .line 1580
     const/4 v4, 0x6
 
     aget-wide v4, v24, v4
@@ -985,14 +985,14 @@
 
     invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 1560
+    .line 1581
     const-string v4, " kB swap total, "
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1561
+    .line 1582
     const/4 v4, 0x7
 
     aget-wide v4, v24, v4
@@ -1001,14 +1001,14 @@
 
     invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 1562
+    .line 1583
     const-string v4, " kB swap free\n"
 
     move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1564
+    .line 1585
     :cond_11
     const-string v4, "ActivityManager"
 
@@ -1018,7 +1018,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1566
+    .line 1587
     new-instance v20, Ljava/lang/StringBuilder;
 
     const/16 v4, 0x400
@@ -1027,7 +1027,7 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1577
+    .line 1598
     .local v20, dropBuilder:Ljava/lang/StringBuilder;
     move-object/from16 v0, v20
 
@@ -1035,40 +1035,40 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    .line 1578
+    .line 1599
     const/16 v4, 0xa
 
     move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1579
+    .line 1600
     const/16 v4, 0xa
 
     move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1580
+    .line 1601
     move-object/from16 v0, v20
 
     move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    .line 1581
+    .line 1602
     const/16 v4, 0xa
 
     move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1586
+    .line 1607
     new-instance v19, Ljava/io/StringWriter;
 
     invoke-direct/range {v19 .. v19}, Ljava/io/StringWriter;-><init>()V
 
-    .line 1587
+    .line 1608
     .local v19, catSw:Ljava/io/StringWriter;
     move-object/from16 v0, p0
 
@@ -1078,7 +1078,7 @@
 
     monitor-enter v12
 
-    .line 1588
+    .line 1609
     :try_start_2
     new-instance v6, Lcom/android/internal/util/FastPrintWriter;
 
@@ -1090,17 +1090,17 @@
 
     invoke-direct {v6, v0, v4, v5}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
-    .line 1589
+    .line 1610
     .local v6, catPw:Ljava/io/PrintWriter;
     const/4 v4, 0x0
 
     new-array v7, v4, [Ljava/lang/String;
 
-    .line 1590
+    .line 1611
     .local v7, emptyArgs:[Ljava/lang/String;
     invoke-virtual {v6}, Lcom/android/internal/util/FastPrintWriter;->println()V
 
-    .line 1591
+    .line 1612
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1117,10 +1117,10 @@
 
     invoke-virtual/range {v4 .. v10}, Lcom/android/server/am/ActivityManagerService;->dumpProcessesLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;IZLjava/lang/String;)V
 
-    .line 1592
+    .line 1613
     invoke-virtual {v6}, Lcom/android/internal/util/FastPrintWriter;->println()V
 
-    .line 1593
+    .line 1614
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1141,10 +1141,10 @@
 
     invoke-virtual/range {v4 .. v11}, Lcom/android/server/am/ActiveServices;->dumpServicesLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;IZZLjava/lang/String;)V
 
-    .line 1595
+    .line 1616
     invoke-virtual {v6}, Lcom/android/internal/util/FastPrintWriter;->println()V
 
-    .line 1596
+    .line 1617
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1163,15 +1163,15 @@
 
     invoke-virtual/range {v4 .. v11}, Lcom/android/server/am/ActivityManagerService;->dumpActivitiesLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;IZZLjava/lang/String;)V
 
-    .line 1597
+    .line 1618
     invoke-virtual {v6}, Lcom/android/internal/util/FastPrintWriter;->flush()V
 
-    .line 1598
+    .line 1619
     monitor-exit v12
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 1599
+    .line 1620
     invoke-virtual/range {v19 .. v19}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -1180,7 +1180,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1600
+    .line 1621
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1211,7 +1211,7 @@
 
     invoke-virtual/range {v8 .. v17}, Lcom/android/server/am/ActivityManagerService;->addErrorToDropBox(Ljava/lang/String;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Landroid/app/ApplicationErrorReport$CrashInfo;)V
 
-    .line 1604
+    .line 1625
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1220,13 +1220,13 @@
 
     monitor-enter v5
 
-    .line 1605
+    .line 1626
     :try_start_3
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v28
 
-    .line 1606
+    .line 1627
     .local v28, now:J
     move-object/from16 v0, p0
 
@@ -1240,7 +1240,7 @@
 
     if-gez v4, :cond_12
 
-    .line 1607
+    .line 1628
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -1251,16 +1251,16 @@
 
     iput-wide v0, v4, Lcom/android/server/am/ActivityManagerService;->mLastMemUsageReportTime:J
 
-    .line 1609
+    .line 1630
     :cond_12
     monitor-exit v5
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    .line 1610
+    .line 1631
     return-void
 
-    .line 1598
+    .line 1619
     .end local v6           #catPw:Ljava/io/PrintWriter;
     .end local v7           #emptyArgs:[Ljava/lang/String;
     .end local v28           #now:J
@@ -1274,7 +1274,7 @@
 
     throw v4
 
-    .line 1609
+    .line 1630
     .restart local v6       #catPw:Ljava/io/PrintWriter;
     .restart local v7       #emptyArgs:[Ljava/lang/String;
     :catchall_2

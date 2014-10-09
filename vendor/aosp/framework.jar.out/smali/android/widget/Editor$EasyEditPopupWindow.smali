@@ -18,7 +18,7 @@
 
 
 # static fields
-.field private static final POPUP_TEXT_LAYOUT:I = 0x10900ad
+.field private static final POPUP_TEXT_LAYOUT:I = 0x10900aa
 
 
 # instance fields
@@ -263,7 +263,7 @@
     .line 2056
     iget-object v3, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
-    const v4, 0x108062f
+    const v4, 0x1080631
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -295,7 +295,7 @@
 
     .line 2065
     .local v2, wrapContent:Landroid/view/ViewGroup$LayoutParams;
-    const v3, 0x10900ad
+    const v3, 0x10900aa
 
     const/4 v4, 0x0
 
@@ -315,7 +315,7 @@
     .line 2067
     iget-object v3, p0, Landroid/widget/Editor$EasyEditPopupWindow;->mDeleteTextView:Landroid/widget/TextView;
 
-    const v4, 0x10403e5
+    const v4, 0x10403e9
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 

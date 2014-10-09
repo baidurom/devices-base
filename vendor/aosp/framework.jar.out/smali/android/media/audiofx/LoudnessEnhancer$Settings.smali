@@ -23,10 +23,10 @@
     .locals 0
 
     .prologue
-    .line 219
+    .line 218
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 220
+    .line 219
     return-void
 .end method
 
@@ -35,17 +35,17 @@
     .parameter "settings"
 
     .prologue
-    .line 227
+    .line 226
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 228
+    .line 227
     new-instance v2, Ljava/util/StringTokenizer;
 
     const-string v3, "=;"
 
     invoke-direct {v2, p1, v3}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 230
+    .line 229
     .local v2, st:Ljava/util/StringTokenizer;
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -55,7 +55,7 @@
 
     if-eq v3, v4, :cond_0
 
-    .line 231
+    .line 230
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -80,13 +80,13 @@
 
     throw v3
 
-    .line 233
+    .line 232
     :cond_0
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 234
+    .line 233
     .local v0, key:Ljava/lang/String;
     const-string v3, "LoudnessEnhancer"
 
@@ -96,7 +96,7 @@
 
     if-nez v3, :cond_1
 
-    .line 235
+    .line 234
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -121,14 +121,14 @@
 
     throw v3
 
-    .line 239
+    .line 238
     :cond_1
     :try_start_0
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 240
+    .line 239
     const-string/jumbo v3, "targetGainmB"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -137,7 +137,7 @@
 
     if-nez v3, :cond_2
 
-    .line 241
+    .line 240
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -164,11 +164,11 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 244
+    .line 243
     :catch_0
     move-exception v1
 
-    .line 245
+    .line 244
     .local v1, nfe:Ljava/lang/NumberFormatException;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -194,7 +194,7 @@
 
     throw v3
 
-    .line 243
+    .line 242
     .end local v1           #nfe:Ljava/lang/NumberFormatException;
     :cond_2
     :try_start_1
@@ -210,7 +210,7 @@
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 247
+    .line 246
     return-void
 .end method
 
@@ -220,7 +220,7 @@
     .locals 3
 
     .prologue
-    .line 251
+    .line 250
     new-instance v0, Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -249,7 +249,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
-    .line 255
+    .line 254
     .local v0, str:Ljava/lang/String;
     return-object v0
 .end method

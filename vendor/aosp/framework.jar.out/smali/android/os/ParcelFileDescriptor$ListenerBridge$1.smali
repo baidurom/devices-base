@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 1004
+    .line 1006
     iput-object p1, p0, Landroid/os/ParcelFileDescriptor$ListenerBridge$1;->this$0:Landroid/os/ParcelFileDescriptor$ListenerBridge;
 
     iput-object p3, p0, Landroid/os/ParcelFileDescriptor$ListenerBridge$1;->val$listener:Landroid/os/ParcelFileDescriptor$OnCloseListener;
@@ -45,12 +45,12 @@
     .parameter "msg"
 
     .prologue
-    .line 1007
+    .line 1009
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/ParcelFileDescriptor$Status;
 
-    .line 1008
+    .line 1010
     .local v0, s:Landroid/os/ParcelFileDescriptor$Status;
     iget-object v2, p0, Landroid/os/ParcelFileDescriptor$ListenerBridge$1;->val$listener:Landroid/os/ParcelFileDescriptor$OnCloseListener;
 
@@ -63,10 +63,10 @@
     :goto_0
     invoke-interface {v2, v1}, Landroid/os/ParcelFileDescriptor$OnCloseListener;->onClose(Ljava/io/IOException;)V
 
-    .line 1009
+    .line 1011
     return-void
 
-    .line 1008
+    .line 1010
     :cond_0
     const/4 v1, 0x0
 

@@ -2378,8 +2378,9 @@
     throw v1
 .end method
 
-.method public clearDnsInterfaceForUidRange(II)V
+.method public clearDnsInterfaceForUidRange(Ljava/lang/String;II)V
     .locals 6
+    .parameter "iface"
     .parameter "uid_start"
     .parameter "uid_end"
 
@@ -2399,7 +2400,7 @@
 
     const-string v2, "resolver"
 
-    const/4 v3, 0x3
+    const/4 v3, 0x4
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -2411,15 +2412,19 @@
 
     const/4 v4, 0x1
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object p1, v3, v4
+
+    const/4 v4, 0x2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
     aput-object v5, v3, v4
 
-    const/4 v4, 0x2
+    const/4 v4, 0x3
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 

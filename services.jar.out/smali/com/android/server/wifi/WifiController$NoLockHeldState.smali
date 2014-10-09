@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 710
+    .line 720
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$NoLockHeldState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 713
+    .line 723
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$NoLockHeldState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -47,6 +47,6 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->setDriverStart(Z)V
 
-    .line 714
+    .line 724
     return-void
 .end method

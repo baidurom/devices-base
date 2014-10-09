@@ -29,17 +29,17 @@
     .parameter "looper"
 
     .prologue
-    .line 861
+    .line 869
     iput-object p1, p0, Lcom/android/server/print/UserState$UserStateHandler;->this$0:Lcom/android/server/print/UserState;
 
-    .line 862
+    .line 870
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
-    .line 863
+    .line 871
     return-void
 .end method
 
@@ -50,30 +50,30 @@
     .parameter "message"
 
     .prologue
-    .line 867
+    .line 875
     iget v2, p1, Landroid/os/Message;->what:I
 
     const/4 v3, 0x1
 
     if-ne v2, v3, :cond_0
 
-    .line 868
+    .line 876
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/print/PrintJobId;
 
-    .line 869
+    .line 877
     .local v1, printJobId:Landroid/print/PrintJobId;
     iget v0, p1, Landroid/os/Message;->arg1:I
 
-    .line 870
+    .line 878
     .local v0, appId:I
     iget-object v2, p0, Lcom/android/server/print/UserState$UserStateHandler;->this$0:Lcom/android/server/print/UserState;
 
     #calls: Lcom/android/server/print/UserState;->handleDispatchPrintJobStateChanged(Landroid/print/PrintJobId;I)V
     invoke-static {v2, v1, v0}, Lcom/android/server/print/UserState;->access$500(Lcom/android/server/print/UserState;Landroid/print/PrintJobId;I)V
 
-    .line 872
+    .line 880
     .end local v0           #appId:I
     .end local v1           #printJobId:Landroid/print/PrintJobId;
     :cond_0

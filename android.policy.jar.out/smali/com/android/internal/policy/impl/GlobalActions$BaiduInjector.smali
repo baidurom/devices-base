@@ -162,11 +162,30 @@
 .end method
 
 .method public static addRebootMenu(Lcom/android/internal/policy/impl/GlobalActions;)V
-    .locals 0
+    .locals 3
     .parameter "globalActions"
 
     .prologue
-    .line 1177
+    sput-object p0, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
+
+    new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector$5;
+
+    const v1, #android:drawable@ic_lock_reboot#t
+
+    const v2, #android:string@global_action_reboot#t
+
+    invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector$5;-><init>(II)V
+
+    .local v0, action:Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+    sget-object v1, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
+
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$900(Lcom/android/internal/policy/impl/GlobalActions;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     return-void
 .end method
 

@@ -94,960 +94,1062 @@
 
 # virtual methods
 .method public dispatchWapPdu([BLandroid/content/BroadcastReceiver;Lcom/android/internal/telephony/InboundSmsHandler;)I
-    .locals 30
+    .locals 31
     .parameter "pdu"
     .parameter "receiver"
     .parameter "handler"
 
     .prologue
     .line 91
-    const-string v27, "WAP PUSH"
+    const-string v28, "WAP PUSH"
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v29, "Rx: "
+    const-string v30, "Rx: "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-static/range {p1 .. p1}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static/range {p1 .. p1}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 93
-    const/4 v14, 0x0
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 94
-    .local v14, index:I
-    add-int/lit8 v15, v14, 0x1
-
-    .end local v14           #index:I
-    .local v15, index:I
-    aget-byte v27, p1, v14
-
-    move/from16 v0, v27
-
-    and-int/lit16 v0, v0, 0xff
-
-    move/from16 v24, v0
+    const/4 v15, 0x0
 
     .line 95
-    .local v24, transactionId:I
-    add-int/lit8 v14, v15, 0x1
+    .local v15, index:I
+    add-int/lit8 v16, v15, 0x1
 
     .end local v15           #index:I
-    .restart local v14       #index:I
-    aget-byte v27, p1, v15
+    .local v16, index:I
+    :try_start_0
+    aget-byte v28, p1, v15
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_2
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     and-int/lit16 v0, v0, 0xff
 
-    move/from16 v20, v0
+    move/from16 v25, v0
 
-    .line 97
-    .local v20, pduType:I
-    const/16 v27, 0x6
+    .line 96
+    .local v25, transactionId:I
+    add-int/lit8 v15, v16, 0x1
 
-    move/from16 v0, v20
+    .end local v16           #index:I
+    .restart local v15       #index:I
+    :try_start_1
+    aget-byte v28, p1, v16
 
-    move/from16 v1, v27
+    move/from16 v0, v28
+
+    and-int/lit16 v0, v0, 0xff
+
+    move/from16 v21, v0
+
+    .line 98
+    .local v21, pduType:I
+    const/16 v28, 0x6
+
+    move/from16 v0, v21
+
+    move/from16 v1, v28
 
     if-eq v0, v1, :cond_1
 
-    const/16 v27, 0x7
+    const/16 v28, 0x7
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     if-eq v0, v1, :cond_1
 
-    .line 99
+    .line 100
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    invoke-virtual/range {v27 .. v27}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v28 .. v28}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v27
+    move-result-object v28
 
-    const v28, 0x10e0048
+    const v29, 0x10e0048
 
-    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getInteger(I)I
+    :try_end_1
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result v14
-
-    .line 101
-    const/16 v27, -0x1
-
-    move/from16 v0, v27
-
-    if-eq v14, v0, :cond_0
+    move-result v15
 
     .line 102
-    add-int/lit8 v15, v14, 0x1
+    const/16 v28, -0x1
 
-    .end local v14           #index:I
-    .restart local v15       #index:I
-    aget-byte v27, p1, v14
+    move/from16 v0, v28
 
-    move/from16 v0, v27
-
-    and-int/lit16 v0, v0, 0xff
-
-    move/from16 v24, v0
+    if-eq v15, v0, :cond_0
 
     .line 103
-    add-int/lit8 v14, v15, 0x1
+    add-int/lit8 v16, v15, 0x1
 
     .end local v15           #index:I
-    .restart local v14       #index:I
-    aget-byte v27, p1, v15
+    .restart local v16       #index:I
+    :try_start_2
+    aget-byte v28, p1, v15
+    :try_end_2
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_2
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     and-int/lit16 v0, v0, 0xff
 
-    move/from16 v20, v0
+    move/from16 v25, v0
 
-    .line 105
-    const-string v27, "WAP PUSH"
+    .line 104
+    add-int/lit8 v15, v16, 0x1
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    .end local v16           #index:I
+    .restart local v15       #index:I
+    :try_start_3
+    aget-byte v28, p1, v16
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    move/from16 v0, v28
 
-    const-string v29, "index = "
+    and-int/lit16 v0, v0, 0xff
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v21, v0
 
-    move-result-object v28
+    .line 106
+    const-string v28, "WAP PUSH"
 
-    move-object/from16 v0, v28
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v28
+    const-string v30, "index = "
 
-    const-string v29, " PDU Type = "
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v29
 
-    move-result-object v28
+    move-object/from16 v0, v29
 
-    move-object/from16 v0, v28
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move/from16 v1, v20
+    move-result-object v29
+
+    const-string v30, " PDU Type = "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    move/from16 v1, v21
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    const-string v29, " transactionID = "
+    const-string v30, " transactionID = "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 109
-    const/16 v27, 0x6
+    .line 110
+    const/16 v28, 0x6
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     if-eq v0, v1, :cond_1
 
-    const/16 v27, 0x7
+    const/16 v28, 0x7
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     if-eq v0, v1, :cond_1
-
-    .line 111
-    const-string v27, "WAP PUSH"
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v29, "Received non-PUSH WAP PDU. Type = "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 112
-    const/16 v27, 0x1
+    const-string v28, "WAP PUSH"
 
-    .line 255
-    :goto_0
-    return v27
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    .line 115
-    :cond_0
-    const-string v27, "WAP PUSH"
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    const-string v30, "Received non-PUSH WAP PDU. Type = "
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v29, "Received non-PUSH WAP PDU. Type = "
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v29
 
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 113
+    const/16 v28, 0x1
+
+    .line 261
+    .end local v21           #pduType:I
+    .end local v25           #transactionId:I
+    :goto_0
+    return v28
 
     .line 116
-    const/16 v27, 0x1
+    .restart local v21       #pduType:I
+    .restart local v25       #transactionId:I
+    :cond_0
+    const-string v28, "WAP PUSH"
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v30, "Received non-PUSH WAP PDU. Type = "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    move/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 117
+    const/16 v28, 0x1
 
     goto :goto_0
 
-    .line 120
+    .line 121
     :cond_1
-    new-instance v19, Lcom/android/internal/telephony/WspTypeDecoder;
+    new-instance v20, Lcom/android/internal/telephony/WspTypeDecoder;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p1
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/WspTypeDecoder;-><init>([B)V
 
-    .line 128
-    .local v19, pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Lcom/android/internal/telephony/WspTypeDecoder;->decodeUintvarInteger(I)Z
-
-    move-result v27
-
-    if-nez v27, :cond_2
-
     .line 129
-    const-string v27, "WAP PUSH"
+    .local v20, pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
+    move-object/from16 v0, v20
 
-    const-string v28, "Received PDU. Header Length error."
+    invoke-virtual {v0, v15}, Lcom/android/internal/telephony/WspTypeDecoder;->decodeUintvarInteger(I)Z
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v28
+
+    if-nez v28, :cond_2
 
     .line 130
-    const/16 v27, 0x2
+    const-string v28, "WAP PUSH"
+
+    const-string v29, "Received PDU. Header Length error."
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 131
+    const/16 v28, 0x2
 
     goto :goto_0
-
-    .line 132
-    :cond_2
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
-
-    move-result-wide v27
-
-    move-wide/from16 v0, v27
-
-    long-to-int v12, v0
 
     .line 133
-    .local v12, headerLength:I
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getDecodedDataLength()I
+    :cond_2
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
 
-    move-result v27
+    move-result-wide v28
 
-    add-int v14, v14, v27
+    move-wide/from16 v0, v28
 
-    .line 135
-    move v13, v14
+    long-to-int v13, v0
 
-    .line 149
-    .local v13, headerStartIndex:I
-    move-object/from16 v0, v19
+    .line 134
+    .local v13, headerLength:I
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getDecodedDataLength()I
 
-    invoke-virtual {v0, v14}, Lcom/android/internal/telephony/WspTypeDecoder;->decodeContentType(I)Z
+    move-result v28
 
-    move-result v27
+    add-int v15, v15, v28
 
-    if-nez v27, :cond_3
+    .line 136
+    move v14, v15
 
     .line 150
-    const-string v27, "WAP PUSH"
+    .local v14, headerStartIndex:I
+    move-object/from16 v0, v20
 
-    const-string v28, "Received PDU. Header Content-Type error."
+    invoke-virtual {v0, v15}, Lcom/android/internal/telephony/WspTypeDecoder;->decodeContentType(I)Z
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v28
+
+    if-nez v28, :cond_3
 
     .line 151
-    const/16 v27, 0x2
+    const-string v28, "WAP PUSH"
+
+    const-string v29, "Received PDU. Header Content-Type error."
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 152
+    const/16 v28, 0x2
 
     goto :goto_0
 
-    .line 154
-    :cond_3
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getValueString()Ljava/lang/String;
-
-    move-result-object v18
-
     .line 155
-    .local v18, mimeType:Ljava/lang/String;
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
+    :cond_3
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getValueString()Ljava/lang/String;
 
-    move-result-wide v5
+    move-result-object v19
 
     .line 156
-    .local v5, binaryContentType:J
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getDecodedDataLength()I
+    .local v19, mimeType:Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
 
-    move-result v27
+    move-result-wide v6
 
-    add-int v14, v14, v27
+    .line 157
+    .local v6, binaryContentType:J
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getDecodedDataLength()I
 
-    .line 158
-    new-array v11, v12, [B
+    move-result v28
+
+    add-int v15, v15, v28
 
     .line 159
-    .local v11, header:[B
-    const/16 v27, 0x0
+    new-array v12, v13, [B
 
-    array-length v0, v11
+    .line 160
+    .local v12, header:[B
+    const/16 v28, 0x0
 
-    move/from16 v28, v0
+    array-length v0, v12
+
+    move/from16 v29, v0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
-    move/from16 v2, v28
+    move/from16 v2, v29
 
-    invoke-static {v0, v13, v11, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v14, v12, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 163
-    if-eqz v18, :cond_6
+    .line 164
+    if-eqz v19, :cond_6
 
-    const-string v27, "application/vnd.wap.coc"
+    const-string v28, "application/vnd.wap.coc"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v27
+    move-result v28
 
-    if-eqz v27, :cond_6
+    if-eqz v28, :cond_6
 
-    .line 164
-    move-object/from16 v17, p1
-
-    .line 177
-    .local v17, intentData:[B
-    :goto_1
-    add-int v27, v14, v12
-
-    add-int/lit8 v27, v27, -0x1
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v27
-
-    invoke-virtual {v0, v14, v1}, Lcom/android/internal/telephony/WspTypeDecoder;->seekXWapApplicationId(II)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_9
+    .line 165
+    move-object/from16 v18, p1
 
     .line 178
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
+    .local v18, intentData:[B
+    :goto_1
+    add-int v28, v15, v13
 
-    move-result-wide v27
+    add-int/lit8 v28, v28, -0x1
 
-    move-wide/from16 v0, v27
+    move-object/from16 v0, v20
 
-    long-to-int v14, v0
+    move/from16 v1, v28
+
+    invoke-virtual {v0, v15, v1}, Lcom/android/internal/telephony/WspTypeDecoder;->seekXWapApplicationId(II)Z
+
+    move-result v28
+
+    if-eqz v28, :cond_9
 
     .line 179
-    move-object/from16 v0, v19
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
 
-    invoke-virtual {v0, v14}, Lcom/android/internal/telephony/WspTypeDecoder;->decodeXWapApplicationId(I)Z
+    move-result-wide v28
+
+    move-wide/from16 v0, v28
+
+    long-to-int v15, v0
 
     .line 180
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getValueString()Ljava/lang/String;
+    move-object/from16 v0, v20
 
-    move-result-object v25
+    invoke-virtual {v0, v15}, Lcom/android/internal/telephony/WspTypeDecoder;->decodeXWapApplicationId(I)Z
 
     .line 181
-    .local v25, wapAppId:Ljava/lang/String;
-    if-nez v25, :cond_4
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getValueString()Ljava/lang/String;
+
+    move-result-object v26
 
     .line 182
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
+    .local v26, wapAppId:Ljava/lang/String;
+    if-nez v26, :cond_4
 
-    move-result-wide v27
+    .line 183
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
 
-    move-wide/from16 v0, v27
+    move-result-wide v28
+
+    move-wide/from16 v0, v28
 
     long-to-int v0, v0
 
-    move/from16 v27, v0
+    move/from16 v28, v0
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static/range {v28 .. v28}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
-    .line 185
+    .line 186
     :cond_4
-    if-nez v18, :cond_7
+    if-nez v19, :cond_7
 
-    invoke-static {v5, v6}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
+    invoke-static {v6, v7}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    .line 187
-    .local v8, contentType:Ljava/lang/String;
+    .line 188
+    .local v9, contentType:Ljava/lang/String;
     :goto_2
-    const-string v27, "WAP PUSH"
+    const-string v28, "WAP PUSH"
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v29, "appid found: "
+    const-string v30, "appid found: "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    const-string v29, ":"
+    const-string v30, ":"
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 190
-    const/16 v23, 0x1
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 191
-    .local v23, processFurther:Z
-    :try_start_0
+    const/16 v24, 0x1
+
+    .line 192
+    .local v24, processFurther:Z
+    :try_start_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mWapPushManager:Lcom/android/internal/telephony/IWapPushManager;
 
-    move-object/from16 v26, v0
-
-    .line 193
-    .local v26, wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    if-nez v26, :cond_8
+    move-object/from16 v27, v0
 
     .line 194
-    const-string v27, "WAP PUSH"
+    .local v27, wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
+    if-nez v27, :cond_8
 
-    const-string v28, "wap push manager not found!"
+    .line 195
+    const-string v28, "WAP PUSH"
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    const-string v29, "wap push manager not found!"
 
-    .line 211
-    :cond_5
-    :goto_3
-    if-nez v23, :cond_9
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 212
-    const/16 v27, 0x1
+    :cond_5
+    :goto_3
+    if-nez v24, :cond_9
+
+    .line 213
+    const/16 v28, 0x1
 
     goto/16 :goto_0
 
-    .line 166
-    .end local v8           #contentType:Ljava/lang/String;
-    .end local v17           #intentData:[B
-    .end local v23           #processFurther:Z
-    .end local v25           #wapAppId:Ljava/lang/String;
-    .end local v26           #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    :cond_6
-    add-int v9, v13, v12
-
     .line 167
-    .local v9, dataIndex:I
-    move-object/from16 v0, p1
-
-    array-length v0, v0
-
-    move/from16 v27, v0
-
-    sub-int v27, v27, v9
-
-    move/from16 v0, v27
-
-    new-array v0, v0, [B
-
-    move-object/from16 v17, v0
+    .end local v9           #contentType:Ljava/lang/String;
+    .end local v18           #intentData:[B
+    .end local v24           #processFurther:Z
+    .end local v26           #wapAppId:Ljava/lang/String;
+    .end local v27           #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
+    :cond_6
+    add-int v10, v14, v13
 
     .line 168
-    .restart local v17       #intentData:[B
-    const/16 v27, 0x0
-
-    move-object/from16 v0, v17
+    .local v10, dataIndex:I
+    :try_start_5
+    move-object/from16 v0, p1
 
     array-length v0, v0
 
     move/from16 v28, v0
 
+    sub-int v28, v28, v10
+
+    move/from16 v0, v28
+
+    new-array v0, v0, [B
+
+    move-object/from16 v18, v0
+
+    .line 169
+    .restart local v18       #intentData:[B
+    const/16 v28, 0x0
+
+    move-object/from16 v0, v18
+
+    array-length v0, v0
+
+    move/from16 v29, v0
+
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
-    move/from16 v3, v28
+    move/from16 v3, v29
 
-    invoke-static {v0, v9, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v10, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    :try_end_5
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_5 .. :try_end_5} :catch_0
 
     goto/16 :goto_1
 
-    .end local v9           #dataIndex:I
-    .restart local v25       #wapAppId:Ljava/lang/String;
+    .line 257
+    .end local v6           #binaryContentType:J
+    .end local v10           #dataIndex:I
+    .end local v12           #header:[B
+    .end local v13           #headerLength:I
+    .end local v14           #headerStartIndex:I
+    .end local v18           #intentData:[B
+    .end local v19           #mimeType:Ljava/lang/String;
+    .end local v20           #pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
+    .end local v21           #pduType:I
+    :catch_0
+    move-exception v4
+
+    .line 260
+    .end local v25           #transactionId:I
+    .local v4, aie:Ljava/lang/ArrayIndexOutOfBoundsException;
+    :goto_4
+    const-string v28, "WAP PUSH"
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v30, "ignoring dispatchWapPdu() array index exception: "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 261
+    const/16 v28, 0x2
+
+    goto/16 :goto_0
+
+    .end local v4           #aie:Ljava/lang/ArrayIndexOutOfBoundsException;
+    .restart local v6       #binaryContentType:J
+    .restart local v12       #header:[B
+    .restart local v13       #headerLength:I
+    .restart local v14       #headerStartIndex:I
+    .restart local v18       #intentData:[B
+    .restart local v19       #mimeType:Ljava/lang/String;
+    .restart local v20       #pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
+    .restart local v21       #pduType:I
+    .restart local v25       #transactionId:I
+    .restart local v26       #wapAppId:Ljava/lang/String;
     :cond_7
-    move-object/from16 v8, v18
+    move-object/from16 v9, v19
 
-    .line 185
-    goto :goto_2
-
-    .line 196
-    .restart local v8       #contentType:Ljava/lang/String;
-    .restart local v23       #processFurther:Z
-    .restart local v26       #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    :cond_8
-    :try_start_1
-    new-instance v16, Landroid/content/Intent;
-
-    invoke-direct/range {v16 .. v16}, Landroid/content/Intent;-><init>()V
+    .line 186
+    goto/16 :goto_2
 
     .line 197
-    .local v16, intent:Landroid/content/Intent;
-    const-string v27, "transactionId"
+    .restart local v9       #contentType:Ljava/lang/String;
+    .restart local v24       #processFurther:Z
+    .restart local v27       #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
+    :cond_8
+    :try_start_6
+    new-instance v17, Landroid/content/Intent;
 
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v27
-
-    move/from16 v2, v24
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-direct/range {v17 .. v17}, Landroid/content/Intent;-><init>()V
 
     .line 198
-    const-string v27, "pduType"
+    .local v17, intent:Landroid/content/Intent;
+    const-string v28, "transactionId"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move/from16 v2, v20
+    move/from16 v2, v25
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 199
-    const-string v27, "header"
+    const-string v28, "pduType"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    invoke-virtual {v0, v1, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    .line 200
-    const-string v27, "data"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v27
-
-    move-object/from16 v2, v17
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    .line 201
-    const-string v27, "contentTypeParameters"
-
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getContentParameters()Ljava/util/HashMap;
-
-    move-result-object v28
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v27
-
-    move-object/from16 v2, v28
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
-
-    .line 204
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v25
-
-    move-object/from16 v2, v16
-
-    invoke-interface {v0, v1, v8, v2}, Lcom/android/internal/telephony/IWapPushManager;->processMessage(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)I
-
-    move-result v22
-
-    .line 205
-    .local v22, procRet:I
-    const-string v27, "WAP PUSH"
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v29, "procRet:"
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    .line 206
-    and-int/lit8 v27, v22, 0x1
-
-    if-lez v27, :cond_5
-
-    const v27, 0x8000
-
-    and-int v27, v27, v22
-
-    if-nez v27, :cond_5
-
-    .line 208
-    const/16 v23, 0x0
-
-    goto/16 :goto_3
-
-    .line 214
-    .end local v16           #intent:Landroid/content/Intent;
-    .end local v22           #procRet:I
-    .end local v26           #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    :catch_0
-    move-exception v10
-
-    .line 215
-    .local v10, e:Landroid/os/RemoteException;
-    const-string v27, "WAP PUSH"
-
-    const-string v28, "remote func failed..."
-
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 218
-    .end local v8           #contentType:Ljava/lang/String;
-    .end local v10           #e:Landroid/os/RemoteException;
-    .end local v23           #processFurther:Z
-    .end local v25           #wapAppId:Ljava/lang/String;
-    :cond_9
-    const-string v27, "WAP PUSH"
-
-    const-string v28, "fall back to existing handler"
-
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 220
-    if-nez v18, :cond_a
-
-    .line 221
-    const-string v27, "WAP PUSH"
-
-    const-string v28, "Header Content-Type error."
-
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 222
-    const/16 v27, 0x2
-
-    goto/16 :goto_0
-
-    .line 228
-    :cond_a
-    const-string v27, "application/vnd.wap.mms-message"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v27
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v27
-
-    if-eqz v27, :cond_c
-
-    .line 229
-    const-string v21, "android.permission.RECEIVE_MMS"
-
-    .line 230
-    .local v21, permission:Ljava/lang/String;
-    const/16 v4, 0x12
-
-    .line 236
-    .local v4, appOp:I
-    :goto_4
-    new-instance v16, Landroid/content/Intent;
-
-    const-string v27, "android.provider.Telephony.WAP_PUSH_DELIVER"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v27
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 237
-    .restart local v16       #intent:Landroid/content/Intent;
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 238
-    const-string v27, "transactionId"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v27
-
-    move/from16 v2, v24
+    move/from16 v2, v21
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 200
+    const-string v28, "header"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
+
+    .line 201
+    const-string v28, "data"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v28
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
+
+    .line 202
+    const-string v28, "contentTypeParameters"
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getContentParameters()Ljava/util/HashMap;
+
+    move-result-object v29
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v28
+
+    move-object/from16 v2, v29
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+
+    .line 205
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v17
+
+    invoke-interface {v0, v1, v9, v2}, Lcom/android/internal/telephony/IWapPushManager;->processMessage(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)I
+
+    move-result v23
+
+    .line 206
+    .local v23, procRet:I
+    const-string v28, "WAP PUSH"
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v30, "procRet:"
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_6 .. :try_end_6} :catch_0
+
+    .line 207
+    and-int/lit8 v28, v23, 0x1
+
+    if-lez v28, :cond_5
+
+    const v28, 0x8000
+
+    and-int v28, v28, v23
+
+    if-nez v28, :cond_5
+
+    .line 209
+    const/16 v24, 0x0
+
+    goto/16 :goto_3
+
+    .line 215
+    .end local v17           #intent:Landroid/content/Intent;
+    .end local v23           #procRet:I
+    .end local v27           #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
+    :catch_1
+    move-exception v11
+
+    .line 216
+    .local v11, e:Landroid/os/RemoteException;
+    :try_start_7
+    const-string v28, "WAP PUSH"
+
+    const-string v29, "remote func failed..."
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 219
+    .end local v9           #contentType:Ljava/lang/String;
+    .end local v11           #e:Landroid/os/RemoteException;
+    .end local v24           #processFurther:Z
+    .end local v26           #wapAppId:Ljava/lang/String;
+    :cond_9
+    const-string v28, "WAP PUSH"
+
+    const-string v29, "fall back to existing handler"
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 221
+    if-nez v19, :cond_a
+
+    .line 222
+    const-string v28, "WAP PUSH"
+
+    const-string v29, "Header Content-Type error."
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 223
+    const/16 v28, 0x2
+
+    goto/16 :goto_0
+
+    .line 229
+    :cond_a
+    const-string v28, "application/vnd.wap.mms-message"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v28
+
+    if-eqz v28, :cond_c
+
+    .line 230
+    const-string v22, "android.permission.RECEIVE_MMS"
+
+    .line 231
+    .local v22, permission:Ljava/lang/String;
+    const/16 v5, 0x12
+
+    .line 237
+    .local v5, appOp:I
+    :goto_5
+    new-instance v17, Landroid/content/Intent;
+
+    const-string v28, "android.provider.Telephony.WAP_PUSH_DELIVER"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v28
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 238
+    .restart local v17       #intent:Landroid/content/Intent;
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+
     .line 239
-    const-string v27, "pduType"
+    const-string v28, "transactionId"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move/from16 v2, v20
+    move/from16 v2, v25
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 240
-    const-string v27, "header"
+    const-string v28, "pduType"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    invoke-virtual {v0, v1, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
+    move/from16 v2, v21
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 241
-    const-string v27, "data"
+    const-string v28, "header"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v17
+    invoke-virtual {v0, v1, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
+
+    .line 242
+    const-string v28, "data"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v28
+
+    move-object/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
 
-    .line 242
-    const-string v27, "contentTypeParameters"
+    .line 243
+    const-string v28, "contentTypeParameters"
 
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/WspTypeDecoder;->getContentParameters()Ljava/util/HashMap;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/internal/telephony/WspTypeDecoder;->getContentParameters()Ljava/util/HashMap;
 
-    move-result-object v28
+    move-result-object v29
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v29
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 246
+    .line 247
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    const/16 v28, 0x1
+    const/16 v29, 0x1
 
-    invoke-static/range {v27 .. v28}, Lcom/android/internal/telephony/SmsApplication;->getDefaultMmsApplication(Landroid/content/Context;Z)Landroid/content/ComponentName;
+    invoke-static/range {v28 .. v29}, Lcom/android/internal/telephony/SmsApplication;->getDefaultMmsApplication(Landroid/content/Context;Z)Landroid/content/ComponentName;
 
-    move-result-object v7
+    move-result-object v8
 
-    .line 247
-    .local v7, componentName:Landroid/content/ComponentName;
-    if-eqz v7, :cond_b
-
-    .line 249
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v7}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    .line 248
+    .local v8, componentName:Landroid/content/ComponentName;
+    if-eqz v8, :cond_b
 
     .line 250
-    const-string v27, "WAP PUSH"
+    move-object/from16 v0, v17
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    .line 251
+    const-string v28, "WAP PUSH"
 
-    const-string v29, "Delivering MMS to: "
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v28
+    const-string v30, "Delivering MMS to: "
 
-    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v29
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    const-string v29, " "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual {v7}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v30, " "
 
-    .line 254
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual {v8}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 255
     :cond_b
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
-    move-object/from16 v2, v21
+    move-object/from16 v2, v22
 
     move-object/from16 v3, p2
 
-    invoke-virtual {v0, v1, v2, v4, v3}, Lcom/android/internal/telephony/InboundSmsHandler;->dispatchIntent(Landroid/content/Intent;Ljava/lang/String;ILandroid/content/BroadcastReceiver;)V
+    invoke-virtual {v0, v1, v2, v5, v3}, Lcom/android/internal/telephony/InboundSmsHandler;->dispatchIntent(Landroid/content/Intent;Ljava/lang/String;ILandroid/content/BroadcastReceiver;)V
 
-    .line 255
-    const/16 v27, -0x1
+    .line 256
+    const/16 v28, -0x1
 
     goto/16 :goto_0
 
-    .line 232
-    .end local v4           #appOp:I
-    .end local v7           #componentName:Landroid/content/ComponentName;
-    .end local v16           #intent:Landroid/content/Intent;
-    .end local v21           #permission:Ljava/lang/String;
-    :cond_c
-    const-string v21, "android.permission.RECEIVE_WAP_PUSH"
-
     .line 233
-    .restart local v21       #permission:Ljava/lang/String;
-    const/16 v4, 0x13
+    .end local v5           #appOp:I
+    .end local v8           #componentName:Landroid/content/ComponentName;
+    .end local v17           #intent:Landroid/content/Intent;
+    .end local v22           #permission:Ljava/lang/String;
+    :cond_c
+    const-string v22, "android.permission.RECEIVE_WAP_PUSH"
+    :try_end_7
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_7 .. :try_end_7} :catch_0
 
-    .restart local v4       #appOp:I
+    .line 234
+    .restart local v22       #permission:Ljava/lang/String;
+    const/16 v5, 0x13
+
+    .restart local v5       #appOp:I
+    goto/16 :goto_5
+
+    .line 257
+    .end local v5           #appOp:I
+    .end local v6           #binaryContentType:J
+    .end local v12           #header:[B
+    .end local v13           #headerLength:I
+    .end local v14           #headerStartIndex:I
+    .end local v15           #index:I
+    .end local v18           #intentData:[B
+    .end local v19           #mimeType:Ljava/lang/String;
+    .end local v20           #pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
+    .end local v21           #pduType:I
+    .end local v22           #permission:Ljava/lang/String;
+    .end local v25           #transactionId:I
+    .restart local v16       #index:I
+    :catch_2
+    move-exception v4
+
+    move/from16 v15, v16
+
+    .end local v16           #index:I
+    .restart local v15       #index:I
     goto/16 :goto_4
 .end method
 

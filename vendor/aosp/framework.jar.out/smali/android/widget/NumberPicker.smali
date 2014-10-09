@@ -22,7 +22,7 @@
 
 
 # static fields
-.field private static final DEFAULT_LAYOUT_RESOURCE_ID:I = 0x109006e
+.field private static final DEFAULT_LAYOUT_RESOURCE_ID:I = 0x109006b
 
 .field private static final DEFAULT_LONG_PRESS_UPDATE_INTERVAL:J = 0x12cL
 
@@ -334,7 +334,7 @@
     .local v3, attributesArray:Landroid/content/res/TypedArray;
     const/4 v14, 0x1
 
-    const v15, 0x109006e
+    const v15, 0x109006b
 
     invoke-virtual {v3, v14, v15}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -342,7 +342,7 @@
 
     .line 573
     .local v10, layoutResId:I
-    const v14, 0x109006e
+    const v14, 0x109006b
 
     if-eq v10, v14, :cond_0
 
@@ -675,7 +675,7 @@
     if-nez v14, :cond_6
 
     .line 658
-    const v14, 0x10202e5
+    const v14, 0x10202e8
 
     move-object/from16 v0, p0
 
@@ -712,7 +712,7 @@
     if-nez v14, :cond_7
 
     .line 667
-    const v14, 0x10202e7
+    const v14, 0x10202ea
 
     move-object/from16 v0, p0
 
@@ -742,7 +742,7 @@
 
     .line 675
     :goto_4
-    const v14, 0x10202e6
+    const v14, 0x10202e9
 
     move-object/from16 v0, p0
 

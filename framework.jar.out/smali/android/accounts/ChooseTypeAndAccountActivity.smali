@@ -498,7 +498,7 @@
 
     move-result-object v3
 
-    const v4, 0x10404e5
+    const v4, 0x10404e9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -651,7 +651,7 @@
 
     .prologue
     .line 549
-    const v1, 0x102027f
+    const v1, 0x1020280
 
     invoke-virtual {p0, v1}, Landroid/accounts/ChooseTypeAndAccountActivity;->findViewById(I)Landroid/view/View;
 
@@ -1469,7 +1469,7 @@
 
     .line 151
     .local v4, restrictions:Landroid/os/Bundle;
-    const-string v6, "no_modify_accounts"
+    const-string/jumbo v6, "no_modify_accounts"
 
     const/4 v7, 0x0
 

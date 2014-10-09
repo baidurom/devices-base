@@ -302,7 +302,7 @@
     .parameter "service"
 
     .prologue
-    .line 777
+    .line 785
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {p1}, Lcom/android/server/print/RemotePrintService;->getComponentName()Landroid/content/ComponentName;
@@ -311,17 +311,17 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 778
+    .line 786
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-eqz v0, :cond_0
 
-    .line 779
+    .line 787
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->onServiceAddedLocked(Lcom/android/server/print/RemotePrintService;)V
 
-    .line 781
+    .line 789
     :cond_0
     return-void
 .end method
@@ -330,29 +330,29 @@
     .locals 12
 
     .prologue
-    .line 695
+    .line 703
     invoke-direct {p0}, Lcom/android/server/print/UserState;->readEnabledPrintServicesLocked()Z
 
-    .line 696
+    .line 704
     invoke-direct {p0}, Lcom/android/server/print/UserState;->readInstalledPrintServicesLocked()Z
 
-    .line 699
+    .line 707
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
-    .line 700
+    .line 708
     .local v1, enabledOnFirstBoot:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/ComponentName;>;"
     const-string v9, "enabled_on_first_boot_system_print_services"
 
     invoke-direct {p0, v9, v1}, Lcom/android/server/print/UserState;->readPrintServicesFromSettingLocked(Ljava/lang/String;Ljava/util/Set;)V
 
-    .line 704
+    .line 712
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 706
+    .line 714
     .local v0, builder:Ljava/lang/StringBuilder;
     iget-object v9, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
@@ -360,7 +360,7 @@
 
     move-result v5
 
-    .line 707
+    .line 715
     .local v5, serviceCount:I
     const/4 v4, 0x0
 
@@ -368,7 +368,7 @@
     :goto_0
     if-ge v4, v5, :cond_2
 
-    .line 708
+    .line 716
     iget-object v9, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
     invoke-interface {v9, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -383,7 +383,7 @@
 
     iget-object v6, v9, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 710
+    .line 718
     .local v6, serviceInfo:Landroid/content/pm/ServiceInfo;
     iget-object v9, v6, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -393,7 +393,7 @@
 
     if-eqz v9, :cond_1
 
-    .line 711
+    .line 719
     new-instance v7, Landroid/content/ComponentName;
 
     iget-object v9, v6, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
@@ -402,7 +402,7 @@
 
     invoke-direct {v7, v9, v10}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 713
+    .line 721
     .local v7, serviceName:Landroid/content/ComponentName;
     iget-object v9, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
@@ -418,19 +418,19 @@
 
     if-nez v9, :cond_1
 
-    .line 715
+    .line 723
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v9
 
     if-lez v9, :cond_0
 
-    .line 716
+    .line 724
     const-string v9, ":"
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 718
+    .line 726
     :cond_0
     invoke-virtual {v7}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
@@ -438,14 +438,14 @@
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 707
+    .line 715
     .end local v7           #serviceName:Landroid/content/ComponentName;
     :cond_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 724
+    .line 732
     .end local v6           #serviceInfo:Landroid/content/pm/ServiceInfo;
     :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
@@ -454,17 +454,17 @@
 
     if-gtz v9, :cond_3
 
-    .line 753
+    .line 761
     :goto_1
     return-void
 
-    .line 728
+    .line 736
     :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 731
+    .line 739
     .local v8, servicesToEnable:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
@@ -480,7 +480,7 @@
 
     move-result-object v3
 
-    .line 733
+    .line 741
     .local v3, enabledServices:Ljava/lang/String;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -488,10 +488,10 @@
 
     if-eqz v9, :cond_4
 
-    .line 734
+    .line 742
     move-object v3, v8
 
-    .line 738
+    .line 746
     :goto_2
     iget-object v9, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
@@ -505,7 +505,7 @@
 
     invoke-static {v9, v10, v3, v11}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    .line 742
+    .line 750
     iget-object v9, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
     invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -520,7 +520,7 @@
 
     move-result-object v2
 
-    .line 745
+    .line 753
     .local v2, enabledOnFirstBootServices:Ljava/lang/String;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -528,10 +528,10 @@
 
     if-eqz v9, :cond_5
 
-    .line 746
+    .line 754
     move-object v2, v8
 
-    .line 750
+    .line 758
     :goto_3
     iget-object v9, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
@@ -547,7 +547,7 @@
 
     goto :goto_1
 
-    .line 736
+    .line 744
     .end local v2           #enabledOnFirstBootServices:Ljava/lang/String;
     :cond_4
     new-instance v9, Ljava/lang/StringBuilder;
@@ -574,7 +574,7 @@
 
     goto :goto_2
 
-    .line 748
+    .line 756
     .restart local v2       #enabledOnFirstBootServices:Ljava/lang/String;
     :cond_5
     new-instance v9, Ljava/lang/StringBuilder;
@@ -607,7 +607,7 @@
     .parameter "serviceName"
 
     .prologue
-    .line 799
+    .line 807
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -618,7 +618,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 800
+    .line 808
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
@@ -629,11 +629,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 809
+    .line 817
     :goto_0
     return-void
 
-    .line 807
+    .line 815
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/print/UserState;->failScheduledPrintJobsForServiceInternal(Landroid/content/ComponentName;)V
 
@@ -645,7 +645,7 @@
     .parameter "serviceName"
 
     .prologue
-    .line 812
+    .line 820
     iget-object v6, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
     const/4 v7, -0x4
@@ -656,28 +656,28 @@
 
     move-result-object v5
 
-    .line 814
+    .line 822
     .local v5, printJobs:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     if-nez v5, :cond_0
 
-    .line 828
+    .line 836
     :goto_0
     return-void
 
-    .line 817
+    .line 825
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
-    .line 819
+    .line 827
     .local v1, identity:J
     :try_start_0
     invoke-interface {v5}, Ljava/util/List;->size()I
 
     move-result v4
 
-    .line 820
+    .line 828
     .local v4, printJobCount:I
     const/4 v0, 0x0
 
@@ -685,14 +685,14 @@
     :goto_1
     if-ge v0, v4, :cond_1
 
-    .line 821
+    .line 829
     invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/print/PrintJobInfo;
 
-    .line 822
+    .line 830
     .local v3, printJob:Landroid/print/PrintJobInfo;
     iget-object v6, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
@@ -704,7 +704,7 @@
 
     iget-object v9, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
-    const v10, 0x10405d4
+    const v10, 0x10405df
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -714,12 +714,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 820
+    .line 828
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 826
+    .line 834
     .end local v0           #i:I
     .end local v3           #printJob:Landroid/print/PrintJobInfo;
     .end local v4           #printJobCount:I
@@ -744,25 +744,25 @@
     .parameter "appId"
 
     .prologue
-    .line 838
+    .line 846
     iget-object v6, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v6
 
-    .line 839
+    .line 847
     :try_start_0
     iget-object v5, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
     if-nez v5, :cond_1
 
-    .line 840
+    .line 848
     monitor-exit v6
 
-    .line 856
+    .line 864
     :cond_0
     return-void
 
-    .line 842
+    .line 850
     :cond_1
     new-instance v4, Ljava/util/ArrayList;
 
@@ -770,18 +770,18 @@
 
     invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 844
+    .line 852
     .local v4, records:Ljava/util/List;,"Ljava/util/List<Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;>;"
     monitor-exit v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 845
+    .line 853
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v3
 
-    .line 846
+    .line 854
     .local v3, recordCount:I
     const/4 v0, 0x0
 
@@ -789,14 +789,14 @@
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 847
+    .line 855
     invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
 
-    .line 848
+    .line 856
     .local v2, record:Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
     iget v5, v2, Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;->appId:I
 
@@ -808,7 +808,7 @@
 
     if-ne v5, p2, :cond_3
 
-    .line 851
+    .line 859
     :cond_2
     :try_start_1
     iget-object v5, v2, Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;->listener:Landroid/print/IPrintJobStateChangeListener;
@@ -817,14 +817,14 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 846
+    .line 854
     :cond_3
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 844
+    .line 852
     .end local v0           #i:I
     .end local v2           #record:Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
     .end local v3           #recordCount:I
@@ -839,7 +839,7 @@
 
     throw v5
 
-    .line 852
+    .line 860
     .restart local v0       #i:I
     .restart local v2       #record:Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
     .restart local v3       #recordCount:I
@@ -847,7 +847,7 @@
     :catch_0
     move-exception v1
 
-    .line 853
+    .line 861
     .local v1, re:Landroid/os/RemoteException;
     const-string v5, "UserState"
 
@@ -862,14 +862,14 @@
     .locals 9
 
     .prologue
-    .line 756
+    .line 764
     iget-object v1, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v7
 
-    .line 757
+    .line 765
     .local v7, installedCount:I
     const/4 v6, 0x0
 
@@ -877,7 +877,7 @@
     :goto_0
     if-ge v6, v7, :cond_2
 
-    .line 758
+    .line 766
     iget-object v1, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
     invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -890,7 +890,7 @@
 
     move-result-object v8
 
-    .line 759
+    .line 767
     .local v8, resolveInfo:Landroid/content/pm/ResolveInfo;
     new-instance v2, Landroid/content/ComponentName;
 
@@ -904,7 +904,7 @@
 
     invoke-direct {v2, v1, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 761
+    .line 769
     .local v2, serviceName:Landroid/content/ComponentName;
     iget-object v1, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
@@ -914,7 +914,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 762
+    .line 770
     iget-object v1, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
@@ -923,7 +923,7 @@
 
     if-nez v1, :cond_0
 
-    .line 763
+    .line 771
     new-instance v0, Lcom/android/server/print/RemotePrintService;
 
     iget-object v1, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
@@ -936,11 +936,11 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/print/RemotePrintService;-><init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/print/RemotePrintSpooler;Lcom/android/server/print/RemotePrintService$PrintServiceCallbacks;)V
 
-    .line 765
+    .line 773
     .local v0, service:Lcom/android/server/print/RemotePrintService;
     invoke-direct {p0, v0}, Lcom/android/server/print/UserState;->addServiceLocked(Lcom/android/server/print/RemotePrintService;)V
 
-    .line 757
+    .line 765
     .end local v0           #service:Lcom/android/server/print/RemotePrintService;
     :cond_0
     :goto_1
@@ -948,7 +948,7 @@
 
     goto :goto_0
 
-    .line 768
+    .line 776
     :cond_1
     iget-object v1, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
@@ -958,16 +958,16 @@
 
     check-cast v0, Lcom/android/server/print/RemotePrintService;
 
-    .line 769
+    .line 777
     .restart local v0       #service:Lcom/android/server/print/RemotePrintService;
     if-eqz v0, :cond_0
 
-    .line 770
+    .line 778
     invoke-direct {p0, v0}, Lcom/android/server/print/UserState;->removeServiceLocked(Lcom/android/server/print/RemotePrintService;)V
 
     goto :goto_1
 
-    .line 774
+    .line 782
     .end local v0           #service:Lcom/android/server/print/RemotePrintService;
     .end local v2           #serviceName:Landroid/content/ComponentName;
     .end local v8           #resolveInfo:Landroid/content/pm/ResolveInfo;
@@ -979,10 +979,10 @@
     .locals 2
 
     .prologue
-    .line 622
+    .line 630
     const/4 v0, 0x0
 
-    .line 623
+    .line 631
     .local v0, somethingChanged:Z
     invoke-direct {p0}, Lcom/android/server/print/UserState;->readInstalledPrintServicesLocked()Z
 
@@ -990,14 +990,14 @@
 
     or-int/2addr v0, v1
 
-    .line 624
+    .line 632
     invoke-direct {p0}, Lcom/android/server/print/UserState;->readEnabledPrintServicesLocked()Z
 
     move-result v1
 
     or-int/2addr v0, v1
 
-    .line 625
+    .line 633
     return v0
 .end method
 
@@ -1005,18 +1005,18 @@
     .locals 2
 
     .prologue
-    .line 662
+    .line 670
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 663
+    .line 671
     .local v0, tempEnabledServiceNameSet:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/ComponentName;>;"
     const-string v1, "enabled_print_services"
 
     invoke-direct {p0, v1, v0}, Lcom/android/server/print/UserState;->readPrintServicesFromSettingLocked(Ljava/lang/String;Ljava/util/Set;)V
 
-    .line 665
+    .line 673
     iget-object v1, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
     invoke-virtual {v0, v1}, Ljava/util/AbstractSet;->equals(Ljava/lang/Object;)Z
@@ -1025,20 +1025,20 @@
 
     if-nez v1, :cond_0
 
-    .line 666
+    .line 674
     iget-object v1, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->clear()V
 
-    .line 667
+    .line 675
     iget-object v1, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
     invoke-interface {v1, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    .line 668
+    .line 676
     const/4 v1, 0x1
 
-    .line 670
+    .line 678
     :goto_0
     return v1
 
@@ -1052,12 +1052,12 @@
     .locals 11
 
     .prologue
-    .line 629
+    .line 637
     new-instance v6, Ljava/util/HashSet;
 
     invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
 
-    .line 631
+    .line 639
     .local v6, tempPrintServices:Ljava/util/Set;,"Ljava/util/Set<Landroid/printservice/PrintServiceInfo;>;"
     iget-object v7, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
@@ -1075,13 +1075,13 @@
 
     move-result-object v4
 
-    .line 635
+    .line 643
     .local v4, installedServices:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .line 636
+    .line 644
     .local v2, installedCount:I
     const/4 v1, 0x0
 
@@ -1092,14 +1092,14 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 637
+    .line 645
     invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/ResolveInfo;
 
-    .line 638
+    .line 646
     .local v3, installedService:Landroid/content/pm/ResolveInfo;
     const-string v7, "android.permission.BIND_PRINT_SERVICE"
 
@@ -1113,7 +1113,7 @@
 
     if-nez v7, :cond_0
 
-    .line 640
+    .line 648
     new-instance v5, Landroid/content/ComponentName;
 
     iget-object v7, v3, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -1126,7 +1126,7 @@
 
     invoke-direct {v5, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 643
+    .line 651
     .local v5, serviceName:Landroid/content/ComponentName;
     const-string v7, "UserState"
 
@@ -1166,14 +1166,14 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 636
+    .line 644
     .end local v5           #serviceName:Landroid/content/ComponentName;
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 649
+    .line 657
     :cond_0
     iget-object v7, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
@@ -1185,7 +1185,7 @@
 
     goto :goto_1
 
-    .line 652
+    .line 660
     .end local v3           #installedService:Landroid/content/pm/ResolveInfo;
     :cond_1
     iget-object v7, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
@@ -1196,20 +1196,20 @@
 
     if-nez v7, :cond_2
 
-    .line 653
+    .line 661
     iget-object v7, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
     invoke-interface {v7}, Ljava/util/List;->clear()V
 
-    .line 654
+    .line 662
     iget-object v7, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
     invoke-interface {v7, v6}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 655
+    .line 663
     const/4 v7, 0x1
 
-    .line 658
+    .line 666
     :goto_2
     return v7
 
@@ -1235,7 +1235,7 @@
     .end annotation
 
     .prologue
-    .line 675
+    .line 683
     .local p2, outServiceNames:Ljava/util/Set;,"Ljava/util/Set<Landroid/content/ComponentName;>;"
     iget-object v4, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
@@ -1249,7 +1249,7 @@
 
     move-result-object v1
 
-    .line 677
+    .line 685
     .local v1, settingValue:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1257,14 +1257,14 @@
 
     if-nez v4, :cond_1
 
-    .line 678
+    .line 686
     iget-object v2, p0, Lcom/android/server/print/UserState;->mStringColonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
 
-    .line 679
+    .line 687
     .local v2, splitter:Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-virtual {v2, v1}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
-    .line 680
+    .line 688
     :cond_0
     :goto_0
     invoke-virtual {v2}, Landroid/text/TextUtils$SimpleStringSplitter;->hasNext()Z
@@ -1273,12 +1273,12 @@
 
     if-eqz v4, :cond_1
 
-    .line 681
+    .line 689
     invoke-virtual {v2}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 682
+    .line 690
     .local v3, string:Ljava/lang/String;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1286,21 +1286,21 @@
 
     if-nez v4, :cond_0
 
-    .line 685
+    .line 693
     invoke-static {v3}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    .line 686
+    .line 694
     .local v0, componentName:Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
-    .line 687
+    .line 695
     invoke-interface {p2, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 691
+    .line 699
     .end local v0           #componentName:Landroid/content/ComponentName;
     .end local v2           #splitter:Landroid/text/TextUtils$SimpleStringSplitter;
     .end local v3           #string:Ljava/lang/String;
@@ -1313,28 +1313,28 @@
     .parameter "service"
 
     .prologue
-    .line 785
+    .line 793
     invoke-virtual {p1}, Lcom/android/server/print/RemotePrintService;->getComponentName()Landroid/content/ComponentName;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/android/server/print/UserState;->failActivePrintJobsForService(Landroid/content/ComponentName;)V
 
-    .line 787
+    .line 795
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-eqz v0, :cond_0
 
-    .line 788
+    .line 796
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->onServiceRemovedLocked(Lcom/android/server/print/RemotePrintService;)V
 
-    .line 793
+    .line 801
     :goto_0
     return-void
 
-    .line 791
+    .line 799
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/print/RemotePrintService;->destroy()V
 
@@ -1345,12 +1345,12 @@
     .locals 2
 
     .prologue
-    .line 831
+    .line 839
     iget-boolean v0, p0, Lcom/android/server/print/UserState;->mDestroyed:Z
 
     if-eqz v0, :cond_0
 
-    .line 832
+    .line 840
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot interact with a destroyed instance."
@@ -1359,7 +1359,7 @@
 
     throw v0
 
-    .line 834
+    .line 842
     :cond_0
     return-void
 .end method
@@ -1377,28 +1377,28 @@
     .end annotation
 
     .prologue
-    .line 442
+    .line 450
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 443
+    .line 451
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 444
+    .line 452
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
     if-nez v0, :cond_0
 
-    .line 445
+    .line 453
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
-    .line 448
+    .line 456
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
@@ -1408,13 +1408,13 @@
 
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 455
+    .line 463
     monitor-exit v1
 
-    .line 456
+    .line 464
     return-void
 
-    .line 455
+    .line 463
     :catchall_0
     move-exception v0
 
@@ -1431,23 +1431,23 @@
     .parameter "appId"
 
     .prologue
-    .line 265
+    .line 273
     iget-object v4, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
     invoke-virtual {v4, p1, p2}, Lcom/android/server/print/RemotePrintSpooler;->getPrintJobInfo(Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
 
     move-result-object v1
 
-    .line 266
+    .line 274
     .local v1, printJobInfo:Landroid/print/PrintJobInfo;
     if-nez v1, :cond_1
 
-    .line 288
+    .line 296
     :cond_0
     :goto_0
     return-void
 
-    .line 271
+    .line 279
     :cond_1
     iget-object v4, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
@@ -1455,7 +1455,7 @@
 
     invoke-virtual {v4, p1, v5}, Lcom/android/server/print/RemotePrintSpooler;->setPrintJobCancelling(Landroid/print/PrintJobId;Z)V
 
-    .line 273
+    .line 281
     invoke-virtual {v1}, Landroid/print/PrintJobInfo;->getState()I
 
     move-result v4
@@ -1464,7 +1464,7 @@
 
     if-eq v4, v5, :cond_2
 
-    .line 274
+    .line 282
     invoke-virtual {v1}, Landroid/print/PrintJobInfo;->getPrinterId()Landroid/print/PrinterId;
 
     move-result-object v4
@@ -1473,17 +1473,17 @@
 
     move-result-object v3
 
-    .line 275
+    .line 283
     .local v3, printServiceName:Landroid/content/ComponentName;
     const/4 v2, 0x0
 
-    .line 276
+    .line 284
     .local v2, printService:Lcom/android/server/print/RemotePrintService;
     iget-object v5, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 277
+    .line 285
     :try_start_0
     iget-object v4, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
@@ -1497,20 +1497,20 @@
 
     move-object v2, v0
 
-    .line 278
+    .line 286
     monitor-exit v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 279
+    .line 287
     if-eqz v2, :cond_0
 
-    .line 282
+    .line 290
     invoke-virtual {v2, v1}, Lcom/android/server/print/RemotePrintService;->onRequestCancelPrintJob(Landroid/print/PrintJobInfo;)V
 
     goto :goto_0
 
-    .line 278
+    .line 286
     :catchall_0
     move-exception v4
 
@@ -1521,7 +1521,7 @@
 
     throw v4
 
-    .line 286
+    .line 294
     .end local v2           #printService:Lcom/android/server/print/RemotePrintService;
     .end local v3           #printServiceName:Landroid/content/ComponentName;
     :cond_2
@@ -1541,16 +1541,16 @@
     .parameter "observer"
 
     .prologue
-    .line 325
+    .line 333
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 326
+    .line 334
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 327
+    .line 335
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -1559,20 +1559,20 @@
 
     if-eqz v0, :cond_0
 
-    .line 328
+    .line 336
     monitor-exit v1
 
-    .line 345
+    .line 353
     :goto_0
     return-void
 
-    .line 330
+    .line 338
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 332
+    .line 340
     new-instance v0, Lcom/android/server/print/UserState$2;
 
     iget-object v2, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
@@ -1581,12 +1581,12 @@
 
     iput-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
-    .line 339
+    .line 347
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->addObserverLocked(Landroid/print/IPrinterDiscoveryObserver;)V
 
-    .line 344
+    .line 352
     :goto_1
     monitor-exit v1
 
@@ -1601,7 +1601,7 @@
 
     throw v0
 
-    .line 342
+    .line 350
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
@@ -1617,15 +1617,15 @@
     .locals 3
 
     .prologue
-    .line 552
+    .line 560
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 553
+    .line 561
     iget-object v2, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
     invoke-virtual {v2}, Lcom/android/server/print/RemotePrintSpooler;->destroy()V
 
-    .line 554
+    .line 562
     iget-object v2, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v2}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
@@ -1650,51 +1650,51 @@
 
     check-cast v1, Lcom/android/server/print/RemotePrintService;
 
-    .line 555
+    .line 563
     .local v1, service:Lcom/android/server/print/RemotePrintService;
     invoke-virtual {v1}, Lcom/android/server/print/RemotePrintService;->destroy()V
 
     goto :goto_0
 
-    .line 557
+    .line 565
     .end local v1           #service:Lcom/android/server/print/RemotePrintService;
     :cond_0
     iget-object v2, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v2}, Landroid/util/ArrayMap;->clear()V
 
-    .line 558
+    .line 566
     iget-object v2, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->clear()V
 
-    .line 559
+    .line 567
     iget-object v2, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
     invoke-interface {v2}, Ljava/util/Set;->clear()V
 
-    .line 560
+    .line 568
     iget-object v2, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-eqz v2, :cond_1
 
-    .line 561
+    .line 569
     iget-object v2, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v2}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->destroyLocked()V
 
-    .line 562
+    .line 570
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
-    .line 564
+    .line 572
     :cond_1
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/print/UserState;->mDestroyed:Z
 
-    .line 565
+    .line 573
     return-void
 .end method
 
@@ -1703,31 +1703,31 @@
     .parameter "observer"
 
     .prologue
-    .line 348
+    .line 356
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 350
+    .line 358
     :try_start_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_0
 
-    .line 351
+    .line 359
     monitor-exit v1
 
-    .line 356
+    .line 364
     :goto_0
     return-void
 
-    .line 354
+    .line 362
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->removeObserverLocked(Landroid/print/IPrinterDiscoveryObserver;)V
 
-    .line 355
+    .line 363
     monitor-exit v1
 
     goto :goto_0
@@ -1749,7 +1749,7 @@
     .parameter "prefix"
 
     .prologue
-    .line 568
+    .line 576
     invoke-virtual/range {p2 .. p3}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
     move-result-object v14
@@ -1776,13 +1776,13 @@
 
     invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
-    .line 569
+    .line 577
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 571
+    .line 579
     const-string v13, "  "
 
-    .line 573
+    .line 581
     .local v13, tab:Ljava/lang/String;
     invoke-virtual/range {p2 .. p3}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
@@ -1800,7 +1800,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 574
+    .line 582
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
@@ -1809,7 +1809,7 @@
 
     move-result v10
 
-    .line 575
+    .line 583
     .local v10, installedServiceCount:I
     const/4 v7, 0x0
 
@@ -1817,7 +1817,7 @@
     :goto_0
     if-ge v7, v10, :cond_0
 
-    .line 576
+    .line 584
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
@@ -1828,7 +1828,7 @@
 
     check-cast v9, Landroid/printservice/PrintServiceInfo;
 
-    .line 577
+    .line 585
     .local v9, installedService:Landroid/printservice/PrintServiceInfo;
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -1852,7 +1852,7 @@
 
     move-result-object v11
 
-    .line 578
+    .line 586
     .local v11, installedServicePrefix:Ljava/lang/String;
     move-object/from16 v0, p2
 
@@ -1868,12 +1868,12 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 579
+    .line 587
     invoke-virtual {v9}, Landroid/printservice/PrintServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v12
 
-    .line 580
+    .line 588
     .local v12, resolveInfo:Landroid/content/pm/ResolveInfo;
     new-instance v4, Landroid/content/ComponentName;
 
@@ -1887,7 +1887,7 @@
 
     invoke-direct {v4, v14, v15}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 583
+    .line 591
     .local v4, componentName:Landroid/content/ComponentName;
     move-object/from16 v0, p2
 
@@ -1915,7 +1915,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 585
+    .line 593
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v11}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
@@ -1942,7 +1942,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 587
+    .line 595
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v11}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
@@ -1969,12 +1969,12 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 575
+    .line 583
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_0
 
-    .line 591
+    .line 599
     .end local v4           #componentName:Landroid/content/ComponentName;
     .end local v9           #installedService:Landroid/printservice/PrintServiceInfo;
     .end local v11           #installedServicePrefix:Ljava/lang/String;
@@ -1996,7 +1996,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 592
+    .line 600
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
@@ -2019,7 +2019,7 @@
 
     check-cast v5, Landroid/content/ComponentName;
 
-    .line 593
+    .line 601
     .local v5, enabledService:Landroid/content/ComponentName;
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -2043,7 +2043,7 @@
 
     move-result-object v6
 
-    .line 594
+    .line 602
     .local v6, enabledServicePrefix:Ljava/lang/String;
     move-object/from16 v0, p2
 
@@ -2059,7 +2059,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 595
+    .line 603
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v6}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
@@ -2082,12 +2082,12 @@
 
     invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
-    .line 597
+    .line 605
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
 
     goto :goto_1
 
-    .line 600
+    .line 608
     .end local v5           #enabledService:Landroid/content/ComponentName;
     .end local v6           #enabledServicePrefix:Ljava/lang/String;
     :cond_1
@@ -2107,7 +2107,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 601
+    .line 609
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
@@ -2116,14 +2116,14 @@
 
     move-result v3
 
-    .line 602
+    .line 610
     .local v3, activeServiceCount:I
     const/4 v7, 0x0
 
     :goto_2
     if-ge v7, v3, :cond_2
 
-    .line 603
+    .line 611
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
@@ -2134,7 +2134,7 @@
 
     check-cast v2, Lcom/android/server/print/RemotePrintService;
 
-    .line 604
+    .line 612
     .local v2, activeService:Lcom/android/server/print/RemotePrintService;
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -2162,15 +2162,15 @@
 
     invoke-virtual {v2, v0, v14}, Lcom/android/server/print/RemotePrintService;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
-    .line 605
+    .line 613
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 602
+    .line 610
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
-    .line 608
+    .line 616
     .end local v2           #activeService:Lcom/android/server/print/RemotePrintService;
     :cond_2
     invoke-virtual/range {p2 .. p3}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
@@ -2189,7 +2189,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 609
+    .line 617
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mPrintJobForAppCache:Lcom/android/server/print/UserState$PrintJobForAppCache;
@@ -2220,7 +2220,7 @@
 
     invoke-virtual {v14, v0, v15}, Lcom/android/server/print/UserState$PrintJobForAppCache;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
-    .line 611
+    .line 619
     invoke-virtual/range {p2 .. p3}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
     move-result-object v14
@@ -2237,14 +2237,14 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 612
+    .line 620
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-eqz v14, :cond_3
 
-    .line 613
+    .line 621
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
@@ -2275,7 +2275,7 @@
 
     invoke-virtual {v14, v0, v15}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
-    .line 616
+    .line 624
     :cond_3
     invoke-virtual/range {p2 .. p3}, Ljava/io/PrintWriter;->append(Ljava/lang/CharSequence;)Ljava/io/PrintWriter;
 
@@ -2293,7 +2293,7 @@
 
     invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
-    .line 617
+    .line 625
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
@@ -2326,10 +2326,10 @@
 
     invoke-virtual {v14, v0, v1, v15}, Lcom/android/server/print/RemotePrintSpooler;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;Ljava/lang/String;)V
 
-    .line 618
+    .line 626
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 619
+    .line 627
     return-void
 .end method
 
@@ -2346,15 +2346,15 @@
     .end annotation
 
     .prologue
-    .line 299
+    .line 307
     iget-object v7, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v7
 
-    .line 300
+    .line 308
     const/4 v1, 0x0
 
-    .line 301
+    .line 309
     .local v1, enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     :try_start_0
     iget-object v6, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
@@ -2365,7 +2365,7 @@
 
     move-result v5
 
-    .line 302
+    .line 310
     .local v5, installedServiceCount:I
     const/4 v3, 0x0
 
@@ -2377,7 +2377,7 @@
     :goto_0
     if-ge v3, v5, :cond_0
 
-    .line 303
+    .line 311
     :try_start_1
     iget-object v6, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
@@ -2387,7 +2387,7 @@
 
     check-cast v4, Landroid/printservice/PrintServiceInfo;
 
-    .line 304
+    .line 312
     .local v4, installedService:Landroid/printservice/PrintServiceInfo;
     new-instance v0, Landroid/content/ComponentName;
 
@@ -2409,7 +2409,7 @@
 
     invoke-direct {v0, v6, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 307
+    .line 315
     .local v0, componentName:Landroid/content/ComponentName;
     iget-object v6, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
@@ -2419,17 +2419,17 @@
 
     if-eqz v6, :cond_2
 
-    .line 308
+    .line 316
     if-nez v2, :cond_1
 
-    .line 309
+    .line 317
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 311
+    .line 319
     .end local v2           #enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     .restart local v1       #enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     :goto_1
@@ -2438,7 +2438,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 302
+    .line 310
     :goto_2
     add-int/lit8 v3, v3, 0x1
 
@@ -2448,7 +2448,7 @@
     .restart local v2       #enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     goto :goto_0
 
-    .line 314
+    .line 322
     .end local v0           #componentName:Landroid/content/ComponentName;
     .end local v4           #installedService:Landroid/printservice/PrintServiceInfo;
     :cond_0
@@ -2459,7 +2459,7 @@
 
     return-object v2
 
-    .line 315
+    .line 323
     .end local v2           #enabledServices:Ljava/util/List;,"Ljava/util/List<Landroid/printservice/PrintServiceInfo;>;"
     .end local v3           #i:I
     .end local v5           #installedServiceCount:I
@@ -2522,23 +2522,23 @@
     .end annotation
 
     .prologue
-    .line 545
+    .line 553
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 546
+    .line 554
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 547
+    .line 555
     iget-object v0, p0, Lcom/android/server/print/UserState;->mEnabledServices:Ljava/util/Set;
 
     monitor-exit v1
 
     return-object v0
 
-    .line 548
+    .line 556
     :catchall_0
     move-exception v0
 
@@ -2562,12 +2562,12 @@
     .end annotation
 
     .prologue
-    .line 319
+    .line 327
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 320
+    .line 328
     :try_start_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mInstalledServices:Ljava/util/List;
 
@@ -2575,7 +2575,7 @@
 
     return-object v0
 
-    .line 321
+    .line 329
     :catchall_0
     move-exception v0
 
@@ -2587,36 +2587,44 @@
 .end method
 
 .method public getPrintJobInfo(Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
-    .locals 2
+    .locals 3
     .parameter "printJobId"
     .parameter "appId"
 
     .prologue
-    .line 257
+    const/4 v2, 0x0
+
+    .line 259
     iget-object v1, p0, Lcom/android/server/print/UserState;->mPrintJobForAppCache:Lcom/android/server/print/UserState$PrintJobForAppCache;
 
     invoke-virtual {v1, p1, p2}, Lcom/android/server/print/UserState$PrintJobForAppCache;->getPrintJob(Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
 
     move-result-object v0
 
-    .line 258
+    .line 260
     .local v0, printJob:Landroid/print/PrintJobInfo;
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
     .line 261
-    .end local v0           #printJob:Landroid/print/PrintJobInfo;
-    :goto_0
-    return-object v0
-
-    .restart local v0       #printJob:Landroid/print/PrintJobInfo;
-    :cond_0
     iget-object v1, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
     invoke-virtual {v1, p1, p2}, Lcom/android/server/print/RemotePrintSpooler;->getPrintJobInfo(Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
 
     move-result-object v0
 
-    goto :goto_0
+    .line 263
+    :cond_0
+    if-eqz v0, :cond_1
+
+    .line 266
+    invoke-virtual {v0, v2}, Landroid/print/PrintJobInfo;->setTag(Ljava/lang/String;)V
+
+    .line 267
+    invoke-virtual {v0, v2}, Landroid/print/PrintJobInfo;->setAdvancedOptions(Landroid/os/Bundle;)V
+
+    .line 269
+    :cond_1
+    return-object v0
 .end method
 
 .method public getPrintJobInfos(I)Ljava/util/List;
@@ -2677,8 +2685,11 @@
 
     invoke-virtual {v7, v8, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 237
+    .line 236
     invoke-virtual {v0, v10}, Landroid/print/PrintJobInfo;->setTag(Ljava/lang/String;)V
+
+    .line 237
+    invoke-virtual {v0, v10}, Landroid/print/PrintJobInfo;->setAdvancedOptions(Landroid/os/Bundle;)V
 
     .line 231
     add-int/lit8 v3, v3, 0x1
@@ -2727,15 +2738,18 @@
 
     invoke-virtual {v7, v8, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 249
+    .line 250
     invoke-virtual {v4, v10}, Landroid/print/PrintJobInfo;->setTag(Ljava/lang/String;)V
+
+    .line 251
+    invoke-virtual {v4, v10}, Landroid/print/PrintJobInfo;->setAdvancedOptions(Landroid/os/Bundle;)V
 
     .line 245
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 253
+    .line 255
     .end local v4           #printJob:Landroid/print/PrintJobInfo;
     .end local v5           #printJobCount:I
     :cond_1
@@ -2878,7 +2892,7 @@
 
     iget-object v5, p0, Lcom/android/server/print/UserState;->mContext:Landroid/content/Context;
 
-    const v6, 0x10405d4
+    const v6, 0x10405df
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2894,12 +2908,12 @@
     .parameter "printJob"
 
     .prologue
-    .line 481
+    .line 489
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrintJobForAppCache:Lcom/android/server/print/UserState$PrintJobForAppCache;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrintJobForAppCache;->onPrintJobStateChanged(Landroid/print/PrintJobInfo;)V
 
-    .line 482
+    .line 490
     iget-object v0, p0, Lcom/android/server/print/UserState;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
@@ -2920,7 +2934,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 484
+    .line 492
     return-void
 .end method
 
@@ -2938,17 +2952,17 @@
     .end annotation
 
     .prologue
-    .line 488
+    .line 496
     .local p1, printers:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterInfo;>;"
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 489
+    .line 497
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 491
+    .line 499
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -2957,25 +2971,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 492
+    .line 500
     monitor-exit v1
 
-    .line 500
+    .line 508
     :goto_0
     return-void
 
-    .line 495
+    .line 503
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 496
+    .line 504
     monitor-exit v1
 
     goto :goto_0
 
-    .line 499
+    .line 507
     :catchall_0
     move-exception v0
 
@@ -2985,14 +2999,14 @@
 
     throw v0
 
-    .line 498
+    .line 506
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->onPrintersAddedLocked(Ljava/util/List;)V
 
-    .line 499
+    .line 507
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3014,17 +3028,17 @@
     .end annotation
 
     .prologue
-    .line 504
+    .line 512
     .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 505
+    .line 513
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 507
+    .line 515
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3033,25 +3047,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 508
+    .line 516
     monitor-exit v1
 
-    .line 516
+    .line 524
     :goto_0
     return-void
 
-    .line 511
+    .line 519
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 512
+    .line 520
     monitor-exit v1
 
     goto :goto_0
 
-    .line 515
+    .line 523
     :catchall_0
     move-exception v0
 
@@ -3061,14 +3075,14 @@
 
     throw v0
 
-    .line 514
+    .line 522
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->onPrintersRemovedLocked(Ljava/util/List;)V
 
-    .line 515
+    .line 523
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3081,16 +3095,16 @@
     .parameter "service"
 
     .prologue
-    .line 520
+    .line 528
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 521
+    .line 529
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 523
+    .line 531
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3099,14 +3113,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 524
+    .line 532
     monitor-exit v1
 
-    .line 535
+    .line 543
     :goto_0
     return-void
 
-    .line 527
+    .line 535
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/print/RemotePrintService;->getComponentName()Landroid/content/ComponentName;
 
@@ -3114,20 +3128,20 @@
 
     invoke-direct {p0, v0}, Lcom/android/server/print/UserState;->failActivePrintJobsForService(Landroid/content/ComponentName;)V
 
-    .line 528
+    .line 536
     invoke-virtual {p1}, Lcom/android/server/print/RemotePrintService;->onAllPrintJobsHandled()V
 
-    .line 530
+    .line 538
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 531
+    .line 539
     monitor-exit v1
 
     goto :goto_0
 
-    .line 534
+    .line 542
     :catchall_0
     move-exception v0
 
@@ -3137,14 +3151,14 @@
 
     throw v0
 
-    .line 533
+    .line 541
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->onServiceDiedLocked(Lcom/android/server/print/RemotePrintService;)V
 
-    .line 534
+    .line 542
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3371,28 +3385,28 @@
     .parameter "listener"
 
     .prologue
-    .line 459
+    .line 467
     iget-object v4, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 460
+    .line 468
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 461
+    .line 469
     iget-object v3, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
     if-nez v3, :cond_0
 
-    .line 462
+    .line 470
     monitor-exit v4
 
-    .line 477
+    .line 485
     :goto_0
     return-void
 
-    .line 464
+    .line 472
     :cond_0
     iget-object v3, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
@@ -3400,7 +3414,7 @@
 
     move-result v2
 
-    .line 465
+    .line 473
     .local v2, recordCount:I
     const/4 v0, 0x0
 
@@ -3408,7 +3422,7 @@
     :goto_1
     if-ge v0, v2, :cond_1
 
-    .line 466
+    .line 474
     iget-object v3, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
     invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3417,7 +3431,7 @@
 
     check-cast v1, Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
 
-    .line 468
+    .line 476
     .local v1, record:Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
     iget-object v3, v1, Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;->listener:Landroid/print/IPrintJobStateChangeListener;
 
@@ -3435,12 +3449,12 @@
 
     if-eqz v3, :cond_3
 
-    .line 469
+    .line 477
     iget-object v3, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
     invoke-interface {v3, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 473
+    .line 481
     .end local v1           #record:Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
     :cond_1
     iget-object v3, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
@@ -3451,12 +3465,12 @@
 
     if-eqz v3, :cond_2
 
-    .line 474
+    .line 482
     const/4 v3, 0x0
 
     iput-object v3, p0, Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
 
-    .line 476
+    .line 484
     :cond_2
     monitor-exit v4
 
@@ -3473,7 +3487,7 @@
 
     throw v3
 
-    .line 465
+    .line 473
     .restart local v0       #i:I
     .restart local v1       #record:Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
     .restart local v2       #recordCount:I
@@ -3489,12 +3503,12 @@
     .parameter "appId"
 
     .prologue
-    .line 291
+    .line 299
     invoke-virtual {p0, p1, p2}, Lcom/android/server/print/UserState;->getPrintJobInfo(Landroid/print/PrintJobId;I)Landroid/print/PrintJobInfo;
 
     move-result-object v0
 
-    .line 292
+    .line 300
     .local v0, printJobInfo:Landroid/print/PrintJobInfo;
     if-eqz v0, :cond_0
 
@@ -3506,12 +3520,12 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 296
+    .line 304
     :cond_0
     :goto_0
     return-void
 
-    .line 295
+    .line 303
     :cond_1
     iget-object v1, p0, Lcom/android/server/print/UserState;->mSpooler:Lcom/android/server/print/RemotePrintSpooler;
 
@@ -3540,17 +3554,17 @@
     .end annotation
 
     .prologue
-    .line 360
+    .line 368
     .local p2, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 361
+    .line 369
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 363
+    .line 371
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3559,25 +3573,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 364
+    .line 372
     monitor-exit v1
 
-    .line 374
+    .line 382
     :goto_0
     return-void
 
-    .line 367
+    .line 375
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 368
+    .line 376
     monitor-exit v1
 
     goto :goto_0
 
-    .line 373
+    .line 381
     :catchall_0
     move-exception v0
 
@@ -3587,14 +3601,14 @@
 
     throw v0
 
-    .line 371
+    .line 379
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->startPrinterDiscoveryLocked(Landroid/print/IPrinterDiscoveryObserver;Ljava/util/List;)V
 
-    .line 373
+    .line 381
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3607,16 +3621,16 @@
     .parameter "printerId"
 
     .prologue
-    .line 409
+    .line 417
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 410
+    .line 418
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 412
+    .line 420
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3625,25 +3639,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 413
+    .line 421
     monitor-exit v1
 
-    .line 422
+    .line 430
     :goto_0
     return-void
 
-    .line 416
+    .line 424
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 417
+    .line 425
     monitor-exit v1
 
     goto :goto_0
 
-    .line 421
+    .line 429
     :catchall_0
     move-exception v0
 
@@ -3653,14 +3667,14 @@
 
     throw v0
 
-    .line 420
+    .line 428
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->startPrinterStateTrackingLocked(Landroid/print/PrinterId;)V
 
-    .line 421
+    .line 429
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3673,16 +3687,16 @@
     .parameter "observer"
 
     .prologue
-    .line 377
+    .line 385
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 378
+    .line 386
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 380
+    .line 388
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3691,25 +3705,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 381
+    .line 389
     monitor-exit v1
 
-    .line 390
+    .line 398
     :goto_0
     return-void
 
-    .line 384
+    .line 392
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 385
+    .line 393
     monitor-exit v1
 
     goto :goto_0
 
-    .line 389
+    .line 397
     :catchall_0
     move-exception v0
 
@@ -3719,14 +3733,14 @@
 
     throw v0
 
-    .line 388
+    .line 396
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->stopPrinterDiscoveryLocked(Landroid/print/IPrinterDiscoveryObserver;)V
 
-    .line 389
+    .line 397
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3739,16 +3753,16 @@
     .parameter "printerId"
 
     .prologue
-    .line 425
+    .line 433
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 426
+    .line 434
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 428
+    .line 436
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3757,25 +3771,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 429
+    .line 437
     monitor-exit v1
 
-    .line 438
+    .line 446
     :goto_0
     return-void
 
-    .line 432
+    .line 440
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 433
+    .line 441
     monitor-exit v1
 
     goto :goto_0
 
-    .line 437
+    .line 445
     :catchall_0
     move-exception v0
 
@@ -3785,14 +3799,14 @@
 
     throw v0
 
-    .line 436
+    .line 444
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->stopPrinterStateTrackingLocked(Landroid/print/PrinterId;)V
 
-    .line 437
+    .line 445
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3804,20 +3818,20 @@
     .locals 1
 
     .prologue
-    .line 538
+    .line 546
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 539
+    .line 547
     invoke-direct {p0}, Lcom/android/server/print/UserState;->readConfigurationLocked()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 540
+    .line 548
     invoke-direct {p0}, Lcom/android/server/print/UserState;->onConfigurationChangedLocked()V
 
-    .line 542
+    .line 550
     :cond_0
     return-void
 .end method
@@ -3836,17 +3850,17 @@
     .end annotation
 
     .prologue
-    .line 393
+    .line 401
     .local p1, printerIds:Ljava/util/List;,"Ljava/util/List<Landroid/print/PrinterId;>;"
     iget-object v1, p0, Lcom/android/server/print/UserState;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 394
+    .line 402
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/print/UserState;->throwIfDestroyedLocked()V
 
-    .line 396
+    .line 404
     iget-object v0, p0, Lcom/android/server/print/UserState;->mActiveServices:Landroid/util/ArrayMap;
 
     invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -3855,25 +3869,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 397
+    .line 405
     monitor-exit v1
 
-    .line 406
+    .line 414
     :goto_0
     return-void
 
-    .line 400
+    .line 408
     :cond_0
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     if-nez v0, :cond_1
 
-    .line 401
+    .line 409
     monitor-exit v1
 
     goto :goto_0
 
-    .line 405
+    .line 413
     :catchall_0
     move-exception v0
 
@@ -3883,14 +3897,14 @@
 
     throw v0
 
-    .line 404
+    .line 412
     :cond_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/print/UserState;->mPrinterDiscoverySession:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->validatePrintersLocked(Ljava/util/List;)V
 
-    .line 405
+    .line 413
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

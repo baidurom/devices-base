@@ -64,63 +64,40 @@
 .end method
 
 .method public static create2D(Landroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)Landroid/renderscript/AllocationAdapter;
-    .locals 6
+    .locals 3
     .parameter "rs"
     .parameter "a"
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     .line 227
-    const-string/jumbo v1, "rs"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "create2d "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 228
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 229
+    .line 228
     new-instance v0, Landroid/renderscript/AllocationAdapter;
 
-    invoke-direct {v0, v4, p0, p1}, Landroid/renderscript/AllocationAdapter;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
+    invoke-direct {v0, v1, p0, p1}, Landroid/renderscript/AllocationAdapter;-><init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
+
+    .line 229
+    .local v0, aa:Landroid/renderscript/AllocationAdapter;
+    iput-boolean v2, v0, Landroid/renderscript/Allocation;->mConstrainedLOD:Z
 
     .line 230
-    .local v0, aa:Landroid/renderscript/AllocationAdapter;
-    iput-boolean v5, v0, Landroid/renderscript/Allocation;->mConstrainedLOD:Z
+    iput-boolean v2, v0, Landroid/renderscript/Allocation;->mConstrainedFace:Z
 
     .line 231
-    iput-boolean v5, v0, Landroid/renderscript/Allocation;->mConstrainedFace:Z
+    iput-boolean v1, v0, Landroid/renderscript/Allocation;->mConstrainedY:Z
 
     .line 232
-    iput-boolean v4, v0, Landroid/renderscript/Allocation;->mConstrainedY:Z
+    iput-boolean v2, v0, Landroid/renderscript/Allocation;->mConstrainedZ:Z
 
     .line 233
-    iput-boolean v5, v0, Landroid/renderscript/Allocation;->mConstrainedZ:Z
+    invoke-virtual {v0, v1}, Landroid/renderscript/AllocationAdapter;->initLOD(I)V
 
     .line 234
-    invoke-virtual {v0, v4}, Landroid/renderscript/AllocationAdapter;->initLOD(I)V
-
-    .line 235
     return-object v0
 .end method
 
@@ -368,7 +345,7 @@
     .parameter "dimX"
 
     .prologue
-    .line 246
+    .line 245
     monitor-enter p0
 
     :try_start_0

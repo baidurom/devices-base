@@ -141,7 +141,7 @@
 
     .line 674
     .local v2, messageView:Landroid/widget/TextView;
-    const v6, 0x1020299
+    const v6, 0x102029a
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

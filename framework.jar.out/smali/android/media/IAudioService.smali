@@ -598,3 +598,11 @@
         }
     .end annotation
 .end method
+
+.method public abstract verifyX509CertChain(I[BLjava/lang/String;Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method

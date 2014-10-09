@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Απομένουν %d προσπάθειες προτού η κάρτα SIM κλειδωθεί.</item>
+        <item quantity="one">Απομένει άλλη %d προσπάθεια προτού η κάρτα SIM κλειδωθεί.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">πριν από %d δευτερόλεπτα</item>
         <item quantity="one">πριν από 1 δευτερόλεπτο</item>

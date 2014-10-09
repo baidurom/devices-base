@@ -143,7 +143,7 @@
 
     .line 139
     .local v0, res:Landroid/content/res/Resources;
-    const v1, 0x108047a
+    const v1, 0x108047c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -152,7 +152,7 @@
     iput-object v1, p0, Landroid/widget/EdgeEffect;->mEdge:Landroid/graphics/drawable/Drawable;
 
     .line 140
-    const v1, 0x108047b
+    const v1, 0x108047d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -10,6 +10,8 @@
 
 
 # instance fields
+.field private mAdvertisePreferred:Z
+
 .field protected mCharacteristics:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -52,41 +54,41 @@
     .parameter "serviceType"
 
     .prologue
-    .line 107
+    .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 66
+    .line 64
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/bluetooth/BluetoothGattService;->mHandles:I
 
-    .line 108
+    .line 111
     iput-object p1, p0, Landroid/bluetooth/BluetoothGattService;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    .line 109
+    .line 112
     iput-object p2, p0, Landroid/bluetooth/BluetoothGattService;->mUuid:Ljava/util/UUID;
 
-    .line 110
+    .line 113
     iput p3, p0, Landroid/bluetooth/BluetoothGattService;->mInstanceId:I
 
-    .line 111
+    .line 114
     iput p4, p0, Landroid/bluetooth/BluetoothGattService;->mServiceType:I
 
-    .line 112
+    .line 115
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mCharacteristics:Ljava/util/List;
 
-    .line 113
+    .line 116
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mIncludedServices:Ljava/util/List;
 
-    .line 114
+    .line 117
     return-void
 .end method
 
@@ -98,41 +100,41 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 93
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 66
+    .line 64
     iput v1, p0, Landroid/bluetooth/BluetoothGattService;->mHandles:I
 
-    .line 94
+    .line 97
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    .line 95
+    .line 98
     iput-object p1, p0, Landroid/bluetooth/BluetoothGattService;->mUuid:Ljava/util/UUID;
 
-    .line 96
+    .line 99
     iput v1, p0, Landroid/bluetooth/BluetoothGattService;->mInstanceId:I
 
-    .line 97
+    .line 100
     iput p2, p0, Landroid/bluetooth/BluetoothGattService;->mServiceType:I
 
-    .line 98
+    .line 101
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mCharacteristics:Ljava/util/List;
 
-    .line 99
+    .line 102
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mIncludedServices:Ljava/util/List;
 
-    .line 100
+    .line 103
     return-void
 .end method
 
@@ -143,15 +145,15 @@
     .parameter "characteristic"
 
     .prologue
-    .line 144
+    .line 147
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mCharacteristics:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 145
+    .line 148
     invoke-virtual {p1, p0}, Landroid/bluetooth/BluetoothGattCharacteristic;->setService(Landroid/bluetooth/BluetoothGattService;)V
 
-    .line 146
+    .line 149
     const/4 v0, 0x1
 
     return v0
@@ -162,12 +164,12 @@
     .parameter "includedService"
 
     .prologue
-    .line 193
+    .line 196
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mIncludedServices:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 194
+    .line 197
     return-void
 .end method
 
@@ -176,12 +178,12 @@
     .parameter "service"
 
     .prologue
-    .line 132
+    .line 135
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mIncludedServices:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 133
+    .line 136
     const/4 v0, 0x1
 
     return v0
@@ -192,7 +194,7 @@
     .parameter "uuid"
 
     .prologue
-    .line 260
+    .line 263
     iget-object v2, p0, Landroid/bluetooth/BluetoothGattService;->mCharacteristics:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -213,7 +215,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothGattCharacteristic;
 
-    .line 261
+    .line 264
     .local v0, characteristic:Landroid/bluetooth/BluetoothGattCharacteristic;
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothGattCharacteristic;->getUuid()Ljava/util/UUID;
 
@@ -225,7 +227,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 264
+    .line 267
     .end local v0           #characteristic:Landroid/bluetooth/BluetoothGattCharacteristic;
     :goto_0
     return-object v0
@@ -242,7 +244,7 @@
     .parameter "instanceId"
 
     .prologue
-    .line 154
+    .line 157
     iget-object v2, p0, Landroid/bluetooth/BluetoothGattService;->mCharacteristics:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -263,7 +265,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothGattCharacteristic;
 
-    .line 155
+    .line 158
     .local v0, characteristic:Landroid/bluetooth/BluetoothGattCharacteristic;
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothGattCharacteristic;->getUuid()Ljava/util/UUID;
 
@@ -281,7 +283,7 @@
 
     if-ne v2, p2, :cond_0
 
-    .line 159
+    .line 162
     .end local v0           #characteristic:Landroid/bluetooth/BluetoothGattCharacteristic;
     :goto_0
     return-object v0
@@ -305,7 +307,7 @@
     .end annotation
 
     .prologue
-    .line 241
+    .line 244
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mCharacteristics:Ljava/util/List;
 
     return-object v0
@@ -315,7 +317,7 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 124
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
     return-object v0
@@ -325,7 +327,7 @@
     .locals 1
 
     .prologue
-    .line 176
+    .line 179
     iget v0, p0, Landroid/bluetooth/BluetoothGattService;->mHandles:I
 
     return v0
@@ -344,7 +346,7 @@
     .end annotation
 
     .prologue
-    .line 232
+    .line 235
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mIncludedServices:Ljava/util/List;
 
     return-object v0
@@ -354,7 +356,7 @@
     .locals 1
 
     .prologue
-    .line 215
+    .line 218
     iget v0, p0, Landroid/bluetooth/BluetoothGattService;->mInstanceId:I
 
     return v0
@@ -364,7 +366,7 @@
     .locals 1
 
     .prologue
-    .line 222
+    .line 225
     iget v0, p0, Landroid/bluetooth/BluetoothGattService;->mServiceType:I
 
     return v0
@@ -374,10 +376,32 @@
     .locals 1
 
     .prologue
-    .line 202
+    .line 205
     iget-object v0, p0, Landroid/bluetooth/BluetoothGattService;->mUuid:Ljava/util/UUID;
 
     return-object v0
+.end method
+
+.method public isAdvertisePreferred()Z
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-boolean v0, p0, Landroid/bluetooth/BluetoothGattService;->mAdvertisePreferred:Z
+
+    return v0
+.end method
+
+.method public setAdvertisePreferred(Z)V
+    .locals 0
+    .parameter "advertisePreferred"
+
+    .prologue
+    .line 283
+    iput-boolean p1, p0, Landroid/bluetooth/BluetoothGattService;->mAdvertisePreferred:Z
+
+    .line 284
+    return-void
 .end method
 
 .method public setHandles(I)V
@@ -385,10 +409,10 @@
     .parameter "handles"
 
     .prologue
-    .line 185
+    .line 188
     iput p1, p0, Landroid/bluetooth/BluetoothGattService;->mHandles:I
 
-    .line 186
+    .line 189
     return-void
 .end method
 
@@ -397,9 +421,9 @@
     .parameter "instanceId"
 
     .prologue
-    .line 168
+    .line 171
     iput p1, p0, Landroid/bluetooth/BluetoothGattService;->mInstanceId:I
 
-    .line 169
+    .line 172
     return-void
 .end method

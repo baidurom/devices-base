@@ -24,13 +24,15 @@
 
 .field static final TRACE_TAG:J = 0x8000L
 
-.field static mCacheDir:Ljava/io/File;
+.field static mCacheDir:Ljava/io/File; = null
 
-.field static registerNativeAllocation:Ljava/lang/reflect/Method;
+.field static registerNativeAllocation:Ljava/lang/reflect/Method; = null
 
-.field static registerNativeFree:Ljava/lang/reflect/Method;
+.field static registerNativeFree:Ljava/lang/reflect/Method; = null
 
-.field static sInitialized:Z
+.field static sInitialized:Z = false
+
+.field static final sMinorID:J = 0x1L
 
 .field static sRuntime:Ljava/lang/Object;
 
@@ -188,6 +190,8 @@
 
 .field mProgramStore_BLEND_NONE_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
+.field mRWLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
 .field mSampler_CLAMP_LINEAR:Landroid/renderscript/Sampler;
 
 .field mSampler_CLAMP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
@@ -214,10 +218,10 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 70
+    .line 71
     sput-boolean v4, Landroid/renderscript/RenderScript;->sInitialized:Z
 
-    .line 71
+    .line 72
     const-string v3, "config.disable_renderscript"
 
     invoke-static {v3, v4}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -226,7 +230,7 @@
 
     if-nez v3, :cond_0
 
-    .line 73
+    .line 74
     :try_start_0
     const-string v3, "dalvik.system.VMRuntime"
 
@@ -234,7 +238,7 @@
 
     move-result-object v2
 
-    .line 74
+    .line 75
     .local v2, vm_runtime:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     const-string v3, "getRuntime"
 
@@ -246,7 +250,7 @@
 
     move-result-object v1
 
-    .line 75
+    .line 76
     .local v1, get_runtime:Ljava/lang/reflect/Method;
     const/4 v3, 0x0
 
@@ -260,7 +264,7 @@
 
     sput-object v3, Landroid/renderscript/RenderScript;->sRuntime:Ljava/lang/Object;
 
-    .line 76
+    .line 77
     const-string/jumbo v3, "registerNativeAllocation"
 
     const/4 v4, 0x1
@@ -279,7 +283,7 @@
 
     sput-object v3, Landroid/renderscript/RenderScript;->registerNativeAllocation:Ljava/lang/reflect/Method;
 
-    .line 77
+    .line 78
     const-string/jumbo v3, "registerNativeFree"
 
     const/4 v4, 0x1
@@ -300,32 +304,32 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 83
+    .line 84
     :try_start_1
     const-string/jumbo v3, "rs_jni"
 
     invoke-static {v3}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 84
+    .line 85
     invoke-static {}, Landroid/renderscript/RenderScript;->_nInit()V
 
-    .line 85
+    .line 86
     const/4 v3, 0x1
 
     sput-boolean v3, Landroid/renderscript/RenderScript;->sInitialized:Z
     :try_end_1
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 91
+    .line 92
     :cond_0
     return-void
 
-    .line 78
+    .line 79
     .end local v1           #get_runtime:Ljava/lang/reflect/Method;
     :catch_0
     move-exception v0
 
-    .line 79
+    .line 80
     .local v0, e:Ljava/lang/Exception;
     const-string v3, "RenderScript_jni"
 
@@ -349,7 +353,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 80
+    .line 81
     new-instance v3, Landroid/renderscript/RSRuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -374,13 +378,13 @@
 
     throw v3
 
-    .line 86
+    .line 87
     .end local v0           #e:Ljava/lang/Exception;
     .restart local v1       #get_runtime:Ljava/lang/reflect/Method;
     :catch_1
     move-exception v0
 
-    .line 87
+    .line 88
     .local v0, e:Ljava/lang/UnsatisfiedLinkError;
     const-string v3, "RenderScript_jni"
 
@@ -404,7 +408,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 88
+    .line 89
     new-instance v3, Landroid/renderscript/RSRuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -437,32 +441,39 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1134
+    .line 1162
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 954
+    .line 982
     iput-object v0, p0, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
 
-    .line 994
+    .line 1022
     iput-object v0, p0, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
 
-    .line 1135
+    .line 1163
     sget-object v0, Landroid/renderscript/RenderScript$ContextType;->NORMAL:Landroid/renderscript/RenderScript$ContextType;
 
     iput-object v0, p0, Landroid/renderscript/RenderScript;->mContextType:Landroid/renderscript/RenderScript$ContextType;
 
-    .line 1136
+    .line 1164
     if-eqz p1, :cond_0
 
-    .line 1137
+    .line 1165
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/renderscript/RenderScript;->mApplicationContext:Landroid/content/Context;
 
-    .line 1139
+    .line 1167
     :cond_0
+    new-instance v0, Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;-><init>()V
+
+    iput-object v0, p0, Landroid/renderscript/RenderScript;->mRWLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    .line 1168
     return-void
 .end method
 
@@ -474,7 +485,7 @@
     .parameter "ctx"
 
     .prologue
-    .line 1190
+    .line 1219
     sget-object v0, Landroid/renderscript/RenderScript$ContextType;->NORMAL:Landroid/renderscript/RenderScript$ContextType;
 
     invoke-static {p0, v0}, Landroid/renderscript/RenderScript;->create(Landroid/content/Context;Landroid/renderscript/RenderScript$ContextType;)Landroid/renderscript/RenderScript;
@@ -490,7 +501,7 @@
     .parameter "sdkVersion"
 
     .prologue
-    .line 1154
+    .line 1183
     sget-object v0, Landroid/renderscript/RenderScript$ContextType;->NORMAL:Landroid/renderscript/RenderScript$ContextType;
 
     invoke-static {p0, p1, v0}, Landroid/renderscript/RenderScript;->create(Landroid/content/Context;ILandroid/renderscript/RenderScript$ContextType;)Landroid/renderscript/RenderScript;
@@ -507,32 +518,32 @@
     .parameter "ct"
 
     .prologue
-    .line 1165
+    .line 1194
     sget-boolean v1, Landroid/renderscript/RenderScript;->sInitialized:Z
 
     if-nez v1, :cond_0
 
-    .line 1166
+    .line 1195
     const-string v1, "RenderScript_jni"
 
     const-string v2, "RenderScript.create() called when disabled; someone is likely to crash"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1167
+    .line 1196
     const/4 v0, 0x0
 
-    .line 1180
+    .line 1209
     :goto_0
     return-object v0
 
-    .line 1170
+    .line 1199
     :cond_0
     new-instance v0, Landroid/renderscript/RenderScript;
 
     invoke-direct {v0, p0}, Landroid/renderscript/RenderScript;-><init>(Landroid/content/Context;)V
 
-    .line 1172
+    .line 1201
     .local v0, rs:Landroid/renderscript/RenderScript;
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->nDeviceCreate()I
 
@@ -540,7 +551,7 @@
 
     iput v1, v0, Landroid/renderscript/RenderScript;->mDev:I
 
-    .line 1173
+    .line 1202
     iget v1, v0, Landroid/renderscript/RenderScript;->mDev:I
 
     const/4 v2, 0x0
@@ -553,15 +564,15 @@
 
     iput v1, v0, Landroid/renderscript/RenderScript;->mContext:I
 
-    .line 1174
+    .line 1203
     iput-object p2, v0, Landroid/renderscript/RenderScript;->mContextType:Landroid/renderscript/RenderScript$ContextType;
 
-    .line 1175
+    .line 1204
     iget v1, v0, Landroid/renderscript/RenderScript;->mContext:I
 
     if-nez v1, :cond_1
 
-    .line 1176
+    .line 1205
     new-instance v1, Landroid/renderscript/RSDriverException;
 
     const-string v2, "Failed to create RS context."
@@ -570,7 +581,7 @@
 
     throw v1
 
-    .line 1178
+    .line 1207
     :cond_1
     new-instance v1, Landroid/renderscript/RenderScript$MessageThread;
 
@@ -578,7 +589,7 @@
 
     iput-object v1, v0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
 
-    .line 1179
+    .line 1208
     iget-object v1, v0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
 
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
@@ -592,14 +603,14 @@
     .parameter "ct"
 
     .prologue
-    .line 1202
+    .line 1231
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v1
 
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    .line 1203
+    .line 1232
     .local v0, v:I
     invoke-static {p0, v0, p1}, Landroid/renderscript/RenderScript;->create(Landroid/content/Context;ILandroid/renderscript/RenderScript$ContextType;)Landroid/renderscript/RenderScript;
 
@@ -608,28 +619,38 @@
     return-object v1
 .end method
 
+.method public static getMinorID()J
+    .locals 2
+
+    .prologue
+    .line 117
+    const-wide/16 v0, 0x1
+
+    return-wide v0
+.end method
+
 .method public static setupDiskCache(Ljava/io/File;)V
     .locals 2
     .parameter "cacheDir"
 
     .prologue
-    .line 113
+    .line 128
     sget-boolean v0, Landroid/renderscript/RenderScript;->sInitialized:Z
 
     if-nez v0, :cond_0
 
-    .line 114
+    .line 129
     const-string v0, "RenderScript_jni"
 
     const-string v1, "RenderScript.setupDiskCache() called when disabled"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 120
+    .line 135
     :goto_0
     return-void
 
-    .line 119
+    .line 134
     :cond_0
     sput-object p0, Landroid/renderscript/RenderScript;->mCacheDir:Ljava/io/File;
 
@@ -642,15 +663,15 @@
     .locals 1
 
     .prologue
-    .line 1212
+    .line 1241
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 1213
+    .line 1242
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->nContextDump(I)V
 
-    .line 1214
+    .line 1243
     return-void
 .end method
 
@@ -660,20 +681,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1232
+    .line 1261
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 1233
+    .line 1262
+    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->nContextFinish()V
+
+    .line 1264
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->nContextDeinitToClient(I)V
 
-    .line 1234
+    .line 1265
     iget-object v0, p0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
 
     iput-boolean v1, v0, Landroid/renderscript/RenderScript$MessageThread;->mRun:Z
 
-    .line 1236
+    .line 1267
     :try_start_0
     iget-object v0, p0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
 
@@ -681,25 +705,22 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1240
+    .line 1271
     :goto_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->nContextDestroy()V
 
-    .line 1241
-    iput v1, p0, Landroid/renderscript/RenderScript;->mContext:I
-
-    .line 1243
+    .line 1273
     iget v0, p0, Landroid/renderscript/RenderScript;->mDev:I
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->nDeviceDestroy(I)V
 
-    .line 1244
+    .line 1274
     iput v1, p0, Landroid/renderscript/RenderScript;->mDev:I
 
-    .line 1245
+    .line 1275
     return-void
 
-    .line 1237
+    .line 1268
     :catch_0
     move-exception v0
 
@@ -710,10 +731,10 @@
     .locals 0
 
     .prologue
-    .line 1222
+    .line 1251
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->nContextFinish()V
 
-    .line 1223
+    .line 1252
     return-void
 .end method
 
@@ -721,7 +742,7 @@
     .locals 1
 
     .prologue
-    .line 1147
+    .line 1176
     iget-object v0, p0, Landroid/renderscript/RenderScript;->mApplicationContext:Landroid/content/Context;
 
     return-object v0
@@ -731,7 +752,7 @@
     .locals 1
 
     .prologue
-    .line 1000
+    .line 1028
     iget-object v0, p0, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
 
     return-object v0
@@ -741,7 +762,7 @@
     .locals 1
 
     .prologue
-    .line 960
+    .line 988
     iget-object v0, p0, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
 
     return-object v0
@@ -751,7 +772,7 @@
     .locals 1
 
     .prologue
-    .line 1248
+    .line 1278
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     if-eqz v0, :cond_0
@@ -773,25 +794,25 @@
     .parameter "bmp"
 
     .prologue
-    .line 384
+    .line 412
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 385
+    .line 413
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationCopyFromBitmap(IILandroid/graphics/Bitmap;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 386
+    .line 414
     monitor-exit p0
 
     return-void
 
-    .line 384
+    .line 412
     :catchall_0
     move-exception v0
 
@@ -806,25 +827,25 @@
     .parameter "bmp"
 
     .prologue
-    .line 345
+    .line 373
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 346
+    .line 374
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationCopyToBitmap(IILandroid/graphics/Bitmap;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 347
+    .line 375
     monitor-exit p0
 
     return-void
 
-    .line 345
+    .line 373
     :catchall_0
     move-exception v0
 
@@ -841,13 +862,13 @@
     .parameter "usage"
 
     .prologue
-    .line 322
+    .line 350
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 323
+    .line 351
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -870,7 +891,7 @@
 
     return v0
 
-    .line 322
+    .line 350
     :catchall_0
     move-exception v0
 
@@ -885,13 +906,13 @@
     .parameter "bmp"
 
     .prologue
-    .line 334
+    .line 362
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 335
+    .line 363
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationCreateBitmapRef(IILandroid/graphics/Bitmap;)I
@@ -904,7 +925,7 @@
 
     return v0
 
-    .line 334
+    .line 362
     :catchall_0
     move-exception v0
 
@@ -920,13 +941,13 @@
     .parameter "usage"
 
     .prologue
-    .line 339
+    .line 367
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 340
+    .line 368
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnAllocationCreateFromAssetStream(IIII)I
@@ -939,7 +960,7 @@
 
     return v0
 
-    .line 339
+    .line 367
     :catchall_0
     move-exception v0
 
@@ -956,13 +977,13 @@
     .parameter "usage"
 
     .prologue
-    .line 316
+    .line 344
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 317
+    .line 345
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -985,7 +1006,7 @@
 
     return v0
 
-    .line 316
+    .line 344
     :catchall_0
     move-exception v0
 
@@ -1002,13 +1023,13 @@
     .parameter "pointer"
 
     .prologue
-    .line 311
+    .line 339
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 312
+    .line 340
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1031,7 +1052,7 @@
 
     return v0
 
-    .line 311
+    .line 339
     :catchall_0
     move-exception v0
 
@@ -1048,13 +1069,13 @@
     .parameter "usage"
 
     .prologue
-    .line 329
+    .line 357
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 330
+    .line 358
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1077,7 +1098,7 @@
 
     return v0
 
-    .line 329
+    .line 357
     :catchall_0
     move-exception v0
 
@@ -1096,13 +1117,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 401
+    .line 429
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 402
+    .line 430
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1123,12 +1144,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 403
+    .line 431
     monitor-exit p0
 
     return-void
 
-    .line 401
+    .line 429
     :catchall_0
     move-exception v0
 
@@ -1147,13 +1168,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 406
+    .line 434
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 407
+    .line 435
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1174,12 +1195,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 408
+    .line 436
     monitor-exit p0
 
     return-void
 
-    .line 406
+    .line 434
     :catchall_0
     move-exception v0
 
@@ -1198,13 +1219,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 391
+    .line 419
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 392
+    .line 420
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1225,12 +1246,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 393
+    .line 421
     monitor-exit p0
 
     return-void
 
-    .line 391
+    .line 419
     :catchall_0
     move-exception v0
 
@@ -1249,13 +1270,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 396
+    .line 424
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 397
+    .line 425
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1276,12 +1297,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 398
+    .line 426
     monitor-exit p0
 
     return-void
 
-    .line 396
+    .line 424
     :catchall_0
     move-exception v0
 
@@ -1306,13 +1327,13 @@
     .parameter "srcFace"
 
     .prologue
-    .line 427
+    .line 455
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 428
+    .line 456
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1345,12 +1366,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 434
+    .line 462
     monitor-exit p0
 
     return-void
 
-    .line 427
+    .line 455
     :catchall_0
     move-exception v0
 
@@ -1372,13 +1393,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 438
+    .line 466
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 439
+    .line 467
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1405,12 +1426,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 440
+    .line 468
     monitor-exit p0
 
     return-void
 
-    .line 438
+    .line 466
     :catchall_0
     move-exception v0
 
@@ -1432,13 +1453,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 453
+    .line 481
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 454
+    .line 482
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1465,12 +1486,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 455
+    .line 483
     monitor-exit p0
 
     return-void
 
-    .line 453
+    .line 481
     :catchall_0
     move-exception v0
 
@@ -1492,13 +1513,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 448
+    .line 476
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 449
+    .line 477
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1525,12 +1546,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 450
+    .line 478
     monitor-exit p0
 
     return-void
 
-    .line 448
+    .line 476
     :catchall_0
     move-exception v0
 
@@ -1552,13 +1573,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 443
+    .line 471
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 444
+    .line 472
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1585,12 +1606,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 445
+    .line 473
     monitor-exit p0
 
     return-void
 
-    .line 443
+    .line 471
     :catchall_0
     move-exception v0
 
@@ -1609,13 +1630,13 @@
     .parameter "b"
 
     .prologue
-    .line 458
+    .line 486
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 459
+    .line 487
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1636,12 +1657,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 460
+    .line 488
     monitor-exit p0
 
     return-void
 
-    .line 458
+    .line 486
     :catchall_0
     move-exception v0
 
@@ -1667,13 +1688,13 @@
     .parameter "srcMip"
 
     .prologue
-    .line 473
+    .line 501
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 474
+    .line 502
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1708,12 +1729,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 478
+    .line 506
     monitor-exit p0
 
     return-void
 
-    .line 473
+    .line 501
     :catchall_0
     move-exception v0
 
@@ -1736,13 +1757,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 482
+    .line 510
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 483
+    .line 511
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1771,12 +1792,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 484
+    .line 512
     monitor-exit p0
 
     return-void
 
-    .line 482
+    .line 510
     :catchall_0
     move-exception v0
 
@@ -1799,13 +1820,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 497
+    .line 525
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 498
+    .line 526
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1834,12 +1855,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 499
+    .line 527
     monitor-exit p0
 
     return-void
 
-    .line 497
+    .line 525
     :catchall_0
     move-exception v0
 
@@ -1862,13 +1883,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 492
+    .line 520
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 493
+    .line 521
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1897,12 +1918,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 494
+    .line 522
     monitor-exit p0
 
     return-void
 
-    .line 492
+    .line 520
     :catchall_0
     move-exception v0
 
@@ -1925,13 +1946,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 487
+    .line 515
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 488
+    .line 516
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -1960,12 +1981,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 489
+    .line 517
     monitor-exit p0
 
     return-void
 
-    .line 487
+    .line 515
     :catchall_0
     move-exception v0
 
@@ -1984,13 +2005,13 @@
     .parameter "sizeBytes"
 
     .prologue
-    .line 412
+    .line 440
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 413
+    .line 441
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -2011,12 +2032,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 414
+    .line 442
     monitor-exit p0
 
     return-void
 
-    .line 412
+    .line 440
     :catchall_0
     move-exception v0
 
@@ -2030,25 +2051,25 @@
     .parameter "alloc"
 
     .prologue
-    .line 379
+    .line 407
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 380
+    .line 408
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnAllocationGenerateMipmaps(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 381
+    .line 409
     monitor-exit p0
 
     return-void
 
-    .line 379
+    .line 407
     :catchall_0
     move-exception v0
 
@@ -2062,13 +2083,13 @@
     .parameter "alloc"
 
     .prologue
-    .line 357
+    .line 385
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 358
+    .line 386
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnAllocationGetSurface(II)Landroid/view/Surface;
@@ -2081,7 +2102,7 @@
 
     return-object v0
 
-    .line 357
+    .line 385
     :catchall_0
     move-exception v0
 
@@ -2095,13 +2116,13 @@
     .parameter "id"
 
     .prologue
-    .line 524
+    .line 552
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 525
+    .line 553
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnAllocationGetType(II)I
@@ -2114,7 +2135,7 @@
 
     return v0
 
-    .line 524
+    .line 552
     :catchall_0
     move-exception v0
 
@@ -2128,25 +2149,25 @@
     .parameter "alloc"
 
     .prologue
-    .line 372
+    .line 400
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 373
+    .line 401
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnAllocationIoReceive(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 374
+    .line 402
     monitor-exit p0
 
     return-void
 
-    .line 372
+    .line 400
     :catchall_0
     move-exception v0
 
@@ -2160,25 +2181,25 @@
     .parameter "alloc"
 
     .prologue
-    .line 367
+    .line 395
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 368
+    .line 396
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnAllocationIoSend(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 369
+    .line 397
     monitor-exit p0
 
     return-void
 
-    .line 367
+    .line 395
     :catchall_0
     move-exception v0
 
@@ -2193,25 +2214,25 @@
     .parameter "d"
 
     .prologue
-    .line 504
+    .line 532
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 505
+    .line 533
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationRead(II[B)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 506
+    .line 534
     monitor-exit p0
 
     return-void
 
-    .line 504
+    .line 532
     :catchall_0
     move-exception v0
 
@@ -2226,25 +2247,25 @@
     .parameter "d"
 
     .prologue
-    .line 519
+    .line 547
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 520
+    .line 548
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationRead(II[F)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 521
+    .line 549
     monitor-exit p0
 
     return-void
 
-    .line 519
+    .line 547
     :catchall_0
     move-exception v0
 
@@ -2259,25 +2280,25 @@
     .parameter "d"
 
     .prologue
-    .line 514
+    .line 542
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 515
+    .line 543
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationRead(II[I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 516
+    .line 544
     monitor-exit p0
 
     return-void
 
-    .line 514
+    .line 542
     :catchall_0
     move-exception v0
 
@@ -2292,25 +2313,25 @@
     .parameter "d"
 
     .prologue
-    .line 509
+    .line 537
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 510
+    .line 538
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationRead(II[S)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 511
+    .line 539
     monitor-exit p0
 
     return-void
 
-    .line 509
+    .line 537
     :catchall_0
     move-exception v0
 
@@ -2325,25 +2346,25 @@
     .parameter "dimX"
 
     .prologue
-    .line 530
+    .line 558
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 531
+    .line 559
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationResize1D(III)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 532
+    .line 560
     monitor-exit p0
 
     return-void
 
-    .line 530
+    .line 558
     :catchall_0
     move-exception v0
 
@@ -2358,25 +2379,25 @@
     .parameter "sur"
 
     .prologue
-    .line 362
+    .line 390
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 363
+    .line 391
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationSetSurface(IILandroid/view/Surface;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 364
+    .line 392
     monitor-exit p0
 
     return-void
 
-    .line 362
+    .line 390
     :catchall_0
     move-exception v0
 
@@ -2391,25 +2412,25 @@
     .parameter "src"
 
     .prologue
-    .line 352
+    .line 380
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 353
+    .line 381
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAllocationSyncAll(III)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 354
+    .line 382
     monitor-exit p0
 
     return-void
 
-    .line 352
+    .line 380
     :catchall_0
     move-exception v0
 
@@ -2424,25 +2445,25 @@
     .parameter "name"
 
     .prologue
-    .line 258
+    .line 285
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 259
+    .line 286
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnAssignName(II[B)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 260
+    .line 287
     monitor-exit p0
 
     return-void
 
-    .line 258
+    .line 285
     :catchall_0
     move-exception v0
 
@@ -2456,25 +2477,25 @@
     .parameter "pf"
 
     .prologue
-    .line 232
+    .line 259
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 233
+    .line 260
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextBindProgramFragment(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 234
+    .line 261
     monitor-exit p0
 
     return-void
 
-    .line 232
+    .line 259
     :catchall_0
     move-exception v0
 
@@ -2488,25 +2509,25 @@
     .parameter "pr"
 
     .prologue
-    .line 242
+    .line 269
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 243
+    .line 270
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextBindProgramRaster(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 244
+    .line 271
     monitor-exit p0
 
     return-void
 
-    .line 242
+    .line 269
     :catchall_0
     move-exception v0
 
@@ -2520,25 +2541,25 @@
     .parameter "pfs"
 
     .prologue
-    .line 227
+    .line 254
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 228
+    .line 255
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextBindProgramStore(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 229
+    .line 256
     monitor-exit p0
 
     return-void
 
-    .line 227
+    .line 254
     :catchall_0
     move-exception v0
 
@@ -2552,25 +2573,25 @@
     .parameter "pv"
 
     .prologue
-    .line 237
+    .line 264
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 238
+    .line 265
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextBindProgramVertex(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 239
+    .line 266
     monitor-exit p0
 
     return-void
 
-    .line 237
+    .line 264
     :catchall_0
     move-exception v0
 
@@ -2584,25 +2605,25 @@
     .parameter "script"
 
     .prologue
-    .line 217
+    .line 244
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 218
+    .line 245
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextBindRootScript(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 219
+    .line 246
     monitor-exit p0
 
     return-void
 
-    .line 217
+    .line 244
     :catchall_0
     move-exception v0
 
@@ -2617,25 +2638,25 @@
     .parameter "slot"
 
     .prologue
-    .line 222
+    .line 249
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 223
+    .line 250
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnContextBindSampler(III)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 224
+    .line 251
     monitor-exit p0
 
     return-void
 
-    .line 222
+    .line 249
     :catchall_0
     move-exception v0
 
@@ -2652,7 +2673,7 @@
     .parameter "contextType"
 
     .prologue
-    .line 176
+    .line 192
     monitor-enter p0
 
     :try_start_0
@@ -2693,7 +2714,7 @@
     .parameter "dpi"
 
     .prologue
-    .line 169
+    .line 185
     monitor-enter p0
 
     :try_start_0
@@ -2719,34 +2740,57 @@
 .end method
 
 .method declared-synchronized nContextDestroy()V
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 180
+    .line 196
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 181
+    .line 200
+    iget-object v2, p0, Landroid/renderscript/RenderScript;->mRWLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+
+    move-result-object v1
+
+    .line 201
+    .local v1, wlock:Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
+
+    .line 203
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
+    .line 205
+    .local v0, curCon:I
+    const/4 v2, 0x0
+
+    iput v2, p0, Landroid/renderscript/RenderScript;->mContext:I
+
+    .line 207
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+
+    .line 208
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->rsnContextDestroy(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 182
+    .line 209
     monitor-exit p0
 
     return-void
 
-    .line 180
+    .line 196
+    .end local v0           #curCon:I
+    .end local v1           #wlock:Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 .end method
 
 .method declared-synchronized nContextDump(I)V
@@ -2754,25 +2798,25 @@
     .parameter "bits"
 
     .prologue
-    .line 200
+    .line 227
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 201
+    .line 228
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextDump(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 202
+    .line 229
     monitor-exit p0
 
     return-void
 
-    .line 200
+    .line 227
     :catchall_0
     move-exception v0
 
@@ -2785,25 +2829,25 @@
     .locals 1
 
     .prologue
-    .line 205
+    .line 232
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 206
+    .line 233
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->rsnContextFinish(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 207
+    .line 234
     monitor-exit p0
 
     return-void
 
-    .line 205
+    .line 232
     :catchall_0
     move-exception v0
 
@@ -2825,25 +2869,25 @@
     .locals 1
 
     .prologue
-    .line 247
+    .line 274
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 248
+    .line 275
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->rsnContextPause(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 249
+    .line 276
     monitor-exit p0
 
     return-void
 
-    .line 247
+    .line 274
     :catchall_0
     move-exception v0
 
@@ -2859,25 +2903,25 @@
     .locals 1
 
     .prologue
-    .line 252
+    .line 279
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 253
+    .line 280
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->rsnContextResume(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 254
+    .line 281
     monitor-exit p0
 
     return-void
 
-    .line 252
+    .line 279
     :catchall_0
     move-exception v0
 
@@ -2892,25 +2936,25 @@
     .parameter "data"
 
     .prologue
-    .line 211
+    .line 238
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 212
+    .line 239
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnContextSendMessage(II[I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 213
+    .line 240
     monitor-exit p0
 
     return-void
 
-    .line 211
+    .line 238
     :catchall_0
     move-exception v0
 
@@ -2924,25 +2968,25 @@
     .parameter "p"
 
     .prologue
-    .line 195
+    .line 222
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 196
+    .line 223
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnContextSetPriority(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 197
+    .line 224
     monitor-exit p0
 
     return-void
 
-    .line 195
+    .line 222
     :catchall_0
     move-exception v0
 
@@ -2958,25 +3002,25 @@
     .parameter "sur"
 
     .prologue
-    .line 185
+    .line 212
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 186
+    .line 213
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnContextSetSurface(IIILandroid/view/Surface;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 187
+    .line 214
     monitor-exit p0
 
     return-void
 
-    .line 185
+    .line 212
     :catchall_0
     move-exception v0
 
@@ -2992,25 +3036,25 @@
     .parameter "sur"
 
     .prologue
-    .line 190
+    .line 217
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 191
+    .line 218
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnContextSetSurfaceTexture(IIILandroid/graphics/SurfaceTexture;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 192
+    .line 219
     monitor-exit p0
 
     return-void
 
-    .line 190
+    .line 217
     :catchall_0
     move-exception v0
 
@@ -3036,13 +3080,13 @@
     .parameter "vecSize"
 
     .prologue
-    .line 278
+    .line 306
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 279
+    .line 307
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3065,7 +3109,7 @@
 
     return v0
 
-    .line 278
+    .line 306
     :catchall_0
     move-exception v0
 
@@ -3081,13 +3125,13 @@
     .parameter "arraySizes"
 
     .prologue
-    .line 283
+    .line 311
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 284
+    .line 312
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnElementCreate2(I[I[Ljava/lang/String;[I)I
@@ -3100,7 +3144,7 @@
 
     return v0
 
-    .line 283
+    .line 311
     :catchall_0
     move-exception v0
 
@@ -3115,25 +3159,25 @@
     .parameter "elementData"
 
     .prologue
-    .line 288
+    .line 316
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 289
+    .line 317
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnElementGetNativeData(II[I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 290
+    .line 318
     monitor-exit p0
 
     return-void
 
-    .line 288
+    .line 316
     :catchall_0
     move-exception v0
 
@@ -3150,13 +3194,13 @@
     .parameter "arraySizes"
 
     .prologue
-    .line 294
+    .line 322
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 295
+    .line 323
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3173,12 +3217,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 296
+    .line 324
     monitor-exit p0
 
     return-void
 
-    .line 294
+    .line 322
     :catchall_0
     move-exception v0
 
@@ -3193,13 +3237,13 @@
     .parameter "path"
 
     .prologue
-    .line 546
+    .line 574
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 547
+    .line 575
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnFileA3DCreateFromAsset(ILandroid/content/res/AssetManager;Ljava/lang/String;)I
@@ -3212,7 +3256,7 @@
 
     return v0
 
-    .line 546
+    .line 574
     :catchall_0
     move-exception v0
 
@@ -3226,13 +3270,13 @@
     .parameter "assetStream"
 
     .prologue
-    .line 536
+    .line 564
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 537
+    .line 565
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnFileA3DCreateFromAssetStream(II)I
@@ -3245,7 +3289,7 @@
 
     return v0
 
-    .line 536
+    .line 564
     :catchall_0
     move-exception v0
 
@@ -3259,13 +3303,13 @@
     .parameter "path"
 
     .prologue
-    .line 541
+    .line 569
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 542
+    .line 570
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnFileA3DCreateFromFile(ILjava/lang/String;)I
@@ -3278,7 +3322,7 @@
 
     return v0
 
-    .line 541
+    .line 569
     :catchall_0
     move-exception v0
 
@@ -3293,13 +3337,13 @@
     .parameter "index"
 
     .prologue
-    .line 561
+    .line 589
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 562
+    .line 590
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnFileA3DGetEntryByIndex(III)I
@@ -3312,7 +3356,7 @@
 
     return v0
 
-    .line 561
+    .line 589
     :catchall_0
     move-exception v0
 
@@ -3329,13 +3373,13 @@
     .parameter "names"
 
     .prologue
-    .line 556
+    .line 584
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 557
+    .line 585
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3352,12 +3396,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 558
+    .line 586
     monitor-exit p0
 
     return-void
 
-    .line 556
+    .line 584
     :catchall_0
     move-exception v0
 
@@ -3371,13 +3415,13 @@
     .parameter "fileA3D"
 
     .prologue
-    .line 551
+    .line 579
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 552
+    .line 580
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnFileA3DGetNumIndexEntries(II)I
@@ -3390,7 +3434,7 @@
 
     return v0
 
-    .line 551
+    .line 579
     :catchall_0
     move-exception v0
 
@@ -3407,13 +3451,13 @@
     .parameter "dpi"
 
     .prologue
-    .line 577
+    .line 605
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 578
+    .line 606
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3436,7 +3480,7 @@
 
     return v0
 
-    .line 577
+    .line 605
     :catchall_0
     move-exception v0
 
@@ -3453,13 +3497,13 @@
     .parameter "assetStream"
 
     .prologue
-    .line 572
+    .line 600
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 573
+    .line 601
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3482,7 +3526,7 @@
 
     return v0
 
-    .line 572
+    .line 600
     :catchall_0
     move-exception v0
 
@@ -3498,13 +3542,13 @@
     .parameter "dpi"
 
     .prologue
-    .line 567
+    .line 595
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 568
+    .line 596
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnFontCreateFromFile(ILjava/lang/String;FI)I
@@ -3517,7 +3561,7 @@
 
     return v0
 
-    .line 567
+    .line 595
     :catchall_0
     move-exception v0
 
@@ -3531,13 +3575,13 @@
     .parameter "obj"
 
     .prologue
-    .line 263
+    .line 290
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 264
+    .line 291
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnGetName(II)Ljava/lang/String;
@@ -3550,7 +3594,7 @@
 
     return-object v0
 
-    .line 263
+    .line 290
     :catchall_0
     move-exception v0
 
@@ -3566,13 +3610,13 @@
     .parameter "prim"
 
     .prologue
-    .line 795
+    .line 823
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 796
+    .line 824
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnMeshCreate(I[I[I[I)I
@@ -3585,7 +3629,7 @@
 
     return v0
 
-    .line 795
+    .line 823
     :catchall_0
     move-exception v0
 
@@ -3599,13 +3643,13 @@
     .parameter "id"
 
     .prologue
-    .line 805
+    .line 833
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 806
+    .line 834
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnMeshGetIndexCount(II)I
@@ -3618,7 +3662,7 @@
 
     return v0
 
-    .line 805
+    .line 833
     :catchall_0
     move-exception v0
 
@@ -3635,13 +3679,13 @@
     .parameter "vtxIdCount"
 
     .prologue
-    .line 815
+    .line 843
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 816
+    .line 844
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3658,12 +3702,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 817
+    .line 845
     monitor-exit p0
 
     return-void
 
-    .line 815
+    .line 843
     :catchall_0
     move-exception v0
 
@@ -3677,13 +3721,13 @@
     .parameter "id"
 
     .prologue
-    .line 800
+    .line 828
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 801
+    .line 829
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnMeshGetVertexBufferCount(II)I
@@ -3696,7 +3740,7 @@
 
     return v0
 
-    .line 800
+    .line 828
     :catchall_0
     move-exception v0
 
@@ -3712,25 +3756,25 @@
     .parameter "vtxIdCount"
 
     .prologue
-    .line 810
+    .line 838
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 811
+    .line 839
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnMeshGetVertices(II[II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 812
+    .line 840
     monitor-exit p0
 
     return-void
 
-    .line 810
+    .line 838
     :catchall_0
     move-exception v0
 
@@ -3739,39 +3783,24 @@
     throw v0
 .end method
 
-.method declared-synchronized nObjDestroy(I)V
+.method nObjDestroy(I)V
     .locals 1
     .parameter "id"
 
     .prologue
-    .line 271
-    monitor-enter p0
-
-    :try_start_0
+    .line 299
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     if-eqz v0, :cond_0
 
-    .line 272
+    .line 300
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnObjDestroy(II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 274
+    .line 302
     :cond_0
-    monitor-exit p0
-
     return-void
-
-    .line 271
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method declared-synchronized nPathCreate(IZIIF)I
@@ -3783,13 +3812,13 @@
     .parameter "q"
 
     .prologue
-    .line 821
+    .line 849
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 822
+    .line 850
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -3814,7 +3843,7 @@
 
     return v0
 
-    .line 821
+    .line 849
     :catchall_0
     move-exception v0
 
@@ -3830,25 +3859,25 @@
     .parameter "mID"
 
     .prologue
-    .line 769
+    .line 797
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 770
+    .line 798
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnProgramBindConstants(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 771
+    .line 799
     monitor-exit p0
 
     return-void
 
-    .line 769
+    .line 797
     :catchall_0
     move-exception v0
 
@@ -3864,25 +3893,25 @@
     .parameter "s"
 
     .prologue
-    .line 779
+    .line 807
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 780
+    .line 808
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnProgramBindSampler(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 781
+    .line 809
     monitor-exit p0
 
     return-void
 
-    .line 779
+    .line 807
     :catchall_0
     move-exception v0
 
@@ -3898,25 +3927,25 @@
     .parameter "a"
 
     .prologue
-    .line 774
+    .line 802
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 775
+    .line 803
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnProgramBindTexture(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 776
+    .line 804
     monitor-exit p0
 
     return-void
 
-    .line 774
+    .line 802
     :catchall_0
     move-exception v0
 
@@ -3932,13 +3961,13 @@
     .parameter "params"
 
     .prologue
-    .line 784
+    .line 812
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 785
+    .line 813
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnProgramFragmentCreate(ILjava/lang/String;[Ljava/lang/String;[I)I
@@ -3951,7 +3980,7 @@
 
     return v0
 
-    .line 784
+    .line 812
     :catchall_0
     move-exception v0
 
@@ -3966,13 +3995,13 @@
     .parameter "cullMode"
 
     .prologue
-    .line 763
+    .line 791
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 764
+    .line 792
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnProgramRasterCreate(IZI)I
@@ -3985,7 +4014,7 @@
 
     return v0
 
-    .line 763
+    .line 791
     :catchall_0
     move-exception v0
 
@@ -4007,13 +4036,13 @@
     .parameter "depthFunc"
 
     .prologue
-    .line 756
+    .line 784
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 757
+    .line 785
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -4046,7 +4075,7 @@
 
     return v0
 
-    .line 756
+    .line 784
     :catchall_0
     move-exception v0
 
@@ -4062,13 +4091,13 @@
     .parameter "params"
 
     .prologue
-    .line 789
+    .line 817
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 790
+    .line 818
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnProgramVertexCreate(ILjava/lang/String;[Ljava/lang/String;[I)I
@@ -4081,7 +4110,7 @@
 
     return v0
 
-    .line 789
+    .line 817
     :catchall_0
     move-exception v0
 
@@ -4100,13 +4129,13 @@
     .parameter "aniso"
 
     .prologue
-    .line 746
+    .line 774
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 747
+    .line 775
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -4133,7 +4162,7 @@
 
     return v0
 
-    .line 746
+    .line 774
     :catchall_0
     move-exception v0
 
@@ -4149,25 +4178,25 @@
     .parameter "slot"
 
     .prologue
-    .line 584
+    .line 612
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 585
+    .line 613
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptBindAllocation(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 586
+    .line 614
     monitor-exit p0
 
     return-void
 
-    .line 584
+    .line 612
     :catchall_0
     move-exception v0
 
@@ -4184,13 +4213,13 @@
     .parameter "length"
 
     .prologue
-    .line 696
+    .line 724
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 697
+    .line 725
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -4213,7 +4242,7 @@
 
     return v0
 
-    .line 696
+    .line 724
     :catchall_0
     move-exception v0
 
@@ -4228,13 +4257,13 @@
     .parameter "slot"
 
     .prologue
-    .line 714
+    .line 742
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 715
+    .line 743
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptFieldIDCreate(III)I
@@ -4247,7 +4276,7 @@
 
     return v0
 
-    .line 714
+    .line 742
     :catchall_0
     move-exception v0
 
@@ -4265,16 +4294,16 @@
     .parameter "params"
 
     .prologue
-    .line 604
+    .line 632
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 605
+    .line 633
     if-nez p5, :cond_0
 
-    .line 606
+    .line 634
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -4291,13 +4320,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 610
+    .line 638
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 608
+    .line 636
     :cond_0
     :try_start_1
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
@@ -4320,7 +4349,7 @@
 
     goto :goto_0
 
-    .line 604
+    .line 632
     :catchall_0
     move-exception v0
 
@@ -4344,16 +4373,16 @@
     .parameter "zend"
 
     .prologue
-    .line 614
+    .line 642
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 615
+    .line 643
     if-nez p5, :cond_0
 
-    .line 616
+    .line 644
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -4382,13 +4411,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 620
+    .line 648
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 618
+    .line 646
     :cond_0
     :try_start_1
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
@@ -4423,7 +4452,7 @@
 
     goto :goto_0
 
-    .line 614
+    .line 642
     :catchall_0
     move-exception v0
 
@@ -4438,13 +4467,13 @@
     .parameter "slot"
 
     .prologue
-    .line 667
+    .line 695
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 668
+    .line 696
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptGetVarD(III)D
@@ -4457,7 +4486,7 @@
 
     return-wide v0
 
-    .line 667
+    .line 695
     :catchall_0
     move-exception v0
 
@@ -4472,13 +4501,13 @@
     .parameter "slot"
 
     .prologue
-    .line 657
+    .line 685
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 658
+    .line 686
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptGetVarF(III)F
@@ -4491,7 +4520,7 @@
 
     return v0
 
-    .line 657
+    .line 685
     :catchall_0
     move-exception v0
 
@@ -4506,13 +4535,13 @@
     .parameter "slot"
 
     .prologue
-    .line 635
+    .line 663
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 636
+    .line 664
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptGetVarI(III)I
@@ -4525,7 +4554,7 @@
 
     return v0
 
-    .line 635
+    .line 663
     :catchall_0
     move-exception v0
 
@@ -4540,13 +4569,13 @@
     .parameter "slot"
 
     .prologue
-    .line 646
+    .line 674
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 647
+    .line 675
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptGetVarJ(III)J
@@ -4559,7 +4588,7 @@
 
     return-wide v0
 
-    .line 646
+    .line 674
     :catchall_0
     move-exception v0
 
@@ -4575,25 +4604,25 @@
     .parameter "val"
 
     .prologue
-    .line 677
+    .line 705
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 678
+    .line 706
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptGetVarV(III[B)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 679
+    .line 707
     monitor-exit p0
 
     return-void
 
-    .line 677
+    .line 705
     :catchall_0
     move-exception v0
 
@@ -4611,13 +4640,13 @@
     .parameter "types"
 
     .prologue
-    .line 720
+    .line 748
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 721
+    .line 749
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -4642,7 +4671,7 @@
 
     return v0
 
-    .line 720
+    .line 748
     :catchall_0
     move-exception v0
 
@@ -4656,25 +4685,25 @@
     .parameter "group"
 
     .prologue
-    .line 738
+    .line 766
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 739
+    .line 767
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1}, Landroid/renderscript/RenderScript;->rsnScriptGroupExecute(II)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 740
+    .line 768
     monitor-exit p0
 
     return-void
 
-    .line 738
+    .line 766
     :catchall_0
     move-exception v0
 
@@ -4690,25 +4719,25 @@
     .parameter "alloc"
 
     .prologue
-    .line 726
+    .line 754
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 727
+    .line 755
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptGroupSetInput(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 728
+    .line 756
     monitor-exit p0
 
     return-void
 
-    .line 726
+    .line 754
     :catchall_0
     move-exception v0
 
@@ -4724,25 +4753,25 @@
     .parameter "alloc"
 
     .prologue
-    .line 732
+    .line 760
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 733
+    .line 761
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptGroupSetOutput(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 734
+    .line 762
     monitor-exit p0
 
     return-void
 
-    .line 732
+    .line 760
     :catchall_0
     move-exception v0
 
@@ -4757,13 +4786,13 @@
     .parameter "eid"
 
     .prologue
-    .line 702
+    .line 730
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 703
+    .line 731
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptIntrinsicCreate(III)I
@@ -4776,7 +4805,7 @@
 
     return v0
 
-    .line 702
+    .line 730
     :catchall_0
     move-exception v0
 
@@ -4791,25 +4820,25 @@
     .parameter "slot"
 
     .prologue
-    .line 594
+    .line 622
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 595
+    .line 623
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptInvoke(III)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 596
+    .line 624
     monitor-exit p0
 
     return-void
 
-    .line 594
+    .line 622
     :catchall_0
     move-exception v0
 
@@ -4825,150 +4854,6 @@
     .parameter "params"
 
     .prologue
-    .line 624
-    monitor-enter p0
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
-
-    .line 625
-    iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
-
-    invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptInvokeV(III[B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 626
-    monitor-exit p0
-
-    return-void
-
-    .line 624
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized nScriptKernelIDCreate(III)I
-    .locals 1
-    .parameter "sid"
-    .parameter "slot"
-    .parameter "sig"
-
-    .prologue
-    .line 708
-    monitor-enter p0
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
-
-    .line 709
-    iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
-
-    invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptKernelIDCreate(IIII)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v0
-
-    monitor-exit p0
-
-    return v0
-
-    .line 708
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized nScriptSetTimeZone(I[B)V
-    .locals 1
-    .parameter "script"
-    .parameter "timeZone"
-
-    .prologue
-    .line 589
-    monitor-enter p0
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
-
-    .line 590
-    iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
-
-    invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptSetTimeZone(II[B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 591
-    monitor-exit p0
-
-    return-void
-
-    .line 589
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized nScriptSetVarD(IID)V
-    .locals 6
-    .parameter "id"
-    .parameter "slot"
-    .parameter "val"
-
-    .prologue
-    .line 662
-    monitor-enter p0
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
-
-    .line 663
-    iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
-
-    move-object v0, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/RenderScript;->rsnScriptSetVarD(IIID)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 664
-    monitor-exit p0
-
-    return-void
-
-    .line 662
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized nScriptSetVarF(IIF)V
-    .locals 1
-    .parameter "id"
-    .parameter "slot"
-    .parameter "val"
-
-    .prologue
     .line 652
     monitor-enter p0
 
@@ -4978,7 +4863,7 @@
     .line 653
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
-    invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptSetVarF(IIIF)V
+    invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptInvokeV(III[B)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -4996,6 +4881,150 @@
     throw v0
 .end method
 
+.method declared-synchronized nScriptKernelIDCreate(III)I
+    .locals 1
+    .parameter "sid"
+    .parameter "slot"
+    .parameter "sig"
+
+    .prologue
+    .line 736
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
+
+    .line 737
+    iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
+
+    invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptKernelIDCreate(IIII)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    monitor-exit p0
+
+    return v0
+
+    .line 736
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method declared-synchronized nScriptSetTimeZone(I[B)V
+    .locals 1
+    .parameter "script"
+    .parameter "timeZone"
+
+    .prologue
+    .line 617
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
+
+    .line 618
+    iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
+
+    invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnScriptSetTimeZone(II[B)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 619
+    monitor-exit p0
+
+    return-void
+
+    .line 617
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method declared-synchronized nScriptSetVarD(IID)V
+    .locals 6
+    .parameter "id"
+    .parameter "slot"
+    .parameter "val"
+
+    .prologue
+    .line 690
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
+
+    .line 691
+    iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
+
+    move-object v0, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/RenderScript;->rsnScriptSetVarD(IIID)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 692
+    monitor-exit p0
+
+    return-void
+
+    .line 690
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method declared-synchronized nScriptSetVarF(IIF)V
+    .locals 1
+    .parameter "id"
+    .parameter "slot"
+    .parameter "val"
+
+    .prologue
+    .line 680
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
+
+    .line 681
+    iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
+
+    invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptSetVarF(IIIF)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 682
+    monitor-exit p0
+
+    return-void
+
+    .line 680
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method declared-synchronized nScriptSetVarI(III)V
     .locals 1
     .parameter "id"
@@ -5003,25 +5032,25 @@
     .parameter "val"
 
     .prologue
-    .line 630
+    .line 658
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 631
+    .line 659
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptSetVarI(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 632
+    .line 660
     monitor-exit p0
 
     return-void
 
-    .line 630
+    .line 658
     :catchall_0
     move-exception v0
 
@@ -5037,13 +5066,13 @@
     .parameter "val"
 
     .prologue
-    .line 641
+    .line 669
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 642
+    .line 670
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -5058,12 +5087,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 643
+    .line 671
     monitor-exit p0
 
     return-void
 
-    .line 641
+    .line 669
     :catchall_0
     move-exception v0
 
@@ -5079,25 +5108,25 @@
     .parameter "val"
 
     .prologue
-    .line 689
+    .line 717
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 690
+    .line 718
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptSetVarObj(IIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 691
+    .line 719
     monitor-exit p0
 
     return-void
 
-    .line 689
+    .line 717
     :catchall_0
     move-exception v0
 
@@ -5113,25 +5142,25 @@
     .parameter "val"
 
     .prologue
-    .line 672
+    .line 700
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 673
+    .line 701
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/renderscript/RenderScript;->rsnScriptSetVarV(III[B)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 674
+    .line 702
     monitor-exit p0
 
     return-void
 
-    .line 672
+    .line 700
     :catchall_0
     move-exception v0
 
@@ -5149,13 +5178,13 @@
     .parameter "dims"
 
     .prologue
-    .line 684
+    .line 712
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 685
+    .line 713
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -5174,12 +5203,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 686
+    .line 714
     monitor-exit p0
 
     return-void
 
-    .line 684
+    .line 712
     :catchall_0
     move-exception v0
 
@@ -5199,13 +5228,13 @@
     .parameter "yuv"
 
     .prologue
-    .line 300
+    .line 328
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 301
+    .line 329
     iget v1, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     move-object v0, p0
@@ -5234,7 +5263,7 @@
 
     return v0
 
-    .line 300
+    .line 328
     :catchall_0
     move-exception v0
 
@@ -5249,25 +5278,25 @@
     .parameter "typeData"
 
     .prologue
-    .line 305
+    .line 333
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 306
+    .line 334
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/renderscript/RenderScript;->rsnTypeGetNativeData(II[I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 307
+    .line 335
     monitor-exit p0
 
     return-void
 
-    .line 305
+    .line 333
     :catchall_0
     move-exception v0
 
@@ -5620,15 +5649,15 @@
     .parameter "o"
 
     .prologue
-    .line 1252
+    .line 1282
     if-eqz p1, :cond_0
 
-    .line 1253
+    .line 1283
     invoke-virtual {p1, p0}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)I
 
     move-result v0
 
-    .line 1255
+    .line 1285
     :goto_0
     return v0
 
@@ -5644,10 +5673,10 @@
     .parameter "data"
 
     .prologue
-    .line 971
+    .line 999
     invoke-virtual {p0, p1, p2}, Landroid/renderscript/RenderScript;->nContextSendMessage(I[I)V
 
-    .line 972
+    .line 1000
     return-void
 .end method
 
@@ -5656,10 +5685,10 @@
     .parameter "msg"
 
     .prologue
-    .line 997
+    .line 1025
     iput-object p1, p0, Landroid/renderscript/RenderScript;->mErrorCallback:Landroid/renderscript/RenderScript$RSErrorHandler;
 
-    .line 998
+    .line 1026
     return-void
 .end method
 
@@ -5668,10 +5697,10 @@
     .parameter "msg"
 
     .prologue
-    .line 957
+    .line 985
     iput-object p1, p0, Landroid/renderscript/RenderScript;->mMessageCallback:Landroid/renderscript/RenderScript$RSMessageHandler;
 
-    .line 958
+    .line 986
     return-void
 .end method
 
@@ -5680,15 +5709,15 @@
     .parameter "p"
 
     .prologue
-    .line 1031
+    .line 1059
     invoke-virtual {p0}, Landroid/renderscript/RenderScript;->validate()V
 
-    .line 1032
+    .line 1060
     iget v0, p1, Landroid/renderscript/RenderScript$Priority;->mID:I
 
     invoke-virtual {p0, v0}, Landroid/renderscript/RenderScript;->nContextSetPriority(I)V
 
-    .line 1033
+    .line 1061
     return-void
 .end method
 
@@ -5696,12 +5725,12 @@
     .locals 2
 
     .prologue
-    .line 1019
+    .line 1047
     iget v0, p0, Landroid/renderscript/RenderScript;->mContext:I
 
     if-nez v0, :cond_0
 
-    .line 1020
+    .line 1048
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
 
     const-string v1, "Calling RS with no Context active."
@@ -5710,7 +5739,7 @@
 
     throw v0
 
-    .line 1022
+    .line 1050
     :cond_0
     return-void
 .end method

@@ -24,17 +24,17 @@
     .parameter "name"
 
     .prologue
-    .line 231
+    .line 291
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 232
+    .line 292
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 233
+    .line 293
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "name cannot be empty"
@@ -43,7 +43,7 @@
 
     throw v0
 
-    .line 235
+    .line 295
     :cond_0
     new-instance v0, Landroid/print/PrintDocumentInfo;
 
@@ -53,13 +53,13 @@
 
     iput-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
-    .line 236
+    .line 296
     iget-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
     #setter for: Landroid/print/PrintDocumentInfo;->mName:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/print/PrintDocumentInfo;->access$102(Landroid/print/PrintDocumentInfo;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 237
+    .line 297
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .locals 3
 
     .prologue
-    .line 281
+    .line 341
     new-instance v0, Landroid/print/PrintDocumentInfo;
 
     iget-object v1, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
@@ -86,13 +86,13 @@
     .parameter "type"
 
     .prologue
-    .line 271
+    .line 331
     iget-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
     #setter for: Landroid/print/PrintDocumentInfo;->mContentType:I
     invoke-static {v0, p1}, Landroid/print/PrintDocumentInfo;->access$302(Landroid/print/PrintDocumentInfo;I)I
 
-    .line 272
+    .line 332
     return-object p0
 .end method
 
@@ -101,14 +101,14 @@
     .parameter "pageCount"
 
     .prologue
-    .line 249
+    .line 309
     if-gez p1, :cond_0
 
     const/4 v0, -0x1
 
     if-eq p1, v0, :cond_0
 
-    .line 250
+    .line 310
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "pageCount must be greater than or euqal to zero or DocumentInfo#PAGE_COUNT_UNKNOWN"
@@ -117,13 +117,13 @@
 
     throw v0
 
-    .line 254
+    .line 314
     :cond_0
     iget-object v0, p0, Landroid/print/PrintDocumentInfo$Builder;->mPrototype:Landroid/print/PrintDocumentInfo;
 
     #setter for: Landroid/print/PrintDocumentInfo;->mPageCount:I
     invoke-static {v0, p1}, Landroid/print/PrintDocumentInfo;->access$202(Landroid/print/PrintDocumentInfo;I)I
 
-    .line 255
+    .line 315
     return-object p0
 .end method

@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 535
+    .line 549
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "parcel"
 
     .prologue
-    .line 538
+    .line 552
     new-instance v0, Landroid/print/PrinterCapabilitiesInfo;
 
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
     .parameter "x0"
 
     .prologue
-    .line 535
+    .line 549
     invoke-virtual {p0, p1}, Landroid/print/PrinterCapabilitiesInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/print/PrinterCapabilitiesInfo;
 
     move-result-object v0
@@ -73,7 +73,7 @@
     .parameter "size"
 
     .prologue
-    .line 543
+    .line 557
     new-array v0, p1, [Landroid/print/PrinterCapabilitiesInfo;
 
     return-object v0
@@ -84,7 +84,7 @@
     .parameter "x0"
 
     .prologue
-    .line 535
+    .line 549
     invoke-virtual {p0, p1}, Landroid/print/PrinterCapabilitiesInfo$1;->newArray(I)[Landroid/print/PrinterCapabilitiesInfo;
 
     move-result-object v0

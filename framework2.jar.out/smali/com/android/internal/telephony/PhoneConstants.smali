@@ -77,6 +77,12 @@
 
 .field public static final PHONE_TYPE_SIP:I = 0x3
 
+.field public static final PIN_GENERAL_FAILURE:I = 0x2
+
+.field public static final PIN_PASSWORD_INCORRECT:I = 0x1
+
+.field public static final PIN_RESULT_SUCCESS:I = 0x0
+
 .field public static PRESENTATION_ALLOWED:I = 0x0
 
 .field public static PRESENTATION_PAYPHONE:I = 0x0

@@ -783,7 +783,7 @@
     .line 927
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
     :cond_d
-    const-string v2, "nine-patch"
+    const-string/jumbo v2, "nine-patch"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

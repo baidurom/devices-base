@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1135
+    .line 1146
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,28 +40,28 @@
     .parameter "intent"
 
     .prologue
-    .line 1138
+    .line 1149
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 1140
+    .line 1151
     .local v9, action:Ljava/lang/String;
     const/16 v20, 0x0
 
-    .line 1141
+    .line 1152
     .local v20, queryRestart:Z
     const/16 v18, 0x0
 
-    .line 1142
+    .line 1153
     .local v18, queryRemove:Z
     const/16 v16, 0x0
 
-    .line 1143
+    .line 1154
     .local v16, packageChanged:Z
     const/4 v12, 0x1
 
-    .line 1145
+    .line 1156
     .local v12, cancelNotifications:Z
     const-string v1, "android.intent.action.PACKAGE_ADDED"
 
@@ -111,11 +111,11 @@
 
     if-eqz v1, :cond_d
 
-    .line 1151
+    .line 1162
     :cond_0
     const/16 v17, 0x0
 
-    .line 1152
+    .line 1163
     .local v17, pkgList:[Ljava/lang/String;
     if-eqz v18, :cond_3
 
@@ -133,7 +133,7 @@
 
     const/16 v19, 0x1
 
-    .line 1155
+    .line 1166
     .local v19, queryReplace:Z
     :goto_0
     const-string v1, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
@@ -144,7 +144,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 1156
+    .line 1167
     const-string v1, "android.intent.extra.changed_package_list"
 
     move-object/from16 v0, p2
@@ -153,11 +153,11 @@
 
     move-result-object v17
 
-    .line 1188
+    .line 1199
     :goto_1
     const/4 v10, 0x0
 
-    .line 1189
+    .line 1200
     .local v10, anyListenersInvolved:Z
     if-eqz v17, :cond_b
 
@@ -167,7 +167,7 @@
 
     if-lez v1, :cond_b
 
-    .line 1190
+    .line 1201
     move-object/from16 v11, v17
 
     .local v11, arr$:[Ljava/lang/String;
@@ -182,11 +182,11 @@
 
     aget-object v2, v11, v14
 
-    .line 1191
+    .line 1202
     .local v2, pkgName:Ljava/lang/String;
     if-eqz v12, :cond_1
 
-    .line 1192
+    .line 1203
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -204,7 +204,7 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/server/NotificationManagerService;->cancelAllNotificationsInt(Ljava/lang/String;IIZI)Z
 
-    .line 1195
+    .line 1206
     :cond_1
     move-object/from16 v0, p0
 
@@ -221,16 +221,16 @@
 
     if-eqz v1, :cond_2
 
-    .line 1196
+    .line 1207
     const/4 v10, 0x1
 
-    .line 1190
+    .line 1201
     :cond_2
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_2
 
-    .line 1152
+    .line 1163
     .end local v2           #pkgName:Ljava/lang/String;
     .end local v10           #anyListenersInvolved:Z
     .end local v11           #arr$:[Ljava/lang/String;
@@ -242,12 +242,12 @@
 
     goto :goto_0
 
-    .line 1157
+    .line 1168
     .restart local v19       #queryReplace:Z
     :cond_4
     if-eqz v20, :cond_5
 
-    .line 1158
+    .line 1169
     const-string v1, "android.intent.extra.PACKAGES"
 
     move-object/from16 v0, p2
@@ -258,17 +258,17 @@
 
     goto :goto_1
 
-    .line 1160
+    .line 1171
     :cond_5
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v21
 
-    .line 1161
+    .line 1172
     .local v21, uri:Landroid/net/Uri;
     if-nez v21, :cond_7
 
-    .line 1232
+    .line 1243
     .end local v17           #pkgList:[Ljava/lang/String;
     .end local v19           #queryReplace:Z
     .end local v21           #uri:Landroid/net/Uri;
@@ -276,7 +276,7 @@
     :goto_4
     return-void
 
-    .line 1164
+    .line 1175
     .restart local v17       #pkgList:[Ljava/lang/String;
     .restart local v19       #queryReplace:Z
     .restart local v21       #uri:Landroid/net/Uri;
@@ -285,14 +285,14 @@
 
     move-result-object v2
 
-    .line 1165
+    .line 1176
     .restart local v2       #pkgName:Ljava/lang/String;
     if-eqz v2, :cond_6
 
-    .line 1168
+    .line 1179
     if-eqz v16, :cond_9
 
-    .line 1171
+    .line 1182
     :try_start_0
     move-object/from16 v0, p0
 
@@ -310,7 +310,7 @@
 
     move-result v13
 
-    .line 1173
+    .line 1184
     .local v13, enabled:I
     const/4 v1, 0x1
 
@@ -318,11 +318,11 @@
 
     if-nez v13, :cond_9
 
-    .line 1175
+    .line 1186
     :cond_8
     const/4 v12, 0x0
 
-    .line 1185
+    .line 1196
     .end local v13           #enabled:I
     :cond_9
     :goto_5
@@ -340,7 +340,7 @@
     .restart local v17       #pkgList:[Ljava/lang/String;
     goto :goto_1
 
-    .line 1192
+    .line 1203
     .end local v21           #uri:Landroid/net/Uri;
     .restart local v10       #anyListenersInvolved:Z
     .restart local v11       #arr$:[Ljava/lang/String;
@@ -351,7 +351,7 @@
 
     goto :goto_3
 
-    .line 1201
+    .line 1212
     .end local v2           #pkgName:Ljava/lang/String;
     .end local v11           #arr$:[Ljava/lang/String;
     .end local v14           #i$:I
@@ -359,17 +359,17 @@
     :cond_b
     if-eqz v10, :cond_6
 
-    .line 1203
+    .line 1214
     if-nez v19, :cond_c
 
-    .line 1204
+    .line 1215
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/NotificationManagerService;->disableNonexistentListeners()V
 
-    .line 1208
+    .line 1219
     :cond_c
     move-object/from16 v0, p0
 
@@ -379,7 +379,7 @@
 
     goto :goto_4
 
-    .line 1210
+    .line 1221
     .end local v10           #anyListenersInvolved:Z
     .end local v17           #pkgList:[Ljava/lang/String;
     .end local v19           #queryReplace:Z
@@ -392,7 +392,7 @@
 
     if-eqz v1, :cond_e
 
-    .line 1213
+    .line 1224
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -404,7 +404,7 @@
 
     goto :goto_4
 
-    .line 1214
+    .line 1225
     :cond_e
     const-string v1, "android.intent.action.SCREEN_OFF"
 
@@ -414,7 +414,7 @@
 
     if-eqz v1, :cond_f
 
-    .line 1215
+    .line 1226
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -426,7 +426,7 @@
 
     goto :goto_4
 
-    .line 1216
+    .line 1227
     :cond_f
     const-string v1, "android.intent.action.PHONE_STATE"
 
@@ -436,7 +436,7 @@
 
     if-eqz v1, :cond_10
 
-    .line 1217
+    .line 1228
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -458,7 +458,7 @@
     #setter for: Lcom/android/server/NotificationManagerService;->mInCall:Z
     invoke-static {v1, v3}, Lcom/android/server/NotificationManagerService;->access$1602(Lcom/android/server/NotificationManagerService;Z)Z
 
-    .line 1219
+    .line 1230
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -468,7 +468,7 @@
 
     goto/16 :goto_4
 
-    .line 1220
+    .line 1231
     :cond_10
     const-string v1, "android.intent.action.USER_STOPPED"
 
@@ -478,7 +478,7 @@
 
     if-eqz v1, :cond_11
 
-    .line 1221
+    .line 1232
     const-string v1, "android.intent.extra.user_handle"
 
     const/4 v3, -0x1
@@ -489,11 +489,11 @@
 
     move-result v8
 
-    .line 1222
+    .line 1233
     .local v8, userHandle:I
     if-ltz v8, :cond_6
 
-    .line 1223
+    .line 1234
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -510,7 +510,7 @@
 
     goto/16 :goto_4
 
-    .line 1225
+    .line 1236
     .end local v8           #userHandle:I
     :cond_11
     const-string v1, "android.intent.action.USER_PRESENT"
@@ -521,7 +521,7 @@
 
     if-eqz v1, :cond_12
 
-    .line 1227
+    .line 1238
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -535,7 +535,7 @@
 
     goto/16 :goto_4
 
-    .line 1228
+    .line 1239
     :cond_12
     const-string v1, "android.intent.action.USER_SWITCHED"
 
@@ -545,7 +545,7 @@
 
     if-eqz v1, :cond_6
 
-    .line 1230
+    .line 1241
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/NotificationManagerService$5;->this$0:Lcom/android/server/NotificationManagerService;
@@ -561,7 +561,7 @@
 
     goto/16 :goto_4
 
-    .line 1177
+    .line 1188
     .restart local v2       #pkgName:Ljava/lang/String;
     .restart local v17       #pkgList:[Ljava/lang/String;
     .restart local v19       #queryReplace:Z

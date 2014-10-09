@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract onAdvertiseStateChange(II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onCharacteristicRead(Ljava/lang/String;IIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -96,14 +104,6 @@
 .end method
 
 .method public abstract onGetService(Ljava/lang/String;IILandroid/os/ParcelUuid;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onListen(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

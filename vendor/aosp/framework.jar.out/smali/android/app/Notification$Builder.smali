@@ -300,16 +300,16 @@
 
     const-string/jumbo v3, "setBackgroundResource"
 
-    const v4, 0x1080688
+    const v4, 0x108068d
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
     .line 1641
-    const v2, 0x10202d3
+    const v2, 0x10202d6
 
     const-string/jumbo v3, "setBackgroundResource"
 
-    const v4, 0x1080449
+    const v4, 0x108044b
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
@@ -379,7 +379,7 @@
     if-eqz v2, :cond_7
 
     .line 1658
-    const v2, 0x10202d7
+    const v2, 0x10202da
 
     move-object/from16 v0, p0
 
@@ -388,7 +388,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
     .line 1659
-    const v2, 0x10202d7
+    const v2, 0x10202da
 
     const/4 v3, 0x0
 
@@ -478,7 +478,7 @@
     .end local v8           #res:Landroid/content/res/Resources;
     .end local v12           #subTextSize:F
     :cond_4
-    const v2, 0x10202d4
+    const v2, 0x10202d7
 
     const/4 v3, 0x0
 
@@ -516,14 +516,14 @@
     if-eqz v2, :cond_e
 
     .line 1712
-    const v2, 0x10202d5
+    const v2, 0x10202d8
 
     const/4 v3, 0x0
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1713
-    const v2, 0x10202d5
+    const v2, 0x10202d8
 
     const-string/jumbo v3, "setBase"
 
@@ -546,7 +546,7 @@
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/widget/RemoteViews;->setLong(ILjava/lang/String;J)V
 
     .line 1715
-    const v2, 0x10202d5
+    const v2, 0x10202d8
 
     const-string/jumbo v3, "setStarted"
 
@@ -556,7 +556,7 @@
 
     .line 1724
     :goto_3
-    const v3, 0x10202d6
+    const v3, 0x10202d9
 
     if-eqz v10, :cond_10
 
@@ -566,7 +566,7 @@
     invoke-virtual {v1, v3, v2}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1725
-    const v3, 0x10202db
+    const v3, 0x10202de
 
     if-eqz v10, :cond_11
 
@@ -618,7 +618,7 @@
     if-le v2, v13, :cond_8
 
     .line 1665
-    const v2, 0x10202d7
+    const v2, 0x10202da
 
     move-object/from16 v0, p0
 
@@ -638,7 +638,7 @@
 
     .line 1671
     :goto_6
-    const v2, 0x10202d7
+    const v2, 0x10202da
 
     const/4 v3, 0x0
 
@@ -658,7 +658,7 @@
 
     .line 1669
     .local v7, f:Ljava/text/NumberFormat;
-    const v2, 0x10202d7
+    const v2, 0x10202da
 
     move-object/from16 v0, p0
 
@@ -678,7 +678,7 @@
     .end local v7           #f:Ljava/text/NumberFormat;
     .end local v13           #tooBig:I
     :cond_9
-    const v2, 0x10202d7
+    const v2, 0x10202da
 
     const/16 v3, 0x8
 
@@ -806,7 +806,7 @@
     .parameter "layoutId"
 
     .prologue
-    const v6, 0x10202d0
+    const v6, 0x10202d3
 
     const/4 v5, 0x0
 
@@ -831,7 +831,7 @@
     invoke-virtual {v1, v6, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1736
-    const v4, 0x10202d9
+    const v4, 0x10202dc
 
     invoke-virtual {v1, v4, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
@@ -887,7 +887,7 @@
     .parameter "action"
 
     .prologue
-    const v1, 0x10202cf
+    const v1, 0x10202d2
 
     const/4 v3, 0x0
 
@@ -911,7 +911,7 @@
 
     if-eqz v6, :cond_2
 
-    const v2, 0x1090065
+    const v2, 0x1090062
 
     :goto_1
     invoke-direct {v0, v4, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
@@ -924,7 +924,7 @@
 
     move v5, v3
 
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/RemoteViews;->setTextViewCompoundDrawables(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/RemoteViews;->setTextViewCompoundDrawablesRelative(IIIII)V
 
     .line 1782
     iget-object v2, p1, Landroid/app/Notification$Action;->title:Ljava/lang/CharSequence;
@@ -959,7 +959,7 @@
     .line 1778
     .restart local v6       #tombstone:Z
     :cond_2
-    const v2, 0x1090063
+    const v2, 0x1090060
 
     goto :goto_1
 .end method
@@ -984,7 +984,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x1090068
+    const v0, 0x1090065
 
     invoke-direct {p0, v0}, Landroid/app/Notification$Builder;->applyStandardTemplateWithActions(I)Landroid/widget/RemoteViews;
 
@@ -1010,7 +1010,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x1090067
+    const v0, 0x1090064
 
     const/4 v1, 0x1
 
@@ -1048,7 +1048,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x10900a7
+    const v0, 0x10900a4
 
     :goto_1
     const/4 v1, 0x1
@@ -1060,7 +1060,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x10900a8
+    const v0, 0x10900a5
 
     goto :goto_1
 

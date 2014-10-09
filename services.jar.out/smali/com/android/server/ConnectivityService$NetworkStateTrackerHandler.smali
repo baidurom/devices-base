@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 2932
+    .line 3012
     iput-object p1, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
-    .line 2933
+    .line 3013
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 2934
+    .line 3014
     return-void
 .end method
 
@@ -44,30 +44,30 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 2939
+    .line 3019
     iget v6, p1, Landroid/os/Message;->what:I
 
     packed-switch v6, :pswitch_data_0
 
-    .line 3035
+    .line 3115
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 2941
+    .line 3021
     :pswitch_1
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 2942
+    .line 3022
     .local v1, info:Landroid/net/NetworkInfo;
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
     move-result-object v4
 
-    .line 2944
+    .line 3024
     .local v4, state:Landroid/net/NetworkInfo$State;
     sget-object v6, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
@@ -81,7 +81,7 @@
 
     if-ne v4, v6, :cond_2
 
-    .line 2947
+    .line 3027
     :cond_1
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -132,7 +132,7 @@
     #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v6}, Lcom/android/server/ConnectivityService;->access$400(Ljava/lang/String;)V
 
-    .line 2958
+    .line 3038
     :cond_2
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
 
@@ -180,21 +180,21 @@
 
     if-eqz v6, :cond_5
 
-    .line 2964
+    .line 3044
     :cond_4
     const-string v6, "ConnectivityChange checkMobileProvisioning for TYPE_MOBILE or ProvisioningNetwork"
 
     #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v6}, Lcom/android/server/ConnectivityService;->access$400(Ljava/lang/String;)V
 
-    .line 2966
+    .line 3046
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     const v7, 0xea60
 
     invoke-virtual {v6, v7}, Lcom/android/server/ConnectivityService;->checkMobileProvisioning(I)I
 
-    .line 2969
+    .line 3049
     :cond_5
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
 
@@ -214,7 +214,7 @@
 
     invoke-static {v6, v7, v8}, Lcom/android/server/EventLogTags;->writeConnectivityStateChanged(III)V
 
-    .line 2972
+    .line 3052
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
     move-result-object v6
@@ -223,13 +223,13 @@
 
     if-ne v6, v7, :cond_7
 
-    .line 2974
+    .line 3054
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleConnectionFailure(Landroid/net/NetworkInfo;)V
     invoke-static {v6, v1}, Lcom/android/server/ConnectivityService;->access$1200(Lcom/android/server/ConnectivityService;Landroid/net/NetworkInfo;)V
 
-    .line 3015
+    .line 3095
     :cond_6
     :goto_1
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
@@ -241,7 +241,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 3016
+    .line 3096
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     #getter for: Lcom/android/server/ConnectivityService;->mLockdownTracker:Lcom/android/server/net/LockdownVpnTracker;
@@ -253,7 +253,7 @@
 
     goto/16 :goto_0
 
-    .line 2975
+    .line 3055
     :cond_7
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
@@ -263,7 +263,7 @@
 
     if-ne v6, v7, :cond_8
 
-    .line 2977
+    .line 3057
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleCaptivePortalTrackerCheck(Landroid/net/NetworkInfo;)V
@@ -271,7 +271,7 @@
 
     goto :goto_1
 
-    .line 2978
+    .line 3058
     :cond_8
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnectedToProvisioningNetwork()Z
 
@@ -279,7 +279,7 @@
 
     if-eqz v6, :cond_9
 
-    .line 2989
+    .line 3069
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
@@ -290,7 +290,7 @@
 
     move-result-object v2
 
-    .line 2991
+    .line 3071
     .local v2, lp:Landroid/net/LinkProperties;
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -313,7 +313,7 @@
     #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v6}, Lcom/android/server/ConnectivityService;->access$400(Ljava/lang/String;)V
 
-    .line 2998
+    .line 3078
     invoke-virtual {v2}, Landroid/net/LinkProperties;->getRoutes()Ljava/util/Collection;
 
     move-result-object v6
@@ -336,7 +336,7 @@
 
     check-cast v3, Landroid/net/RouteInfo;
 
-    .line 2999
+    .line 3079
     .local v3, r:Landroid/net/RouteInfo;
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -347,7 +347,7 @@
 
     goto :goto_2
 
-    .line 3001
+    .line 3081
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v2           #lp:Landroid/net/LinkProperties;
     .end local v3           #r:Landroid/net/RouteInfo;
@@ -356,7 +356,7 @@
 
     if-ne v4, v6, :cond_a
 
-    .line 3002
+    .line 3082
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleDisconnect(Landroid/net/NetworkInfo;)V
@@ -364,13 +364,13 @@
 
     goto :goto_1
 
-    .line 3003
+    .line 3083
     :cond_a
     sget-object v6, Landroid/net/NetworkInfo$State;->SUSPENDED:Landroid/net/NetworkInfo$State;
 
     if-ne v4, v6, :cond_b
 
-    .line 3011
+    .line 3091
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleDisconnect(Landroid/net/NetworkInfo;)V
@@ -378,13 +378,13 @@
 
     goto :goto_1
 
-    .line 3012
+    .line 3092
     :cond_b
     sget-object v6, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
     if-ne v4, v6, :cond_6
 
-    .line 3013
+    .line 3093
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleConnect(Landroid/net/NetworkInfo;)V
@@ -392,7 +392,7 @@
 
     goto :goto_1
 
-    .line 3021
+    .line 3101
     .end local v1           #info:Landroid/net/NetworkInfo;
     .end local v4           #state:Landroid/net/NetworkInfo$State;
     :pswitch_2
@@ -400,7 +400,7 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 3025
+    .line 3105
     .restart local v1       #info:Landroid/net/NetworkInfo;
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -413,21 +413,33 @@
 
     goto/16 :goto_0
 
-    .line 3029
+    .line 3109
     .end local v1           #info:Landroid/net/NetworkInfo;
     :pswitch_3
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 3030
+    .line 3110
     .restart local v1       #info:Landroid/net/NetworkInfo;
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v5
 
-    .line 3031
+    .line 3111
     .local v5, type:I
+    iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
+
+    iget-object v6, v6, Lcom/android/server/ConnectivityService;->mNetConfigs:[Landroid/net/NetworkConfig;
+
+    aget-object v6, v6, v5
+
+    invoke-virtual {v6}, Landroid/net/NetworkConfig;->isDefault()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
     iget-object v6, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
 
     iget-object v7, p0, Lcom/android/server/ConnectivityService$NetworkStateTrackerHandler;->this$0:Lcom/android/server/ConnectivityService;
@@ -444,7 +456,7 @@
 
     goto/16 :goto_0
 
-    .line 2939
+    .line 3019
     :pswitch_data_0
     .packed-switch 0x70000
         :pswitch_1

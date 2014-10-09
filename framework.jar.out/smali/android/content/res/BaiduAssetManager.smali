@@ -1019,6 +1019,18 @@
 
     .line 546
     :cond_1
+    const-string v1, "com.android.keyguard"
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
     const v1, 0x182b8
 
     if-lt v0, v1, :cond_2

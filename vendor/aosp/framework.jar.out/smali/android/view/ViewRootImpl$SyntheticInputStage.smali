@@ -17,8 +17,6 @@
 # instance fields
 .field private final mJoystick:Landroid/view/ViewRootImpl$SyntheticJoystickHandler;
 
-.field private final mKeys:Landroid/view/ViewRootImpl$SyntheticKeyHandler;
-
 .field private final mTouchNavigation:Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;
 
 .field private final mTrackball:Landroid/view/ViewRootImpl$SyntheticTrackballHandler;
@@ -32,15 +30,15 @@
     .parameter
 
     .prologue
-    .line 3955
+    .line 3982
     iput-object p1, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    .line 3956
+    .line 3983
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/view/ViewRootImpl$InputStage;-><init>(Landroid/view/ViewRootImpl;Landroid/view/ViewRootImpl$InputStage;)V
 
-    .line 3949
+    .line 3977
     new-instance v0, Landroid/view/ViewRootImpl$SyntheticTrackballHandler;
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->this$0:Landroid/view/ViewRootImpl;
@@ -49,7 +47,7 @@
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTrackball:Landroid/view/ViewRootImpl$SyntheticTrackballHandler;
 
-    .line 3950
+    .line 3978
     new-instance v0, Landroid/view/ViewRootImpl$SyntheticJoystickHandler;
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->this$0:Landroid/view/ViewRootImpl;
@@ -58,7 +56,7 @@
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mJoystick:Landroid/view/ViewRootImpl$SyntheticJoystickHandler;
 
-    .line 3951
+    .line 3979
     new-instance v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->this$0:Landroid/view/ViewRootImpl;
@@ -67,16 +65,7 @@
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTouchNavigation:Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;
 
-    .line 3953
-    new-instance v0, Landroid/view/ViewRootImpl$SyntheticKeyHandler;
-
-    iget-object v1, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->this$0:Landroid/view/ViewRootImpl;
-
-    invoke-direct {v0, v1}, Landroid/view/ViewRootImpl$SyntheticKeyHandler;-><init>(Landroid/view/ViewRootImpl;)V
-
-    iput-object v0, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mKeys:Landroid/view/ViewRootImpl$SyntheticKeyHandler;
-
-    .line 3957
+    .line 3984
     return-void
 .end method
 
@@ -89,53 +78,53 @@
     .prologue
     const/high16 v3, 0x20
 
-    .line 3987
+    .line 4009
     iget v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
 
     and-int/lit8 v2, v2, 0x10
 
     if-nez v2, :cond_0
 
-    .line 3989
+    .line 4011
     iget-object v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
     instance-of v2, v2, Landroid/view/MotionEvent;
 
     if-eqz v2, :cond_0
 
-    .line 3990
+    .line 4012
     iget-object v0, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
     check-cast v0, Landroid/view/MotionEvent;
 
-    .line 3991
+    .line 4013
     .local v0, event:Landroid/view/MotionEvent;
     invoke-virtual {v0}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v1
 
-    .line 3992
+    .line 4014
     .local v1, source:I
     and-int/lit8 v2, v1, 0x4
 
     if-eqz v2, :cond_1
 
-    .line 3993
+    .line 4015
     iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTrackball:Landroid/view/ViewRootImpl$SyntheticTrackballHandler;
 
     invoke-virtual {v2, v0}, Landroid/view/ViewRootImpl$SyntheticTrackballHandler;->cancel(Landroid/view/MotionEvent;)V
 
-    .line 4002
+    .line 4024
     .end local v0           #event:Landroid/view/MotionEvent;
     .end local v1           #source:I
     :cond_0
     :goto_0
     invoke-super {p0, p1}, Landroid/view/ViewRootImpl$InputStage;->onDeliverToNext(Landroid/view/ViewRootImpl$QueuedInputEvent;)V
 
-    .line 4003
+    .line 4025
     return-void
 
-    .line 3994
+    .line 4016
     .restart local v0       #event:Landroid/view/MotionEvent;
     .restart local v1       #source:I
     :cond_1
@@ -143,20 +132,20 @@
 
     if-eqz v2, :cond_2
 
-    .line 3995
+    .line 4017
     iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mJoystick:Landroid/view/ViewRootImpl$SyntheticJoystickHandler;
 
     invoke-virtual {v2, v0}, Landroid/view/ViewRootImpl$SyntheticJoystickHandler;->cancel(Landroid/view/MotionEvent;)V
 
     goto :goto_0
 
-    .line 3996
+    .line 4018
     :cond_2
     and-int v2, v1, v3
 
     if-ne v2, v3, :cond_0
 
-    .line 3998
+    .line 4020
     iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTouchNavigation:Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;
 
     invoke-virtual {v2, v0}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->cancel(Landroid/view/MotionEvent;)V
@@ -171,116 +160,82 @@
     .prologue
     const/high16 v4, 0x20
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    .line 3961
-    iget v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
+    .line 3988
+    iget v3, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
 
-    or-int/lit8 v2, v2, 0x10
+    or-int/lit8 v3, v3, 0x10
 
-    iput v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
+    iput v3, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
 
-    .line 3962
-    iget-object v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
+    .line 3989
+    iget-object v3, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
-    instance-of v2, v2, Landroid/view/MotionEvent;
+    instance-of v3, v3, Landroid/view/MotionEvent;
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    .line 3963
+    .line 3990
     iget-object v0, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
     check-cast v0, Landroid/view/MotionEvent;
 
-    .line 3964
+    .line 3991
     .local v0, event:Landroid/view/MotionEvent;
     invoke-virtual {v0}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v1
 
-    .line 3965
+    .line 3992
     .local v1, source:I
-    and-int/lit8 v2, v1, 0x4
+    and-int/lit8 v3, v1, 0x4
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 3966
-    iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTrackball:Landroid/view/ViewRootImpl$SyntheticTrackballHandler;
+    .line 3993
+    iget-object v3, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTrackball:Landroid/view/ViewRootImpl$SyntheticTrackballHandler;
 
-    invoke-virtual {v2, v0}, Landroid/view/ViewRootImpl$SyntheticTrackballHandler;->process(Landroid/view/MotionEvent;)V
+    invoke-virtual {v3, v0}, Landroid/view/ViewRootImpl$SyntheticTrackballHandler;->process(Landroid/view/MotionEvent;)V
 
-    move v2, v3
-
-    .line 3982
+    .line 4004
     .end local v0           #event:Landroid/view/MotionEvent;
     .end local v1           #source:I
     :goto_0
     return v2
 
-    .line 3968
+    .line 3995
     .restart local v0       #event:Landroid/view/MotionEvent;
     .restart local v1       #source:I
     :cond_0
-    and-int/lit8 v2, v1, 0x10
+    and-int/lit8 v3, v1, 0x10
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    .line 3969
-    iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mJoystick:Landroid/view/ViewRootImpl$SyntheticJoystickHandler;
+    .line 3996
+    iget-object v3, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mJoystick:Landroid/view/ViewRootImpl$SyntheticJoystickHandler;
 
-    invoke-virtual {v2, v0}, Landroid/view/ViewRootImpl$SyntheticJoystickHandler;->process(Landroid/view/MotionEvent;)V
+    invoke-virtual {v3, v0}, Landroid/view/ViewRootImpl$SyntheticJoystickHandler;->process(Landroid/view/MotionEvent;)V
 
-    move v2, v3
-
-    .line 3970
     goto :goto_0
 
-    .line 3971
+    .line 3998
     :cond_1
-    and-int v2, v1, v4
+    and-int v3, v1, v4
 
-    if-ne v2, v4, :cond_3
+    if-ne v3, v4, :cond_2
 
-    .line 3973
-    iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTouchNavigation:Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;
+    .line 4000
+    iget-object v3, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mTouchNavigation:Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;
 
-    invoke-virtual {v2, v0}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->process(Landroid/view/MotionEvent;)V
+    invoke-virtual {v3, v0}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->process(Landroid/view/MotionEvent;)V
 
-    move v2, v3
-
-    .line 3974
     goto :goto_0
 
-    .line 3976
+    .line 4004
     .end local v0           #event:Landroid/view/MotionEvent;
     .end local v1           #source:I
     :cond_2
-    iget-object v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
-
-    instance-of v2, v2, Landroid/view/KeyEvent;
-
-    if-eqz v2, :cond_3
-
-    .line 3977
-    iget-object v4, p0, Landroid/view/ViewRootImpl$SyntheticInputStage;->mKeys:Landroid/view/ViewRootImpl$SyntheticKeyHandler;
-
-    iget-object v2, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
-
-    check-cast v2, Landroid/view/KeyEvent;
-
-    invoke-virtual {v4, v2}, Landroid/view/ViewRootImpl$SyntheticKeyHandler;->process(Landroid/view/KeyEvent;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    move v2, v3
-
-    .line 3978
-    goto :goto_0
-
-    .line 3982
-    :cond_3
     const/4 v2, 0x0
 
     goto :goto_0

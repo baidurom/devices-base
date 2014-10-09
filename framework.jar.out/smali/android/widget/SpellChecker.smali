@@ -512,20 +512,20 @@
     .parameter "spanEnd"
 
     .prologue
-    .line 760
+    .line 764
     if-eq p4, p1, :cond_0
 
     if-eq p3, p2, :cond_0
 
-    .line 761
+    .line 765
     const/4 v1, 0x1
 
-    .line 789
+    .line 793
     .local v1, haveWordBoundariesChanged:Z
     :goto_0
     return v1
 
-    .line 765
+    .line 769
     .end local v1           #haveWordBoundariesChanged:Z
     :cond_0
     if-ne p4, p1, :cond_1
@@ -536,18 +536,18 @@
 
     if-ge p1, v2, :cond_1
 
-    .line 766
+    .line 770
     invoke-static {p0, p1}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
-    .line 767
+    .line 771
     .local v0, codePoint:I
     invoke-static {v0}, Ljava/lang/Character;->isLetterOrDigit(I)Z
 
     move-result v1
 
-    .line 774
+    .line 778
     .restart local v1       #haveWordBoundariesChanged:Z
     goto :goto_0
 
@@ -558,22 +558,22 @@
 
     if-lez p2, :cond_2
 
-    .line 775
+    .line 779
     invoke-static {p0, p2}, Ljava/lang/Character;->codePointBefore(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
-    .line 776
+    .line 780
     .restart local v0       #codePoint:I
     invoke-static {v0}, Ljava/lang/Character;->isLetterOrDigit(I)Z
 
     move-result v1
 
-    .line 783
+    .line 787
     .restart local v1       #haveWordBoundariesChanged:Z
     goto :goto_0
 
-    .line 787
+    .line 791
     .end local v0           #codePoint:I
     .end local v1           #haveWordBoundariesChanged:Z
     :cond_2

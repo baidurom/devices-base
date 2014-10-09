@@ -695,29 +695,29 @@
     .parameter "intent"
 
     .prologue
-    const/4 v8, 0x3
+    const/4 v10, 0x3
 
     const/16 v12, -0x2710
 
-    const/4 v11, 0x2
+    const/4 v7, 0x2
 
-    const/4 v10, 0x1
+    const/4 v8, 0x1
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
     .line 276
-    const-string v7, "android.intent.extra.user_handle"
+    const-string v9, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v7, v12}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v9, v12}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v7
+    move-result v9
 
-    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
+    iput v9, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
 
     .line 278
-    iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
+    iget v9, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
 
-    if-ne v7, v12, :cond_0
+    if-ne v9, v12, :cond_0
 
     .line 279
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -749,14 +749,14 @@
     invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->onBeginPackageChanges()V
 
     .line 284
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
+    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
 
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
     .line 285
-    iput-boolean v9, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v11, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     .line 287
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -765,13 +765,13 @@
 
     .line 288
     .local v0, action:Ljava/lang/String;
-    const-string v7, "android.intent.action.PACKAGE_ADDED"
+    const-string v9, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_4
+    if-eqz v9, :cond_4
 
     .line 289
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
@@ -782,13 +782,13 @@
     .local v4, pkg:Ljava/lang/String;
     const-string v7, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v6
 
     .line 294
     .local v6, uid:I
-    iput-boolean v10, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     .line 295
     if-eqz v4, :cond_1
@@ -801,12 +801,12 @@
     .line 297
     iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
 
-    aput-object v4, v7, v9
+    aput-object v4, v7, v11
 
     .line 298
     const-string v7, "android.intent.extra.REPLACING"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v7
 
@@ -818,7 +818,7 @@
     iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mModifiedPackages:[Ljava/lang/String;
 
     .line 300
-    iput v10, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 301
     invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageUpdateFinished(Ljava/lang/String;I)V
@@ -835,7 +835,7 @@
     .line 308
     iget v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    if-ne v7, v10, :cond_1
+    if-ne v7, v8, :cond_1
 
     .line 309
     iget-object v8, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
@@ -853,7 +853,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 396
+    .line 398
     .end local v4           #pkg:Ljava/lang/String;
     .end local v6           #uid:I
     :cond_1
@@ -862,24 +862,24 @@
 
     if-eqz v7, :cond_2
 
-    .line 397
+    .line 399
     invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->onSomePackagesChanged()V
 
-    .line 400
+    .line 402
     :cond_2
     invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->onFinishPackageChanges()V
 
-    .line 401
+    .line 403
     iput v12, p0, Lcom/android/internal/content/PackageMonitor;->mChangeUserId:I
 
-    .line 402
+    .line 404
     return-void
 
     .line 304
     .restart local v4       #pkg:Ljava/lang/String;
     .restart local v6       #uid:I
     :cond_3
-    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v10, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 305
     invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageAdded(Ljava/lang/String;I)V
@@ -901,13 +901,13 @@
     .end local v4           #pkg:Ljava/lang/String;
     .end local v6           #uid:I
     :cond_4
-    const-string v7, "android.intent.action.PACKAGE_REMOVED"
+    const-string v9, "android.intent.action.PACKAGE_REMOVED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_7
+    if-eqz v9, :cond_7
 
     .line 315
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
@@ -918,7 +918,7 @@
     .restart local v4       #pkg:Ljava/lang/String;
     const-string v7, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v6
 
@@ -934,19 +934,19 @@
     .line 319
     iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
 
-    aput-object v4, v7, v9
+    aput-object v4, v7, v11
 
     .line 320
     const-string v7, "android.intent.extra.REPLACING"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v7
 
     if-eqz v7, :cond_6
 
     .line 321
-    iput v10, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 322
     iget-object v8, p0, Lcom/android/internal/content/PackageMonitor;->mUpdatingPackages:Ljava/util/HashSet;
@@ -984,10 +984,10 @@
 
     .line 328
     :cond_6
-    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v10, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 332
-    iput-boolean v10, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     .line 333
     invoke-virtual {p0, v4, v6}, Lcom/android/internal/content/PackageMonitor;->onPackageRemoved(Ljava/lang/String;I)V
@@ -995,7 +995,7 @@
     .line 334
     const-string v7, "android.intent.extra.REMOVED_FOR_ALL_USERS"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v7
 
@@ -1010,13 +1010,13 @@
     .end local v4           #pkg:Ljava/lang/String;
     .end local v6           #uid:I
     :cond_7
-    const-string v7, "android.intent.action.PACKAGE_CHANGED"
+    const-string v9, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_9
+    if-eqz v9, :cond_9
 
     .line 341
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
@@ -1027,7 +1027,7 @@
     .restart local v4       #pkg:Ljava/lang/String;
     const-string v7, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v6
 
@@ -1051,10 +1051,10 @@
     .line 347
     iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mTempArray:[Ljava/lang/String;
 
-    aput-object v4, v7, v9
+    aput-object v4, v7, v11
 
     .line 348
-    iput v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v10, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 349
     invoke-virtual {p0, v4, v6, v2}, Lcom/android/internal/content/PackageMonitor;->onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
@@ -1064,7 +1064,7 @@
     if-eqz v7, :cond_8
 
     .line 350
-    iput-boolean v10, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     .line 352
     :cond_8
@@ -1077,36 +1077,36 @@
     .end local v4           #pkg:Ljava/lang/String;
     .end local v6           #uid:I
     :cond_9
-    const-string v7, "android.intent.action.QUERY_PACKAGE_RESTART"
+    const-string v9, "android.intent.action.QUERY_PACKAGE_RESTART"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_a
+    if-eqz v9, :cond_a
 
     .line 355
-    const-string v7, "android.intent.extra.PACKAGES"
+    const-string v8, "android.intent.extra.PACKAGES"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
     .line 356
-    iput v11, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 357
     iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
     const-string v8, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v8, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v8
 
-    invoke-virtual {p0, p2, v7, v8, v9}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
+    invoke-virtual {p0, p2, v7, v8, v11}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
 
     move-result v1
 
@@ -1123,55 +1123,55 @@
     .line 361
     .end local v1           #canRestart:Z
     :cond_a
-    const-string v7, "android.intent.action.PACKAGE_RESTARTED"
+    const-string v9, "android.intent.action.PACKAGE_RESTARTED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_b
+    if-eqz v9, :cond_b
 
     .line 362
-    new-array v7, v10, [Ljava/lang/String;
+    new-array v9, v8, [Ljava/lang/String;
 
     invoke-virtual {p0, p2}, Lcom/android/internal/content/PackageMonitor;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    aput-object v8, v7, v9
+    aput-object v10, v9, v11
 
-    iput-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
+    iput-object v9, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
     .line 363
-    iput v11, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 364
     iget-object v7, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
-    const-string v8, "android.intent.extra.UID"
+    const-string v9, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v8, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v9, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v8
+    move-result v9
 
-    invoke-virtual {p0, p2, v7, v8, v10}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
+    invoke-virtual {p0, p2, v7, v9, v8}, Lcom/android/internal/content/PackageMonitor;->onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
 
     goto/16 :goto_1
 
     .line 366
     :cond_b
-    const-string v7, "android.intent.action.UID_REMOVED"
+    const-string v9, "android.intent.action.UID_REMOVED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_c
+    if-eqz v9, :cond_c
 
     .line 367
     const-string v7, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v7
 
@@ -1181,13 +1181,13 @@
 
     .line 368
     :cond_c
-    const-string v7, "android.intent.action.USER_STOPPED"
+    const-string v9, "android.intent.action.USER_STOPPED"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_d
+    if-eqz v9, :cond_d
 
     .line 369
     const-string v7, "android.intent.extra.user_handle"
@@ -1201,7 +1201,7 @@
     .line 370
     const-string v7, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v7, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v7
 
@@ -1211,18 +1211,18 @@
 
     .line 372
     :cond_d
-    const-string v7, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
+    const-string v9, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_e
+    if-eqz v9, :cond_f
 
     .line 373
-    const-string v7, "android.intent.extra.changed_package_list"
+    const-string v9, "android.intent.extra.changed_package_list"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v9}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v5
 
@@ -1231,18 +1231,29 @@
     iput-object v5, p0, Lcom/android/internal/content/PackageMonitor;->mAppearingPackages:[Ljava/lang/String;
 
     .line 375
-    iput v11, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
+    const-string v9, "android.intent.extra.REPLACING"
 
-    .line 376
-    iput-boolean v10, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    invoke-virtual {p2, v9, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_e
+
+    move v7, v8
+
+    :cond_e
+    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 377
-    if-eqz v5, :cond_1
+    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     .line 378
-    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesAvailable([Ljava/lang/String;)V
+    if-eqz v5, :cond_1
 
     .line 379
+    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesAvailable([Ljava/lang/String;)V
+
+    .line 380
     const/4 v3, 0x0
 
     .local v3, i:I
@@ -1251,52 +1262,65 @@
 
     if-ge v3, v7, :cond_1
 
-    .line 380
+    .line 381
     aget-object v7, v5, v3
 
-    invoke-virtual {p0, v7, v11}, Lcom/android/internal/content/PackageMonitor;->onPackageAppeared(Ljava/lang/String;I)V
+    iget v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    .line 379
+    invoke-virtual {p0, v7, v8}, Lcom/android/internal/content/PackageMonitor;->onPackageAppeared(Ljava/lang/String;I)V
+
+    .line 380
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
-    .line 383
+    .line 384
     .end local v3           #i:I
     .end local v5           #pkgList:[Ljava/lang/String;
-    :cond_e
-    const-string v7, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
+    :cond_f
+    const-string v9, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_1
+    if-eqz v9, :cond_1
 
-    .line 384
-    const-string v7, "android.intent.extra.changed_package_list"
+    .line 385
+    const-string v9, "android.intent.extra.changed_package_list"
 
-    invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, v9}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 385
+    .line 386
     .restart local v5       #pkgList:[Ljava/lang/String;
     iput-object v5, p0, Lcom/android/internal/content/PackageMonitor;->mDisappearingPackages:[Ljava/lang/String;
 
-    .line 386
-    iput v11, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
-
     .line 387
-    iput-boolean v10, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
+    const-string v9, "android.intent.extra.REPLACING"
 
-    .line 388
-    if-eqz v5, :cond_1
+    invoke-virtual {p2, v9, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_10
+
+    move v7, v8
+
+    :cond_10
+    iput v7, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
     .line 389
-    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesUnavailable([Ljava/lang/String;)V
+    iput-boolean v8, p0, Lcom/android/internal/content/PackageMonitor;->mSomePackagesChanged:Z
 
     .line 390
+    if-eqz v5, :cond_1
+
+    .line 391
+    invoke-virtual {p0, v5}, Lcom/android/internal/content/PackageMonitor;->onPackagesUnavailable([Ljava/lang/String;)V
+
+    .line 392
     const/4 v3, 0x0
 
     .restart local v3       #i:I
@@ -1305,12 +1329,14 @@
 
     if-ge v3, v7, :cond_1
 
-    .line 391
+    .line 393
     aget-object v7, v5, v3
 
-    invoke-virtual {p0, v7, v11}, Lcom/android/internal/content/PackageMonitor;->onPackageDisappeared(Ljava/lang/String;I)V
+    iget v8, p0, Lcom/android/internal/content/PackageMonitor;->mChangeType:I
 
-    .line 390
+    invoke-virtual {p0, v7, v8}, Lcom/android/internal/content/PackageMonitor;->onPackageDisappeared(Ljava/lang/String;I)V
+
+    .line 392
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4

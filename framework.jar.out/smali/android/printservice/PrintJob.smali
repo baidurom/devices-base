@@ -395,7 +395,13 @@
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
     .line 347
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Landroid/printservice/PrintJob;->getInfo()Landroid/print/PrintJobInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/print/PrintJobInfo;->getAdvancedIntOption(Ljava/lang/String;)I
+
+    move-result v0
 
     return v0
 .end method
@@ -409,7 +415,13 @@
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
     .line 324
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Landroid/printservice/PrintJob;->getInfo()Landroid/print/PrintJobInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/print/PrintJobInfo;->getAdvancedStringOption(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -564,7 +576,13 @@
     invoke-static {}, Landroid/printservice/PrintService;->throwIfNotCalledOnMainThread()V
 
     .line 336
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Landroid/printservice/PrintJob;->getInfo()Landroid/print/PrintJobInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/print/PrintJobInfo;->hasAdvancedOption(Ljava/lang/String;)Z
+
+    move-result v0
 
     return v0
 .end method

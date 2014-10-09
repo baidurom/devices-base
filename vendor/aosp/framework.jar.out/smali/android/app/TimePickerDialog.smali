@@ -67,7 +67,7 @@
     invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->setIcon(I)V
 
     .line 96
-    const v3, 0x1040455
+    const v3, 0x1040459
 
     invoke-virtual {p0, v3}, Landroid/app/Dialog;->setTitle(I)V
 
@@ -80,7 +80,7 @@
     .local v1, themeContext:Landroid/content/Context;
     const/4 v3, -0x1
 
-    const v4, 0x1040458
+    const v4, 0x104045c
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -99,7 +99,7 @@
 
     .line 103
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x10900b6
+    const v3, 0x10900b3
 
     const/4 v4, 0x0
 
@@ -112,7 +112,7 @@
     invoke-virtual {p0, v2}, Landroid/app/AlertDialog;->setView(Landroid/view/View;)V
 
     .line 105
-    const v3, 0x102034a
+    const v3, 0x102034d
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

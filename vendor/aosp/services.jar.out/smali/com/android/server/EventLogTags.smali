@@ -122,7 +122,19 @@
 
 .field public static final WATCHDOG_VMSTAT:I = 0xafa
 
+.field public static final WM_HOME_STACK_MOVED:I = 0x791d
+
 .field public static final WM_NO_SURFACE_MEMORY:I = 0x7918
+
+.field public static final WM_STACK_CREATED:I = 0x791c
+
+.field public static final WM_STACK_REMOVED:I = 0x791e
+
+.field public static final WM_TASK_CREATED:I = 0x7919
+
+.field public static final WM_TASK_MOVED:I = 0x791a
+
+.field public static final WM_TASK_REMOVED:I = 0x791b
 
 
 # direct methods
@@ -142,7 +154,7 @@
     .parameter "message"
 
     .prologue
-    .line 310
+    .line 328
     const/16 v0, 0xb07
 
     const/4 v1, 0x2
@@ -159,7 +171,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 311
+    .line 329
     return-void
 .end method
 
@@ -168,12 +180,12 @@
     .parameter "package_"
 
     .prologue
-    .line 298
+    .line 316
     const/16 v0, 0xb04
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 299
+    .line 317
     return-void
 .end method
 
@@ -181,7 +193,7 @@
     .locals 2
 
     .prologue
-    .line 326
+    .line 344
     const/16 v0, 0xb0b
 
     const/4 v1, 0x0
@@ -190,7 +202,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 327
+    .line 345
     return-void
 .end method
 
@@ -200,7 +212,7 @@
     .parameter "size"
 
     .prologue
-    .line 314
+    .line 332
     const/16 v0, 0xb08
 
     const/4 v1, 0x2
@@ -221,7 +233,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 315
+    .line 333
     return-void
 .end method
 
@@ -230,12 +242,12 @@
     .parameter "transport"
 
     .prologue
-    .line 322
+    .line 340
     const/16 v0, 0xb0a
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 323
+    .line 341
     return-void
 .end method
 
@@ -244,12 +256,12 @@
     .parameter "transport"
 
     .prologue
-    .line 302
+    .line 320
     const/16 v0, 0xb05
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 303
+    .line 321
     return-void
 .end method
 
@@ -259,7 +271,7 @@
     .parameter "time"
 
     .prologue
-    .line 318
+    .line 336
     const/16 v0, 0xb09
 
     const/4 v1, 0x2
@@ -284,7 +296,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 319
+    .line 337
     return-void
 .end method
 
@@ -293,12 +305,12 @@
     .parameter "package_"
 
     .prologue
-    .line 306
+    .line 324
     const/16 v0, 0xb06
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 307
+    .line 325
     return-void
 .end method
 
@@ -309,7 +321,7 @@
     .parameter "maxlevel"
 
     .prologue
-    .line 202
+    .line 220
     const/16 v0, 0xaaa
 
     const/4 v1, 0x3
@@ -342,7 +354,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 203
+    .line 221
     return-void
 .end method
 
@@ -353,7 +365,7 @@
     .parameter "temperature"
 
     .prologue
-    .line 194
+    .line 212
     const/16 v0, 0xaa2
 
     const/4 v1, 0x3
@@ -386,7 +398,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 195
+    .line 213
     return-void
 .end method
 
@@ -399,7 +411,7 @@
     .parameter "technology"
 
     .prologue
-    .line 198
+    .line 216
     const/16 v0, 0xaa3
 
     const/4 v1, 0x5
@@ -444,7 +456,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 199
+    .line 217
     return-void
 .end method
 
@@ -453,12 +465,12 @@
     .parameter "time"
 
     .prologue
-    .line 362
+    .line 380
     const/16 v0, 0xc08
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 363
+    .line 381
     return-void
 .end method
 
@@ -467,12 +479,12 @@
     .parameter "time"
 
     .prologue
-    .line 370
+    .line 388
     const/16 v0, 0xc1c
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 371
+    .line 389
     return-void
 .end method
 
@@ -481,12 +493,12 @@
     .parameter "time"
 
     .prologue
-    .line 366
+    .line 384
     const/16 v0, 0xc12
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 367
+    .line 385
     return-void
 .end method
 
@@ -495,12 +507,12 @@
     .parameter "time"
 
     .prologue
-    .line 354
+    .line 372
     const/16 v0, 0xbf4
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 355
+    .line 373
     return-void
 .end method
 
@@ -509,12 +521,12 @@
     .parameter "time"
 
     .prologue
-    .line 358
+    .line 376
     const/16 v0, 0xbfe
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 359
+    .line 377
     return-void
 .end method
 
@@ -523,12 +535,12 @@
     .parameter "time"
 
     .prologue
-    .line 350
+    .line 368
     const/16 v0, 0xbc2
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 351
+    .line 369
     return-void
 .end method
 
@@ -537,12 +549,12 @@
     .parameter "path"
 
     .prologue
-    .line 242
+    .line 260
     const/16 v0, 0xabc
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 243
+    .line 261
     return-void
 .end method
 
@@ -551,12 +563,12 @@
     .parameter "dir"
 
     .prologue
-    .line 410
+    .line 452
     const v0, 0xc864
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 411
+    .line 453
     return-void
 .end method
 
@@ -567,7 +579,7 @@
     .parameter "state"
 
     .prologue
-    .line 386
+    .line 428
     const v0, 0xc364
 
     const/4 v1, 0x3
@@ -600,7 +612,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 387
+    .line 429
     return-void
 .end method
 
@@ -609,12 +621,12 @@
     .parameter "data"
 
     .prologue
-    .line 230
+    .line 248
     const/16 v0, 0xab8
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 231
+    .line 249
     return-void
 .end method
 
@@ -625,7 +637,7 @@
     .parameter "cache"
 
     .prologue
-    .line 238
+    .line 256
     const/16 v0, 0xaba
 
     const/4 v1, 0x3
@@ -658,7 +670,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 239
+    .line 257
     return-void
 .end method
 
@@ -667,12 +679,12 @@
     .parameter "time"
 
     .prologue
-    .line 430
+    .line 472
     const/16 v0, 0xac4
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 431
+    .line 473
     return-void
 .end method
 
@@ -681,12 +693,12 @@
     .parameter "time"
 
     .prologue
-    .line 426
+    .line 468
     const/16 v0, 0xac3
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 427
+    .line 469
     return-void
 .end method
 
@@ -698,7 +710,7 @@
     .parameter "batterycharging"
 
     .prologue
-    .line 422
+    .line 464
     const/16 v0, 0xac2
 
     const/4 v1, 0x4
@@ -739,7 +751,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 423
+    .line 465
     return-void
 .end method
 
@@ -751,7 +763,7 @@
     .parameter "batterycharging"
 
     .prologue
-    .line 418
+    .line 460
     const/16 v0, 0xac1
 
     const/4 v1, 0x4
@@ -792,7 +804,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 419
+    .line 461
     return-void
 .end method
 
@@ -809,7 +821,7 @@
     .parameter "flags"
 
     .prologue
-    .line 414
+    .line 456
     const v0, 0xc8c8
 
     const/16 v1, 0x9
@@ -870,7 +882,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 415
+    .line 457
     return-void
 .end method
 
@@ -881,7 +893,7 @@
     .parameter "showing"
 
     .prologue
-    .line 382
+    .line 424
     const/16 v0, 0x7d00
 
     const/4 v1, 0x3
@@ -910,7 +922,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 383
+    .line 425
     return-void
 .end method
 
@@ -919,12 +931,12 @@
     .parameter "egressNet"
 
     .prologue
-    .line 402
+    .line 444
     const v0, 0xc801
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 403
+    .line 445
     return-void
 .end method
 
@@ -933,12 +945,12 @@
     .parameter "egressNet"
 
     .prologue
-    .line 398
+    .line 440
     const v0, 0xc800
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 399
+    .line 441
     return-void
 .end method
 
@@ -947,12 +959,12 @@
     .parameter "egressNet"
 
     .prologue
-    .line 406
+    .line 448
     const v0, 0xc802
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 407
+    .line 449
     return-void
 .end method
 
@@ -961,12 +973,12 @@
     .parameter "data"
 
     .prologue
-    .line 234
+    .line 252
     const/16 v0, 0xab9
 
     invoke-static {v0, p0, p1}, Landroid/util/EventLog;->writeEvent(IJ)I
 
-    .line 235
+    .line 253
     return-void
 .end method
 
@@ -987,7 +999,7 @@
     .parameter "trustedTime"
 
     .prologue
-    .line 390
+    .line 432
     const v0, 0xc79c
 
     const/16 v1, 0xd
@@ -1100,7 +1112,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 391
+    .line 433
     return-void
 .end method
 
@@ -1121,7 +1133,7 @@
     .parameter "trustedTime"
 
     .prologue
-    .line 394
+    .line 436
     const v0, 0xc79d
 
     const/16 v1, 0xd
@@ -1234,7 +1246,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 395
+    .line 437
     return-void
 .end method
 
@@ -1248,7 +1260,7 @@
     .parameter "forbiddenFlags"
 
     .prologue
-    .line 250
+    .line 268
     const/16 v0, 0xabf
 
     const/4 v1, 0x6
@@ -1297,7 +1309,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 251
+    .line 269
     return-void
 .end method
 
@@ -1309,7 +1321,7 @@
     .parameter "forbiddenFlags"
 
     .prologue
-    .line 254
+    .line 272
     const/16 v0, 0xac0
 
     const/4 v1, 0x4
@@ -1346,7 +1358,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 255
+    .line 273
     return-void
 .end method
 
@@ -1359,7 +1371,7 @@
     .parameter "notification"
 
     .prologue
-    .line 246
+    .line 264
     const/16 v0, 0xabe
 
     const/4 v1, 0x5
@@ -1396,7 +1408,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 247
+    .line 265
     return-void
 .end method
 
@@ -1406,7 +1418,7 @@
     .parameter "tag"
 
     .prologue
-    .line 226
+    .line 244
     const/16 v0, 0xaa9
 
     const/4 v1, 0x2
@@ -1427,7 +1439,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 227
+    .line 245
     return-void
 .end method
 
@@ -1438,7 +1450,7 @@
     .parameter "wakelockcount"
 
     .prologue
-    .line 214
+    .line 232
     const/16 v0, 0xaa6
 
     const/4 v1, 0x3
@@ -1471,7 +1483,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 215
+    .line 233
     return-void
 .end method
 
@@ -1480,12 +1492,12 @@
     .parameter "wakelockcount"
 
     .prologue
-    .line 210
+    .line 228
     const/16 v0, 0xaa5
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 211
+    .line 229
     return-void
 .end method
 
@@ -1495,7 +1507,7 @@
     .parameter "wakelockcount"
 
     .prologue
-    .line 218
+    .line 236
     const/16 v0, 0xaa7
 
     const/4 v1, 0x2
@@ -1520,7 +1532,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 219
+    .line 237
     return-void
 .end method
 
@@ -1532,7 +1544,7 @@
     .parameter "touchcycles"
 
     .prologue
-    .line 222
+    .line 240
     const/16 v0, 0xaa8
 
     const/4 v1, 0x4
@@ -1573,7 +1585,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 223
+    .line 241
     return-void
 .end method
 
@@ -1582,12 +1594,12 @@
     .parameter "wakelockscleared"
 
     .prologue
-    .line 206
+    .line 224
     const/16 v0, 0xaa4
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 207
+    .line 225
     return-void
 .end method
 
@@ -1597,7 +1609,7 @@
     .parameter "message"
 
     .prologue
-    .line 338
+    .line 356
     const/16 v0, 0xb10
 
     const/4 v1, 0x2
@@ -1614,7 +1626,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 339
+    .line 357
     return-void
 .end method
 
@@ -1624,7 +1636,7 @@
     .parameter "size"
 
     .prologue
-    .line 342
+    .line 360
     const/16 v0, 0xb11
 
     const/4 v1, 0x2
@@ -1645,7 +1657,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 343
+    .line 361
     return-void
 .end method
 
@@ -1655,7 +1667,7 @@
     .parameter "source"
 
     .prologue
-    .line 330
+    .line 348
     const/16 v0, 0xb0e
 
     const/4 v1, 0x2
@@ -1676,7 +1688,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 331
+    .line 349
     return-void
 .end method
 
@@ -1686,7 +1698,7 @@
     .parameter "time"
 
     .prologue
-    .line 346
+    .line 364
     const/16 v0, 0xb12
 
     const/4 v1, 0x2
@@ -1711,7 +1723,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 347
+    .line 365
     return-void
 .end method
 
@@ -1719,7 +1731,7 @@
     .locals 2
 
     .prologue
-    .line 334
+    .line 352
     const/16 v0, 0xb0f
 
     const/4 v1, 0x0
@@ -1728,7 +1740,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 335
+    .line 353
     return-void
 .end method
 
@@ -1737,12 +1749,12 @@
     .parameter "value"
 
     .prologue
-    .line 374
+    .line 392
     const/16 v0, 0xc26
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
-    .line 375
+    .line 393
     return-void
 .end method
 
@@ -1751,12 +1763,12 @@
     .parameter "service"
 
     .prologue
-    .line 258
+    .line 276
     const/16 v0, 0xaf2
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 259
+    .line 277
     return-void
 .end method
 
@@ -1768,7 +1780,7 @@
     .parameter "pss"
 
     .prologue
-    .line 270
+    .line 288
     const/16 v0, 0xaf5
 
     const/4 v1, 0x4
@@ -1805,7 +1817,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 271
+    .line 289
     return-void
 .end method
 
@@ -1824,7 +1836,7 @@
     .parameter "pagetables"
 
     .prologue
-    .line 286
+    .line 304
     const/16 v0, 0xaf9
 
     const/16 v1, 0xb
@@ -1921,7 +1933,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 287
+    .line 305
     return-void
 .end method
 
@@ -1932,7 +1944,7 @@
     .parameter "pss"
 
     .prologue
-    .line 262
+    .line 280
     const/16 v0, 0xaf3
 
     const/4 v1, 0x3
@@ -1961,7 +1973,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 263
+    .line 281
     return-void
 .end method
 
@@ -1974,7 +1986,7 @@
     .parameter "deathsinfive"
 
     .prologue
-    .line 278
+    .line 296
     const/16 v0, 0xaf7
 
     const/4 v1, 0x5
@@ -2023,7 +2035,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 279
+    .line 297
     return-void
 .end method
 
@@ -2042,7 +2054,7 @@
     .parameter "nopsscount"
 
     .prologue
-    .line 274
+    .line 292
     const/16 v0, 0xaf6
 
     const/16 v1, 0xb
@@ -2139,7 +2151,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 275
+    .line 293
     return-void
 .end method
 
@@ -2154,7 +2166,7 @@
     .parameter "minnextalarm"
 
     .prologue
-    .line 294
+    .line 312
     const/16 v0, 0xafb
 
     const/4 v1, 0x7
@@ -2219,7 +2231,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 295
+    .line 313
     return-void
 .end method
 
@@ -2232,7 +2244,7 @@
     .parameter "skip"
 
     .prologue
-    .line 282
+    .line 300
     const/16 v0, 0xaf8
 
     const/4 v1, 0x5
@@ -2277,7 +2289,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 283
+    .line 301
     return-void
 .end method
 
@@ -2290,7 +2302,7 @@
     .parameter "skip"
 
     .prologue
-    .line 266
+    .line 284
     const/16 v0, 0xaf4
 
     const/4 v1, 0x5
@@ -2331,7 +2343,7 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 267
+    .line 285
     return-void
 .end method
 
@@ -2345,7 +2357,7 @@
     .parameter "pgmajfault"
 
     .prologue
-    .line 290
+    .line 308
     const/16 v0, 0xafa
 
     const/4 v1, 0x6
@@ -2402,7 +2414,21 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 291
+    .line 309
+    return-void
+.end method
+
+.method public static writeWmHomeStackMoved(I)V
+    .locals 1
+    .parameter "totop"
+
+    .prologue
+    .line 416
+    const/16 v0, 0x791d
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    .line 417
     return-void
 .end method
 
@@ -2413,7 +2439,7 @@
     .parameter "operation"
 
     .prologue
-    .line 378
+    .line 396
     const/16 v0, 0x7918
 
     const/4 v1, 0x3
@@ -2438,6 +2464,183 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 379
+    .line 397
+    return-void
+.end method
+
+.method public static writeWmStackCreated(IIII)V
+    .locals 4
+    .parameter "stackid"
+    .parameter "relativeboxid"
+    .parameter "position"
+    .parameter "weight"
+
+    .prologue
+    .line 412
+    const/16 v0, 0x791c
+
+    const/4 v1, 0x4
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x3
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    .line 413
+    return-void
+.end method
+
+.method public static writeWmStackRemoved(I)V
+    .locals 1
+    .parameter "stackid"
+
+    .prologue
+    .line 420
+    const/16 v0, 0x791e
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    .line 421
+    return-void
+.end method
+
+.method public static writeWmTaskCreated(II)V
+    .locals 4
+    .parameter "taskid"
+    .parameter "stackid"
+
+    .prologue
+    .line 400
+    const/16 v0, 0x7919
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    .line 401
+    return-void
+.end method
+
+.method public static writeWmTaskMoved(III)V
+    .locals 4
+    .parameter "taskid"
+    .parameter "totop"
+    .parameter "index"
+
+    .prologue
+    .line 404
+    const/16 v0, 0x791a
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    .line 405
+    return-void
+.end method
+
+.method public static writeWmTaskRemoved(ILjava/lang/String;)V
+    .locals 4
+    .parameter "taskid"
+    .parameter "reason"
+
+    .prologue
+    .line 408
+    const/16 v0, 0x791b
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
+
+    aput-object p1, v1, v2
+
+    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    .line 409
     return-void
 .end method

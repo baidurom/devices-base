@@ -22,13 +22,19 @@
 
 .field static final EVENT_RELEASE_WAKE_LOCK:I = 0x3
 
+.field static final EVENT_UPDATE_PHONE_OBJECT:I = 0x4
+
 .field private static final WAKE_LOCK_TIMEOUT:I = 0xbb8
 
 
 # instance fields
+.field protected mContext:Landroid/content/Context;
+
 .field private final mDefaultState:Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;
 
 .field private final mIdleState:Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;
+
+.field protected mPhone:Lcom/android/internal/telephony/PhoneBase;
 
 .field protected final mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -38,44 +44,51 @@
 
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/String;Landroid/content/Context;)V
+.method protected constructor <init>(Ljava/lang/String;Landroid/content/Context;Lcom/android/internal/telephony/PhoneBase;)V
     .locals 3
     .parameter "debugTag"
     .parameter "context"
+    .parameter "phone"
 
     .prologue
-    .line 59
+    .line 65
     invoke-direct {p0, p1}, Lcom/android/internal/util/StateMachine;-><init>(Ljava/lang/String;)V
 
-    .line 54
+    .line 60
     new-instance v1, Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;
 
     invoke-direct {v1, p0}, Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;-><init>(Lcom/android/internal/telephony/WakeLockStateMachine;)V
 
     iput-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mDefaultState:Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;
 
-    .line 55
+    .line 61
     new-instance v1, Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;
 
     invoke-direct {v1, p0}, Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;-><init>(Lcom/android/internal/telephony/WakeLockStateMachine;)V
 
     iput-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mIdleState:Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;
 
-    .line 56
+    .line 62
     new-instance v1, Lcom/android/internal/telephony/WakeLockStateMachine$WaitingState;
 
     invoke-direct {v1, p0}, Lcom/android/internal/telephony/WakeLockStateMachine$WaitingState;-><init>(Lcom/android/internal/telephony/WakeLockStateMachine;)V
 
     iput-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mWaitingState:Lcom/android/internal/telephony/WakeLockStateMachine$WaitingState;
 
-    .line 197
+    .line 220
     new-instance v1, Lcom/android/internal/telephony/WakeLockStateMachine$1;
 
     invoke-direct {v1, p0}, Lcom/android/internal/telephony/WakeLockStateMachine$1;-><init>(Lcom/android/internal/telephony/WakeLockStateMachine;)V
 
     iput-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 61
+    .line 67
+    iput-object p2, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
+
+    .line 68
+    iput-object p3, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+
+    .line 70
     const-string v1, "power"
 
     invoke-virtual {p2, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -84,7 +97,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 62
+    .line 71
     .local v0, pm:Landroid/os/PowerManager;
     const/4 v1, 0x1
 
@@ -94,36 +107,36 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 63
+    .line 72
     iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 65
+    .line 74
     iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mDefaultState:Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/util/StateMachine;->addState(Lcom/android/internal/util/State;)V
 
-    .line 66
+    .line 75
     iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mIdleState:Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;
 
     iget-object v2, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mDefaultState:Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;
 
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/util/StateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
-    .line 67
+    .line 76
     iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mWaitingState:Lcom/android/internal/telephony/WakeLockStateMachine$WaitingState;
 
     iget-object v2, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mDefaultState:Lcom/android/internal/telephony/WakeLockStateMachine$DefaultState;
 
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/util/StateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
-    .line 68
+    .line 77
     iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mIdleState:Lcom/android/internal/telephony/WakeLockStateMachine$IdleState;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/util/StateMachine;->setInitialState(Lcom/android/internal/util/State;)V
 
-    .line 69
+    .line 78
     return-void
 .end method
 
@@ -203,12 +216,12 @@
     .parameter "obj"
 
     .prologue
-    .line 91
+    .line 104
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0, p1}, Lcom/android/internal/util/StateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 92
+    .line 105
     return-void
 .end method
 
@@ -216,10 +229,10 @@
     .locals 0
 
     .prologue
-    .line 75
+    .line 88
     invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->quit()V
 
-    .line 76
+    .line 89
     return-void
 .end method
 
@@ -231,14 +244,14 @@
     .parameter "s"
 
     .prologue
-    .line 210
+    .line 233
     invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getName()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 211
+    .line 234
     return-void
 .end method
 
@@ -247,14 +260,14 @@
     .parameter "s"
 
     .prologue
-    .line 219
+    .line 242
     invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getName()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 220
+    .line 243
     return-void
 .end method
 
@@ -264,14 +277,14 @@
     .parameter "e"
 
     .prologue
-    .line 229
+    .line 252
     invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getName()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0, p1, p2}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 230
+    .line 253
     return-void
 .end method
 
@@ -279,7 +292,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 94
     :goto_0
     iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -289,14 +302,28 @@
 
     if-eqz v0, :cond_0
 
-    .line 82
+    .line 95
     iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     goto :goto_0
 
-    .line 84
+    .line 97
     :cond_0
+    return-void
+.end method
+
+.method public updatePhoneObject(Lcom/android/internal/telephony/PhoneBase;)V
+    .locals 1
+    .parameter "phone"
+
+    .prologue
+    .line 81
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/internal/util/StateMachine;->sendMessage(ILjava/lang/Object;)V
+
+    .line 82
     return-void
 .end method

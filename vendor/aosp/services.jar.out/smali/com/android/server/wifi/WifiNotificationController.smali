@@ -13,7 +13,7 @@
 
 
 # static fields
-.field private static final ICON_NETWORKS_AVAILABLE:I = 0x108058a
+.field private static final ICON_NETWORKS_AVAILABLE:I = 0x108058c
 
 .field private static final NUM_SCANS_BEFORE_ACTUALLY_SCANNING:I = 0x3
 
@@ -452,7 +452,7 @@
 
     const/4 v8, 0x0
 
-    const v7, 0x108058a
+    const v7, 0x108058c
 
     .line 215
     if-nez p1, :cond_1
@@ -561,7 +561,7 @@
 
     move-result-object v3
 
-    const v4, 0x1130014
+    const v4, 0x1130015
 
     invoke-virtual {v3, v4, p2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
 
@@ -575,7 +575,7 @@
 
     move-result-object v3
 
-    const v4, 0x1130015
+    const v4, 0x1130016
 
     invoke-virtual {v3, v4, p2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
 

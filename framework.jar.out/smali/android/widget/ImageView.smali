@@ -134,7 +134,7 @@
 
     sput-object v0, Landroid/widget/ImageView;->sScaleTypeArray:[Landroid/widget/ImageView$ScaleType;
 
-    .line 746
+    .line 747
     new-array v0, v7, [Landroid/graphics/Matrix$ScaleToFit;
 
     sget-object v1, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
@@ -484,7 +484,7 @@
     .locals 3
 
     .prologue
-    .line 1214
+    .line 1215
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
@@ -493,7 +493,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1215
+    .line 1216
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
@@ -502,21 +502,21 @@
 
     iput-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 1216
+    .line 1217
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     iget-object v1, p0, Landroid/widget/ImageView;->mColorFilter:Landroid/graphics/ColorFilter;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 1217
+    .line 1218
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     iget-object v1, p0, Landroid/widget/ImageView;->mXfermode:Landroid/graphics/Xfermode;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setXfermode(Landroid/graphics/Xfermode;)V
 
-    .line 1218
+    .line 1219
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     iget v1, p0, Landroid/widget/ImageView;->mAlpha:I
@@ -529,7 +529,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 1220
+    .line 1221
     :cond_0
     return-void
 .end method
@@ -546,7 +546,7 @@
 
     const/high16 v11, 0x3f00
 
-    .line 912
+    .line 913
     iget-object v9, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v9, :cond_0
@@ -555,20 +555,20 @@
 
     if-nez v9, :cond_1
 
-    .line 994
+    .line 995
     :cond_0
     :goto_0
     return-void
 
-    .line 916
+    .line 917
     :cond_1
     iget v1, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
-    .line 917
+    .line 918
     .local v1, dwidth:I
     iget v0, p0, Landroid/widget/ImageView;->mDrawableHeight:I
 
-    .line 919
+    .line 920
     .local v0, dheight:I
     invoke-virtual {p0}, Landroid/widget/ImageView;->getWidth()I
 
@@ -582,7 +582,7 @@
 
     sub-int v7, v9, v10
 
-    .line 920
+    .line 921
     .local v7, vwidth:I
     invoke-virtual {p0}, Landroid/widget/ImageView;->getHeight()I
 
@@ -596,7 +596,7 @@
 
     sub-int v6, v9, v10
 
-    .line 922
+    .line 923
     .local v6, vheight:I
     if-ltz v1, :cond_2
 
@@ -610,7 +610,7 @@
     :cond_3
     const/4 v4, 0x1
 
-    .line 925
+    .line 926
     .local v4, fits:Z
     :goto_1
     if-lez v1, :cond_4
@@ -623,13 +623,13 @@
 
     if-ne v9, v10, :cond_6
 
-    .line 929
+    .line 930
     :cond_4
     iget-object v9, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v9, v8, v8, v7, v6}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 930
+    .line 931
     iput-object v13, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     goto :goto_0
@@ -638,24 +638,24 @@
     :cond_5
     move v4, v8
 
-    .line 922
+    .line 923
     goto :goto_1
 
-    .line 934
+    .line 935
     .restart local v4       #fits:Z
     :cond_6
     iget-object v9, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v9, v8, v8, v1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 936
+    .line 937
     sget-object v8, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
     iget-object v9, p0, Landroid/widget/ImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
     if-ne v8, v9, :cond_8
 
-    .line 938
+    .line 939
     iget-object v8, p0, Landroid/widget/ImageView;->mMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v8}, Landroid/graphics/Matrix;->isIdentity()Z
@@ -664,12 +664,12 @@
 
     if-eqz v8, :cond_7
 
-    .line 939
+    .line 940
     iput-object v13, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     goto :goto_0
 
-    .line 941
+    .line 942
     :cond_7
     iget-object v8, p0, Landroid/widget/ImageView;->mMatrix:Landroid/graphics/Matrix;
 
@@ -677,16 +677,16 @@
 
     goto :goto_0
 
-    .line 943
+    .line 944
     :cond_8
     if-eqz v4, :cond_9
 
-    .line 945
+    .line 946
     iput-object v13, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     goto :goto_0
 
-    .line 946
+    .line 947
     :cond_9
     sget-object v8, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
 
@@ -694,12 +694,12 @@
 
     if-ne v8, v9, :cond_a
 
-    .line 948
+    .line 949
     iget-object v8, p0, Landroid/widget/ImageView;->mMatrix:Landroid/graphics/Matrix;
 
     iput-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
-    .line 949
+    .line 950
     iget-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     sub-int v9, v7, v1
@@ -730,7 +730,7 @@
 
     goto :goto_0
 
-    .line 951
+    .line 952
     :cond_a
     sget-object v8, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
@@ -738,18 +738,18 @@
 
     if-ne v8, v9, :cond_c
 
-    .line 952
+    .line 953
     iget-object v8, p0, Landroid/widget/ImageView;->mMatrix:Landroid/graphics/Matrix;
 
     iput-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
-    .line 955
+    .line 956
     const/4 v2, 0x0
 
     .local v2, dx:F
     const/4 v3, 0x0
 
-    .line 957
+    .line 958
     .local v3, dy:F
     mul-int v8, v1, v6
 
@@ -757,14 +757,14 @@
 
     if-le v8, v9, :cond_b
 
-    .line 958
+    .line 959
     int-to-float v8, v6
 
     int-to-float v9, v0
 
     div-float v5, v8, v9
 
-    .line 959
+    .line 960
     .local v5, scale:F
     int-to-float v8, v7
 
@@ -776,13 +776,13 @@
 
     mul-float v2, v8, v11
 
-    .line 965
+    .line 966
     :goto_2
     iget-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v8, v5, v5}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    .line 966
+    .line 967
     iget-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     add-float v9, v2, v11
@@ -801,7 +801,7 @@
 
     goto/16 :goto_0
 
-    .line 961
+    .line 962
     .end local v5           #scale:F
     :cond_b
     int-to-float v8, v7
@@ -810,7 +810,7 @@
 
     div-float v5, v8, v9
 
-    .line 962
+    .line 963
     .restart local v5       #scale:F
     int-to-float v8, v6
 
@@ -824,7 +824,7 @@
 
     goto :goto_2
 
-    .line 967
+    .line 968
     .end local v2           #dx:F
     .end local v3           #dy:F
     .end local v5           #scale:F
@@ -835,20 +835,20 @@
 
     if-ne v8, v9, :cond_e
 
-    .line 968
+    .line 969
     iget-object v8, p0, Landroid/widget/ImageView;->mMatrix:Landroid/graphics/Matrix;
 
     iput-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
-    .line 973
+    .line 974
     if-gt v1, v7, :cond_d
 
     if-gt v0, v6, :cond_d
 
-    .line 974
+    .line 975
     const/high16 v5, 0x3f80
 
-    .line 980
+    .line 981
     .restart local v5       #scale:F
     :goto_3
     int-to-float v8, v7
@@ -867,7 +867,7 @@
 
     int-to-float v2, v8
 
-    .line 981
+    .line 982
     .restart local v2       #dx:F
     int-to-float v8, v6
 
@@ -885,20 +885,20 @@
 
     int-to-float v3, v8
 
-    .line 983
+    .line 984
     .restart local v3       #dy:F
     iget-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v8, v5, v5}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    .line 984
+    .line 985
     iget-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v8, v2, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     goto/16 :goto_0
 
-    .line 976
+    .line 977
     .end local v2           #dx:F
     .end local v3           #dy:F
     .end local v5           #scale:F
@@ -922,7 +922,7 @@
     .restart local v5       #scale:F
     goto :goto_3
 
-    .line 987
+    .line 988
     .end local v5           #scale:F
     :cond_e
     iget-object v8, p0, Landroid/widget/ImageView;->mTempSrc:Landroid/graphics/RectF;
@@ -933,7 +933,7 @@
 
     invoke-virtual {v8, v12, v12, v9, v10}, Landroid/graphics/RectF;->set(FFFF)V
 
-    .line 988
+    .line 989
     iget-object v8, p0, Landroid/widget/ImageView;->mTempDst:Landroid/graphics/RectF;
 
     int-to-float v9, v7
@@ -942,12 +942,12 @@
 
     invoke-virtual {v8, v12, v12, v9, v10}, Landroid/graphics/RectF;->set(FFFF)V
 
-    .line 990
+    .line 991
     iget-object v8, p0, Landroid/widget/ImageView;->mMatrix:Landroid/graphics/Matrix;
 
     iput-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
-    .line 991
+    .line 992
     iget-object v8, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     iget-object v9, p0, Landroid/widget/ImageView;->mTempSrc:Landroid/graphics/RectF;
@@ -1013,37 +1013,37 @@
     .locals 4
 
     .prologue
-    .line 723
+    .line 724
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 724
+    .line 725
     .local v0, d:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_3
 
-    .line 725
+    .line 726
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
 
-    .line 726
+    .line 727
     .local v2, w:I
     if-gez v2, :cond_0
 
     iget v2, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
-    .line 727
+    .line 728
     :cond_0
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
-    .line 728
+    .line 729
     .local v1, h:I
     if-gez v1, :cond_1
 
     iget v1, p0, Landroid/widget/ImageView;->mDrawableHeight:I
 
-    .line 729
+    .line 730
     :cond_1
     iget v3, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
@@ -1053,17 +1053,17 @@
 
     if-eq v1, v3, :cond_3
 
-    .line 730
+    .line 731
     :cond_2
     iput v2, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
-    .line 731
+    .line 732
     iput v1, p0, Landroid/widget/ImageView;->mDrawableHeight:I
 
-    .line 732
+    .line 733
     invoke-virtual {p0}, Landroid/widget/ImageView;->requestLayout()V
 
-    .line 735
+    .line 736
     .end local v1           #h:I
     .end local v2           #w:I
     :cond_3
@@ -1077,39 +1077,39 @@
     .parameter "measureSpec"
 
     .prologue
-    .line 879
+    .line 880
     move v0, p1
 
-    .line 880
+    .line 881
     .local v0, result:I
     invoke-static {p3}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
 
-    .line 881
+    .line 882
     .local v1, specMode:I
     invoke-static {p3}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v2
 
-    .line 882
+    .line 883
     .local v2, specSize:I
     sparse-switch v1, :sswitch_data_0
 
-    .line 900
+    .line 901
     :goto_0
     return v0
 
-    .line 887
+    .line 888
     :sswitch_0
     invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
-    .line 888
+    .line 889
     goto :goto_0
 
-    .line 893
+    .line 894
     :sswitch_1
     invoke-static {p1, v2}, Ljava/lang/Math;->min(II)I
 
@@ -1119,16 +1119,16 @@
 
     move-result v0
 
-    .line 894
+    .line 895
     goto :goto_0
 
-    .line 897
+    .line 898
     :sswitch_2
     move v0, v2
 
     goto :goto_0
 
-    .line 882
+    .line 883
     nop
 
     :sswitch_data_0
@@ -1584,7 +1584,7 @@
     .parameter "st"
 
     .prologue
-    .line 755
+    .line 756
     sget-object v0, Landroid/widget/ImageView;->sS2FArray:[Landroid/graphics/Matrix$ScaleToFit;
 
     iget v1, p0, Landroid/widget/ImageView$ScaleType;->nativeInt:I
@@ -1597,10 +1597,12 @@
 .end method
 
 .method private updateDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+    .locals 3
     .parameter "d"
 
     .prologue
+    const/4 v1, 0x1
+
     .line 701
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -1609,9 +1611,9 @@
     .line 702
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 703
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -1623,7 +1625,7 @@
     iput-object p1, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 706
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     .line 707
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
@@ -1656,38 +1658,56 @@
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)V
 
     .line 713
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
+
+    .line 714
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
-    .line 714
+    .line 715
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/ImageView;->mDrawableHeight:I
 
-    .line 715
+    .line 716
     invoke-direct {p0}, Landroid/widget/ImageView;->applyColorMod()V
 
-    .line 716
+    .line 717
     invoke-direct {p0}, Landroid/widget/ImageView;->configureBounds()V
 
-    .line 720
-    :goto_0
+    .line 721
+    :goto_1
     return-void
 
-    .line 718
+    .line 713
     :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    .line 719
+    :cond_3
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/widget/ImageView;->mDrawableHeight:I
 
     iput v0, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
@@ -1696,12 +1716,12 @@
     .locals 1
 
     .prologue
-    .line 1126
+    .line 1127
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 1127
+    .line 1128
     return-void
 .end method
 
@@ -1709,13 +1729,13 @@
     .locals 2
 
     .prologue
-    .line 998
+    .line 999
     invoke-super {p0}, Landroid/view/View;->drawableStateChanged()V
 
-    .line 999
+    .line 1000
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 1000
+    .line 1001
     .local v0, d:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_0
 
@@ -1725,14 +1745,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 1001
+    .line 1002
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawableState()[I
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    .line 1003
+    .line 1004
     :cond_0
     return-void
 .end method
@@ -1754,17 +1774,17 @@
     .end annotation
 
     .prologue
-    .line 1051
+    .line 1052
     iget-boolean v0, p0, Landroid/widget/ImageView;->mBaselineAlignBottom:Z
 
     if-eqz v0, :cond_0
 
-    .line 1052
+    .line 1053
     invoke-virtual {p0}, Landroid/widget/ImageView;->getMeasuredHeight()I
 
     move-result v0
 
-    .line 1054
+    .line 1055
     :goto_0
     return v0
 
@@ -1778,7 +1798,7 @@
     .locals 1
 
     .prologue
-    .line 1097
+    .line 1098
     iget-boolean v0, p0, Landroid/widget/ImageView;->mBaselineAlignBottom:Z
 
     return v0
@@ -1788,7 +1808,7 @@
     .locals 1
 
     .prologue
-    .line 1149
+    .line 1150
     iget-object v0, p0, Landroid/widget/ImageView;->mColorFilter:Landroid/graphics/ColorFilter;
 
     return-object v0
@@ -1818,7 +1838,7 @@
     .locals 1
 
     .prologue
-    .line 1176
+    .line 1177
     iget v0, p0, Landroid/widget/ImageView;->mAlpha:I
 
     return v0
@@ -1963,15 +1983,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1233
+    .line 1234
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
 
-    .line 1234
+    .line 1235
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    .line 1235
+    .line 1236
     iget-object v2, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
@@ -1985,14 +2005,14 @@
     :goto_0
     invoke-virtual {v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    .line 1237
+    .line 1238
     :cond_0
     return-void
 
     :cond_1
     move v0, v1
 
-    .line 1235
+    .line 1236
     goto :goto_0
 .end method
 
@@ -2053,20 +2073,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1241
-    invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
-
     .line 1242
-    iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_0
+    invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
 
     .line 1243
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
+    if-eqz v0, :cond_0
+
+    .line 1244
+    iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
+
     invoke-virtual {v0, v1, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    .line 1245
+    .line 1246
     :cond_0
     return-void
 .end method
@@ -2076,20 +2096,20 @@
     .parameter "canvas"
 
     .prologue
-    .line 1007
+    .line 1008
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 1009
+    .line 1010
     iget-object v3, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez v3, :cond_1
 
-    .line 1039
+    .line 1040
     :cond_0
     :goto_0
     return-void
 
-    .line 1013
+    .line 1014
     :cond_1
     iget v3, p0, Landroid/widget/ImageView;->mDrawableWidth:I
 
@@ -2099,7 +2119,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 1017
+    .line 1018
     iget-object v3, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     if-nez v3, :cond_2
@@ -2112,36 +2132,36 @@
 
     if-nez v3, :cond_2
 
-    .line 1018
+    .line 1019
     iget-object v3, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
-    .line 1020
+    .line 1021
     :cond_2
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getSaveCount()I
 
     move-result v0
 
-    .line 1021
+    .line 1022
     .local v0, saveCount:I
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 1023
+    .line 1024
     iget-boolean v3, p0, Landroid/widget/ImageView;->mCropToPadding:Z
 
     if-eqz v3, :cond_3
 
-    .line 1024
+    .line 1025
     iget v1, p0, Landroid/widget/ImageView;->mScrollX:I
 
-    .line 1025
+    .line 1026
     .local v1, scrollX:I
     iget v2, p0, Landroid/widget/ImageView;->mScrollY:I
 
-    .line 1026
+    .line 1027
     .local v2, scrollY:I
     iget v3, p0, Landroid/widget/ImageView;->mPaddingLeft:I
 
@@ -2177,7 +2197,7 @@
 
     invoke-virtual {p1, v3, v4, v5, v6}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    .line 1031
+    .line 1032
     .end local v1           #scrollX:I
     .end local v2           #scrollY:I
     :cond_3
@@ -2191,23 +2211,23 @@
 
     invoke-virtual {p1, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 1033
+    .line 1034
     iget-object v3, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     if-eqz v3, :cond_4
 
-    .line 1034
+    .line 1035
     iget-object v3, p0, Landroid/widget/ImageView;->mDrawMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {p1, v3}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
 
-    .line 1036
+    .line 1037
     :cond_4
     iget-object v3, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 1037
+    .line 1038
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     goto :goto_0
@@ -2218,10 +2238,10 @@
     .parameter "event"
 
     .prologue
-    .line 1249
+    .line 1250
     invoke-super {p0, p1}, Landroid/view/View;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 1250
+    .line 1251
     const-class v0, Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -2230,7 +2250,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 1251
+    .line 1252
     return-void
 .end method
 
@@ -2239,10 +2259,10 @@
     .parameter "info"
 
     .prologue
-    .line 1255
+    .line 1256
     invoke-super {p0, p1}, Landroid/view/View;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    .line 1256
+    .line 1257
     const-class v0, Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -2251,7 +2271,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 1257
+    .line 1258
     return-void
 .end method
 
@@ -2261,33 +2281,33 @@
     .parameter "heightMeasureSpec"
 
     .prologue
-    .line 760
+    .line 761
     invoke-direct/range {p0 .. p0}, Landroid/widget/ImageView;->resolveUri()V
 
-    .line 765
+    .line 766
     const/4 v5, 0x0
 
-    .line 768
+    .line 769
     .local v5, desiredAspect:F
     const/16 v17, 0x0
 
-    .line 771
+    .line 772
     .local v17, resizeWidth:Z
     const/16 v16, 0x0
 
-    .line 773
+    .line 774
     .local v16, resizeHeight:Z
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v20
 
-    .line 774
+    .line 775
     .local v20, widthSpecMode:I
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v9
 
-    .line 776
+    .line 777
     .local v9, heightSpecMode:I
     move-object/from16 v0, p0
 
@@ -2297,7 +2317,7 @@
 
     if-nez v21, :cond_6
 
-    .line 778
+    .line 779
     const/16 v21, -0x1
 
     move/from16 v0, v21
@@ -2306,7 +2326,7 @@
 
     iput v0, v1, Landroid/widget/ImageView;->mDrawableWidth:I
 
-    .line 779
+    .line 780
     const/16 v21, -0x1
 
     move/from16 v0, v21
@@ -2315,13 +2335,13 @@
 
     iput v0, v1, Landroid/widget/ImageView;->mDrawableHeight:I
 
-    .line 780
+    .line 781
     const/4 v7, 0x0
 
     .local v7, h:I
     move/from16 v18, v7
 
-    .line 797
+    .line 798
     .local v18, w:I
     :cond_0
     :goto_0
@@ -2329,31 +2349,31 @@
 
     iget v13, v0, Landroid/widget/ImageView;->mPaddingLeft:I
 
-    .line 798
+    .line 799
     .local v13, pleft:I
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/ImageView;->mPaddingRight:I
 
-    .line 799
+    .line 800
     .local v14, pright:I
     move-object/from16 v0, p0
 
     iget v15, v0, Landroid/widget/ImageView;->mPaddingTop:I
 
-    .line 800
+    .line 801
     .local v15, ptop:I
     move-object/from16 v0, p0
 
     iget v12, v0, Landroid/widget/ImageView;->mPaddingBottom:I
 
-    .line 805
+    .line 806
     .local v12, pbottom:I
     if-nez v17, :cond_1
 
     if-eqz v16, :cond_b
 
-    .line 812
+    .line 813
     :cond_1
     add-int v21, v18, v13
 
@@ -2377,7 +2397,7 @@
 
     move-result v19
 
-    .line 815
+    .line 816
     .local v19, widthSize:I
     add-int v21, v7, v15
 
@@ -2401,7 +2421,7 @@
 
     move-result v8
 
-    .line 817
+    .line 818
     .local v8, heightSize:I
     const/16 v21, 0x0
 
@@ -2409,7 +2429,7 @@
 
     if-eqz v21, :cond_5
 
-    .line 819
+    .line 820
     sub-int v21, v19, v13
 
     sub-int v21, v21, v14
@@ -2432,7 +2452,7 @@
 
     div-float v4, v21, v22
 
-    .line 822
+    .line 823
     .local v4, actualAspect:F
     sub-float v21, v4, v5
 
@@ -2452,14 +2472,14 @@
 
     if-lez v21, :cond_5
 
-    .line 824
+    .line 825
     const/4 v6, 0x0
 
-    .line 827
+    .line 828
     .local v6, done:Z
     if-eqz v17, :cond_3
 
-    .line 828
+    .line 829
     sub-int v21, v8, v15
 
     sub-int v21, v21, v12
@@ -2482,7 +2502,7 @@
 
     add-int v11, v21, v14
 
-    .line 832
+    .line 833
     .local v11, newWidth:I
     if-nez v16, :cond_2
 
@@ -2494,7 +2514,7 @@
 
     if-nez v21, :cond_2
 
-    .line 833
+    .line 834
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/ImageView;->mMaxWidth:I
@@ -2511,26 +2531,26 @@
 
     move-result v19
 
-    .line 836
+    .line 837
     :cond_2
     move/from16 v0, v19
 
     if-gt v11, v0, :cond_3
 
-    .line 837
+    .line 838
     move/from16 v19, v11
 
-    .line 838
+    .line 839
     const/4 v6, 0x1
 
-    .line 843
+    .line 844
     .end local v11           #newWidth:I
     :cond_3
     if-nez v6, :cond_5
 
     if-eqz v16, :cond_5
 
-    .line 844
+    .line 845
     sub-int v21, v19, v13
 
     sub-int v21, v21, v14
@@ -2553,7 +2573,7 @@
 
     add-int v10, v21, v12
 
-    .line 848
+    .line 849
     .local v10, newHeight:I
     if-nez v17, :cond_4
 
@@ -2565,7 +2585,7 @@
 
     if-nez v21, :cond_4
 
-    .line 849
+    .line 850
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/ImageView;->mMaxHeight:I
@@ -2582,14 +2602,14 @@
 
     move-result v8
 
-    .line 853
+    .line 854
     :cond_4
     if-gt v10, v8, :cond_5
 
-    .line 854
+    .line 855
     move v8, v10
 
-    .line 874
+    .line 875
     .end local v4           #actualAspect:F
     .end local v6           #done:Z
     .end local v10           #newHeight:I
@@ -2601,10 +2621,10 @@
 
     invoke-virtual {v0, v1, v8}, Landroid/widget/ImageView;->setMeasuredDimension(II)V
 
-    .line 875
+    .line 876
     return-void
 
-    .line 782
+    .line 783
     .end local v7           #h:I
     .end local v8           #heightSize:I
     .end local v12           #pbottom:I
@@ -2620,25 +2640,25 @@
 
     move/from16 v18, v0
 
-    .line 783
+    .line 784
     .restart local v18       #w:I
     move-object/from16 v0, p0
 
     iget v7, v0, Landroid/widget/ImageView;->mDrawableHeight:I
 
-    .line 784
+    .line 785
     .restart local v7       #h:I
     if-gtz v18, :cond_7
 
     const/16 v18, 0x1
 
-    .line 785
+    .line 786
     :cond_7
     if-gtz v7, :cond_8
 
     const/4 v7, 0x1
 
-    .line 789
+    .line 790
     :cond_8
     move-object/from16 v0, p0
 
@@ -2648,7 +2668,7 @@
 
     if-eqz v21, :cond_0
 
-    .line 790
+    .line 791
     const/high16 v21, 0x4000
 
     move/from16 v0, v20
@@ -2659,7 +2679,7 @@
 
     const/16 v17, 0x1
 
-    .line 791
+    .line 792
     :goto_2
     const/high16 v21, 0x4000
 
@@ -2669,7 +2689,7 @@
 
     const/16 v16, 0x1
 
-    .line 793
+    .line 794
     :goto_3
     move/from16 v0, v18
 
@@ -2685,19 +2705,19 @@
 
     goto/16 :goto_0
 
-    .line 790
+    .line 791
     :cond_9
     const/16 v17, 0x0
 
     goto :goto_2
 
-    .line 791
+    .line 792
     :cond_a
     const/16 v16, 0x0
 
     goto :goto_3
 
-    .line 864
+    .line 865
     .restart local v12       #pbottom:I
     .restart local v13       #pleft:I
     .restart local v14       #pright:I
@@ -2707,12 +2727,12 @@
 
     add-int v18, v18, v21
 
-    .line 865
+    .line 866
     add-int v21, v15, v12
 
     add-int v7, v7, v21
 
-    .line 867
+    .line 868
     invoke-virtual/range {p0 .. p0}, Landroid/widget/ImageView;->getSuggestedMinimumWidth()I
 
     move-result v21
@@ -2725,7 +2745,7 @@
 
     move-result v18
 
-    .line 868
+    .line 869
     invoke-virtual/range {p0 .. p0}, Landroid/widget/ImageView;->getSuggestedMinimumHeight()I
 
     move-result v21
@@ -2736,7 +2756,7 @@
 
     move-result v7
 
-    .line 870
+    .line 871
     const/16 v21, 0x0
 
     move/from16 v0, v18
@@ -2749,7 +2769,7 @@
 
     move-result v19
 
-    .line 871
+    .line 872
     .restart local v19       #widthSize:I
     const/16 v21, 0x0
 
@@ -2803,20 +2823,20 @@
     .parameter "layoutDirection"
 
     .prologue
-    .line 739
+    .line 740
     invoke-super {p0, p1}, Landroid/view/View;->onRtlPropertiesChanged(I)V
-
-    .line 741
-    iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_0
 
     .line 742
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
+    if-eqz v0, :cond_0
+
+    .line 743
+    iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
+
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)V
 
-    .line 744
+    .line 745
     :cond_0
     return-void
 .end method
@@ -2854,29 +2874,29 @@
     .end annotation
 
     .prologue
-    .line 1201
+    .line 1202
     and-int/lit16 p1, p1, 0xff
 
-    .line 1202
+    .line 1203
     iget v0, p0, Landroid/widget/ImageView;->mAlpha:I
 
     if-eq v0, p1, :cond_0
 
-    .line 1203
+    .line 1204
     iput p1, p0, Landroid/widget/ImageView;->mAlpha:I
 
-    .line 1204
+    .line 1205
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/ImageView;->mColorMod:Z
 
-    .line 1205
+    .line 1206
     invoke-direct {p0}, Landroid/widget/ImageView;->applyColorMod()V
 
-    .line 1206
+    .line 1207
     invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
 
-    .line 1208
+    .line 1209
     :cond_0
     return-void
 .end method
@@ -2886,18 +2906,18 @@
     .parameter "baseline"
 
     .prologue
-    .line 1069
+    .line 1070
     iget v0, p0, Landroid/widget/ImageView;->mBaseline:I
 
     if-eq v0, p1, :cond_0
 
-    .line 1070
+    .line 1071
     iput p1, p0, Landroid/widget/ImageView;->mBaseline:I
 
-    .line 1071
+    .line 1072
     invoke-virtual {p0}, Landroid/widget/ImageView;->requestLayout()V
 
-    .line 1073
+    .line 1074
     :cond_0
     return-void
 .end method
@@ -2907,18 +2927,18 @@
     .parameter "aligned"
 
     .prologue
-    .line 1085
+    .line 1086
     iget-boolean v0, p0, Landroid/widget/ImageView;->mBaselineAlignBottom:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 1086
+    .line 1087
     iput-boolean p1, p0, Landroid/widget/ImageView;->mBaselineAlignBottom:Z
 
-    .line 1087
+    .line 1088
     invoke-virtual {p0}, Landroid/widget/ImageView;->requestLayout()V
 
-    .line 1089
+    .line 1090
     :cond_0
     return-void
 .end method
@@ -2930,12 +2950,12 @@
     .end annotation
 
     .prologue
-    .line 1122
+    .line 1123
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {p0, p1, v0}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 1123
+    .line 1124
     return-void
 .end method
 
@@ -2945,14 +2965,14 @@
     .parameter "mode"
 
     .prologue
-    .line 1110
+    .line 1111
     new-instance v0, Landroid/graphics/PorterDuffColorFilter;
 
     invoke-direct {v0, p1, p2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
 
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 1111
+    .line 1112
     return-void
 .end method
 
@@ -2961,26 +2981,26 @@
     .parameter "cf"
 
     .prologue
-    .line 1160
+    .line 1161
     iget-object v0, p0, Landroid/widget/ImageView;->mColorFilter:Landroid/graphics/ColorFilter;
 
     if-eq v0, p1, :cond_0
 
-    .line 1161
+    .line 1162
     iput-object p1, p0, Landroid/widget/ImageView;->mColorFilter:Landroid/graphics/ColorFilter;
 
-    .line 1162
+    .line 1163
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/ImageView;->mColorMod:Z
 
-    .line 1163
+    .line 1164
     invoke-direct {p0}, Landroid/widget/ImageView;->applyColorMod()V
 
-    .line 1164
+    .line 1165
     invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
 
-    .line 1166
+    .line 1167
     :cond_0
     return-void
 .end method
@@ -3017,21 +3037,21 @@
     .parameter "b"
 
     .prologue
-    .line 905
+    .line 906
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->setFrame(IIII)Z
 
     move-result v0
 
-    .line 906
+    .line 907
     .local v0, changed:Z
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/widget/ImageView;->mHaveFrame:Z
 
-    .line 907
+    .line 908
     invoke-direct {p0}, Landroid/widget/ImageView;->configureBounds()V
 
-    .line 908
+    .line 909
     return v0
 .end method
 
@@ -3042,10 +3062,10 @@
     .end annotation
 
     .prologue
-    .line 1188
+    .line 1189
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 1189
+    .line 1190
     return-void
 .end method
 
@@ -3488,15 +3508,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1225
+    .line 1226
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1226
+    .line 1227
     iget-object v0, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    .line 1227
+    .line 1228
     iget-object v2, p0, Landroid/widget/ImageView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez p1, :cond_1
@@ -3506,14 +3526,14 @@
     :goto_0
     invoke-virtual {v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    .line 1229
+    .line 1230
     :cond_0
     return-void
 
     :cond_1
     move v0, v1
 
-    .line 1227
+    .line 1228
     goto :goto_0
 .end method
 
@@ -3522,26 +3542,26 @@
     .parameter "mode"
 
     .prologue
-    .line 1133
+    .line 1134
     iget-object v0, p0, Landroid/widget/ImageView;->mXfermode:Landroid/graphics/Xfermode;
 
     if-eq v0, p1, :cond_0
 
-    .line 1134
+    .line 1135
     iput-object p1, p0, Landroid/widget/ImageView;->mXfermode:Landroid/graphics/Xfermode;
 
-    .line 1135
+    .line 1136
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/ImageView;->mColorMod:Z
 
-    .line 1136
+    .line 1137
     invoke-direct {p0}, Landroid/widget/ImageView;->applyColorMod()V
 
-    .line 1137
+    .line 1138
     invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
 
-    .line 1139
+    .line 1140
     :cond_0
     return-void
 .end method

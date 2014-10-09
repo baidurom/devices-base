@@ -327,9 +327,31 @@
     .local v1, pw:Ljava/io/PrintWriter;
     const-string v2, "activity"
 
-    new-array v3, v7, [Ljava/lang/String;
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/String;
+
+    const-string v4, "-a"
+
+    aput-object v4, v3, v5
 
     const-string/jumbo v4, "package"
+
+    aput-object v4, v3, v6
+
+    aput-object p1, v3, v7
+
+    invoke-static {v1, p0, v2, v3}, Landroid/app/ActivityManager;->dumpService(Ljava/io/PrintWriter;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
+
+    .line 2277
+    invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
+
+    .line 2278
+    const-string v2, "meminfo"
+
+    new-array v3, v7, [Ljava/lang/String;
+
+    const-string v4, "--local"
 
     aput-object v4, v3, v5
 
@@ -337,22 +359,26 @@
 
     invoke-static {v1, p0, v2, v3}, Landroid/app/ActivityManager;->dumpService(Ljava/io/PrintWriter;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 2276
+    .line 2279
     invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
 
-    .line 2277
+    .line 2280
     const-string/jumbo v2, "procstats"
 
-    new-array v3, v6, [Ljava/lang/String;
+    new-array v3, v7, [Ljava/lang/String;
 
-    aput-object p1, v3, v5
+    const-string v4, "-a"
+
+    aput-object v4, v3, v5
+
+    aput-object p1, v3, v6
 
     invoke-static {v1, p0, v2, v3}, Landroid/app/ActivityManager;->dumpService(Ljava/io/PrintWriter;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 2278
+    .line 2281
     invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
 
-    .line 2279
+    .line 2282
     const-string/jumbo v2, "usagestats"
 
     new-array v3, v7, [Ljava/lang/String;
@@ -365,10 +391,10 @@
 
     invoke-static {v1, p0, v2, v3}, Landroid/app/ActivityManager;->dumpService(Ljava/io/PrintWriter;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 2280
+    .line 2283
     invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
 
-    .line 2281
+    .line 2284
     const-string/jumbo v2, "package"
 
     new-array v3, v6, [Ljava/lang/String;
@@ -377,10 +403,10 @@
 
     invoke-static {v1, p0, v2, v3}, Landroid/app/ActivityManager;->dumpService(Ljava/io/PrintWriter;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 2282
+    .line 2285
     invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
 
-    .line 2283
+    .line 2286
     const-string v2, "batterystats"
 
     new-array v3, v6, [Ljava/lang/String;
@@ -389,10 +415,10 @@
 
     invoke-static {v1, p0, v2, v3}, Landroid/app/ActivityManager;->dumpService(Ljava/io/PrintWriter;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 2284
+    .line 2287
     invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
 
-    .line 2285
+    .line 2288
     return-void
 .end method
 
@@ -404,7 +430,7 @@
     .parameter "args"
 
     .prologue
-    .line 2288
+    .line 2291
     const-string v4, "DUMP OF SERVICE "
 
     invoke-virtual {p0, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -415,41 +441,41 @@
 
     invoke-virtual {p0, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2289
+    .line 2292
     invoke-static {p2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    .line 2290
+    .line 2293
     .local v1, service:Landroid/os/IBinder;
     if-nez v1, :cond_0
 
-    .line 2291
+    .line 2294
     const-string v4, "  (Service not found)"
 
     invoke-virtual {p0, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2308
+    .line 2311
     :goto_0
     return-void
 
-    .line 2294
+    .line 2297
     :cond_0
     const/4 v2, 0x0
 
-    .line 2296
+    .line 2299
     .local v2, tp:Lcom/android/internal/os/TransferPipe;
     :try_start_0
     invoke-virtual {p0}, Ljava/io/PrintWriter;->flush()V
 
-    .line 2297
+    .line 2300
     new-instance v3, Lcom/android/internal/os/TransferPipe;
 
     invoke-direct {v3}, Lcom/android/internal/os/TransferPipe;-><init>()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2298
+    .line 2301
     .end local v2           #tp:Lcom/android/internal/os/TransferPipe;
     .local v3, tp:Lcom/android/internal/os/TransferPipe;
     :try_start_1
@@ -457,7 +483,7 @@
 
     invoke-virtual {v3, v4}, Lcom/android/internal/os/TransferPipe;->setBufferPrefix(Ljava/lang/String;)V
 
-    .line 2299
+    .line 2302
     invoke-virtual {v3}, Lcom/android/internal/os/TransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
 
     move-result-object v4
@@ -466,44 +492,44 @@
 
     move-result-object v4
 
-    invoke-interface {v1, v4, p3}, Landroid/os/IBinder;->dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
+    invoke-interface {v1, v4, p3}, Landroid/os/IBinder;->dumpAsync(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
 
-    .line 2300
+    .line 2303
     invoke-virtual {v3, p1}, Lcom/android/internal/os/TransferPipe;->go(Ljava/io/FileDescriptor;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
     move-object v2, v3
 
-    .line 2307
+    .line 2310
     .end local v3           #tp:Lcom/android/internal/os/TransferPipe;
     .restart local v2       #tp:Lcom/android/internal/os/TransferPipe;
     goto :goto_0
 
-    .line 2301
+    .line 2304
     :catch_0
     move-exception v0
 
-    .line 2302
+    .line 2305
     .local v0, e:Ljava/lang/Throwable;
     :goto_1
     if-eqz v2, :cond_1
 
-    .line 2303
+    .line 2306
     invoke-virtual {v2}, Lcom/android/internal/os/TransferPipe;->kill()V
 
-    .line 2305
+    .line 2308
     :cond_1
     const-string v4, "Failure dumping service:"
 
     invoke-virtual {p0, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2306
+    .line 2309
     invoke-virtual {v0, p0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
 
     goto :goto_0
 
-    .line 2301
+    .line 2304
     .end local v0           #e:Ljava/lang/Throwable;
     .end local v2           #tp:Lcom/android/internal/os/TransferPipe;
     .restart local v3       #tp:Lcom/android/internal/os/TransferPipe;
@@ -663,7 +689,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110016
+    const v1, 0x1110015
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

@@ -56,7 +56,7 @@
     <integer name="db_connection_pool_size">4</integer>
     <integer name="db_journal_size_limit">524288</integer>
     <integer name="db_wal_autocheckpoint">100</integer>
-    <integer name="config_downloadDataDirSize">100</integer>
+    <integer name="config_downloadDataDirSize">200</integer>
     <integer name="config_MaxConcurrentDownloadsAllowed">5</integer>
     <integer name="config_downloadDataDirLowSpaceThreshold">10</integer>
     <integer name="config_cursorWindowSize">2048</integer>
@@ -73,6 +73,7 @@
     <integer name="config_toastDefaultGravity">0x51</integer>
     <integer name="config_immersive_mode_confirmation_panic">5000</integer>
     <integer name="config_valid_wappush_index">-1</integer>
+    <integer name="config_overrideHasPermanentMenuKey">0</integer>
     <integer name="max_action_buttons">2</integer>
     <integer name="preferences_left_pane_weight">4</integer>
     <integer name="preferences_right_pane_weight">6</integer>

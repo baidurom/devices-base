@@ -1598,7 +1598,7 @@
     packed-switch v0, :pswitch_data_0
 
     .line 2177
-    const v0, 0x10404a1
+    const v0, 0x10404a5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1615,7 +1615,7 @@
 
     .line 2165
     :pswitch_1
-    const v0, 0x104049b
+    const v0, 0x104049f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1625,7 +1625,7 @@
 
     .line 2167
     :pswitch_2
-    const v0, 0x104049c
+    const v0, 0x10404a0
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1635,7 +1635,7 @@
 
     .line 2169
     :pswitch_3
-    const v0, 0x104049d
+    const v0, 0x10404a1
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1645,7 +1645,7 @@
 
     .line 2171
     :pswitch_4
-    const v0, 0x104049e
+    const v0, 0x10404a2
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1655,7 +1655,7 @@
 
     .line 2173
     :pswitch_5
-    const v0, 0x104049f
+    const v0, 0x10404a3
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1665,7 +1665,7 @@
 
     .line 2175
     :pswitch_6
-    const v0, 0x10404a0
+    const v0, 0x10404a4
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1846,7 +1846,7 @@
     :cond_0
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mRootView:Landroid/view/View;
 
-    const v1, 0x10202b1
+    const v1, 0x10202b2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4055,7 +4055,7 @@
     invoke-virtual {v0, p0}, Landroid/inputmethodservice/ExtractEditText;->setIME(Landroid/inputmethodservice/InputMethodService;)V
 
     .line 1193
-    const v0, 0x10202b3
+    const v0, 0x10202b4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4071,7 +4071,7 @@
     if-eqz v0, :cond_0
 
     .line 1196
-    const v0, 0x10202b2
+    const v0, 0x10202b3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

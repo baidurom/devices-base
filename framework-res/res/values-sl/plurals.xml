@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Poskusite lahko še %d-krat. Potem se bo kartica SIM zaklenila.</item>
+        <item quantity="one">Na voljo imate še %d poskus. Potem se bo kartica SIM zaklenila.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">pred toliko sekundami: %d</item>
         <item quantity="one">Pred 1 sekundo</item>

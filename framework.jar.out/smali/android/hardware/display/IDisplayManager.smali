@@ -111,7 +111,15 @@
     .end annotation
 .end method
 
-.method public abstract scanWifiDisplays()V
+.method public abstract startWifiDisplayScan()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopWifiDisplayScan()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

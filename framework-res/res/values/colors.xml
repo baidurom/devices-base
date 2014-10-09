@@ -101,4 +101,7 @@
     <color name="accessibility_focus_highlight">#80ffff00</color>
     <color name="config_defaultNotificationColor">#ffffffff</color>
     <color name="webviewchromium_color_picker_border_color">#ffb0b0b0</color>
+    <color name="webviewchromium_color_picker_background_color">#ffffffff</color>
+    <color name="webviewchromium_autofill_divider_color">#ffe5e5e5</color>
+    <color name="webviewchromium_autofill_dark_divider_color">#ffc0c0c0</color>
 </resources>

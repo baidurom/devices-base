@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract cancel()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract finish()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -24,6 +32,14 @@
 .end method
 
 .method public abstract layout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/print/ILayoutResultCallback;Landroid/os/Bundle;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setObserver(Landroid/print/IPrintDocumentAdapterObserver;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -27,6 +27,8 @@
 # static fields
 .field public static final NUM_USER_ACTIVITY_TYPES:I = 0x3
 
+.field public static final NUM_WIFI_BATCHED_SCAN_BINS:I = 0x5
+
 .field static final USER_ACTIVITY_TYPES:[Ljava/lang/String;
 
 
@@ -35,7 +37,7 @@
     .locals 3
 
     .prologue
-    .line 296
+    .line 306
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
@@ -67,10 +69,10 @@
     .locals 0
 
     .prologue
-    .line 220
+    .line 225
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 387
+    .line 397
     return-void
 .end method
 
@@ -168,6 +170,9 @@
     .end annotation
 .end method
 
+.method public abstract getWifiBatchedScanTime(IJI)J
+.end method
+
 .method public abstract getWifiMulticastTime(JI)J
 .end method
 
@@ -208,6 +213,12 @@
 .end method
 
 .method public abstract noteVideoTurnedOnLocked()V
+.end method
+
+.method public abstract noteWifiBatchedScanStartedLocked(I)V
+.end method
+
+.method public abstract noteWifiBatchedScanStoppedLocked()V
 .end method
 
 .method public abstract noteWifiMulticastDisabledLocked()V

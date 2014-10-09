@@ -3794,7 +3794,7 @@
     .line 2571
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
-    const-string v9, "newSelectedPosition needs to be valid"
+    const-string/jumbo v9, "newSelectedPosition needs to be valid"
 
     invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

@@ -83,11 +83,11 @@
     .end annotation
 
     .prologue
-    .line 745
+    .line 749
     .local p3, spans:[Ljava/lang/Object;,"[TT;"
     array-length v2, p3
 
-    .line 746
+    .line 750
     .local v2, length:I
     const/4 v1, 0x0
 
@@ -95,42 +95,42 @@
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 747
+    .line 751
     aget-object v3, p3, v1
 
-    .line 748
+    .line 752
     .local v3, span:Ljava/lang/Object;,"TT;"
     invoke-interface {p1, v3}, Landroid/text/Editable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v4
 
-    .line 749
+    .line 753
     .local v4, start:I
     if-le v4, p2, :cond_1
 
-    .line 746
+    .line 750
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 750
+    .line 754
     :cond_1
     invoke-interface {p1, v3}, Landroid/text/Editable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 751
+    .line 755
     .local v0, end:I
     if-lt v0, p2, :cond_0
 
-    .line 752
+    .line 756
     invoke-interface {p1, v3}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
 
     goto :goto_1
 
-    .line 754
+    .line 758
     .end local v0           #end:I
     .end local v3           #span:Ljava/lang/Object;,"TT;"
     .end local v4           #start:I
@@ -399,7 +399,7 @@
 
     invoke-direct {v0, v5}, Landroid/widget/SpellChecker$SpellParser;->removeRangeSpan(Landroid/text/Editable;)V
 
-    .line 742
+    .line 746
     :goto_2
     return-void
 
@@ -735,6 +735,10 @@
     :goto_8
     if-eqz v9, :cond_1d
 
+    move/from16 v0, v21
+
+    if-gt v0, v6, :cond_1d
+
     .line 736
     move-object/from16 v0, p0
 
@@ -742,7 +746,7 @@
 
     invoke-direct {v0, v5, v1, v6}, Landroid/widget/SpellChecker$SpellParser;->setRangeSpan(Landroid/text/Editable;II)V
 
-    .line 741
+    .line 745
     :goto_9
     move-object/from16 v0, p0
 
@@ -1196,7 +1200,7 @@
 
     goto/16 :goto_b
 
-    .line 738
+    .line 742
     .end local v4           #createSpellCheckSpan:Z
     .end local v7           #i:I
     .end local v11           #spanStart:I

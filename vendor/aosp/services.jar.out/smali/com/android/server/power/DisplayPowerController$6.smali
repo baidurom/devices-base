@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1220
+    .line 1230
     iput-object p1, p0, Lcom/android/server/power/DisplayPowerController$6;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     iput-object p2, p0, Lcom/android/server/power/DisplayPowerController$6;->val$pw:Ljava/io/PrintWriter;
@@ -46,7 +46,7 @@
     .locals 2
 
     .prologue
-    .line 1223
+    .line 1233
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController$6;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     iget-object v1, p0, Lcom/android/server/power/DisplayPowerController$6;->val$pw:Ljava/io/PrintWriter;
@@ -54,6 +54,6 @@
     #calls: Lcom/android/server/power/DisplayPowerController;->dumpLocal(Ljava/io/PrintWriter;)V
     invoke-static {v0, v1}, Lcom/android/server/power/DisplayPowerController;->access$300(Lcom/android/server/power/DisplayPowerController;Ljava/io/PrintWriter;)V
 
-    .line 1224
+    .line 1234
     return-void
 .end method

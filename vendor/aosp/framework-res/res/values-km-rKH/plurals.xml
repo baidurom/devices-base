@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">អ្នក​មាន %d ការ​ព្យាយាម​ដែល​នៅសល់​មុន​ពេល​ស៊ី​ម​ត្រូវ​បាន​ចាក់សោ​។</item>
+        <item quantity="one">អ្នក​មាន %d ការ​ព្យាយាម​ដែល​នៅសល់​មុន​ពេល​ស៊ី​ម​ត្រូវ​បាន​ចាក់សោ​។</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d វិនាទី​មុន</item>
         <item quantity="one">១ វិនាទី​មុន</item>

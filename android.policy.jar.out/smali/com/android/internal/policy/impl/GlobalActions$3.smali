@@ -64,12 +64,12 @@
 
     .line 275
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v2, 0x10400c7
+    const v2, 0x10400c8
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 276
-    const v2, 0x10400c8
+    const v2, 0x10400c9
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -81,7 +81,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 278
-    const v2, 0x1040402
+    const v2, 0x1040406
 
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$3$1;
 

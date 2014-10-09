@@ -73,7 +73,7 @@
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->setContentView(I)V
 
     .line 51
-    const v0, 0x102027c
+    const v0, 0x102027d
 
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 64
-    const v0, 0x102027d
+    const v0, 0x102027e
 
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 75
-    const v0, 0x102027e
+    const v0, 0x102027f
 
     invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 

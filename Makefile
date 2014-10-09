@@ -2,6 +2,13 @@
 # Please use this file as the project Makefile reference
 
 ##############################################################################
+# The value decides which base device should choose for patchall and upgrade.
+# You can configure the property according to your device and the default value is base.
+# Support values: base, base_cm, and other devices in the future.
+#-----------------------------------------------------------------------------
+#BASE := base
+
+##############################################################################
 # Default DALVIK_VM_BUILD setting is 27
 # Only used for odex, if not, ignore...
 #-----------------------------------------------------------------------------
@@ -47,7 +54,7 @@ SIGN_OTA := true
 # NULL, check boot.img/recovery.img in project root directory, if it exists,
 # use a prebuilt boot.img/recovery.img, if not, nothing to do
 #-----------------------------------------------------------------------------
-# vendor_modify_images := boot recovery
+vendor_modify_images := boot
 
 ##############################################################################
 # customize weather add assert in update-script of ota package
@@ -125,7 +132,7 @@ vendor_modify_jars := framework framework2 pm services telephony-common android.
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-baidu_modify_apps := Contacts
+baidu_modify_apps := TeleService BaiduServiceFramework Keyguard
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar

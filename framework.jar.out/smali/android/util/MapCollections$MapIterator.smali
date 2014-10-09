@@ -399,30 +399,30 @@
 
     .line 100
     :cond_0
+    iget-object v0, p0, Landroid/util/MapCollections$MapIterator;->this$0:Landroid/util/MapCollections;
+
+    iget v1, p0, Landroid/util/MapCollections$MapIterator;->mIndex:I
+
+    invoke-virtual {v0, v1}, Landroid/util/MapCollections;->colRemoveAt(I)V
+
+    .line 101
     iget v0, p0, Landroid/util/MapCollections$MapIterator;->mIndex:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Landroid/util/MapCollections$MapIterator;->mIndex:I
 
-    .line 101
+    .line 102
     iget v0, p0, Landroid/util/MapCollections$MapIterator;->mEnd:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Landroid/util/MapCollections$MapIterator;->mEnd:I
 
-    .line 102
+    .line 103
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/util/MapCollections$MapIterator;->mEntryValid:Z
-
-    .line 103
-    iget-object v0, p0, Landroid/util/MapCollections$MapIterator;->this$0:Landroid/util/MapCollections;
-
-    iget v1, p0, Landroid/util/MapCollections$MapIterator;->mIndex:I
-
-    invoke-virtual {v0, v1}, Landroid/util/MapCollections;->colRemoveAt(I)V
 
     .line 104
     return-void

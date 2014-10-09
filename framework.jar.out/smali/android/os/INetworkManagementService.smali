@@ -55,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract clearDnsInterfaceForUidRange(II)V
+.method public abstract clearDnsInterfaceForUidRange(Ljava/lang/String;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

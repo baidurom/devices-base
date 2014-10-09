@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 543
+    .line 547
     iput-object p1, p0, Lcom/android/server/power/DisplayPowerController$1;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "animation"
 
     .prologue
-    .line 556
+    .line 560
     return-void
 .end method
 
@@ -51,13 +51,13 @@
     .parameter "animation"
 
     .prologue
-    .line 549
+    .line 553
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController$1;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     #calls: Lcom/android/server/power/DisplayPowerController;->sendUpdatePowerState()V
     invoke-static {v0}, Lcom/android/server/power/DisplayPowerController;->access$000(Lcom/android/server/power/DisplayPowerController;)V
 
-    .line 550
+    .line 554
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .parameter "animation"
 
     .prologue
-    .line 553
+    .line 557
     return-void
 .end method
 
@@ -75,6 +75,6 @@
     .parameter "animation"
 
     .prologue
-    .line 546
+    .line 550
     return-void
 .end method

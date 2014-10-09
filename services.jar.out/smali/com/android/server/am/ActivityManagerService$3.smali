@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1656
+    .line 1677
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$3;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -40,37 +40,37 @@
     .parameter "msg"
 
     .prologue
-    .line 1659
+    .line 1680
     move-object/from16 v0, p1
 
     iget v1, v0, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1709
+    .line 1730
     :goto_0
     return-void
 
-    .line 1661
+    .line 1682
     :pswitch_0
     const/4 v8, 0x0
 
     .local v8, i:I
     const/4 v9, 0x0
 
-    .line 1662
+    .line 1683
     .local v9, num:I
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v13
 
-    .line 1663
+    .line 1684
     .local v13, start:J
     const/4 v1, 0x1
 
     new-array v15, v1, [J
 
-    .line 1668
+    .line 1689
     .local v15, tmp:[J
     :cond_0
     :goto_1
@@ -80,7 +80,7 @@
 
     monitor-enter v4
 
-    .line 1669
+    .line 1690
     :try_start_0
     move-object/from16 v0, p0
 
@@ -94,7 +94,7 @@
 
     if-lt v8, v1, :cond_1
 
-    .line 1672
+    .line 1693
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$3;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -103,12 +103,12 @@
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
-    .line 1673
+    .line 1694
     monitor-exit v4
 
     goto :goto_0
 
-    .line 1684
+    .line 1705
     :catchall_0
     move-exception v1
 
@@ -118,7 +118,7 @@
 
     throw v1
 
-    .line 1675
+    .line 1696
     :cond_1
     :try_start_1
     move-object/from16 v0, p0
@@ -133,11 +133,11 @@
 
     check-cast v11, Lcom/android/server/am/ProcessRecord;
 
-    .line 1676
+    .line 1697
     .local v11, proc:Lcom/android/server/am/ProcessRecord;
     iget v12, v11, Lcom/android/server/am/ProcessRecord;->pssProcState:I
 
-    .line 1677
+    .line 1698
     .local v12, procState:I
     iget-object v1, v11, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
@@ -147,28 +147,28 @@
 
     if-ne v12, v1, :cond_4
 
-    .line 1678
+    .line 1699
     iget v10, v11, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    .line 1683
+    .line 1704
     .local v10, pid:I
     :goto_2
     add-int/lit8 v8, v8, 0x1
 
-    .line 1684
+    .line 1705
     monitor-exit v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1685
+    .line 1706
     if-eqz v11, :cond_0
 
-    .line 1686
+    .line 1707
     invoke-static {v10, v15}, Landroid/os/Debug;->getPss(I[J)J
 
     move-result-wide v2
 
-    .line 1687
+    .line 1708
     .local v2, pss:J
     move-object/from16 v0, p0
 
@@ -178,7 +178,7 @@
 
     monitor-enter v16
 
-    .line 1688
+    .line 1709
     :try_start_2
     iget-object v1, v11, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
@@ -192,17 +192,17 @@
 
     if-ne v1, v10, :cond_3
 
-    .line 1690
+    .line 1711
     add-int/lit8 v9, v9, 0x1
 
-    .line 1691
+    .line 1712
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
     iput-wide v4, v11, Lcom/android/server/am/ProcessRecord;->lastPssTime:J
 
-    .line 1692
+    .line 1713
     iget-object v1, v11, Lcom/android/server/am/ProcessRecord;->baseProcessTracker:Lcom/android/internal/app/ProcessStats$ProcessState;
 
     const/4 v4, 0x0
@@ -215,7 +215,7 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/android/internal/app/ProcessStats$ProcessState;->addPss(JJZLandroid/util/ArrayMap;)V
 
-    .line 1696
+    .line 1717
     iget-wide v4, v11, Lcom/android/server/am/ProcessRecord;->initialIdlePss:J
 
     const-wide/16 v6, 0x0
@@ -224,22 +224,22 @@
 
     if-nez v1, :cond_2
 
-    .line 1697
+    .line 1718
     iput-wide v2, v11, Lcom/android/server/am/ProcessRecord;->initialIdlePss:J
 
-    .line 1699
+    .line 1720
     :cond_2
     iput-wide v2, v11, Lcom/android/server/am/ProcessRecord;->lastPss:J
 
-    .line 1700
+    .line 1721
     const/16 v1, 0x9
 
     if-lt v12, v1, :cond_3
 
-    .line 1701
+    .line 1722
     iput-wide v2, v11, Lcom/android/server/am/ProcessRecord;->lastCachedPss:J
 
-    .line 1704
+    .line 1725
     :cond_3
     monitor-exit v16
 
@@ -254,19 +254,19 @@
 
     throw v1
 
-    .line 1680
+    .line 1701
     .end local v2           #pss:J
     .end local v10           #pid:I
     :cond_4
     const/4 v11, 0x0
 
-    .line 1681
+    .line 1702
     const/4 v10, 0x0
 
     .restart local v10       #pid:I
     goto :goto_2
 
-    .line 1659
+    .line 1680
     nop
 
     :pswitch_data_0

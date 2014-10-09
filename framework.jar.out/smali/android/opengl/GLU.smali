@@ -48,7 +48,7 @@
 
     .line 38
     :sswitch_0
-    const-string v0, "no error"
+    const-string/jumbo v0, "no error"
 
     goto :goto_0
 
@@ -89,8 +89,6 @@
     goto :goto_0
 
     .line 36
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0

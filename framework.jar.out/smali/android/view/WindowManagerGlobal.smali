@@ -868,9 +868,9 @@
     :try_end_2
     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 270
     :goto_baidu_0
 
+    .line 270
     return-void
 
     .line 260

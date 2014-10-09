@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothGattCallback"
 
+.field static final TRANSACTION_onAdvertiseStateChange:I = 0x10
+
 .field static final TRANSACTION_onCharacteristicRead:I = 0x9
 
 .field static final TRANSACTION_onCharacteristicWrite:I = 0xa
@@ -47,8 +49,6 @@
 .field static final TRANSACTION_onGetIncludedService:I = 0x5
 
 .field static final TRANSACTION_onGetService:I = 0x4
-
-.field static final TRANSACTION_onListen:I = 0x10
 
 .field static final TRANSACTION_onNotify:I = 0xe
 
@@ -148,7 +148,7 @@
     .line 42
     sparse-switch p1, :sswitch_data_0
 
-    .line 430
+    .line 431
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -1465,19 +1465,24 @@
 
     move-result v1
 
-    .line 425
-    .local v1, _arg0:I
-    invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onListen(I)V
-
     .line 426
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    .local v1, _arg0:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
 
     .line 427
+    .restart local v2       #_arg1:I
+    invoke-virtual {p0, v1, v2}, Landroid/bluetooth/IBluetoothGattCallback$Stub;->onAdvertiseStateChange(II)V
+
+    .line 428
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
     .line 42
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

@@ -185,7 +185,7 @@
     .parameter "pkg"
 
     .prologue
-    .line 316
+    .line 317
     new-instance v0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;
 
     invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;-><init>(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;Ljava/lang/String;)V
@@ -254,10 +254,10 @@
     .parameter "pkg"
 
     .prologue
-    .line 300
+    .line 301
     iput-object p1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mPromptPackage:Ljava/lang/String;
 
-    .line 303
+    .line 304
     new-instance v1, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$ClingWindowView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mContext:Landroid/content/Context;
@@ -270,19 +270,19 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mClingWindow:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$ClingWindowView;
 
-    .line 306
+    .line 307
     iget-object v1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mClingWindow:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$ClingWindowView;
 
     const/16 v2, 0x300
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 311
+    .line 312
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->getClingWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 312
+    .line 313
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
     iget-object v1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mWindowManager:Landroid/view/WindowManager;
 
@@ -290,7 +290,7 @@
 
     invoke-interface {v1, v2, v0}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 313
+    .line 314
     return-void
 .end method
 
@@ -408,7 +408,7 @@
     .locals 4
 
     .prologue
-    .line 188
+    .line 189
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mContext:Landroid/content/Context;
@@ -453,21 +453,28 @@
 
     .line 181
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    or-int/lit8 v1, v1, 0x10
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    .line 182
     const-string v1, "ImmersiveModeConfirmation"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 182
+    .line 183
     const v1, 0x10301f5
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 183
+    .line 184
     const/16 v1, 0x77
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 184
+    .line 185
     return-object v0
 .end method
 

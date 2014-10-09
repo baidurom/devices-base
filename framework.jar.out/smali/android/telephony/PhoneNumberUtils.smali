@@ -612,7 +612,7 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 2361
+    .line 2382
     const/16 v0, 0x64
 
     new-array v0, v0, [Z
@@ -621,7 +621,7 @@
 
     sput-object v0, Landroid/telephony/PhoneNumberUtils;->COUNTRY_CALLING_CALL:[Z
 
-    .line 2373
+    .line 2394
     sget-object v0, Landroid/telephony/PhoneNumberUtils;->COUNTRY_CALLING_CALL:[Z
 
     array-length v0, v0
@@ -630,7 +630,7 @@
 
     return-void
 
-    .line 2361
+    .line 2382
     :array_0
     .array-data 0x1
         0x1t
@@ -743,7 +743,7 @@
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2396
+    .line 2417
     return-void
 .end method
 
@@ -756,17 +756,17 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 2221
+    .line 2242
     const/4 v3, 0x1
 
     if-ne p0, v3, :cond_0
 
-    .line 2222
+    .line 2243
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 2223
+    .line 2244
     .local v1, ret:Ljava/lang/StringBuilder;
     invoke-virtual {p2, v4}, Ljava/lang/String;->charAt(I)C
 
@@ -776,25 +776,25 @@
 
     move-result-object v1
 
-    .line 2224
+    .line 2245
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 2231
+    .line 2252
     .end local v1           #ret:Ljava/lang/StringBuilder;
     .local v2, retStr:Ljava/lang/String;
     :goto_0
     return-object v2
 
-    .line 2228
+    .line 2249
     .end local v2           #retStr:Ljava/lang/String;
     :cond_0
     invoke-virtual {p2, v4, p0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2229
+    .line 2250
     .local v0, nonDigitStr:Ljava/lang/String;
     invoke-virtual {p1, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1294,10 +1294,10 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 1988
+    .line 2009
     move-object v3, p0
 
-    .line 1991
+    .line 2012
     .local v3, retStr:Ljava/lang/String;
     if-eqz p0, :cond_2
 
@@ -1311,80 +1311,80 @@
 
     if-eq v5, v6, :cond_2
 
-    .line 1995
+    .line 2016
     if-ne p1, p2, :cond_7
 
     if-ne p1, v7, :cond_7
 
-    .line 1997
+    .line 2018
     const/4 v2, 0x0
 
-    .line 1998
+    .line 2019
     .local v2, postDialStr:Ljava/lang/String;
     move-object v4, p0
 
-    .line 2001
+    .line 2022
     .local v4, tempDialStr:Ljava/lang/String;
     const/4 v3, 0x0
 
-    .line 2008
+    .line 2029
     :cond_0
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortion(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2010
+    .line 2031
     .local v1, networkDialStr:Ljava/lang/String;
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->processPlusCodeWithinNanp(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2013
+    .line 2034
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_4
 
-    .line 2014
+    .line 2035
     if-nez v3, :cond_3
 
-    .line 2015
+    .line 2036
     move-object v3, v1
 
-    .line 2026
+    .line 2047
     :goto_0
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractPostDialPortion(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 2027
+    .line 2048
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_1
 
-    .line 2028
+    .line 2049
     invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->findDialableIndexFromPostDialStr(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 2031
+    .line 2052
     .local v0, dialableIndex:I
     if-lt v0, v7, :cond_5
 
-    .line 2032
+    .line 2053
     invoke-static {v0, v3, v2}, Landroid/telephony/PhoneNumberUtils;->appendPwCharBackToOrigDialStr(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 2035
+    .line 2056
     invoke-virtual {v2, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 2047
+    .line 2068
     .end local v0           #dialableIndex:I
     :cond_1
     :goto_1
@@ -1407,12 +1407,12 @@
     :goto_2
     move-object p0, v3
 
-    .line 2055
+    .line 2076
     .end local p0
     :goto_3
     return-object p0
 
-    .line 2017
+    .line 2038
     .restart local v1       #networkDialStr:Ljava/lang/String;
     .restart local v2       #postDialStr:Ljava/lang/String;
     .restart local v4       #tempDialStr:Ljava/lang/String;
@@ -1424,7 +1424,7 @@
 
     goto :goto_0
 
-    .line 2023
+    .line 2044
     :cond_4
     const-string v5, "checkAndProcessPlusCode: null newDialStr"
 
@@ -1432,15 +1432,15 @@
 
     goto :goto_3
 
-    .line 2040
+    .line 2061
     .restart local v0       #dialableIndex:I
     :cond_5
     if-gez v0, :cond_6
 
-    .line 2041
+    .line 2062
     const-string v2, ""
 
-    .line 2043
+    .line 2064
     :cond_6
     const-string/jumbo v5, "wrong postDialStr="
 
@@ -1448,7 +1448,7 @@
 
     goto :goto_1
 
-    .line 2052
+    .line 2073
     .end local v0           #dialableIndex:I
     .end local v1           #networkDialStr:Ljava/lang/String;
     .end local v2           #postDialStr:Ljava/lang/String;
@@ -1459,6 +1459,73 @@
     invoke-static {v5, p0}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
+.end method
+
+.method public static cdmaCheckAndProcessPlusCodeForSms(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
+    .parameter "dialStr"
+
+    .prologue
+    .line 1968
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 1969
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->isReallyDialable(C)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 1970
+    const-string v2, "gsm.sim.operator.iso-country"
+
+    const-string v3, ""
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1971
+    .local v0, defaultIso:Ljava/lang/String;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 1972
+    invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
+
+    move-result v1
+
+    .line 1973
+    .local v1, format:I
+    invoke-static {p0, v1, v1}, Landroid/telephony/PhoneNumberUtils;->cdmaCheckAndProcessPlusCodeByNumberFormat(Ljava/lang/String;II)Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 1977
+    .end local v0           #defaultIso:Ljava/lang/String;
+    .end local v1           #format:I
+    .end local p0
+    :cond_0
+    return-object p0
 .end method
 
 .method private static charToBCD(C)I
@@ -1562,15 +1629,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2524
+    .line 2545
     const/4 v0, 0x0
 
-    .line 2525
+    .line 2546
     .local v0, trunk_prefix_was_read:Z
     :goto_0
     if-lt p2, p1, :cond_3
 
-    .line 2526
+    .line 2547
     invoke-virtual {p0, p2}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -1581,24 +1648,24 @@
 
     if-ltz v2, :cond_2
 
-    .line 2527
+    .line 2548
     if-eqz v0, :cond_0
 
-    .line 2542
+    .line 2563
     :goto_1
     return v1
 
-    .line 2533
+    .line 2554
     :cond_0
     const/4 v0, 0x1
 
-    .line 2539
+    .line 2560
     :cond_1
     add-int/lit8 p2, p2, -0x1
 
     goto :goto_0
 
-    .line 2535
+    .line 2556
     :cond_2
     invoke-virtual {p0, p2}, Ljava/lang/String;->charAt(I)C
 
@@ -1612,7 +1679,7 @@
 
     goto :goto_1
 
-    .line 2542
+    .line 2563
     :cond_3
     const/4 v1, 0x1
 
@@ -1631,7 +1698,7 @@
 
     move-result-object v1
 
-    const v2, 0x1110026
+    const v2, 0x1110025
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3005,7 +3072,7 @@
     .parameter "postDialStr"
 
     .prologue
-    .line 2205
+    .line 2226
     const/4 v1, 0x0
 
     .local v1, index:I
@@ -3016,12 +3083,12 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 2206
+    .line 2227
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 2207
+    .line 2228
     .local v0, c:C
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isReallyDialable(C)Z
 
@@ -3029,13 +3096,13 @@
 
     if-eqz v2, :cond_0
 
-    .line 2211
+    .line 2232
     .end local v0           #c:C
     .end local v1           #index:I
     :goto_1
     return v1
 
-    .line 2205
+    .line 2226
     .restart local v0       #c:C
     .restart local v1       #index:I
     :cond_0
@@ -3043,7 +3110,7 @@
 
     goto :goto_0
 
-    .line 2211
+    .line 2232
     .end local v0           #c:C
     :cond_1
     const/4 v1, -0x1
@@ -3815,26 +3882,26 @@
     .locals 2
 
     .prologue
-    .line 2060
+    .line 2081
     const/4 v0, 0x0
 
-    .line 2061
+    .line 2082
     .local v0, ps:Ljava/lang/String;
     const-string/jumbo v1, "ro.cdma.idpstring"
 
     invoke-static {v1, v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 2062
+    .line 2083
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 2063
+    .line 2084
     const-string v0, "011"
 
-    .line 2065
+    .line 2086
     :cond_0
     return-object v0
 .end method
@@ -3863,12 +3930,12 @@
     .parameter "country"
 
     .prologue
-    .line 2078
+    .line 2099
     sget-object v2, Landroid/telephony/PhoneNumberUtils;->NANP_COUNTRIES:[Ljava/lang/String;
 
     array-length v1, v2
 
-    .line 2079
+    .line 2100
     .local v1, length:I
     const/4 v0, 0x0
 
@@ -3876,7 +3943,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 2080
+    .line 2101
     sget-object v2, Landroid/telephony/PhoneNumberUtils;->NANP_COUNTRIES:[Ljava/lang/String;
 
     aget-object v2, v2, v0
@@ -3887,20 +3954,20 @@
 
     if-nez v2, :cond_0
 
-    .line 2081
+    .line 2102
     const/4 v2, 0x1
 
-    .line 2087
+    .line 2108
     :goto_1
     return v2
 
-    .line 2079
+    .line 2100
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2084
+    .line 2105
     :cond_1
     const-string v2, "jp"
 
@@ -3910,12 +3977,12 @@
 
     if-nez v2, :cond_2
 
-    .line 2085
+    .line 2106
     const/4 v2, 0x2
 
     goto :goto_1
 
-    .line 2087
+    .line 2108
     :cond_2
     const/4 v2, 0x0
 
@@ -4152,29 +4219,29 @@
     .parameter "number"
 
     .prologue
-    .line 2161
+    .line 2182
     const/16 v1, 0x40
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    .line 2162
+    .line 2183
     .local v0, delimiterIndex:I
     if-gez v0, :cond_0
 
-    .line 2163
+    .line 2184
     const-string v1, "%40"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 2165
+    .line 2186
     :cond_0
     if-gez v0, :cond_1
 
-    .line 2166
+    .line 2187
     const-string v1, "PhoneNumberUtils"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4203,12 +4270,12 @@
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2168
+    .line 2189
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    .line 2170
+    .line 2191
     :cond_1
     const/4 v1, 0x0
 
@@ -4456,7 +4523,7 @@
     .parameter "countryCallingCodeCandidate"
 
     .prologue
-    .line 2379
+    .line 2400
     if-lez p0, :cond_0
 
     sget v0, Landroid/telephony/PhoneNumberUtils;->CCC_LENGTH:I
@@ -5007,21 +5074,21 @@
     .prologue
     const/16 v4, 0xa
 
-    .line 2095
+    .line 2116
     const/4 v2, 0x0
 
-    .line 2096
+    .line 2117
     .local v2, retVal:Z
     if-eqz p0, :cond_2
 
-    .line 2097
+    .line 2118
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
     if-ne v3, v4, :cond_0
 
-    .line 2098
+    .line 2119
     const/4 v3, 0x0
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -5046,22 +5113,22 @@
 
     if-eqz v3, :cond_0
 
-    .line 2100
+    .line 2121
     const/4 v2, 0x1
 
-    .line 2101
+    .line 2122
     const/4 v1, 0x1
 
     .local v1, i:I
     :goto_0
     if-ge v1, v4, :cond_0
 
-    .line 2102
+    .line 2123
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 2103
+    .line 2124
     .local v0, c:C
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
 
@@ -5069,17 +5136,17 @@
 
     if-nez v3, :cond_1
 
-    .line 2104
+    .line 2125
     const/4 v2, 0x0
 
-    .line 2113
+    .line 2134
     .end local v0           #c:C
     .end local v1           #i:I
     :cond_0
     :goto_1
     return v2
 
-    .line 2101
+    .line 2122
     .restart local v0       #c:C
     .restart local v1       #i:I
     :cond_1
@@ -5087,7 +5154,7 @@
 
     goto :goto_0
 
-    .line 2111
+    .line 2132
     .end local v0           #c:C
     .end local v1           #i:I
     :cond_2
@@ -5202,21 +5269,21 @@
     .parameter "dialStr"
 
     .prologue
-    .line 2120
+    .line 2141
     const/4 v1, 0x0
 
-    .line 2121
+    .line 2142
     .local v1, retVal:Z
     if-eqz p0, :cond_1
 
-    .line 2122
+    .line 2143
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2123
+    .line 2144
     .local v0, newDialStr:Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -5234,16 +5301,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 2124
+    .line 2145
     const/4 v1, 0x1
 
-    .line 2129
+    .line 2150
     .end local v0           #newDialStr:Ljava/lang/String;
     :cond_0
     :goto_0
     return v1
 
-    .line 2127
+    .line 2148
     :cond_1
     const-string v2, "isOneNanp: null dialStr passed in"
 
@@ -5462,7 +5529,7 @@
     .parameter "c"
 
     .prologue
-    .line 2069
+    .line 2090
     const/16 v0, 0x32
 
     if-lt p0, v0, :cond_0
@@ -5471,10 +5538,10 @@
 
     if-gt p0, v0, :cond_0
 
-    .line 2070
+    .line 2091
     const/4 v0, 0x1
 
-    .line 2072
+    .line 2093
     :goto_0
     return v0
 
@@ -5489,7 +5556,7 @@
     .parameter "number"
 
     .prologue
-    .line 2145
+    .line 2166
     if-eqz p0, :cond_1
 
     const-string v0, "@"
@@ -5645,10 +5712,10 @@
 
     const/4 v3, 0x0
 
-    .line 2252
+    .line 2273
     const/4 v2, 0x0
 
-    .line 2253
+    .line 2274
     .local v2, state:I
     const/4 v1, 0x0
 
@@ -5656,16 +5723,16 @@
     :goto_0
     if-ge v1, p1, :cond_7
 
-    .line 2254
+    .line 2275
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 2256
+    .line 2277
     .local v0, c:C
     packed-switch v2, :pswitch_data_0
 
-    .line 2275
+    .line 2296
     :pswitch_0
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5673,13 +5740,13 @@
 
     if-eqz v5, :cond_1
 
-    .line 2281
+    .line 2302
     .end local v0           #c:C
     :cond_0
     :goto_1
     return v3
 
-    .line 2258
+    .line 2279
     .restart local v0       #c:C
     :pswitch_1
     const/16 v5, 0x2b
@@ -5688,14 +5755,14 @@
 
     const/4 v2, 0x1
 
-    .line 2253
+    .line 2274
     :cond_1
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 2259
+    .line 2280
     :cond_2
     if-ne v0, v6, :cond_3
 
@@ -5703,7 +5770,7 @@
 
     goto :goto_2
 
-    .line 2260
+    .line 2281
     :cond_3
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5713,7 +5780,7 @@
 
     goto :goto_1
 
-    .line 2264
+    .line 2285
     :pswitch_2
     if-ne v0, v6, :cond_4
 
@@ -5721,7 +5788,7 @@
 
     goto :goto_2
 
-    .line 2265
+    .line 2286
     :cond_4
     if-ne v0, v7, :cond_5
 
@@ -5729,7 +5796,7 @@
 
     goto :goto_2
 
-    .line 2266
+    .line 2287
     :cond_5
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5739,7 +5806,7 @@
 
     goto :goto_1
 
-    .line 2270
+    .line 2291
     :pswitch_3
     if-ne v0, v7, :cond_6
 
@@ -5747,7 +5814,7 @@
 
     goto :goto_2
 
-    .line 2271
+    .line 2292
     :cond_6
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5757,7 +5824,7 @@
 
     goto :goto_1
 
-    .line 2281
+    .line 2302
     .end local v0           #c:C
     :cond_7
     if-eq v2, v4, :cond_8
@@ -5775,7 +5842,7 @@
 
     goto :goto_1
 
-    .line 2256
+    .line 2277
     nop
 
     :pswitch_data_0
@@ -5800,10 +5867,10 @@
 
     const/4 v3, 0x0
 
-    .line 2291
+    .line 2312
     const/4 v2, 0x0
 
-    .line 2292
+    .line 2313
     .local v2, state:I
     const/4 v1, 0x0
 
@@ -5811,29 +5878,29 @@
     :goto_0
     if-ge v1, p1, :cond_9
 
-    .line 2293
+    .line 2314
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 2295
+    .line 2316
     .local v0, c:C
     packed-switch v2, :pswitch_data_0
 
-    .line 2327
+    .line 2348
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    .line 2331
+    .line 2352
     .end local v0           #c:C
     :cond_0
     :goto_1
     return v3
 
-    .line 2297
+    .line 2318
     .restart local v0       #c:C
     :pswitch_0
     const/16 v4, 0x2b
@@ -5842,14 +5909,14 @@
 
     const/4 v2, 0x1
 
-    .line 2292
+    .line 2313
     :cond_1
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 2298
+    .line 2319
     :cond_2
     if-ne v0, v5, :cond_3
 
@@ -5857,7 +5924,7 @@
 
     goto :goto_2
 
-    .line 2299
+    .line 2320
     :cond_3
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5867,7 +5934,7 @@
 
     goto :goto_1
 
-    .line 2303
+    .line 2324
     :pswitch_1
     if-ne v0, v5, :cond_4
 
@@ -5875,7 +5942,7 @@
 
     goto :goto_2
 
-    .line 2304
+    .line 2325
     :cond_4
     if-ne v0, v6, :cond_5
 
@@ -5883,7 +5950,7 @@
 
     goto :goto_2
 
-    .line 2305
+    .line 2326
     :cond_5
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5893,7 +5960,7 @@
 
     goto :goto_1
 
-    .line 2309
+    .line 2330
     :pswitch_2
     if-ne v0, v6, :cond_6
 
@@ -5901,7 +5968,7 @@
 
     goto :goto_2
 
-    .line 2310
+    .line 2331
     :cond_6
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5911,7 +5978,7 @@
 
     goto :goto_1
 
-    .line 2316
+    .line 2337
     :pswitch_3
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
 
@@ -5923,7 +5990,7 @@
 
     goto :goto_2
 
-    .line 2317
+    .line 2338
     :cond_7
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5933,7 +6000,7 @@
 
     goto :goto_1
 
-    .line 2322
+    .line 2343
     :pswitch_4
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
 
@@ -5945,7 +6012,7 @@
 
     goto :goto_2
 
-    .line 2323
+    .line 2344
     :cond_8
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -5955,7 +6022,7 @@
 
     goto :goto_1
 
-    .line 2331
+    .line 2352
     .end local v0           #c:C
     :cond_9
     const/4 v4, 0x6
@@ -5975,7 +6042,7 @@
 
     goto :goto_1
 
-    .line 2295
+    .line 2316
     nop
 
     :pswitch_data_0
@@ -5997,10 +6064,10 @@
     .parameter "len"
 
     .prologue
-    .line 2339
+    .line 2360
     const/4 v1, 0x0
 
-    .line 2341
+    .line 2362
     .local v1, found:Z
     const/4 v2, 0x0
 
@@ -6008,12 +6075,12 @@
     :goto_0
     if-ge v2, p1, :cond_2
 
-    .line 2342
+    .line 2363
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 2344
+    .line 2365
     .local v0, c:C
     const/16 v3, 0x30
 
@@ -6021,16 +6088,16 @@
 
     if-nez v1, :cond_1
 
-    .line 2345
+    .line 2366
     const/4 v1, 0x1
 
-    .line 2341
+    .line 2362
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 2346
+    .line 2367
     :cond_1
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
@@ -6038,10 +6105,10 @@
 
     if-eqz v3, :cond_0
 
-    .line 2347
+    .line 2368
     const/4 v1, 0x0
 
-    .line 2351
+    .line 2372
     .end local v0           #c:C
     .end local v1           #found:Z
     :cond_2
@@ -6482,10 +6549,10 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 2180
+    .line 2201
     move-object v2, p0
 
-    .line 2185
+    .line 2206
     .local v2, retStr:Ljava/lang/String;
     if-eqz p0, :cond_0
 
@@ -6505,12 +6572,12 @@
 
     if-le v3, v5, :cond_0
 
-    .line 2188
+    .line 2209
     invoke-virtual {p0, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2189
+    .line 2210
     .local v1, newStr:Ljava/lang/String;
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isOneNanp(Ljava/lang/String;)Z
 
@@ -6518,23 +6585,23 @@
 
     if-eqz v3, :cond_1
 
-    .line 2191
+    .line 2212
     move-object v2, v1
 
-    .line 2199
+    .line 2220
     .end local v1           #newStr:Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v2
 
-    .line 2193
+    .line 2214
     .restart local v1       #newStr:Ljava/lang/String;
     :cond_1
     invoke-static {}, Landroid/telephony/PhoneNumberUtils;->getDefaultIdp()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2195
+    .line 2216
     .local v0, idpStr:Ljava/lang/String;
     const-string v3, "[+]"
 
@@ -6883,20 +6950,20 @@
 
     const/4 v6, 0x0
 
-    .line 2418
+    .line 2439
     const/4 v5, 0x0
 
-    .line 2419
+    .line 2440
     .local v5, state:I
     const/4 v0, 0x0
 
-    .line 2420
+    .line 2441
     .local v0, ccc:I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    .line 2421
+    .line 2442
     .local v3, length:I
     const/4 v2, 0x0
 
@@ -6904,22 +6971,22 @@
     :goto_0
     if-ge v2, v3, :cond_0
 
-    .line 2422
+    .line 2443
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    .line 2423
+    .line 2444
     .local v1, ch:C
     packed-switch v5, :pswitch_data_0
 
-    .line 2492
+    .line 2513
     .end local v1           #ch:C
     :cond_0
     :goto_1
     return-object v6
 
-    .line 2425
+    .line 2446
     .restart local v1       #ch:C
     :pswitch_0
     const/16 v7, 0x2b
@@ -6928,14 +6995,14 @@
 
     const/4 v5, 0x1
 
-    .line 2421
+    .line 2442
     :cond_1
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 2426
+    .line 2447
     :cond_2
     if-ne v1, v9, :cond_3
 
@@ -6943,19 +7010,19 @@
 
     goto :goto_2
 
-    .line 2427
+    .line 2448
     :cond_3
     if-ne v1, v8, :cond_4
 
-    .line 2428
+    .line 2449
     if-eqz p1, :cond_0
 
-    .line 2429
+    .line 2450
     const/16 v5, 0x8
 
     goto :goto_2
 
-    .line 2433
+    .line 2454
     :cond_4
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isDialable(C)Z
 
@@ -6965,7 +7032,7 @@
 
     goto :goto_1
 
-    .line 2439
+    .line 2460
     :pswitch_1
     if-ne v1, v9, :cond_5
 
@@ -6973,7 +7040,7 @@
 
     goto :goto_2
 
-    .line 2440
+    .line 2461
     :cond_5
     if-ne v1, v8, :cond_6
 
@@ -6981,7 +7048,7 @@
 
     goto :goto_2
 
-    .line 2441
+    .line 2462
     :cond_6
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isDialable(C)Z
 
@@ -6991,7 +7058,7 @@
 
     goto :goto_1
 
-    .line 2447
+    .line 2468
     :pswitch_2
     if-ne v1, v8, :cond_7
 
@@ -6999,7 +7066,7 @@
 
     goto :goto_2
 
-    .line 2448
+    .line 2469
     :cond_7
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isDialable(C)Z
 
@@ -7009,22 +7076,22 @@
 
     goto :goto_1
 
-    .line 2459
+    .line 2480
     :pswitch_3
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->tryGetISODigit(C)I
 
     move-result v4
 
-    .line 2460
+    .line 2481
     .local v4, ret:I
     if-lez v4, :cond_c
 
-    .line 2461
+    .line 2482
     mul-int/lit8 v7, v0, 0xa
 
     add-int v0, v7, v4
 
-    .line 2462
+    .line 2483
     const/16 v7, 0x64
 
     if-ge v0, v7, :cond_8
@@ -7035,7 +7102,7 @@
 
     if-eqz v7, :cond_9
 
-    .line 2463
+    .line 2484
     :cond_8
     new-instance v6, Landroid/telephony/PhoneNumberUtils$CountryCallingCodeAndNewIndex;
 
@@ -7045,7 +7112,7 @@
 
     goto :goto_1
 
-    .line 2465
+    .line 2486
     :cond_9
     const/4 v7, 0x1
 
@@ -7059,19 +7126,19 @@
 
     if-ne v5, v7, :cond_b
 
-    .line 2466
+    .line 2487
     :cond_a
     const/4 v5, 0x6
 
     goto :goto_2
 
-    .line 2468
+    .line 2489
     :cond_b
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_2
 
-    .line 2470
+    .line 2491
     :cond_c
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isDialable(C)Z
 
@@ -7081,7 +7148,7 @@
 
     goto :goto_1
 
-    .line 2476
+    .line 2497
     .end local v4           #ret:I
     :pswitch_4
     if-ne v1, v10, :cond_d
@@ -7090,7 +7157,7 @@
 
     goto :goto_2
 
-    .line 2477
+    .line 2498
     :cond_d
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isDialable(C)Z
 
@@ -7100,11 +7167,11 @@
 
     goto :goto_1
 
-    .line 2482
+    .line 2503
     :pswitch_5
     if-ne v1, v10, :cond_0
 
-    .line 2483
+    .line 2504
     new-instance v6, Landroid/telephony/PhoneNumberUtils$CountryCallingCodeAndNewIndex;
 
     const/16 v7, 0x42
@@ -7115,7 +7182,7 @@
 
     goto :goto_1
 
-    .line 2423
+    .line 2444
     nop
 
     :pswitch_data_0
@@ -7138,7 +7205,7 @@
     .parameter "ch"
 
     .prologue
-    .line 2389
+    .line 2410
     const/16 v0, 0x30
 
     if-gt v0, p0, :cond_0
@@ -7147,10 +7214,10 @@
 
     if-gt p0, v0, :cond_0
 
-    .line 2390
+    .line 2411
     add-int/lit8 v0, p0, -0x30
 
-    .line 2392
+    .line 2413
     :goto_0
     return v0
 
@@ -7168,12 +7235,12 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 2505
+    .line 2526
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    .line 2506
+    .line 2527
     .local v2, length:I
     move v1, p1
 
@@ -7181,12 +7248,12 @@
     :goto_0
     if-ge v1, v2, :cond_0
 
-    .line 2507
+    .line 2528
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    .line 2508
+    .line 2529
     .local v0, ch:C
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->tryGetISODigit(C)I
 
@@ -7194,15 +7261,15 @@
 
     if-ltz v4, :cond_1
 
-    .line 2509
+    .line 2530
     add-int/lit8 v3, v1, 0x1
 
-    .line 2514
+    .line 2535
     .end local v0           #ch:C
     :cond_0
     return v3
 
-    .line 2510
+    .line 2531
     .restart local v0       #ch:C
     :cond_1
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isDialable(C)Z
@@ -7211,7 +7278,7 @@
 
     if-nez v4, :cond_0
 
-    .line 2506
+    .line 2527
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0

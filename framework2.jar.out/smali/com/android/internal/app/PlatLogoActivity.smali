@@ -116,7 +116,7 @@
 
     .line 68
     .local v2, logo:Landroid/widget/ImageView;
-    const v0, 0x10804a3
+    const v0, 0x10804a5
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 

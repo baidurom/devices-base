@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Մնաց %d փորձ՝ մինչև SIM-ի արգելափակումը:</item>
+        <item quantity="one">Մնաց %d փորձ՝ մինչև SIM-ի արգելափակումը:</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d վայրկյան առաջ</item>
         <item quantity="one">1 վայրկյան առաջ</item>

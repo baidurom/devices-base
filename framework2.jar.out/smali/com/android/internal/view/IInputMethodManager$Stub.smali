@@ -174,7 +174,7 @@
     .line 44
     sparse-switch p1, :sswitch_data_0
 
-    .line 441
+    .line 442
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -1604,13 +1604,14 @@
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->setAdditionalInputMethodSubtypes(Ljava/lang/String;[Landroid/view/inputmethod/InputMethodSubtype;)V
 
     .line 438
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 439
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
     .line 44
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

@@ -629,7 +629,7 @@
     :goto_2
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$5;
 
-    const v2, 0x108033a
+    const v2, 0x1080338
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -867,11 +867,11 @@
 
     const v3, 0x10802ea
 
-    const v4, 0x10400cc
+    const v4, 0x10400cd
 
-    const v5, 0x10400cd
+    const v5, 0x10400ce
 
-    const v6, 0x10400ce
+    const v6, 0x10400cf
 
     move-object v1, p0
 
@@ -896,7 +896,7 @@
 
     const v2, 0x1080030
 
-    const v3, 0x10400c5
+    const v3, 0x10400c6
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/internal/policy/impl/GlobalActions$2;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
@@ -935,9 +935,9 @@
 
     new-instance v1, Lcom/android/internal/policy/impl/GlobalActions$3;
 
-    const v2, 0x108058b
+    const v2, 0x108058d
 
-    const v3, 0x10400c6
+    const v3, 0x10400c7
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/internal/policy/impl/GlobalActions$3;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Quedan %d intentos para bloquear la tarjeta SIM.</item>
+        <item quantity="one">Te queda %d intento para bloquear la tarjeta SIM.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">Hace %d segundos</item>
         <item quantity="one">Hace 1 segundo</item>

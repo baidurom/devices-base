@@ -9,29 +9,14 @@
 .field public static final ELAPSED_REALTIME_WAKEUP:I = 0x2
 
 .field public static final INTERVAL_DAY:J = 0x5265c00L
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final INTERVAL_FIFTEEN_MINUTES:J = 0xdbba0L
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final INTERVAL_HALF_DAY:J = 0x2932e00L
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final INTERVAL_HALF_HOUR:J = 0x1b7740L
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final INTERVAL_HOUR:J = 0x36ee80L
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final RTC:I = 0x1
 
@@ -57,20 +42,20 @@
     .parameter "ctx"
 
     .prologue
-    .line 100
+    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 101
+    .line 110
     iput-object p1, p0, Landroid/app/AlarmManager;->mService:Landroid/app/IAlarmManager;
 
-    .line 103
+    .line 112
     invoke-virtual {p2}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v1
 
     iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    .line 104
+    .line 113
     .local v0, sdkVersion:I
     const/16 v1, 0x13
 
@@ -81,10 +66,10 @@
     :goto_0
     iput-boolean v1, p0, Landroid/app/AlarmManager;->mAlwaysExact:Z
 
-    .line 105
+    .line 114
     return-void
 
-    .line 104
+    .line 113
     :cond_0
     const/4 v1, 0x0
 
@@ -95,7 +80,7 @@
     .locals 2
 
     .prologue
-    .line 108
+    .line 117
     iget-boolean v0, p0, Landroid/app/AlarmManager;->mAlwaysExact:Z
 
     if-eqz v0, :cond_0
@@ -121,17 +106,17 @@
     .parameter "workSource"
 
     .prologue
-    .line 267
+    .line 351
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
     if-gez v0, :cond_0
 
-    .line 275
+    .line 359
     const-wide/16 p2, 0x0
 
-    .line 279
+    .line 363
     :cond_0
     :try_start_0
     iget-object v0, p0, Landroid/app/AlarmManager;->mService:Landroid/app/IAlarmManager;
@@ -152,11 +137,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 283
+    .line 367
     :goto_0
     return-void
 
-    .line 281
+    .line 365
     :catch_0
     move-exception v0
 
@@ -170,7 +155,7 @@
     .parameter "operation"
 
     .prologue
-    .line 388
+    .line 479
     :try_start_0
     iget-object v0, p0, Landroid/app/AlarmManager;->mService:Landroid/app/IAlarmManager;
 
@@ -178,11 +163,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 391
+    .line 482
     :goto_0
     return-void
 
-    .line 389
+    .line 480
     :catch_0
     move-exception v0
 
@@ -199,10 +184,10 @@
     .parameter "workSource"
 
     .prologue
-    .line 262
+    .line 346
     invoke-direct/range {p0 .. p9}, Landroid/app/AlarmManager;->setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
 
-    .line 263
+    .line 347
     return-void
 .end method
 
@@ -213,7 +198,7 @@
     .parameter "operation"
 
     .prologue
-    .line 159
+    .line 191
     invoke-direct {p0}, Landroid/app/AlarmManager;->legacyExactLength()J
 
     move-result-wide v4
@@ -232,7 +217,7 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/app/AlarmManager;->setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
 
-    .line 160
+    .line 192
     return-void
 .end method
 
@@ -245,7 +230,7 @@
     .prologue
     const-wide/16 v4, 0x0
 
-    .line 256
+    .line 340
     const/4 v9, 0x0
 
     move-object v0, p0
@@ -260,7 +245,7 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/app/AlarmManager;->setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
 
-    .line 257
+    .line 341
     return-void
 .end method
 
@@ -270,11 +255,9 @@
     .parameter "triggerAtMillis"
     .parameter "intervalMillis"
     .parameter "operation"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     .prologue
-    .line 373
+    .line 464
     const-wide/16 v4, -0x1
 
     const/4 v9, 0x0
@@ -291,7 +274,7 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/app/AlarmManager;->setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
 
-    .line 374
+    .line 465
     return-void
 .end method
 
@@ -303,7 +286,7 @@
     .parameter "operation"
 
     .prologue
-    .line 213
+    .line 252
     invoke-direct {p0}, Landroid/app/AlarmManager;->legacyExactLength()J
 
     move-result-wide v4
@@ -322,7 +305,7 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/app/AlarmManager;->setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
 
-    .line 214
+    .line 253
     return-void
 .end method
 
@@ -331,7 +314,7 @@
     .parameter "millis"
 
     .prologue
-    .line 401
+    .line 492
     :try_start_0
     iget-object v0, p0, Landroid/app/AlarmManager;->mService:Landroid/app/IAlarmManager;
 
@@ -339,11 +322,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 404
+    .line 495
     :goto_0
     return-void
 
-    .line 402
+    .line 493
     :catch_0
     move-exception v0
 
@@ -355,7 +338,7 @@
     .parameter "timeZone"
 
     .prologue
-    .line 414
+    .line 505
     :try_start_0
     iget-object v0, p0, Landroid/app/AlarmManager;->mService:Landroid/app/IAlarmManager;
 
@@ -363,11 +346,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 417
+    .line 508
     :goto_0
     return-void
 
-    .line 415
+    .line 506
     :catch_0
     move-exception v0
 
@@ -382,7 +365,7 @@
     .parameter "operation"
 
     .prologue
-    .line 248
+    .line 302
     const-wide/16 v6, 0x0
 
     const/4 v9, 0x0
@@ -399,6 +382,6 @@
 
     invoke-direct/range {v0 .. v9}, Landroid/app/AlarmManager;->setImpl(IJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;)V
 
-    .line 249
+    .line 303
     return-void
 .end method

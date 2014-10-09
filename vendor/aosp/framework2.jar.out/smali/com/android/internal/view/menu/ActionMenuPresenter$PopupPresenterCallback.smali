@@ -50,35 +50,51 @@
 
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
-    .locals 2
+    .locals 3
     .parameter "menu"
     .parameter "allMenusAreClosing"
 
     .prologue
-    .line 729
-    instance-of v0, p1, Lcom/android/internal/view/menu/SubMenuBuilder;
-
-    if-eqz v0, :cond_0
-
     .line 730
-    check-cast p1, Lcom/android/internal/view/menu/SubMenuBuilder;
+    instance-of v1, p1, Lcom/android/internal/view/menu/SubMenuBuilder;
 
-    .end local p1
-    invoke-virtual {p1}, Lcom/android/internal/view/menu/SubMenuBuilder;->getRootMenu()Lcom/android/internal/view/menu/MenuBuilder;
+    if-eqz v1, :cond_0
+
+    move-object v1, p1
+
+    .line 731
+    check-cast v1, Lcom/android/internal/view/menu/SubMenuBuilder;
+
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/SubMenuBuilder;->getRootMenu()Lcom/android/internal/view/menu/MenuBuilder;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/MenuBuilder;->close(Z)V
+
+    .line 733
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$PopupPresenterCallback;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
+
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/BaseMenuPresenter;->getCallback()Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    .line 734
+    .local v0, cb:Lcom/android/internal/view/menu/MenuPresenter$Callback;
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->close(Z)V
+    .line 735
+    invoke-interface {v0, p1, p2}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
 
-    .line 732
-    :cond_0
+    .line 737
+    :cond_1
     return-void
 .end method
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
-    .locals 3
+    .locals 4
     .parameter "subMenu"
 
     .prologue
@@ -87,20 +103,19 @@
     .line 721
     if-nez p1, :cond_0
 
-    .line 724
-    .end local p1
+    .line 725
     :goto_0
     return v2
 
     .line 723
-    .restart local p1
     :cond_0
-    iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$PopupPresenterCallback;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
+    iget-object v3, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$PopupPresenterCallback;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    check-cast p1, Lcom/android/internal/view/menu/SubMenuBuilder;
+    move-object v1, p1
 
-    .end local p1
-    invoke-virtual {p1}, Lcom/android/internal/view/menu/SubMenuBuilder;->getItem()Landroid/view/MenuItem;
+    check-cast v1, Lcom/android/internal/view/menu/SubMenuBuilder;
+
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/SubMenuBuilder;->getItem()Landroid/view/MenuItem;
 
     move-result-object v1
 
@@ -108,7 +123,30 @@
 
     move-result v1
 
-    iput v1, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOpenSubMenuId:I
+    iput v1, v3, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOpenSubMenuId:I
+
+    .line 724
+    iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$PopupPresenterCallback;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
+
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/BaseMenuPresenter;->getCallback()Lcom/android/internal/view/menu/MenuPresenter$Callback;
+
+    move-result-object v0
+
+    .line 725
+    .local v0, cb:Lcom/android/internal/view/menu/MenuPresenter$Callback;
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0, p1}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
+
+    move-result v1
+
+    :goto_1
+    move v2, v1
 
     goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 .end method

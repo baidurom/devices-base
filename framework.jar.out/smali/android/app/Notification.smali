@@ -840,7 +840,6 @@
 
     iput v7, p1, Landroid/app/Notification;->audioStreamType:I
 
-    .line 802
     iget v7, p0, Landroid/app/Notification;->simInfoType:I
 
     iput v7, p1, Landroid/app/Notification;->simInfoType:I
@@ -849,6 +848,7 @@
 
     iput-wide v7, p1, Landroid/app/Notification;->simId:J
 
+    .line 802
     iget-object v6, p0, Landroid/app/Notification;->vibrate:[J
 
     .line 803

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1437
+    .line 1445
     iput-object p1, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
     .parameter "resultExtras"
 
     .prologue
-    .line 1440
+    .line 1448
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mLock:Ljava/lang/Object;
@@ -56,10 +56,10 @@
 
     monitor-enter v9
 
-    .line 1441
+    .line 1449
     const/4 v5, 0x0
 
-    .line 1442
+    .line 1450
     .local v5, inflight:Lcom/android/server/AlarmManagerService$InFlight;
     const/4 v3, 0x0
 
@@ -79,7 +79,7 @@
 
     if-ge v3, v8, :cond_0
 
-    .line 1443
+    .line 1451
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mInFlight:Ljava/util/ArrayList;
@@ -97,7 +97,7 @@
 
     if-ne v8, p1, :cond_3
 
-    .line 1444
+    .line 1452
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mInFlight:Ljava/util/ArrayList;
@@ -115,20 +115,20 @@
 
     move-object v5, v0
 
-    .line 1448
+    .line 1456
     :cond_0
     if-eqz v5, :cond_4
 
-    .line 1449
+    .line 1457
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
 
-    .line 1450
+    .line 1458
     .local v6, nowELAPSED:J
     iget-object v1, v5, Lcom/android/server/AlarmManagerService$InFlight;->mBroadcastStats:Lcom/android/server/AlarmManagerService$BroadcastStats;
 
-    .line 1451
+    .line 1459
     .local v1, bs:Lcom/android/server/AlarmManagerService$BroadcastStats;
     iget v8, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->nesting:I
 
@@ -136,17 +136,17 @@
 
     iput v8, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->nesting:I
 
-    .line 1452
+    .line 1460
     iget v8, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->nesting:I
 
     if-gtz v8, :cond_1
 
-    .line 1453
+    .line 1461
     const/4 v8, 0x0
 
     iput v8, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->nesting:I
 
-    .line 1454
+    .line 1462
     iget-wide v10, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->aggregateTime:J
 
     iget-wide v12, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->startTime:J
@@ -157,11 +157,11 @@
 
     iput-wide v10, v1, Lcom/android/server/AlarmManagerService$BroadcastStats;->aggregateTime:J
 
-    .line 1456
+    .line 1464
     :cond_1
     iget-object v2, v5, Lcom/android/server/AlarmManagerService$InFlight;->mFilterStats:Lcom/android/server/AlarmManagerService$FilterStats;
 
-    .line 1457
+    .line 1465
     .local v2, fs:Lcom/android/server/AlarmManagerService$FilterStats;
     iget v8, v2, Lcom/android/server/AlarmManagerService$FilterStats;->nesting:I
 
@@ -169,17 +169,17 @@
 
     iput v8, v2, Lcom/android/server/AlarmManagerService$FilterStats;->nesting:I
 
-    .line 1458
+    .line 1466
     iget v8, v2, Lcom/android/server/AlarmManagerService$FilterStats;->nesting:I
 
     if-gtz v8, :cond_2
 
-    .line 1459
+    .line 1467
     const/4 v8, 0x0
 
     iput v8, v2, Lcom/android/server/AlarmManagerService$FilterStats;->nesting:I
 
-    .line 1460
+    .line 1468
     iget-wide v10, v2, Lcom/android/server/AlarmManagerService$FilterStats;->aggregateTime:J
 
     iget-wide v12, v2, Lcom/android/server/AlarmManagerService$FilterStats;->startTime:J
@@ -190,7 +190,7 @@
 
     iput-wide v10, v2, Lcom/android/server/AlarmManagerService$FilterStats;->aggregateTime:J
 
-    .line 1465
+    .line 1473
     .end local v1           #bs:Lcom/android/server/AlarmManagerService$BroadcastStats;
     .end local v2           #fs:Lcom/android/server/AlarmManagerService$FilterStats;
     .end local v6           #nowELAPSED:J
@@ -200,7 +200,7 @@
 
     invoke-static {v8}, Lcom/android/server/AlarmManagerService;->access$1310(Lcom/android/server/AlarmManagerService;)I
 
-    .line 1466
+    .line 1474
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mBroadcastRefCount:I
@@ -210,7 +210,7 @@
 
     if-nez v8, :cond_7
 
-    .line 1467
+    .line 1475
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -220,7 +220,7 @@
 
     invoke-virtual {v8}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1468
+    .line 1476
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mInFlight:Ljava/util/ArrayList;
@@ -234,7 +234,7 @@
 
     if-lez v8, :cond_6
 
-    .line 1469
+    .line 1477
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mLog:Lcom/android/internal/util/LocalLog;
@@ -279,7 +279,7 @@
 
     invoke-virtual {v8, v10}, Lcom/android/internal/util/LocalLog;->w(Ljava/lang/String;)V
 
-    .line 1471
+    .line 1479
     const/4 v3, 0x0
 
     :goto_2
@@ -296,7 +296,7 @@
 
     if-ge v3, v8, :cond_5
 
-    .line 1472
+    .line 1480
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mLog:Lcom/android/internal/util/LocalLog;
@@ -345,18 +345,18 @@
 
     invoke-virtual {v8, v10}, Lcom/android/internal/util/LocalLog;->w(Ljava/lang/String;)V
 
-    .line 1471
+    .line 1479
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 1442
+    .line 1450
     :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_0
 
-    .line 1463
+    .line 1471
     :cond_4
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -399,7 +399,7 @@
 
     goto/16 :goto_1
 
-    .line 1487
+    .line 1495
     :catchall_0
     move-exception v8
 
@@ -409,7 +409,7 @@
 
     throw v8
 
-    .line 1474
+    .line 1482
     :cond_5
     :try_start_1
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
@@ -421,15 +421,15 @@
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    .line 1487
+    .line 1495
     :cond_6
     :goto_3
     monitor-exit v9
 
-    .line 1488
+    .line 1496
     return-void
 
-    .line 1478
+    .line 1486
     :cond_7
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -444,7 +444,7 @@
 
     if-lez v8, :cond_8
 
-    .line 1479
+    .line 1487
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mInFlight:Ljava/util/ArrayList;
@@ -460,7 +460,7 @@
 
     check-cast v4, Lcom/android/server/AlarmManagerService$InFlight;
 
-    .line 1480
+    .line 1488
     .local v4, inFlight:Lcom/android/server/AlarmManagerService$InFlight;
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -472,7 +472,7 @@
 
     goto :goto_3
 
-    .line 1483
+    .line 1491
     .end local v4           #inFlight:Lcom/android/server/AlarmManagerService$InFlight;
     :cond_8
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
@@ -486,7 +486,7 @@
 
     invoke-virtual {v8, v10}, Lcom/android/internal/util/LocalLog;->w(Ljava/lang/String;)V
 
-    .line 1484
+    .line 1492
     iget-object v8, p0, Lcom/android/server/AlarmManagerService$ResultReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     #getter for: Lcom/android/server/AlarmManagerService;->mWakeLock:Landroid/os/PowerManager$WakeLock;

@@ -122,7 +122,7 @@
     :goto_1
     const/4 v1, 0x5
 
-    const-string v2, "no result in response"
+    const-string/jumbo v2, "no result in response"
 
     invoke-virtual {p0, v1, v2}, Landroid/accounts/AccountManager$BaseFutureTask$Response;->onError(ILjava/lang/String;)V
 

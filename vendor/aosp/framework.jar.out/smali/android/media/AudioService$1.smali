@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 284
+    .line 290
     iput-object p1, p0, Landroid/media/AudioService$1;->this$0:Landroid/media/AudioService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,14 +44,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 286
+    .line 292
     packed-switch p1, :pswitch_data_0
 
-    .line 294
+    .line 300
     :goto_0
     return-void
 
-    .line 288
+    .line 294
     :pswitch_0
     iget-object v0, p0, Landroid/media/AudioService$1;->this$0:Landroid/media/AudioService;
 
@@ -75,7 +75,7 @@
 
     goto :goto_0
 
-    .line 286
+    .line 292
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

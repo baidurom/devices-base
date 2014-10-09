@@ -254,12 +254,12 @@
     .parameter "itemView"
 
     .prologue
-    .line 198
+    .line 177
     const/4 v2, 0x0
 
     invoke-interface {p2, p1, v2}, Lcom/android/internal/view/menu/MenuView$ItemView;->initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
 
-    .line 200
+    .line 179
     iget-object v1, p0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/MenuView;
 
     check-cast v1, Lcom/android/internal/view/menu/ActionMenuView;
@@ -267,15 +267,38 @@
     .local v1, menuView:Lcom/android/internal/view/menu/ActionMenuView;
     move-object v0, p2
 
-    .line 201
+    .line 180
     check-cast v0, Lcom/android/internal/view/menu/ActionMenuItemView;
 
-    .line 202
+    .line 181
     .local v0, actionItemView:Lcom/android/internal/view/menu/ActionMenuItemView;
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/ActionMenuItemView;->setItemInvoker(Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;)V
 
+    .line 183
+    invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuItemImpl;->hasSubMenu()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 184
+    new-instance v2, Lcom/android/internal/view/menu/ActionMenuPresenter$1;
+
+    invoke-direct {v2, p0, v0, p1}, Lcom/android/internal/view/menu/ActionMenuPresenter$1;-><init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/view/View;Lcom/android/internal/view/menu/MenuItemImpl;)V
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
     .line 203
+    :goto_0
     return-void
+
+    .line 201
+    :cond_0
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    goto :goto_0
 .end method
 
 .method public dismissPopupMenus()Z
@@ -1069,33 +1092,18 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 167
-    invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuItemImpl;->hasSubMenu()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    .line 168
-    new-instance v3, Lcom/android/internal/view/menu/ActionMenuPresenter$1;
-
-    invoke-direct {v3, p0, v0, p1}, Lcom/android/internal/view/menu/ActionMenuPresenter$1;-><init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/view/View;Lcom/android/internal/view/menu/MenuItemImpl;)V
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    :goto_1
     move-object v2, p3
 
-    .line 188
+    .line 167
     check-cast v2, Lcom/android/internal/view/menu/ActionMenuView;
 
-    .line 189
+    .line 168
     .local v2, menuParent:Lcom/android/internal/view/menu/ActionMenuView;
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    .line 190
+    .line 169
     .local v1, lp:Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {v2, v1}, Lcom/android/internal/view/menu/ActionMenuView;->checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
 
@@ -1103,14 +1111,14 @@
 
     if-nez v3, :cond_2
 
-    .line 191
+    .line 170
     invoke-virtual {v2, v1}, Lcom/android/internal/view/menu/ActionMenuView;->generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Lcom/android/internal/view/menu/ActionMenuView$LayoutParams;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 193
+    .line 172
     :cond_2
     return-object v0
 
@@ -1121,14 +1129,6 @@
     const/4 v3, 0x0
 
     goto :goto_0
-
-    .line 185
-    :cond_4
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    goto :goto_1
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView;
@@ -1477,7 +1477,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0049
+    const v1, 0x10e004a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

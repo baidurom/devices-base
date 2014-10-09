@@ -1903,7 +1903,9 @@
     .line 486
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/IccRecords;->mContext:Landroid/content/Context;
 
-    invoke-static {v7, v6}, Lcom/android/internal/telephony/MccTable;->updateMccMncConfiguration(Landroid/content/Context;Ljava/lang/String;)V
+    const/4 v8, 0x0
+
+    invoke-static {v7, v6, v8}, Lcom/android/internal/telephony/MccTable;->updateMccMncConfiguration(Landroid/content/Context;Ljava/lang/String;Z)V
 
     goto/16 :goto_1
 
@@ -2146,8 +2148,6 @@
     goto/16 :goto_1
 
     .line 453
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

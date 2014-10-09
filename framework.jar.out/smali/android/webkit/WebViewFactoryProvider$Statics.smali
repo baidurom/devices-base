@@ -18,6 +18,9 @@
 .method public abstract findAddress(Ljava/lang/String;)Ljava/lang/String;
 .end method
 
+.method public abstract freeMemoryForTests()V
+.end method
+
 .method public abstract getDefaultUserAgent(Landroid/content/Context;)Ljava/lang/String;
 .end method
 

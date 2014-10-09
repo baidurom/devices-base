@@ -70,7 +70,7 @@
     .line 135
     const-string v4, "ConsumerIr"
 
-    const-string v5, "no consumer ir service."
+    const-string/jumbo v5, "no consumer ir service."
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -177,7 +177,7 @@
     .line 56
     const-string v1, "ConsumerIr"
 
-    const-string v2, "no consumer ir service."
+    const-string/jumbo v2, "no consumer ir service."
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1097
+    .line 1136
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1100
+    .line 1139
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1101
+    .line 1140
     .local v0, action:Ljava/lang/String;
     const-string v4, "android.intent.action.SCREEN_ON"
 
@@ -57,7 +57,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 1102
+    .line 1141
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
     #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
@@ -69,12 +69,12 @@
 
     invoke-virtual {v4, v5}, Lcom/android/internal/util/StateMachine;->sendMessage(I)V
 
-    .line 1118
+    .line 1157
     :cond_0
     :goto_0
     return-void
 
-    .line 1103
+    .line 1142
     :cond_1
     const-string v4, "android.intent.action.USER_PRESENT"
 
@@ -84,7 +84,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 1104
+    .line 1143
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
     #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
@@ -98,7 +98,7 @@
 
     goto :goto_0
 
-    .line 1105
+    .line 1144
     :cond_2
     const-string v4, "android.intent.action.SCREEN_OFF"
 
@@ -108,7 +108,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 1106
+    .line 1145
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
     #getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
@@ -122,7 +122,7 @@
 
     goto :goto_0
 
-    .line 1107
+    .line 1146
     :cond_3
     const-string v4, "android.intent.action.BATTERY_CHANGED"
 
@@ -132,14 +132,14 @@
 
     if-eqz v4, :cond_4
 
-    .line 1108
+    .line 1147
     const-string v4, "plugged"
 
     invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 1109
+    .line 1148
     .local v2, pluggedType:I
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
@@ -156,7 +156,7 @@
 
     goto :goto_0
 
-    .line 1110
+    .line 1149
     .end local v2           #pluggedType:I
     :cond_4
     const-string v4, "android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED"
@@ -167,14 +167,14 @@
 
     if-eqz v4, :cond_5
 
-    .line 1111
+    .line 1150
     const-string v4, "android.bluetooth.adapter.extra.CONNECTION_STATE"
 
     invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v3
 
-    .line 1113
+    .line 1152
     .local v3, state:I
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 
@@ -184,7 +184,7 @@
 
     goto :goto_0
 
-    .line 1114
+    .line 1153
     .end local v3           #state:I
     :cond_5
     const-string v4, "android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED"
@@ -195,14 +195,14 @@
 
     if-eqz v4, :cond_0
 
-    .line 1115
+    .line 1154
     const-string v4, "phoneinECMState"
 
     invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
-    .line 1116
+    .line 1155
     .local v1, emergencyMode:Z
     iget-object v4, p0, Lcom/android/server/wifi/WifiService$2;->this$0:Lcom/android/server/wifi/WifiService;
 

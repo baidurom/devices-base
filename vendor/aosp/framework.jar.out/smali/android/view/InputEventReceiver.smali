@@ -115,10 +115,10 @@
     .locals 0
 
     .prologue
-    .line 188
+    .line 191
     invoke-virtual {p0}, Landroid/view/InputEventReceiver;->onBatchedInputEventPending()V
 
-    .line 189
+    .line 192
     return-void
 .end method
 
@@ -128,7 +128,7 @@
     .parameter "event"
 
     .prologue
-    .line 181
+    .line 184
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {p2}, Landroid/view/InputEvent;->getSequenceNumber()I
@@ -137,10 +137,10 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 182
+    .line 185
     invoke-virtual {p0, p2}, Landroid/view/InputEventReceiver;->onInputEvent(Landroid/view/InputEvent;)V
 
-    .line 183
+    .line 186
     return-void
 .end method
 
@@ -197,7 +197,7 @@
     return-void
 .end method
 
-.method private static native nativeConsumeBatchedInputEvents(IJ)V
+.method private static native nativeConsumeBatchedInputEvents(IJ)Z
 .end method
 
 .method private static native nativeDispose(I)V
@@ -223,32 +223,36 @@
 
 
 # virtual methods
-.method public final consumeBatchedInputEvents(J)V
+.method public final consumeBatchedInputEvents(J)Z
     .locals 2
     .parameter "frameTimeNanos"
 
     .prologue
-    .line 170
+    .line 172
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     if-nez v0, :cond_0
 
-    .line 171
+    .line 173
     const-string v0, "InputEventReceiver"
 
     const-string v1, "Attempted to consume batched input events but the input event receiver has already been disposed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
-    :goto_0
-    return-void
+    .line 178
+    const/4 v0, 0x0
 
-    .line 174
+    :goto_0
+    return v0
+
+    .line 176
     :cond_0
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
-    invoke-static {v0, p1, p2}, Landroid/view/InputEventReceiver;->nativeConsumeBatchedInputEvents(IJ)V
+    invoke-static {v0, p1, p2}, Landroid/view/InputEventReceiver;->nativeConsumeBatchedInputEvents(IJ)Z
+
+    move-result v0
 
     goto :goto_0
 .end method
@@ -390,7 +394,7 @@
     .line 129
     const-wide/16 v0, -0x1
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/InputEventReceiver;->consumeBatchedInputEvents(J)V
+    invoke-virtual {p0, v0, v1}, Landroid/view/InputEventReceiver;->consumeBatchedInputEvents(J)Z
 
     .line 130
     return-void

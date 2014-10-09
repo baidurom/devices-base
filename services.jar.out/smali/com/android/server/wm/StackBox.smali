@@ -138,23 +138,23 @@
     .locals 2
 
     .prologue
-    .line 339
+    .line 335
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v1, :cond_0
 
-    .line 340
+    .line 336
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v1}, Lcom/android/server/wm/TaskStack;->animateDimLayers()Z
 
     move-result v0
 
-    .line 344
+    .line 340
     :goto_0
     return v0
 
-    .line 342
+    .line 338
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
@@ -162,7 +162,7 @@
 
     move-result v0
 
-    .line 343
+    .line 339
     .local v0, result:Z
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
@@ -172,7 +172,7 @@
 
     or-int/2addr v0, v1
 
-    .line 344
+    .line 340
     goto :goto_0
 .end method
 
@@ -180,12 +180,12 @@
     .locals 1
 
     .prologue
-    .line 384
+    .line 380
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v0, :cond_0
 
-    .line 385
+    .line 381
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     iget-object v0, v0, Lcom/android/server/wm/TaskStack;->mDimLayer:Lcom/android/server/wm/DimLayer;
@@ -194,7 +194,7 @@
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl;->destroy()V
 
-    .line 386
+    .line 382
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     iget-object v0, v0, Lcom/android/server/wm/TaskStack;->mAnimationBackgroundSurface:Lcom/android/server/wm/DimLayer;
@@ -203,17 +203,17 @@
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl;->destroy()V
 
-    .line 391
+    .line 387
     :goto_0
     return-void
 
-    .line 389
+    .line 385
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->close()V
 
-    .line 390
+    .line 386
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->close()V
@@ -269,7 +269,7 @@
     .parameter "pw"
 
     .prologue
-    .line 394
+    .line 390
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "mParent="
@@ -280,7 +280,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 395
+    .line 391
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "mBounds="
@@ -295,7 +295,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 396
+    .line 392
     const-string v0, " mVertical="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -304,7 +304,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
-    .line 397
+    .line 393
     const-string v0, " layoutNeeded="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -313,12 +313,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 398
+    .line 394
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     if-eqz v0, :cond_0
 
-    .line 399
+    .line 395
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "mFirst="
@@ -333,7 +333,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 400
+    .line 396
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -356,7 +356,7 @@
 
     invoke-virtual {v0, v1, p2}, Lcom/android/server/wm/StackBox;->dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
 
-    .line 401
+    .line 397
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "mSecond="
@@ -371,7 +371,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 402
+    .line 398
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -394,11 +394,11 @@
 
     invoke-virtual {v0, v1, p2}, Lcom/android/server/wm/StackBox;->dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
 
-    .line 407
+    .line 403
     :goto_0
     return-void
 
-    .line 404
+    .line 400
     :cond_0
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -410,7 +410,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 405
+    .line 401
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -529,23 +529,23 @@
     .locals 2
 
     .prologue
-    .line 357
+    .line 353
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v1, :cond_0
 
-    .line 358
+    .line 354
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v1}, Lcom/android/server/wm/TaskStack;->isDimming()Z
 
     move-result v0
 
-    .line 362
+    .line 358
     :goto_0
     return v0
 
-    .line 360
+    .line 356
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
@@ -553,7 +553,7 @@
 
     move-result v0
 
-    .line 361
+    .line 357
     .local v0, result:Z
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
@@ -563,7 +563,7 @@
 
     or-int/2addr v0, v1
 
-    .line 362
+    .line 358
     goto :goto_0
 .end method
 
@@ -624,81 +624,66 @@
     const/4 v4, 0x1
 
     .line 246
-    iget-object v2, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
-
-    if-eqz v2, :cond_0
-
-    .line 248
-    iget-object v2, p0, Lcom/android/server/wm/StackBox;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    iget-object v2, v2, Lcom/android/server/wm/DisplayContent;->mStackHistory:Ljava/util/ArrayList;
-
-    iget-object v3, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    .line 250
-    :cond_0
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     iput-boolean v4, v2, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
 
-    .line 252
+    .line 248
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
-    .line 255
+    .line 251
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     invoke-virtual {v2, p0}, Lcom/android/server/wm/DisplayContent;->removeStackBox(Lcom/android/server/wm/StackBox;)V
 
-    .line 256
+    .line 252
     const/4 v2, 0x0
 
-    .line 275
+    .line 271
     :goto_0
     return v2
 
-    .line 259
-    :cond_1
+    .line 255
+    :cond_0
     invoke-virtual {p0}, Lcom/android/server/wm/StackBox;->isFirstChild()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     iget-object v1, v2, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
-    .line 260
+    .line 256
     .local v1, sibling:Lcom/android/server/wm/StackBox;
     :goto_1
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     iget-object v0, v2, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
-    .line 261
+    .line 257
     .local v0, grandparent:Lcom/android/server/wm/StackBox;
     iput-object v0, v1, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
-    .line 262
-    if-nez v0, :cond_3
+    .line 258
+    if-nez v0, :cond_2
 
-    .line 265
+    .line 261
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     iget-object v3, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v2, v3}, Lcom/android/server/wm/DisplayContent;->removeStackBox(Lcom/android/server/wm/StackBox;)V
 
-    .line 266
+    .line 262
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     invoke-virtual {v2, v1, v4}, Lcom/android/server/wm/DisplayContent;->addStackBox(Lcom/android/server/wm/StackBox;Z)V
 
-    .line 275
+    .line 271
     :goto_2
     invoke-virtual {v1}, Lcom/android/server/wm/StackBox;->getStackId()I
 
@@ -706,35 +691,35 @@
 
     goto :goto_0
 
-    .line 259
+    .line 255
     .end local v0           #grandparent:Lcom/android/server/wm/StackBox;
     .end local v1           #sibling:Lcom/android/server/wm/StackBox;
-    :cond_2
+    :cond_1
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     iget-object v1, v2, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     goto :goto_1
 
-    .line 269
+    .line 265
     .restart local v0       #grandparent:Lcom/android/server/wm/StackBox;
     .restart local v1       #sibling:Lcom/android/server/wm/StackBox;
-    :cond_3
+    :cond_2
     iget-object v2, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v2}, Lcom/android/server/wm/StackBox;->isFirstChild()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
-    .line 270
+    .line 266
     iput-object v1, v0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     goto :goto_2
 
-    .line 272
-    :cond_4
+    .line 268
+    :cond_3
     iput-object v1, v0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     goto :goto_2
@@ -744,27 +729,27 @@
     .locals 1
 
     .prologue
-    .line 330
+    .line 326
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v0, :cond_0
 
-    .line 331
+    .line 327
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v0}, Lcom/android/server/wm/TaskStack;->resetAnimationBackgroundAnimator()V
 
-    .line 336
+    .line 332
     :goto_0
     return-void
 
-    .line 334
+    .line 330
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->resetAnimationBackgroundAnimator()V
 
-    .line 335
+    .line 331
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->resetAnimationBackgroundAnimator()V
@@ -776,27 +761,27 @@
     .locals 1
 
     .prologue
-    .line 348
+    .line 344
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v0, :cond_0
 
-    .line 349
+    .line 345
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v0}, Lcom/android/server/wm/TaskStack;->resetDimmingTag()V
 
-    .line 354
+    .line 350
     :goto_0
     return-void
 
-    .line 352
+    .line 348
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->resetDimming()V
 
-    .line 353
+    .line 349
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->resetDimming()V
@@ -812,12 +797,12 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 279
+    .line 275
     iget v1, p0, Lcom/android/server/wm/StackBox;->mStackBoxId:I
 
     if-eq v1, p1, :cond_2
 
-    .line 280
+    .line 276
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-nez v1, :cond_1
@@ -838,26 +823,26 @@
 
     if-eqz v1, :cond_1
 
-    .line 287
+    .line 283
     .end local p2
     :cond_0
     :goto_0
     return v0
 
-    .line 280
+    .line 276
     .restart local p2
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 284
+    .line 280
     :cond_2
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     if-eqz v1, :cond_0
 
-    .line 285
+    .line 281
     iget-object v1, p0, Lcom/android/server/wm/StackBox;->mParent:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {p0}, Lcom/android/server/wm/StackBox;->isFirstChild()Z
@@ -889,28 +874,28 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 295
+    .line 291
     const/4 v0, 0x0
 
-    .line 296
+    .line 292
     .local v0, change:Z
     iget-boolean v6, p0, Lcom/android/server/wm/StackBox;->mUnderStatusBar:Z
 
     if-eq v6, p2, :cond_0
 
-    .line 297
+    .line 293
     const/4 v0, 0x1
 
-    .line 298
+    .line 294
     iput-boolean p2, p0, Lcom/android/server/wm/StackBox;->mUnderStatusBar:Z
 
-    .line 300
+    .line 296
     :cond_0
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v6, :cond_3
 
-    .line 301
+    .line 297
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v6, p1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
@@ -924,41 +909,41 @@
     :cond_1
     or-int/2addr v0, v5
 
-    .line 302
+    .line 298
     if-eqz v0, :cond_2
 
-    .line 303
+    .line 299
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v5, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 304
+    .line 300
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v5, p1, p2}, Lcom/android/server/wm/TaskStack;->setBounds(Landroid/graphics/Rect;Z)V
 
-    .line 326
+    .line 322
     :cond_2
     :goto_0
     return v0
 
-    .line 307
+    .line 303
     :cond_3
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
     invoke-virtual {v6, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 308
+    .line 304
     iget-boolean v6, p0, Lcom/android/server/wm/StackBox;->mVertical:Z
 
     if-eqz v6, :cond_4
 
-    .line 309
+    .line 305
     invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
     move-result v3
 
-    .line 310
+    .line 306
     .local v3, height:I
     int-to-float v6, v3
 
@@ -968,7 +953,7 @@
 
     float-to-int v1, v6
 
-    .line 311
+    .line 307
     .local v1, firstHeight:I
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
@@ -978,7 +963,7 @@
 
     iput v7, v6, Landroid/graphics/Rect;->bottom:I
 
-    .line 312
+    .line 308
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     iget-object v7, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
@@ -989,7 +974,7 @@
 
     or-int/2addr v0, v6
 
-    .line 313
+    .line 309
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
     iget-object v7, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
@@ -998,7 +983,7 @@
 
     iput v7, v6, Landroid/graphics/Rect;->top:I
 
-    .line 314
+    .line 310
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
     iget v7, p1, Landroid/graphics/Rect;->top:I
@@ -1007,7 +992,7 @@
 
     iput v7, v6, Landroid/graphics/Rect;->bottom:I
 
-    .line 315
+    .line 311
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     iget-object v7, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
@@ -1018,10 +1003,10 @@
 
     or-int/2addr v0, v5
 
-    .line 316
+    .line 312
     goto :goto_0
 
-    .line 317
+    .line 313
     .end local v1           #firstHeight:I
     .end local v3           #height:I
     :cond_4
@@ -1029,7 +1014,7 @@
 
     move-result v4
 
-    .line 318
+    .line 314
     .local v4, width:I
     int-to-float v5, v4
 
@@ -1039,7 +1024,7 @@
 
     float-to-int v2, v5
 
-    .line 319
+    .line 315
     .local v2, firstWidth:I
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
@@ -1049,7 +1034,7 @@
 
     iput v6, v5, Landroid/graphics/Rect;->right:I
 
-    .line 320
+    .line 316
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
@@ -1060,7 +1045,7 @@
 
     or-int/2addr v0, v5
 
-    .line 321
+    .line 317
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
@@ -1069,7 +1054,7 @@
 
     iput v6, v5, Landroid/graphics/Rect;->left:I
 
-    .line 322
+    .line 318
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
 
     iget v6, p1, Landroid/graphics/Rect;->left:I
@@ -1078,7 +1063,7 @@
 
     iput v6, v5, Landroid/graphics/Rect;->right:I
 
-    .line 323
+    .line 319
     iget-object v5, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     iget-object v6, p0, Lcom/android/server/wm/StackBox;->mTmpRect:Landroid/graphics/Rect;
@@ -1378,27 +1363,27 @@
     .locals 1
 
     .prologue
-    .line 366
+    .line 362
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v0, :cond_0
 
-    .line 367
+    .line 363
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v0}, Lcom/android/server/wm/TaskStack;->stopDimmingIfNeeded()V
 
-    .line 372
+    .line 368
     :goto_0
     return-void
 
-    .line 370
+    .line 366
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->stopDimmingIfNeeded()V
 
-    .line 371
+    .line 367
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0}, Lcom/android/server/wm/StackBox;->stopDimmingIfNeeded()V
@@ -1411,27 +1396,27 @@
     .parameter "userId"
 
     .prologue
-    .line 375
+    .line 371
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v0, :cond_0
 
-    .line 376
+    .line 372
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskStack;->switchUser(I)V
 
-    .line 381
+    .line 377
     :goto_0
     return-void
 
-    .line 379
+    .line 375
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mFirst:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0, p1}, Lcom/android/server/wm/StackBox;->switchUserStacks(I)V
 
-    .line 380
+    .line 376
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mSecond:Lcom/android/server/wm/StackBox;
 
     invoke-virtual {v0, p1}, Lcom/android/server/wm/StackBox;->switchUserStacks(I)V
@@ -1443,12 +1428,12 @@
     .locals 2
 
     .prologue
-    .line 411
+    .line 407
     iget-object v0, p0, Lcom/android/server/wm/StackBox;->mStack:Lcom/android/server/wm/TaskStack;
 
     if-eqz v0, :cond_0
 
-    .line 412
+    .line 408
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1491,7 +1476,7 @@
 
     move-result-object v0
 
-    .line 414
+    .line 410
     :goto_0
     return-object v0
 

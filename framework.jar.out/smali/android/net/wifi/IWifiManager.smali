@@ -329,7 +329,7 @@
     .end annotation
 .end method
 
-.method public abstract requestBatchedScan(Landroid/net/wifi/BatchedScanSettings;Landroid/os/IBinder;)Z
+.method public abstract requestBatchedScan(Landroid/net/wifi/BatchedScanSettings;Landroid/os/IBinder;Landroid/os/WorkSource;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

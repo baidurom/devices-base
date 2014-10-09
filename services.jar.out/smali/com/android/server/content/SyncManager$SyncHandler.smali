@@ -843,7 +843,7 @@
 
     move-result-object v2
 
-    const v3, 0x10400ad
+    const v3, 0x10400ae
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -853,7 +853,7 @@
     .local v12, tooManyDeletesDescFormat:Ljava/lang/CharSequence;
     new-instance v9, Landroid/app/Notification;
 
-    const v2, 0x1080589
+    const v2, 0x108058b
 
     iget-object v3, p0, Lcom/android/server/content/SyncManager$SyncHandler;->this$0:Lcom/android/server/content/SyncManager;
 
@@ -862,7 +862,7 @@
 
     move-result-object v3
 
-    const v5, 0x10400ab
+    const v5, 0x10400ac
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -890,7 +890,7 @@
 
     move-result-object v3
 
-    const v5, 0x10400ac
+    const v5, 0x10400ad
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3726,9 +3726,9 @@
     .line 2355
     .restart local v29       #roomAvailable:Z
     :cond_28
-    iget-boolean v0, v10, Lcom/android/server/content/SyncOperation;->expedited:Z
+    invoke-virtual {v10}, Lcom/android/server/content/SyncOperation;->isExpedited()Z
 
-    move/from16 v36, v0
+    move-result v36
 
     if-eqz v36, :cond_24
 
@@ -3736,11 +3736,9 @@
 
     move-object/from16 v36, v0
 
-    move-object/from16 v0, v36
+    invoke-virtual/range {v36 .. v36}, Lcom/android/server/content/SyncOperation;->isExpedited()Z
 
-    iget-boolean v0, v0, Lcom/android/server/content/SyncOperation;->expedited:Z
-
-    move/from16 v36, v0
+    move-result v36
 
     if-nez v36, :cond_24
 

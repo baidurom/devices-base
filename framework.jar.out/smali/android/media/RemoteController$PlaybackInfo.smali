@@ -33,21 +33,21 @@
     .parameter "speed"
 
     .prologue
-    .line 860
+    .line 861
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 861
+    .line 862
     iput p1, p0, Landroid/media/RemoteController$PlaybackInfo;->mState:I
 
-    .line 862
+    .line 863
     iput-wide p2, p0, Landroid/media/RemoteController$PlaybackInfo;->mStateChangeTimeMs:J
 
-    .line 863
+    .line 864
     iput-wide p4, p0, Landroid/media/RemoteController$PlaybackInfo;->mCurrentPosMs:J
 
-    .line 864
+    .line 865
     iput p6, p0, Landroid/media/RemoteController$PlaybackInfo;->mSpeed:F
 
-    .line 865
+    .line 866
     return-void
 .end method

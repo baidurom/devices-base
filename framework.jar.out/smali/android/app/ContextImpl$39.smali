@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 543
+    .line 551
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -36,22 +36,22 @@
     .parameter "ctx"
 
     .prologue
-    .line 546
+    .line 554
     #getter for: Landroid/app/ContextImpl;->mDisplay:Landroid/view/Display;
     invoke-static {p1}, Landroid/app/ContextImpl;->access$100(Landroid/app/ContextImpl;)Landroid/view/Display;
 
     move-result-object v0
 
-    .line 547
+    .line 555
     .local v0, display:Landroid/view/Display;
     if-nez v0, :cond_1
 
-    .line 548
+    .line 556
     iget-object v2, p0, Landroid/app/ContextImpl$39;->mDefaultDisplay:Landroid/view/Display;
 
     if-nez v2, :cond_0
 
-    .line 549
+    .line 557
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v2
@@ -64,7 +64,7 @@
 
     check-cast v1, Landroid/hardware/display/DisplayManager;
 
-    .line 551
+    .line 559
     .local v1, dm:Landroid/hardware/display/DisplayManager;
     const/4 v2, 0x0
 
@@ -74,12 +74,12 @@
 
     iput-object v2, p0, Landroid/app/ContextImpl$39;->mDefaultDisplay:Landroid/view/Display;
 
-    .line 553
+    .line 561
     .end local v1           #dm:Landroid/hardware/display/DisplayManager;
     :cond_0
     iget-object v0, p0, Landroid/app/ContextImpl$39;->mDefaultDisplay:Landroid/view/Display;
 
-    .line 555
+    .line 563
     :cond_1
     new-instance v2, Landroid/view/WindowManagerImpl;
 

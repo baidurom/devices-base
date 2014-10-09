@@ -46,7 +46,7 @@
     .parameter
 
     .prologue
-    .line 1261
+    .line 1269
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$12;->this$0:Landroid/speech/tts/TextToSpeech;
 
     iput-object p2, p0, Landroid/speech/tts/TextToSpeech$12;->val$filename:Ljava/lang/String;
@@ -74,7 +74,7 @@
     .prologue
     const/4 v8, -0x1
 
-    .line 1267
+    .line 1275
     :try_start_0
     new-instance v1, Ljava/io/File;
 
@@ -82,7 +82,7 @@
 
     invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 1268
+    .line 1276
     .local v1, file:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -96,7 +96,7 @@
 
     if-nez v4, :cond_0
 
-    .line 1269
+    .line 1277
     const-string v4, "TextToSpeech"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -121,19 +121,19 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1270
+    .line 1278
     const/4 v4, -0x1
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    .line 1285
+    .line 1293
     .end local v1           #file:Ljava/io/File;
     :goto_0
     return-object v4
 
-    .line 1272
+    .line 1280
     .restart local v1       #file:Ljava/io/File;
     :cond_0
     const/high16 v4, 0x2c00
@@ -142,7 +142,7 @@
 
     move-result-object v2
 
-    .line 1276
+    .line 1284
     .local v2, fileDescriptor:Landroid/os/ParcelFileDescriptor;
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$12;->this$0:Landroid/speech/tts/TextToSpeech;
 
@@ -166,11 +166,11 @@
 
     move-result v3
 
-    .line 1278
+    .line 1286
     .local v3, returnValue:I
     invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 1279
+    .line 1287
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -180,14 +180,14 @@
 
     goto :goto_0
 
-    .line 1280
+    .line 1288
     .end local v1           #file:Ljava/io/File;
     .end local v2           #fileDescriptor:Landroid/os/ParcelFileDescriptor;
     .end local v3           #returnValue:I
     :catch_0
     move-exception v0
 
-    .line 1281
+    .line 1289
     .local v0, e:Ljava/io/FileNotFoundException;
     const-string v4, "TextToSpeech"
 
@@ -219,19 +219,19 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1282
+    .line 1290
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
     goto :goto_0
 
-    .line 1283
+    .line 1291
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
-    .line 1284
+    .line 1292
     .local v0, e:Ljava/io/IOException;
     const-string v4, "TextToSpeech"
 
@@ -263,7 +263,7 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1285
+    .line 1293
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -281,7 +281,7 @@
     .end annotation
 
     .prologue
-    .line 1261
+    .line 1269
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$12;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
 
     move-result-object v0

@@ -124,132 +124,275 @@
     return-void
 .end method
 
+.method private dumpAggregatedStats(Ljava/io/PrintWriter;JJLjava/lang/String;ZZZZZ)V
+    .locals 11
+    .parameter "pw"
+    .parameter "aggregateHours"
+    .parameter "now"
+    .parameter "reqPackage"
+    .parameter "isCompact"
+    .parameter "dumpDetails"
+    .parameter "dumpFullDetails"
+    .parameter "dumpAll"
+    .parameter "activeOnly"
+
+    .prologue
+    .line 535
+    const-wide/16 v2, 0x3c
+
+    mul-long/2addr v2, p2
+
+    const-wide/16 v4, 0x3c
+
+    mul-long/2addr v2, v4
+
+    const-wide/16 v4, 0x3e8
+
+    mul-long/2addr v2, v4
+
+    sget-wide v4, Lcom/android/internal/app/ProcessStats;->COMMIT_PERIOD:J
+
+    const-wide/16 v6, 0x2
+
+    div-long/2addr v4, v6
+
+    sub-long/2addr v2, v4
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/am/ProcessStatsService;->getStatsOverTime(J)Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v9
+
+    .line 537
+    .local v9, pfd:Landroid/os/ParcelFileDescriptor;
+    if-nez v9, :cond_0
+
+    .line 538
+    const-string v2, "Unable to build stats!"
+
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 557
+    :goto_0
+    return-void
+
+    .line 541
+    :cond_0
+    new-instance v1, Lcom/android/internal/app/ProcessStats;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v2}, Lcom/android/internal/app/ProcessStats;-><init>(Z)V
+
+    .line 542
+    .local v1, stats:Lcom/android/internal/app/ProcessStats;
+    new-instance v10, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
+
+    invoke-direct {v10, v9}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+
+    .line 543
+    .local v10, stream:Ljava/io/InputStream;
+    invoke-virtual {v1, v10}, Lcom/android/internal/app/ProcessStats;->read(Ljava/io/InputStream;)V
+
+    .line 544
+    iget-object v2, v1, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
+
+    if-eqz v2, :cond_1
+
+    .line 545
+    const-string v2, "Failure reading: "
+
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v2, v1, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
+
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 548
+    :cond_1
+    if-eqz p7, :cond_2
+
+    .line 549
+    move-object/from16 v0, p6
+
+    invoke-virtual {v1, p1, v0}, Lcom/android/internal/app/ProcessStats;->dumpCheckinLocked(Ljava/io/PrintWriter;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 551
+    :cond_2
+    if-nez p8, :cond_3
+
+    if-eqz p9, :cond_5
+
+    .line 552
+    :cond_3
+    if-nez p9, :cond_4
+
+    const/4 v6, 0x1
+
+    :goto_1
+    move-object v2, p1
+
+    move-object/from16 v3, p6
+
+    move-wide v4, p4
+
+    move/from16 v7, p10
+
+    move/from16 v8, p11
+
+    invoke-virtual/range {v1 .. v8}, Lcom/android/internal/app/ProcessStats;->dumpLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZZZ)V
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v6, 0x0
+
+    goto :goto_1
+
+    :cond_5
+    move-object v2, p1
+
+    move-object/from16 v3, p6
+
+    move-wide v4, p4
+
+    move/from16 v6, p11
+
+    .line 554
+    invoke-virtual/range {v1 .. v6}, Lcom/android/internal/app/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
+
+    goto :goto_0
+.end method
+
 .method private static dumpHelp(Ljava/io/PrintWriter;)V
     .locals 1
     .parameter "pw"
 
     .prologue
-    .line 533
+    .line 560
     const-string v0, "Process stats (procstats) dump options:"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 534
+    .line 561
     const-string v0, "    [--checkin|-c|--csv] [--csv-screen] [--csv-proc] [--csv-mem]"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 535
+    .line 562
     const-string v0, "    [--details] [--full-details] [--current] [--hours] [--active]"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 536
+    .line 563
     const-string v0, "    [--commit] [--reset] [--clear] [--write] [-h] [<package.name>]"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 537
+    .line 564
     const-string v0, "  --checkin: perform a checkin: print and delete old committed states."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 538
+    .line 565
     const-string v0, "  --c: print only state in checkin format."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 539
+    .line 566
     const-string v0, "  --csv: output data suitable for putting in a spreadsheet."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 540
+    .line 567
     const-string v0, "  --csv-screen: on, off."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 541
+    .line 568
     const-string v0, "  --csv-mem: norm, mod, low, crit."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 542
+    .line 569
     const-string v0, "  --csv-proc: pers, top, fore, vis, precept, backup,"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 543
+    .line 570
     const-string v0, "    service, home, prev, cached"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 544
+    .line 571
     const-string v0, "  --details: dump per-package details, not just summary."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 545
+    .line 572
     const-string v0, "  --full-details: dump all timing and active state details."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 546
+    .line 573
     const-string v0, "  --current: only dump current state."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 547
+    .line 574
     const-string v0, "  --hours: aggregate over about N last hours."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 548
+    .line 575
     const-string v0, "  --active: only show currently active processes/services."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 549
+    .line 576
     const-string v0, "  --commit: commit current stats to disk and reset to start new stats."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 550
+    .line 577
     const-string v0, "  --reset: reset current stats, without committing."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 551
+    .line 578
     const-string v0, "  --clear: clear all stats; does both --reset and deletes old stats."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 552
+    .line 579
     const-string v0, "  --write: write current in-memory stats to disk."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 553
+    .line 580
     const-string v0, "  --read: replace current stats with last-written stats."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 554
+    .line 581
     const-string v0, "  -a: print everything."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 555
+    .line 582
     const-string v0, "  -h: print this help text."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 556
+    .line 583
     const-string v0, "  <package.name>: optional name of package to filter output by."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 557
+    .line 584
     return-void
 .end method
 
@@ -260,657 +403,449 @@
     .parameter "args"
 
     .prologue
-    .line 578
+    .line 605
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v12
+    move-result-wide v11
 
-    .line 580
-    .local v12, now:J
-    const/16 v45, 0x0
+    .line 607
+    .local v11, now:J
+    const/16 v49, 0x0
 
-    .line 581
-    .local v45, isCheckin:Z
-    const/16 v46, 0x0
-
-    .line 582
-    .local v46, isCompact:Z
-    const/16 v47, 0x0
-
-    .line 583
-    .local v47, isCsv:Z
-    const/16 v35, 0x0
-
-    .line 584
-    .local v35, currentOnly:Z
-    const/16 v36, 0x0
-
-    .line 585
-    .local v36, dumpDetails:Z
-    const/16 v37, 0x0
-
-    .line 586
-    .local v37, dumpFullDetails:Z
+    .line 608
+    .local v49, isCheckin:Z
     const/16 v21, 0x0
 
-    .line 587
-    .local v21, dumpAll:Z
-    const/16 v32, 0x0
+    .line 609
+    .local v21, isCompact:Z
+    const/16 v50, 0x0
 
-    .line 588
-    .local v32, aggregateHours:I
+    .line 610
+    .local v50, isCsv:Z
+    const/16 v41, 0x0
+
+    .line 611
+    .local v41, currentOnly:Z
     const/16 v22, 0x0
 
-    .line 589
-    .local v22, activeOnly:Z
-    const/4 v14, 0x0
+    .line 612
+    .local v22, dumpDetails:Z
+    const/16 v23, 0x0
 
-    .line 590
-    .local v14, reqPackage:Ljava/lang/String;
-    const/4 v6, 0x0
+    .line 613
+    .local v23, dumpFullDetails:Z
+    const/16 v24, 0x0
 
-    .line 591
-    .local v6, csvSepScreenStats:Z
-    const/4 v3, 0x2
+    .line 614
+    .local v24, dumpAll:Z
+    const/16 v38, 0x0
 
-    new-array v7, v3, [I
+    .line 615
+    .local v38, aggregateHours:I
+    const/16 v25, 0x0
 
-    fill-array-data v7, :array_0
+    .line 616
+    .local v25, activeOnly:Z
+    const/4 v13, 0x0
 
-    .line 592
-    .local v7, csvScreenStats:[I
-    const/4 v8, 0x0
+    .line 617
+    .local v13, reqPackage:Ljava/lang/String;
+    const/4 v5, 0x0
 
-    .line 593
-    .local v8, csvSepMemStats:Z
-    const/4 v3, 0x1
+    .line 618
+    .local v5, csvSepScreenStats:Z
+    const/4 v2, 0x2
 
-    new-array v9, v3, [I
+    new-array v6, v2, [I
 
-    const/4 v3, 0x0
+    fill-array-data v6, :array_0
 
-    const/4 v4, 0x3
+    .line 619
+    .local v6, csvScreenStats:[I
+    const/4 v7, 0x0
 
-    aput v4, v9, v3
+    .line 620
+    .local v7, csvSepMemStats:Z
+    const/4 v2, 0x1
 
-    .line 594
-    .local v9, csvMemStats:[I
-    const/4 v10, 0x1
+    new-array v8, v2, [I
 
-    .line 595
-    .local v10, csvSepProcStats:Z
-    sget-object v11, Lcom/android/internal/app/ProcessStats;->ALL_PROC_STATES:[I
+    const/4 v2, 0x0
 
-    .line 596
-    .local v11, csvProcStats:[I
-    if-eqz p3, :cond_1e
+    const/4 v3, 0x3
 
-    .line 597
-    const/16 v44, 0x0
+    aput v3, v8, v2
 
-    .local v44, i:I
+    .line 621
+    .local v8, csvMemStats:[I
+    const/4 v9, 0x1
+
+    .line 622
+    .local v9, csvSepProcStats:Z
+    sget-object v10, Lcom/android/internal/app/ProcessStats;->ALL_PROC_STATES:[I
+
+    .line 623
+    .local v10, csvProcStats:[I
+    if-eqz p3, :cond_1c
+
+    .line 624
+    const/16 v48, 0x0
+
+    .local v48, i:I
     :goto_0
     move-object/from16 v0, p3
 
-    array-length v3, v0
+    array-length v2, v0
 
-    move/from16 v0, v44
+    move/from16 v0, v48
 
-    if-ge v0, v3, :cond_1e
+    if-ge v0, v2, :cond_1c
 
-    .line 598
-    aget-object v33, p3, v44
+    .line 625
+    aget-object v39, p3, v48
 
-    .line 599
-    .local v33, arg:Ljava/lang/String;
-    const-string v3, "--checkin"
+    .line 626
+    .local v39, arg:Ljava/lang/String;
+    const-string v2, "--checkin"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_0
 
-    .line 600
-    const/16 v45, 0x1
+    .line 627
+    const/16 v49, 0x1
 
-    .line 597
-    :cond_0
+    .line 624
     :goto_1
-    add-int/lit8 v44, v44, 0x1
+    add-int/lit8 v48, v48, 0x1
 
     goto :goto_0
 
-    .line 601
+    .line 628
+    :cond_0
+    const-string v2, "-c"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 629
+    const/16 v21, 0x1
+
+    goto :goto_1
+
+    .line 630
     :cond_1
-    const-string v3, "-c"
+    const-string v2, "--csv"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    .line 602
-    const/16 v46, 0x1
+    .line 631
+    const/16 v50, 0x1
 
     goto :goto_1
 
-    .line 603
+    .line 632
     :cond_2
-    const-string v3, "--csv"
+    const-string v2, "--csv-screen"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_6
 
-    .line 604
-    const/16 v47, 0x1
+    .line 633
+    add-int/lit8 v48, v48, 0x1
 
-    goto :goto_1
-
-    .line 605
-    :cond_3
-    const-string v3, "--csv-screen"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7
-
-    .line 606
-    add-int/lit8 v44, v44, 0x1
-
-    .line 607
+    .line 634
     move-object/from16 v0, p3
 
-    array-length v3, v0
+    array-length v2, v0
 
-    move/from16 v0, v44
+    move/from16 v0, v48
 
-    if-lt v0, v3, :cond_5
+    if-lt v0, v2, :cond_4
 
-    .line 608
-    const-string v3, "Error: argument required for --csv-screen"
+    .line 635
+    const-string v2, "Error: argument required for --csv-screen"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 609
+    .line 636
     invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
 
-    .line 898
-    .end local v33           #arg:Ljava/lang/String;
-    .end local v44           #i:I
-    :cond_4
+    .line 908
+    .end local v39           #arg:Ljava/lang/String;
+    .end local v48           #i:I
+    :cond_3
     :goto_2
     return-void
 
-    .line 612
-    .restart local v33       #arg:Ljava/lang/String;
-    .restart local v44       #i:I
-    :cond_5
-    const/4 v3, 0x1
-
-    new-array v0, v3, [Z
-
-    move-object/from16 v50, v0
-
-    .line 613
-    .local v50, sep:[Z
-    const/4 v3, 0x1
-
-    new-array v0, v3, [Ljava/lang/String;
-
-    move-object/from16 v39, v0
-
-    .line 614
-    .local v39, error:[Ljava/lang/String;
-    sget-object v3, Lcom/android/internal/app/ProcessStats;->ADJ_SCREEN_NAMES_CSV:[Ljava/lang/String;
-
-    const/4 v4, 0x4
-
-    aget-object v5, p3, v44
-
-    move-object/from16 v0, v50
-
-    move-object/from16 v1, v39
-
-    invoke-static {v3, v4, v5, v0, v1}, Lcom/android/server/am/ProcessStatsService;->parseStateList([Ljava/lang/String;ILjava/lang/String;[Z[Ljava/lang/String;)[I
-
-    move-result-object v7
-
-    .line 616
-    if-nez v7, :cond_6
-
-    .line 617
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error in \""
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    aget-object v4, p3, v44
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "\": "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aget-object v4, v39, v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 618
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
-
-    goto :goto_2
-
-    .line 621
-    :cond_6
-    const/4 v3, 0x0
-
-    aget-boolean v6, v50, v3
-
-    .line 622
-    goto/16 :goto_1
-
-    .end local v39           #error:[Ljava/lang/String;
-    .end local v50           #sep:[Z
-    :cond_7
-    const-string v3, "--csv-mem"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_a
-
-    .line 623
-    add-int/lit8 v44, v44, 0x1
-
-    .line 624
-    move-object/from16 v0, p3
-
-    array-length v3, v0
-
-    move/from16 v0, v44
-
-    if-lt v0, v3, :cond_8
-
-    .line 625
-    const-string v3, "Error: argument required for --csv-mem"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 626
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
-
-    goto :goto_2
-
-    .line 629
-    :cond_8
-    const/4 v3, 0x1
-
-    new-array v0, v3, [Z
-
-    move-object/from16 v50, v0
-
-    .line 630
-    .restart local v50       #sep:[Z
-    const/4 v3, 0x1
-
-    new-array v0, v3, [Ljava/lang/String;
-
-    move-object/from16 v39, v0
-
-    .line 631
-    .restart local v39       #error:[Ljava/lang/String;
-    sget-object v3, Lcom/android/internal/app/ProcessStats;->ADJ_MEM_NAMES_CSV:[Ljava/lang/String;
-
-    const/4 v4, 0x1
-
-    aget-object v5, p3, v44
-
-    move-object/from16 v0, v50
-
-    move-object/from16 v1, v39
-
-    invoke-static {v3, v4, v5, v0, v1}, Lcom/android/server/am/ProcessStatsService;->parseStateList([Ljava/lang/String;ILjava/lang/String;[Z[Ljava/lang/String;)[I
-
-    move-result-object v9
-
-    .line 632
-    if-nez v9, :cond_9
-
-    .line 633
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error in \""
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    aget-object v4, p3, v44
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "\": "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aget-object v4, v39, v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 634
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
-
-    goto/16 :goto_2
-
-    .line 637
-    :cond_9
-    const/4 v3, 0x0
-
-    aget-boolean v8, v50, v3
-
-    .line 638
-    goto/16 :goto_1
-
-    .end local v39           #error:[Ljava/lang/String;
-    .end local v50           #sep:[Z
-    :cond_a
-    const-string v3, "--csv-proc"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_d
-
     .line 639
-    add-int/lit8 v44, v44, 0x1
+    .restart local v39       #arg:Ljava/lang/String;
+    .restart local v48       #i:I
+    :cond_4
+    const/4 v2, 0x1
+
+    new-array v0, v2, [Z
+
+    move-object/from16 v51, v0
 
     .line 640
-    move-object/from16 v0, p3
+    .local v51, sep:[Z
+    const/4 v2, 0x1
 
-    array-length v3, v0
+    new-array v0, v2, [Ljava/lang/String;
 
-    move/from16 v0, v44
-
-    if-lt v0, v3, :cond_b
+    move-object/from16 v43, v0
 
     .line 641
-    const-string v3, "Error: argument required for --csv-proc"
+    .local v43, error:[Ljava/lang/String;
+    sget-object v2, Lcom/android/internal/app/ProcessStats;->ADJ_SCREEN_NAMES_CSV:[Ljava/lang/String;
 
-    move-object/from16 v0, p2
+    const/4 v3, 0x4
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    aget-object v4, p3, v48
 
-    .line 642
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
+    move-object/from16 v0, v51
 
-    goto/16 :goto_2
+    move-object/from16 v1, v43
 
-    .line 645
-    :cond_b
-    const/4 v3, 0x1
+    invoke-static {v2, v3, v4, v0, v1}, Lcom/android/server/am/ProcessStatsService;->parseStateList([Ljava/lang/String;ILjava/lang/String;[Z[Ljava/lang/String;)[I
 
-    new-array v0, v3, [Z
+    move-result-object v6
 
-    move-object/from16 v50, v0
+    .line 643
+    if-nez v6, :cond_5
 
-    .line 646
-    .restart local v50       #sep:[Z
-    const/4 v3, 0x1
+    .line 644
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-array v0, v3, [Ljava/lang/String;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v39, v0
+    const-string v3, "Error in \""
 
-    .line 647
-    .restart local v39       #error:[Ljava/lang/String;
-    sget-object v3, Lcom/android/internal/app/ProcessStats;->STATE_NAMES_CSV:[Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v4, 0x1
+    move-result-object v2
 
-    aget-object v5, p3, v44
+    aget-object v3, p3, v48
 
-    move-object/from16 v0, v50
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v39
+    move-result-object v2
 
-    invoke-static {v3, v4, v5, v0, v1}, Lcom/android/server/am/ProcessStatsService;->parseStateList([Ljava/lang/String;ILjava/lang/String;[Z[Ljava/lang/String;)[I
+    const-string v3, "\": "
 
-    move-result-object v11
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 648
-    if-nez v11, :cond_c
+    move-result-object v2
 
-    .line 649
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error in \""
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    aget-object v4, p3, v44
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "\": "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aget-object v4, v39, v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 650
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
-
-    goto/16 :goto_2
-
-    .line 653
-    :cond_c
     const/4 v3, 0x0
 
-    aget-boolean v10, v50, v3
+    aget-object v3, v43, v3
 
-    .line 654
-    goto/16 :goto_1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .end local v39           #error:[Ljava/lang/String;
-    .end local v50           #sep:[Z
-    :cond_d
-    const-string v3, "--details"
+    move-result-object v2
 
-    move-object/from16 v0, v33
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_e
-
-    .line 655
-    const/16 v36, 0x1
-
-    goto/16 :goto_1
-
-    .line 656
-    :cond_e
-    const-string v3, "--full-details"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_f
-
-    .line 657
-    const/16 v37, 0x1
-
-    goto/16 :goto_1
-
-    .line 658
-    :cond_f
-    const-string v3, "--hours"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_11
-
-    .line 659
-    add-int/lit8 v44, v44, 0x1
-
-    .line 660
-    move-object/from16 v0, p3
-
-    array-length v3, v0
-
-    move/from16 v0, v44
-
-    if-lt v0, v3, :cond_10
-
-    .line 661
-    const-string v3, "Error: argument required for --hours"
+    move-result-object v2
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 662
+    .line 645
+    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
+
+    goto :goto_2
+
+    .line 648
+    :cond_5
+    const/4 v2, 0x0
+
+    aget-boolean v5, v51, v2
+
+    .line 649
+    goto/16 :goto_1
+
+    .end local v43           #error:[Ljava/lang/String;
+    .end local v51           #sep:[Z
+    :cond_6
+    const-string v2, "--csv-mem"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    .line 650
+    add-int/lit8 v48, v48, 0x1
+
+    .line 651
+    move-object/from16 v0, p3
+
+    array-length v2, v0
+
+    move/from16 v0, v48
+
+    if-lt v0, v2, :cond_7
+
+    .line 652
+    const-string v2, "Error: argument required for --csv-mem"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 653
+    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
+
+    goto :goto_2
+
+    .line 656
+    :cond_7
+    const/4 v2, 0x1
+
+    new-array v0, v2, [Z
+
+    move-object/from16 v51, v0
+
+    .line 657
+    .restart local v51       #sep:[Z
+    const/4 v2, 0x1
+
+    new-array v0, v2, [Ljava/lang/String;
+
+    move-object/from16 v43, v0
+
+    .line 658
+    .restart local v43       #error:[Ljava/lang/String;
+    sget-object v2, Lcom/android/internal/app/ProcessStats;->ADJ_MEM_NAMES_CSV:[Ljava/lang/String;
+
+    const/4 v3, 0x1
+
+    aget-object v4, p3, v48
+
+    move-object/from16 v0, v51
+
+    move-object/from16 v1, v43
+
+    invoke-static {v2, v3, v4, v0, v1}, Lcom/android/server/am/ProcessStatsService;->parseStateList([Ljava/lang/String;ILjava/lang/String;[Z[Ljava/lang/String;)[I
+
+    move-result-object v8
+
+    .line 659
+    if-nez v8, :cond_8
+
+    .line 660
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Error in \""
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    aget-object v3, p3, v48
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "\": "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aget-object v3, v43, v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 661
     invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
 
     goto/16 :goto_2
 
-    .line 666
-    :cond_10
-    :try_start_0
-    aget-object v3, p3, v44
+    .line 664
+    :cond_8
+    const/4 v2, 0x0
 
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    aget-boolean v7, v51, v2
 
-    move-result v32
-
+    .line 665
     goto/16 :goto_1
 
+    .end local v43           #error:[Ljava/lang/String;
+    .end local v51           #sep:[Z
+    :cond_9
+    const-string v2, "--csv-proc"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    .line 666
+    add-int/lit8 v48, v48, 0x1
+
     .line 667
-    :catch_0
-    move-exception v38
+    move-object/from16 v0, p3
+
+    array-length v2, v0
+
+    move/from16 v0, v48
+
+    if-lt v0, v2, :cond_a
 
     .line 668
-    .local v38, e:Ljava/lang/NumberFormatException;
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error: --hours argument not an int -- "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    aget-object v4, p3, v44
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
+    const-string v2, "Error: argument required for --csv-proc"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 669
     invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
@@ -918,1375 +853,1472 @@
     goto/16 :goto_2
 
     .line 672
-    .end local v38           #e:Ljava/lang/NumberFormatException;
-    :cond_11
-    const-string v3, "--active"
+    :cond_a
+    const/4 v2, 0x1
 
-    move-object/from16 v0, v33
+    new-array v0, v2, [Z
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_12
+    move-object/from16 v51, v0
 
     .line 673
-    const/16 v22, 0x1
+    .restart local v51       #sep:[Z
+    const/4 v2, 0x1
+
+    new-array v0, v2, [Ljava/lang/String;
+
+    move-object/from16 v43, v0
 
     .line 674
-    const/16 v35, 0x1
+    .restart local v43       #error:[Ljava/lang/String;
+    sget-object v2, Lcom/android/internal/app/ProcessStats;->STATE_NAMES_CSV:[Ljava/lang/String;
 
-    goto/16 :goto_1
-
-    .line 675
-    :cond_12
-    const-string v3, "--current"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_13
-
-    .line 676
-    const/16 v35, 0x1
-
-    goto/16 :goto_1
-
-    .line 677
-    :cond_13
-    const-string v3, "--commit"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_14
-
-    .line 678
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
-
-    monitor-enter v4
-
-    .line 679
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
-
-    iget v5, v3, Lcom/android/internal/app/ProcessStats;->mFlags:I
-
-    or-int/lit8 v5, v5, 0x1
-
-    iput v5, v3, Lcom/android/internal/app/ProcessStats;->mFlags:I
-
-    .line 680
     const/4 v3, 0x1
 
-    const/4 v5, 0x1
+    aget-object v4, p3, v48
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v51
 
-    invoke-virtual {v0, v3, v5}, Lcom/android/server/am/ProcessStatsService;->writeStateLocked(ZZ)V
+    move-object/from16 v1, v43
 
-    .line 681
-    const-string v3, "Process stats committed."
+    invoke-static {v2, v3, v4, v0, v1}, Lcom/android/server/am/ProcessStatsService;->parseStateList([Ljava/lang/String;ILjava/lang/String;[Z[Ljava/lang/String;)[I
+
+    move-result-object v10
+
+    .line 675
+    if-nez v10, :cond_b
+
+    .line 676
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Error in \""
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    aget-object v3, p3, v48
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "\": "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aget-object v3, v43, v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 677
+    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
+
+    goto/16 :goto_2
+
+    .line 680
+    :cond_b
+    const/4 v2, 0x0
+
+    aget-boolean v9, v51, v2
+
+    .line 681
+    goto/16 :goto_1
+
+    .end local v43           #error:[Ljava/lang/String;
+    .end local v51           #sep:[Z
+    :cond_c
+    const-string v2, "--details"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
 
     .line 682
-    monitor-exit v4
+    const/16 v22, 0x1
+
+    goto/16 :goto_1
+
+    .line 683
+    :cond_d
+    const-string v2, "--full-details"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_e
+
+    .line 684
+    const/16 v23, 0x1
+
+    goto/16 :goto_1
+
+    .line 685
+    :cond_e
+    const-string v2, "--hours"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_10
+
+    .line 686
+    add-int/lit8 v48, v48, 0x1
+
+    .line 687
+    move-object/from16 v0, p3
+
+    array-length v2, v0
+
+    move/from16 v0, v48
+
+    if-lt v0, v2, :cond_f
+
+    .line 688
+    const-string v2, "Error: argument required for --hours"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 689
+    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
+
+    goto/16 :goto_2
+
+    .line 693
+    :cond_f
+    :try_start_0
+    aget-object v2, p3, v48
+
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v38
+
+    goto/16 :goto_1
+
+    .line 694
+    :catch_0
+    move-exception v42
+
+    .line 695
+    .local v42, e:Ljava/lang/NumberFormatException;
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Error: --hours argument not an int -- "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    aget-object v3, p3, v48
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 696
+    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
+
+    goto/16 :goto_2
+
+    .line 699
+    .end local v42           #e:Ljava/lang/NumberFormatException;
+    :cond_10
+    const-string v2, "--active"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_11
+
+    .line 700
+    const/16 v25, 0x1
+
+    .line 701
+    const/16 v41, 0x1
+
+    goto/16 :goto_1
+
+    .line 702
+    :cond_11
+    const-string v2, "--current"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_12
+
+    .line 703
+    const/16 v41, 0x1
+
+    goto/16 :goto_1
+
+    .line 704
+    :cond_12
+    const-string v2, "--commit"
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_13
+
+    .line 705
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v3
+
+    .line 706
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+
+    iget v4, v2, Lcom/android/internal/app/ProcessStats;->mFlags:I
+
+    or-int/lit8 v4, v4, 0x1
+
+    iput v4, v2, Lcom/android/internal/app/ProcessStats;->mFlags:I
+
+    .line 707
+    const/4 v2, 0x1
+
+    const/4 v4, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2, v4}, Lcom/android/server/am/ProcessStatsService;->writeStateLocked(ZZ)V
+
+    .line 708
+    const-string v2, "Process stats committed."
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 709
+    monitor-exit v3
 
     goto/16 :goto_2
 
     :catchall_0
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v3
+    throw v2
 
-    .line 684
-    :cond_14
-    const-string v3, "--reset"
+    .line 711
+    :cond_13
+    const-string v2, "--reset"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_15
+    if-eqz v2, :cond_14
 
-    .line 685
+    .line 712
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v4
+    monitor-enter v3
 
-    .line 686
+    .line 713
     :try_start_2
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
-    invoke-virtual {v3}, Lcom/android/internal/app/ProcessStats;->resetSafely()V
+    invoke-virtual {v2}, Lcom/android/internal/app/ProcessStats;->resetSafely()V
 
-    .line 687
-    const-string v3, "Process stats reset."
+    .line 714
+    const-string v2, "Process stats reset."
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 688
-    monitor-exit v4
+    .line 715
+    monitor-exit v3
 
     goto/16 :goto_2
 
     :catchall_1
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v3
+    throw v2
 
-    .line 690
-    :cond_15
-    const-string v3, "--clear"
+    .line 717
+    :cond_14
+    const-string v2, "--clear"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_17
+    if-eqz v2, :cond_16
 
-    .line 691
+    .line 718
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v4
+    monitor-enter v3
 
-    .line 692
+    .line 719
     :try_start_3
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
-    invoke-virtual {v3}, Lcom/android/internal/app/ProcessStats;->resetSafely()V
+    invoke-virtual {v2}, Lcom/android/internal/app/ProcessStats;->resetSafely()V
 
-    .line 693
-    const/4 v3, 0x0
+    .line 720
+    const/4 v2, 0x0
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/16 v16, 0x1
+    const/4 v15, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v16
+    invoke-direct {v0, v2, v4, v15}, Lcom/android/server/am/ProcessStatsService;->getCommittedFiles(IZZ)Ljava/util/ArrayList;
 
-    invoke-direct {v0, v3, v5, v1}, Lcom/android/server/am/ProcessStatsService;->getCommittedFiles(IZZ)Ljava/util/ArrayList;
+    move-result-object v47
 
-    move-result-object v43
+    .line 721
+    .local v47, files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    if-eqz v47, :cond_15
 
-    .line 694
-    .local v43, files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-eqz v43, :cond_16
+    .line 722
+    const/16 v44, 0x0
 
-    .line 695
-    const/16 v40, 0x0
-
-    .local v40, fi:I
+    .local v44, fi:I
     :goto_3
-    invoke-virtual/range {v43 .. v43}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v47 .. v47}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v2
 
-    move/from16 v0, v40
+    move/from16 v0, v44
 
-    if-ge v0, v3, :cond_16
+    if-ge v0, v2, :cond_15
 
-    .line 696
-    new-instance v5, Ljava/io/File;
+    .line 723
+    new-instance v4, Ljava/io/File;
 
-    move-object/from16 v0, v43
+    move-object/from16 v0, v47
 
-    move/from16 v1, v40
+    move/from16 v1, v44
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-direct {v5, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5}, Ljava/io/File;->delete()Z
+    invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 695
-    add-int/lit8 v40, v40, 0x1
+    .line 722
+    add-int/lit8 v44, v44, 0x1
 
     goto :goto_3
 
-    .line 699
-    .end local v40           #fi:I
-    :cond_16
-    const-string v3, "All process stats cleared."
+    .line 726
+    .end local v44           #fi:I
+    :cond_15
+    const-string v2, "All process stats cleared."
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 700
-    monitor-exit v4
+    .line 727
+    monitor-exit v3
 
     goto/16 :goto_2
 
-    .end local v43           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v47           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     :catchall_2
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v3
+    throw v2
 
-    .line 702
-    :cond_17
-    const-string v3, "--write"
+    .line 729
+    :cond_16
+    const-string v2, "--write"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_18
+    if-eqz v2, :cond_17
 
-    .line 703
+    .line 730
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v4
+    monitor-enter v3
 
-    .line 704
+    .line 731
     :try_start_4
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/ProcessStatsService;->writeStateSyncLocked()V
 
-    .line 705
-    const-string v3, "Process stats written."
+    .line 732
+    const-string v2, "Process stats written."
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 706
-    monitor-exit v4
+    .line 733
+    monitor-exit v3
 
     goto/16 :goto_2
 
     :catchall_3
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
-    throw v3
+    throw v2
 
-    .line 708
-    :cond_18
-    const-string v3, "--read"
+    .line 735
+    :cond_17
+    const-string v2, "--read"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_19
+    if-eqz v2, :cond_18
 
-    .line 709
+    .line 736
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v4
+    monitor-enter v3
 
-    .line 710
+    .line 737
     :try_start_5
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/server/am/ProcessStatsService;->mFile:Landroid/util/AtomicFile;
+    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mFile:Landroid/util/AtomicFile;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3, v5}, Lcom/android/server/am/ProcessStatsService;->readLocked(Lcom/android/internal/app/ProcessStats;Landroid/util/AtomicFile;)Z
+    invoke-virtual {v0, v2, v4}, Lcom/android/server/am/ProcessStatsService;->readLocked(Lcom/android/internal/app/ProcessStats;Landroid/util/AtomicFile;)Z
 
-    .line 711
-    const-string v3, "Process stats read."
+    .line 738
+    const-string v2, "Process stats read."
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 712
-    monitor-exit v4
+    .line 739
+    monitor-exit v3
 
     goto/16 :goto_2
 
     :catchall_4
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_4
 
-    throw v3
+    throw v2
 
-    .line 714
-    :cond_19
-    const-string v3, "-h"
+    .line 741
+    :cond_18
+    const-string v2, "-h"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1a
+    if-eqz v2, :cond_19
 
-    .line 715
+    .line 742
     invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
 
     goto/16 :goto_2
 
-    .line 717
-    :cond_1a
-    const-string v3, "-a"
+    .line 744
+    :cond_19
+    const-string v2, "-a"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v39
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1b
+    if-eqz v2, :cond_1a
 
-    .line 718
-    const/16 v36, 0x1
+    .line 745
+    const/16 v22, 0x1
 
-    .line 719
-    const/16 v21, 0x1
+    .line 746
+    const/16 v24, 0x1
 
     goto/16 :goto_1
 
-    .line 720
-    :cond_1b
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    if-lez v3, :cond_1c
-
-    const/4 v3, 0x0
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    const/16 v4, 0x2d
-
-    if-ne v3, v4, :cond_1c
-
-    .line 721
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Unknown option: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 722
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
-
-    goto/16 :goto_2
-
-    .line 727
-    :cond_1c
-    :try_start_6
-    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
-
-    move-result-object v49
-
-    .line 728
-    .local v49, pm:Landroid/content/pm/IPackageManager;
-    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
-
-    move-result v3
-
-    move-object/from16 v0, v49
-
-    move-object/from16 v1, v33
-
-    invoke-interface {v0, v1, v3}, Landroid/content/pm/IPackageManager;->getPackageUid(Ljava/lang/String;I)I
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_2
-
-    move-result v3
-
-    if-ltz v3, :cond_1d
-
-    .line 729
-    move-object/from16 v14, v33
-
-    .line 734
-    const/16 v36, 0x1
-
-    .line 738
-    .end local v49           #pm:Landroid/content/pm/IPackageManager;
-    :cond_1d
-    :goto_4
-    if-nez v14, :cond_0
-
-    .line 739
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Unknown package: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 740
-    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
-
-    goto/16 :goto_2
-
     .line 747
-    .end local v33           #arg:Ljava/lang/String;
-    .end local v44           #i:I
-    :cond_1e
-    if-eqz v47, :cond_22
+    :cond_1a
+    invoke-virtual/range {v39 .. v39}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_1b
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    const/16 v3, 0x2d
+
+    if-ne v2, v3, :cond_1b
 
     .line 748
-    const-string v3, "Processes running summed over"
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Unknown option: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 749
-    if-nez v6, :cond_1f
+    invoke-static/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
 
-    .line 750
-    const/16 v44, 0x0
+    goto/16 :goto_2
 
-    .restart local v44       #i:I
+    .line 753
+    :cond_1b
+    move-object/from16 v13, v39
+
+    .line 758
+    const/16 v22, 0x1
+
+    goto/16 :goto_1
+
+    .line 763
+    .end local v39           #arg:Ljava/lang/String;
+    .end local v48           #i:I
+    :cond_1c
+    if-eqz v50, :cond_20
+
+    .line 764
+    const-string v2, "Processes running summed over"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 765
+    if-nez v5, :cond_1d
+
+    .line 766
+    const/16 v48, 0x0
+
+    .restart local v48       #i:I
+    :goto_4
+    array-length v2, v6
+
+    move/from16 v0, v48
+
+    if-ge v0, v2, :cond_1d
+
+    .line 767
+    const-string v2, " "
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 768
+    aget v2, v6, v48
+
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v2}, Lcom/android/internal/app/ProcessStats;->printScreenLabelCsv(Ljava/io/PrintWriter;I)V
+
+    .line 766
+    add-int/lit8 v48, v48, 0x1
+
+    goto :goto_4
+
+    .line 771
+    .end local v48           #i:I
+    :cond_1d
+    if-nez v7, :cond_1e
+
+    .line 772
+    const/16 v48, 0x0
+
+    .restart local v48       #i:I
     :goto_5
-    array-length v3, v7
+    array-length v2, v8
 
-    move/from16 v0, v44
+    move/from16 v0, v48
 
-    if-ge v0, v3, :cond_1f
+    if-ge v0, v2, :cond_1e
 
-    .line 751
-    const-string v3, " "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 752
-    aget v3, v7, v44
+    .line 773
+    const-string v2, " "
 
     move-object/from16 v0, p2
 
-    invoke-static {v0, v3}, Lcom/android/internal/app/ProcessStats;->printScreenLabelCsv(Ljava/io/PrintWriter;I)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 750
-    add-int/lit8 v44, v44, 0x1
+    .line 774
+    aget v2, v8, v48
+
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v2}, Lcom/android/internal/app/ProcessStats;->printMemLabelCsv(Ljava/io/PrintWriter;I)V
+
+    .line 772
+    add-int/lit8 v48, v48, 0x1
 
     goto :goto_5
 
-    .line 755
-    .end local v44           #i:I
-    :cond_1f
-    if-nez v8, :cond_20
+    .line 777
+    .end local v48           #i:I
+    :cond_1e
+    if-nez v9, :cond_1f
 
-    .line 756
-    const/16 v44, 0x0
+    .line 778
+    const/16 v48, 0x0
 
-    .restart local v44       #i:I
+    .restart local v48       #i:I
     :goto_6
-    array-length v3, v9
+    array-length v2, v10
 
-    move/from16 v0, v44
+    move/from16 v0, v48
 
-    if-ge v0, v3, :cond_20
+    if-ge v0, v2, :cond_1f
 
-    .line 757
-    const-string v3, " "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 758
-    aget v3, v9, v44
+    .line 779
+    const-string v2, " "
 
     move-object/from16 v0, p2
 
-    invoke-static {v0, v3}, Lcom/android/internal/app/ProcessStats;->printMemLabelCsv(Ljava/io/PrintWriter;I)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 756
-    add-int/lit8 v44, v44, 0x1
+    .line 780
+    sget-object v2, Lcom/android/internal/app/ProcessStats;->STATE_NAMES_CSV:[Ljava/lang/String;
+
+    aget v3, v10, v48
+
+    aget-object v2, v2, v3
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 778
+    add-int/lit8 v48, v48, 0x1
 
     goto :goto_6
 
-    .line 761
-    .end local v44           #i:I
-    :cond_20
-    if-nez v10, :cond_21
-
-    .line 762
-    const/16 v44, 0x0
-
-    .restart local v44       #i:I
-    :goto_7
-    array-length v3, v11
-
-    move/from16 v0, v44
-
-    if-ge v0, v3, :cond_21
-
-    .line 763
-    const-string v3, " "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 764
-    sget-object v3, Lcom/android/internal/app/ProcessStats;->STATE_NAMES_CSV:[Ljava/lang/String;
-
-    aget v4, v11, v44
-
-    aget-object v3, v3, v4
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 762
-    add-int/lit8 v44, v44, 0x1
-
-    goto :goto_7
-
-    .line 767
-    .end local v44           #i:I
-    :cond_21
+    .line 783
+    .end local v48           #i:I
+    :cond_1f
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
 
-    .line 768
+    .line 784
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object v15, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v16, v0
+    monitor-enter v15
 
-    monitor-enter v16
+    .line 785
+    const/4 v4, 0x0
 
-    .line 769
-    const/4 v5, 0x0
+    move-object/from16 v2, p0
 
-    move-object/from16 v3, p0
+    move-object/from16 v3, p2
 
-    move-object/from16 v4, p2
+    :try_start_6
+    invoke-virtual/range {v2 .. v13}, Lcom/android/server/am/ProcessStatsService;->dumpFilteredProcessesCsvLocked(Ljava/io/PrintWriter;Ljava/lang/String;Z[IZ[IZ[IJLjava/lang/String;)Z
 
-    :try_start_7
-    invoke-virtual/range {v3 .. v14}, Lcom/android/server/am/ProcessStatsService;->dumpFilteredProcessesCsvLocked(Ljava/io/PrintWriter;Ljava/lang/String;Z[IZ[IZ[IJLjava/lang/String;)Z
-
-    .line 789
-    monitor-exit v16
+    .line 805
+    monitor-exit v15
 
     goto/16 :goto_2
 
     :catchall_5
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v16
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_5
+    monitor-exit v15
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_5
 
-    throw v3
+    throw v2
 
-    .line 791
-    :cond_22
-    if-eqz v32, :cond_29
-
-    .line 792
-    mul-int/lit8 v3, v32, 0x3c
-
-    mul-int/lit8 v3, v3, 0x3c
-
-    mul-int/lit16 v3, v3, 0x3e8
-
-    int-to-long v3, v3
-
-    sget-wide v16, Lcom/android/internal/app/ProcessStats;->COMMIT_PERIOD:J
-
-    const-wide/16 v18, 0x2
-
-    div-long v16, v16, v18
-
-    sub-long v3, v3, v16
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v3, v4}, Lcom/android/server/am/ProcessStatsService;->getStatsOverTime(J)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v48
-
-    .line 794
-    .local v48, pfd:Landroid/os/ParcelFileDescriptor;
-    if-nez v48, :cond_23
-
-    .line 795
-    const-string v3, "Unable to build stats!"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto/16 :goto_2
-
-    .line 798
-    :cond_23
-    new-instance v15, Lcom/android/internal/app/ProcessStats;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v15, v3}, Lcom/android/internal/app/ProcessStats;-><init>(Z)V
-
-    .line 799
-    .local v15, stats:Lcom/android/internal/app/ProcessStats;
-    new-instance v52, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
-
-    move-object/from16 v0, v52
-
-    move-object/from16 v1, v48
-
-    invoke-direct {v0, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
-
-    .line 800
-    .local v52, stream:Ljava/io/InputStream;
-    move-object/from16 v0, v52
-
-    invoke-virtual {v15, v0}, Lcom/android/internal/app/ProcessStats;->read(Ljava/io/InputStream;)V
-
-    .line 801
-    iget-object v3, v15, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
-
-    if-eqz v3, :cond_24
-
-    .line 802
-    const-string v3, "Failure reading: "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v3, v15, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto/16 :goto_2
-
-    .line 805
-    :cond_24
-    if-eqz v46, :cond_25
-
-    .line 806
-    move-object/from16 v0, p2
-
-    invoke-virtual {v15, v0, v14}, Lcom/android/internal/app/ProcessStats;->dumpCheckinLocked(Ljava/io/PrintWriter;Ljava/lang/String;)V
-
-    goto/16 :goto_2
+    .line 807
+    :cond_20
+    if-eqz v38, :cond_21
 
     .line 808
-    :cond_25
-    if-nez v36, :cond_26
+    const-string v2, "AGGREGATED OVER LAST "
 
-    if-eqz v37, :cond_28
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p2
+
+    move/from16 v1, v38
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(I)V
+
+    const-string v2, " HOURS:"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 809
-    :cond_26
-    if-nez v37, :cond_27
+    move/from16 v0, v38
 
-    const/16 v20, 0x1
+    int-to-long v0, v0
 
-    :goto_8
-    move-object/from16 v16, p2
+    move-wide/from16 v16, v0
 
-    move-object/from16 v17, v14
+    move-object/from16 v14, p0
 
-    move-wide/from16 v18, v12
+    move-object/from16 v15, p2
 
-    invoke-virtual/range {v15 .. v22}, Lcom/android/internal/app/ProcessStats;->dumpLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZZZ)V
+    move-wide/from16 v18, v11
+
+    move-object/from16 v20, v13
+
+    invoke-direct/range {v14 .. v25}, Lcom/android/server/am/ProcessStatsService;->dumpAggregatedStats(Ljava/io/PrintWriter;JJLjava/lang/String;ZZZZZ)V
 
     goto/16 :goto_2
 
-    :cond_27
-    const/16 v20, 0x0
+    .line 814
+    :cond_21
+    const/16 v52, 0x0
+
+    .line 815
+    .local v52, sepNeeded:Z
+    if-nez v24, :cond_22
+
+    if-eqz v49, :cond_2e
+
+    .line 816
+    :cond_22
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
+
+    .line 818
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    if-nez v49, :cond_26
+
+    const/4 v2, 0x1
+
+    :goto_7
+    :try_start_7
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3, v4, v2}, Lcom/android/server/am/ProcessStatsService;->getCommittedFiles(IZZ)Ljava/util/ArrayList;
+
+    move-result-object v47
+
+    .line 819
+    .restart local v47       #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    if-eqz v47, :cond_2d
+
+    .line 820
+    const/16 v48, 0x0
+
+    .restart local v48       #i:I
+    :goto_8
+    invoke-virtual/range {v47 .. v47}, Ljava/util/ArrayList;->size()I
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_6
+
+    move-result v2
+
+    move/from16 v0, v48
+
+    if-ge v0, v2, :cond_2d
+
+    .line 823
+    :try_start_8
+    new-instance v45, Landroid/util/AtomicFile;
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-virtual/range {v47 .. v48}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-direct {v3, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v45
+
+    invoke-direct {v0, v3}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+
+    .line 824
+    .local v45, file:Landroid/util/AtomicFile;
+    new-instance v14, Lcom/android/internal/app/ProcessStats;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v14, v2}, Lcom/android/internal/app/ProcessStats;-><init>(Z)V
+
+    .line 825
+    .local v14, processStats:Lcom/android/internal/app/ProcessStats;
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v45
+
+    invoke-virtual {v0, v14, v1}, Lcom/android/server/am/ProcessStatsService;->readLocked(Lcom/android/internal/app/ProcessStats;Landroid/util/AtomicFile;)Z
+
+    .line 826
+    iget-object v2, v14, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
+
+    if-eqz v2, :cond_27
+
+    .line 827
+    if-nez v49, :cond_23
+
+    if-eqz v21, :cond_24
+
+    :cond_23
+    const-string v2, "err,"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 828
+    :cond_24
+    const-string v2, "Failure reading "
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual/range {v47 .. v48}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 829
+    const-string v2, "; "
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v2, v14, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 831
+    new-instance v3, Ljava/io/File;
+
+    invoke-virtual/range {v47 .. v48}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-direct {v3, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+
+    .line 820
+    .end local v14           #processStats:Lcom/android/internal/app/ProcessStats;
+    .end local v45           #file:Landroid/util/AtomicFile;
+    :cond_25
+    :goto_9
+    add-int/lit8 v48, v48, 0x1
 
     goto :goto_8
 
-    :cond_28
-    move-object/from16 v16, p2
-
-    move-object/from16 v17, v14
-
-    move-wide/from16 v18, v12
-
-    move/from16 v20, v22
-
-    .line 811
-    invoke-virtual/range {v15 .. v20}, Lcom/android/internal/app/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
-
-    goto/16 :goto_2
-
-    .line 817
-    .end local v15           #stats:Lcom/android/internal/app/ProcessStats;
-    .end local v48           #pfd:Landroid/os/ParcelFileDescriptor;
-    .end local v52           #stream:Ljava/io/InputStream;
-    :cond_29
-    const/16 v51, 0x0
-
     .line 818
-    .local v51, sepNeeded:Z
-    if-eqz v35, :cond_2a
+    .end local v47           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v48           #i:I
+    :cond_26
+    const/4 v2, 0x0
 
-    if-eqz v45, :cond_36
-
-    .line 819
-    :cond_2a
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
-
-    .line 821
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    if-nez v45, :cond_2e
-
-    const/4 v3, 0x1
-
-    :goto_9
-    :try_start_8
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v4, v5, v3}, Lcom/android/server/am/ProcessStatsService;->getCommittedFiles(IZZ)Ljava/util/ArrayList;
-
-    move-result-object v43
-
-    .line 822
-    .restart local v43       #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-eqz v43, :cond_35
-
-    .line 823
-    const/16 v44, 0x0
-
-    .restart local v44       #i:I
-    :goto_a
-    invoke-virtual/range {v43 .. v43}, Ljava/util/ArrayList;->size()I
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_6
-
-    move-result v3
-
-    move/from16 v0, v44
-
-    if-ge v0, v3, :cond_35
-
-    .line 826
-    :try_start_9
-    new-instance v41, Landroid/util/AtomicFile;
-
-    new-instance v4, Ljava/io/File;
-
-    invoke-virtual/range {v43 .. v44}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    invoke-direct {v4, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    move-object/from16 v0, v41
-
-    invoke-direct {v0, v4}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
-
-    .line 827
-    .local v41, file:Landroid/util/AtomicFile;
-    new-instance v23, Lcom/android/internal/app/ProcessStats;
-
-    const/4 v3, 0x0
-
-    move-object/from16 v0, v23
-
-    invoke-direct {v0, v3}, Lcom/android/internal/app/ProcessStats;-><init>(Z)V
-
-    .line 828
-    .local v23, processStats:Lcom/android/internal/app/ProcessStats;
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    move-object/from16 v2, v41
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessStatsService;->readLocked(Lcom/android/internal/app/ProcessStats;Landroid/util/AtomicFile;)Z
-
-    .line 829
-    move-object/from16 v0, v23
-
-    iget-object v3, v0, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
-
-    if-eqz v3, :cond_2f
-
-    .line 830
-    if-nez v45, :cond_2b
-
-    if-eqz v46, :cond_2c
-
-    :cond_2b
-    const-string v3, "err,"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 831
-    :cond_2c
-    const-string v3, "Failure reading "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual/range {v43 .. v44}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 832
-    const-string v3, "; "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, v23
-
-    iget-object v3, v0, Lcom/android/internal/app/ProcessStats;->mReadError:Ljava/lang/String;
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    goto :goto_7
 
     .line 834
-    new-instance v4, Ljava/io/File;
+    .restart local v14       #processStats:Lcom/android/internal/app/ProcessStats;
+    .restart local v45       #file:Landroid/util/AtomicFile;
+    .restart local v47       #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v48       #i:I
+    :cond_27
+    invoke-virtual/range {v45 .. v45}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
 
-    invoke-virtual/range {v43 .. v44}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    check-cast v3, Ljava/lang/String;
+    move-result-object v46
 
-    invoke-direct {v4, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    .line 835
+    .local v46, fileStr:Ljava/lang/String;
+    const-string v2, ".ci"
 
-    invoke-virtual {v4}, Ljava/io/File;->delete()Z
+    move-object/from16 v0, v46
 
-    .line 823
-    .end local v23           #processStats:Lcom/android/internal/app/ProcessStats;
-    .end local v41           #file:Landroid/util/AtomicFile;
-    :cond_2d
-    :goto_b
-    add-int/lit8 v44, v44, 0x1
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    goto :goto_a
+    move-result v40
 
-    .line 821
-    .end local v43           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v44           #i:I
-    :cond_2e
-    const/4 v3, 0x0
+    .line 836
+    .local v40, checkedIn:Z
+    if-nez v49, :cond_28
+
+    if-eqz v21, :cond_29
+
+    .line 838
+    :cond_28
+    move-object/from16 v0, p2
+
+    invoke-virtual {v14, v0, v13}, Lcom/android/internal/app/ProcessStats;->dumpCheckinLocked(Ljava/io/PrintWriter;Ljava/lang/String;)V
+
+    .line 859
+    :goto_a
+    if-eqz v49, :cond_25
+
+    .line 861
+    invoke-virtual/range {v45 .. v45}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/io/File;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v46
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v15, ".ci"
+
+    invoke-virtual {v4, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_6
+    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_1
 
     goto :goto_9
 
-    .line 837
-    .restart local v23       #processStats:Lcom/android/internal/app/ProcessStats;
-    .restart local v41       #file:Landroid/util/AtomicFile;
-    .restart local v43       #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .restart local v44       #i:I
-    :cond_2f
-    invoke-virtual/range {v41 .. v41}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v42
-
-    .line 838
-    .local v42, fileStr:Ljava/lang/String;
-    const-string v3, ".ci"
-
-    move-object/from16 v0, v42
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v34
-
-    .line 839
-    .local v34, checkedIn:Z
-    if-nez v45, :cond_30
-
-    if-eqz v46, :cond_31
-
-    .line 841
-    :cond_30
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p2
-
-    invoke-virtual {v0, v1, v14}, Lcom/android/internal/app/ProcessStats;->dumpCheckinLocked(Ljava/io/PrintWriter;Ljava/lang/String;)V
-
-    .line 862
-    .end local v23           #processStats:Lcom/android/internal/app/ProcessStats;
-    :goto_c
-    if-eqz v45, :cond_2d
-
     .line 864
-    invoke-virtual/range {v41 .. v41}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/io/File;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v42
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v16, ".ci"
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v4}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_6
-    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_1
-
-    goto :goto_b
-
-    .line 867
-    .end local v34           #checkedIn:Z
-    .end local v41           #file:Landroid/util/AtomicFile;
-    .end local v42           #fileStr:Ljava/lang/String;
+    .end local v14           #processStats:Lcom/android/internal/app/ProcessStats;
+    .end local v40           #checkedIn:Z
+    .end local v45           #file:Landroid/util/AtomicFile;
+    .end local v46           #fileStr:Ljava/lang/String;
     :catch_1
-    move-exception v38
+    move-exception v42
 
-    .line 868
-    .local v38, e:Ljava/lang/Throwable;
-    :try_start_a
-    const-string v3, "**** FAILURE DUMPING STATE: "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual/range {v43 .. v44}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
+    .line 865
+    .local v42, e:Ljava/lang/Throwable;
+    :try_start_9
+    const-string v2, "**** FAILURE DUMPING STATE: "
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 869
-    move-object/from16 v0, v38
+    invoke-virtual/range {v47 .. v48}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 866
+    move-object/from16 v0, v42
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_6
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_6
 
-    goto :goto_b
+    goto :goto_9
 
-    .line 874
-    .end local v38           #e:Ljava/lang/Throwable;
-    .end local v43           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v44           #i:I
+    .line 871
+    .end local v42           #e:Ljava/lang/Throwable;
+    .end local v47           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v48           #i:I
     :catchall_6
-    move-exception v3
+    move-exception v2
 
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
-
-    throw v3
-
-    .line 843
-    .restart local v23       #processStats:Lcom/android/internal/app/ProcessStats;
-    .restart local v34       #checkedIn:Z
-    .restart local v41       #file:Landroid/util/AtomicFile;
-    .restart local v42       #fileStr:Ljava/lang/String;
-    .restart local v43       #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .restart local v44       #i:I
-    :cond_31
-    if-eqz v51, :cond_33
-
-    .line 844
-    :try_start_b
-    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
-
-    .line 848
-    :goto_d
-    const-string v3, "COMMITTED STATS FROM "
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 849
-    move-object/from16 v0, v23
-
-    iget-object v3, v0, Lcom/android/internal/app/ProcessStats;->mTimePeriodStartClockStr:Ljava/lang/String;
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 850
-    if-eqz v34, :cond_32
-
-    const-string v3, " (checked in)"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 851
-    :cond_32
-    const-string v3, ":"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 855
-    if-eqz v37, :cond_34
-
-    .line 856
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
-
-    move-object/from16 v23, v0
-
-    .end local v23           #processStats:Lcom/android/internal/app/ProcessStats;
-    const/16 v28, 0x0
-
-    const/16 v29, 0x0
-
-    move-object/from16 v24, p2
-
-    move-object/from16 v25, v14
-
-    move-wide/from16 v26, v12
-
-    move/from16 v30, v22
-
-    invoke-virtual/range {v23 .. v30}, Lcom/android/internal/app/ProcessStats;->dumpLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZZZ)V
-
-    goto/16 :goto_c
-
-    .line 846
-    .restart local v23       #processStats:Lcom/android/internal/app/ProcessStats;
-    :cond_33
-    const/16 v51, 0x1
-
-    goto :goto_d
-
-    :cond_34
-    move-object/from16 v24, p2
-
-    move-object/from16 v25, v14
-
-    move-wide/from16 v26, v12
-
-    move/from16 v28, v22
-
-    .line 859
-    invoke-virtual/range {v23 .. v28}, Lcom/android/internal/app/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_6
-    .catch Ljava/lang/Throwable; {:try_start_b .. :try_end_b} :catch_1
-
-    goto/16 :goto_c
-
-    .line 874
-    .end local v23           #processStats:Lcom/android/internal/app/ProcessStats;
-    .end local v34           #checkedIn:Z
-    .end local v41           #file:Landroid/util/AtomicFile;
-    .end local v42           #fileStr:Ljava/lang/String;
-    .end local v44           #i:I
-    :cond_35
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 877
-    .end local v43           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :cond_36
-    if-nez v45, :cond_4
+    throw v2
 
-    .line 878
-    move-object/from16 v0, p0
+    .line 840
+    .restart local v14       #processStats:Lcom/android/internal/app/ProcessStats;
+    .restart local v40       #checkedIn:Z
+    .restart local v45       #file:Landroid/util/AtomicFile;
+    .restart local v46       #fileStr:Ljava/lang/String;
+    .restart local v47       #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v48       #i:I
+    :cond_29
+    if-eqz v52, :cond_2b
 
-    iget-object v4, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+    .line 841
+    :try_start_a
+    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
 
-    monitor-enter v4
-
-    .line 879
-    if-eqz v46, :cond_38
-
-    .line 880
-    :try_start_c
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+    .line 845
+    :goto_b
+    const-string v2, "COMMITTED STATS FROM "
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v3, v0, v14}, Lcom/android/internal/app/ProcessStats;->dumpCheckinLocked(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 896
-    :cond_37
-    :goto_e
-    monitor-exit v4
+    .line 846
+    iget-object v2, v14, Lcom/android/internal/app/ProcessStats;->mTimePeriodStartClockStr:Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 847
+    if-eqz v40, :cond_2a
+
+    const-string v2, " (checked in)"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 848
+    :cond_2a
+    const-string v2, ":"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 852
+    if-eqz v23, :cond_2c
+
+    .line 853
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+
+    move-object/from16 v26, v0
+
+    const/16 v31, 0x0
+
+    const/16 v32, 0x0
+
+    move-object/from16 v27, p2
+
+    move-object/from16 v28, v13
+
+    move-wide/from16 v29, v11
+
+    move/from16 v33, v25
+
+    invoke-virtual/range {v26 .. v33}, Lcom/android/internal/app/ProcessStats;->dumpLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZZZ)V
+
+    goto/16 :goto_a
+
+    .line 843
+    :cond_2b
+    const/16 v52, 0x1
+
+    goto :goto_b
+
+    :cond_2c
+    move-object/from16 v15, p2
+
+    move-object/from16 v16, v13
+
+    move-wide/from16 v17, v11
+
+    move/from16 v19, v25
+
+    .line 856
+    invoke-virtual/range {v14 .. v19}, Lcom/android/internal/app/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_6
+    .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_1
+
+    goto/16 :goto_a
+
+    .line 871
+    .end local v14           #processStats:Lcom/android/internal/app/ProcessStats;
+    .end local v40           #checkedIn:Z
+    .end local v45           #file:Landroid/util/AtomicFile;
+    .end local v46           #fileStr:Ljava/lang/String;
+    .end local v48           #i:I
+    :cond_2d
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    .line 874
+    .end local v47           #files:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :cond_2e
+    if-nez v49, :cond_3
+
+    .line 875
+    if-nez v41, :cond_30
+
+    .line 876
+    if-eqz v52, :cond_2f
+
+    .line 877
+    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
+
+    .line 879
+    :cond_2f
+    const-string v2, "AGGREGATED OVER LAST 24 HOURS:"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 880
+    const-wide/16 v28, 0x18
+
+    move-object/from16 v26, p0
+
+    move-object/from16 v27, p2
+
+    move-wide/from16 v30, v11
+
+    move-object/from16 v32, v13
+
+    move/from16 v33, v21
+
+    move/from16 v34, v22
+
+    move/from16 v35, v23
+
+    move/from16 v36, v24
+
+    move/from16 v37, v25
+
+    invoke-direct/range {v26 .. v37}, Lcom/android/server/am/ProcessStatsService;->dumpAggregatedStats(Ljava/io/PrintWriter;JJLjava/lang/String;ZZZZZ)V
+
+    .line 882
+    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
+
+    .line 883
+    const-string v2, "AGGREGATED OVER LAST 3 HOURS:"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 884
+    const-wide/16 v28, 0x3
+
+    move-object/from16 v26, p0
+
+    move-object/from16 v27, p2
+
+    move-wide/from16 v30, v11
+
+    move-object/from16 v32, v13
+
+    move/from16 v33, v21
+
+    move/from16 v34, v22
+
+    move/from16 v35, v23
+
+    move/from16 v36, v24
+
+    move/from16 v37, v25
+
+    invoke-direct/range {v26 .. v37}, Lcom/android/server/am/ProcessStatsService;->dumpAggregatedStats(Ljava/io/PrintWriter;JJLjava/lang/String;ZZZZZ)V
+
+    .line 886
+    const/16 v52, 0x1
+
+    .line 888
+    :cond_30
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v3
+
+    .line 889
+    if-eqz v21, :cond_32
+
+    .line 890
+    :try_start_b
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v0, v13}, Lcom/android/internal/app/ProcessStats;->dumpCheckinLocked(Ljava/io/PrintWriter;Ljava/lang/String;)V
+
+    .line 906
+    :cond_31
+    :goto_c
+    monitor-exit v3
 
     goto/16 :goto_2
 
     :catchall_7
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_7
+
+    throw v2
+
+    .line 892
+    :cond_32
+    if-eqz v52, :cond_33
+
+    .line 893
+    :try_start_c
+    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
+
+    .line 895
+    :cond_33
+    const-string v2, "CURRENT STATS:"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    .line 896
+    if-nez v22, :cond_34
+
+    if-eqz v23, :cond_36
+
+    .line 897
+    :cond_34
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+
+    move-object/from16 v26, v0
+
+    if-nez v23, :cond_35
+
+    const/16 v31, 0x1
+
+    :goto_d
+    move-object/from16 v27, p2
+
+    move-object/from16 v28, v13
+
+    move-wide/from16 v29, v11
+
+    move/from16 v32, v24
+
+    move/from16 v33, v25
+
+    invoke-virtual/range {v26 .. v33}, Lcom/android/internal/app/ProcessStats;->dumpLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZZZ)V
+
+    .line 899
+    if-eqz v24, :cond_31
+
+    .line 900
+    const-string v2, "  mFile="
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {v2}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object v2
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    goto :goto_c
+
+    .line 897
+    :cond_35
+    const/16 v31, 0x0
+
+    goto :goto_d
+
+    .line 903
+    :cond_36
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
+
+    move-object/from16 v16, p2
+
+    move-object/from16 v17, v13
+
+    move-wide/from16 v18, v11
+
+    move/from16 v20, v25
+
+    invoke-virtual/range {v15 .. v20}, Lcom/android/internal/app/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_7
 
-    throw v3
+    goto :goto_c
 
-    .line 882
-    :cond_38
-    if-eqz v51, :cond_39
-
-    .line 883
-    :try_start_d
-    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
-
-    .line 884
-    const-string v3, "CURRENT STATS:"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 886
-    :cond_39
-    if-nez v36, :cond_3a
-
-    if-eqz v37, :cond_3c
-
-    .line 887
-    :cond_3a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
-
-    move-object/from16 v24, v0
-
-    if-nez v37, :cond_3b
-
-    const/16 v29, 0x1
-
-    :goto_f
-    move-object/from16 v25, p2
-
-    move-object/from16 v26, v14
-
-    move-wide/from16 v27, v12
-
-    move/from16 v30, v21
-
-    move/from16 v31, v22
-
-    invoke-virtual/range {v24 .. v31}, Lcom/android/internal/app/ProcessStats;->dumpLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZZZ)V
-
-    .line 889
-    if-eqz v21, :cond_37
-
-    .line 890
-    const-string v3, "  mFile="
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/ProcessStatsService;->mFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v3
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
-    goto :goto_e
-
-    .line 887
-    :cond_3b
-    const/16 v29, 0x0
-
-    goto :goto_f
-
-    .line 893
-    :cond_3c
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v25, p2
-
-    move-object/from16 v26, v14
-
-    move-wide/from16 v27, v12
-
-    move/from16 v29, v22
-
-    invoke-virtual/range {v24 .. v29}, Lcom/android/internal/app/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_7
-
-    goto :goto_e
-
-    .line 736
-    .end local v51           #sepNeeded:Z
-    .restart local v33       #arg:Ljava/lang/String;
-    .restart local v44       #i:I
-    :catch_2
-    move-exception v3
-
-    goto/16 :goto_4
-
-    .line 591
+    .line 618
     :array_0
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
@@ -2762,7 +2794,7 @@
     .parameter "args"
 
     .prologue
-    .line 561
+    .line 588
     iget-object v2, p0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
     const-string v3, "android.permission.DUMP"
@@ -2773,7 +2805,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 563
+    .line 590
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2824,24 +2856,24 @@
 
     invoke-virtual {p2, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 575
+    .line 602
     :goto_0
     return-void
 
-    .line 569
+    .line 596
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 571
+    .line 598
     .local v0, ident:J
     :try_start_0
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/am/ProcessStatsService;->dumpInner(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 573
+    .line 600
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0

@@ -25,7 +25,7 @@
     .locals 0
 
     .prologue
-    .line 949
+    .line 940
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +36,7 @@
     .parameter "x0"
 
     .prologue
-    .line 949
+    .line 940
     invoke-direct {p0}, Landroid/app/LoadedApk$ServiceDispatcher$ConnectionInfo;-><init>()V
 
     return-void

@@ -31,7 +31,7 @@
     .locals 2
 
     .prologue
-    .line 7789
+    .line 7791
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "pinned_position_update"
@@ -49,7 +49,7 @@
     .locals 0
 
     .prologue
-    .line 7762
+    .line 7764
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

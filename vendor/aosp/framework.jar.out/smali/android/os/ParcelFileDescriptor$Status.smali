@@ -40,12 +40,12 @@
     .parameter "status"
 
     .prologue
-    .line 966
+    .line 968
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/os/ParcelFileDescriptor$Status;-><init>(ILjava/lang/String;)V
 
-    .line 967
+    .line 969
     return-void
 .end method
 
@@ -55,16 +55,16 @@
     .parameter "msg"
 
     .prologue
-    .line 969
+    .line 971
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 970
+    .line 972
     iput p1, p0, Landroid/os/ParcelFileDescriptor$Status;->status:I
 
-    .line 971
+    .line 973
     iput-object p2, p0, Landroid/os/ParcelFileDescriptor$Status;->msg:Ljava/lang/String;
 
-    .line 972
+    .line 974
     return-void
 .end method
 
@@ -74,12 +74,12 @@
     .locals 3
 
     .prologue
-    .line 975
+    .line 977
     iget v0, p0, Landroid/os/ParcelFileDescriptor$Status;->status:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 987
+    .line 989
     :pswitch_0
     new-instance v0, Ljava/io/IOException;
 
@@ -108,7 +108,7 @@
     :goto_0
     return-object v0
 
-    .line 977
+    .line 979
     :pswitch_1
     new-instance v0, Ljava/io/IOException;
 
@@ -118,13 +118,13 @@
 
     goto :goto_0
 
-    .line 979
+    .line 981
     :pswitch_2
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 981
+    .line 983
     :pswitch_3
     new-instance v0, Ljava/io/IOException;
 
@@ -152,7 +152,7 @@
 
     goto :goto_0
 
-    .line 983
+    .line 985
     :pswitch_4
     new-instance v0, Landroid/os/ParcelFileDescriptor$FileDescriptorDetachedException;
 
@@ -160,7 +160,7 @@
 
     goto :goto_0
 
-    .line 985
+    .line 987
     :pswitch_5
     new-instance v0, Ljava/io/IOException;
 
@@ -170,7 +170,7 @@
 
     goto :goto_0
 
-    .line 975
+    .line 977
     nop
 
     :pswitch_data_0

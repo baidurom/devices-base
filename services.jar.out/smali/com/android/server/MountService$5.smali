@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 833
+    .line 857
     iput-object p1, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
     iput-object p3, p0, Lcom/android/server/MountService$5;->val$path:Ljava/lang/String;
@@ -44,7 +44,7 @@
     .locals 7
 
     .prologue
-    .line 838
+    .line 862
     :try_start_0
     iget-object v2, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
@@ -58,7 +58,7 @@
     .local v1, rc:I
     if-eqz v1, :cond_0
 
-    .line 839
+    .line 863
     const-string v2, "MountService"
 
     const-string v3, "Insertion mount failed (%d)"
@@ -83,17 +83,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 844
+    .line 868
     .end local v1           #rc:I
     :cond_0
     :goto_0
     return-void
 
-    .line 841
+    .line 865
     :catch_0
     move-exception v0
 
-    .line 842
+    .line 866
     .local v0, ex:Ljava/lang/Exception;
     const-string v2, "MountService"
 

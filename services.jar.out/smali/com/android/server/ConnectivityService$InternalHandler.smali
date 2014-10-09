@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 3039
+    .line 3119
     iput-object p1, p0, Lcom/android/server/ConnectivityService$InternalHandler;->this$0:Lcom/android/server/ConnectivityService;
 
-    .line 3040
+    .line 3120
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 3041
+    .line 3121
     return-void
 .end method
 
@@ -42,24 +42,24 @@
     .parameter "msg"
 
     .prologue
-    .line 3046
+    .line 3126
     move-object/from16 v0, p1
 
     iget v13, v0, Landroid/os/Message;->what:I
 
     packed-switch v13, :pswitch_data_0
 
-    .line 3137
+    .line 3217
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 3048
+    .line 3128
     :pswitch_1
     const/4 v1, 0x0
 
-    .line 3049
+    .line 3129
     .local v1, causedBy:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -67,7 +67,7 @@
 
     monitor-enter v14
 
-    .line 3050
+    .line 3130
     :try_start_0
     move-object/from16 v0, p1
 
@@ -99,7 +99,7 @@
 
     if-eqz v13, :cond_1
 
-    .line 3052
+    .line 3132
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService$InternalHandler;->this$0:Lcom/android/server/ConnectivityService;
@@ -111,7 +111,7 @@
 
     invoke-virtual {v13}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 3053
+    .line 3133
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService$InternalHandler;->this$0:Lcom/android/server/ConnectivityService;
@@ -121,16 +121,16 @@
 
     move-result-object v1
 
-    .line 3055
+    .line 3135
     :cond_1
     monitor-exit v14
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3056
+    .line 3136
     if-eqz v1, :cond_0
 
-    .line 3057
+    .line 3137
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
@@ -160,7 +160,7 @@
 
     goto :goto_0
 
-    .line 3055
+    .line 3135
     :catchall_0
     move-exception v13
 
@@ -171,7 +171,7 @@
 
     throw v13
 
-    .line 3062
+    .line 3142
     .end local v1           #causedBy:Ljava/lang/String;
     :pswitch_2
     move-object/from16 v0, p1
@@ -180,26 +180,26 @@
 
     check-cast v12, Lcom/android/server/ConnectivityService$FeatureUser;
 
-    .line 3063
+    .line 3143
     .local v12, u:Lcom/android/server/ConnectivityService$FeatureUser;
     invoke-virtual {v12}, Lcom/android/server/ConnectivityService$FeatureUser;->expire()V
 
     goto :goto_0
 
-    .line 3067
+    .line 3147
     .end local v12           #u:Lcom/android/server/ConnectivityService$FeatureUser;
     :pswitch_3
     move-object/from16 v0, p1
 
     iget v7, v0, Landroid/os/Message;->arg1:I
 
-    .line 3068
+    .line 3148
     .local v7, netType:I
     move-object/from16 v0, p1
 
     iget v2, v0, Landroid/os/Message;->arg2:I
 
-    .line 3069
+    .line 3149
     .local v2, condition:I
     move-object/from16 v0, p0
 
@@ -210,7 +210,7 @@
 
     goto :goto_0
 
-    .line 3073
+    .line 3153
     .end local v2           #condition:I
     .end local v7           #netType:I
     :pswitch_4
@@ -218,13 +218,13 @@
 
     iget v7, v0, Landroid/os/Message;->arg1:I
 
-    .line 3074
+    .line 3154
     .restart local v7       #netType:I
     move-object/from16 v0, p1
 
     iget v10, v0, Landroid/os/Message;->arg2:I
 
-    .line 3075
+    .line 3155
     .local v10, sequence:I
     move-object/from16 v0, p0
 
@@ -235,7 +235,7 @@
 
     goto/16 :goto_0
 
-    .line 3079
+    .line 3159
     .end local v7           #netType:I
     .end local v10           #sequence:I
     :pswitch_5
@@ -243,7 +243,7 @@
 
     iget v9, v0, Landroid/os/Message;->arg1:I
 
-    .line 3080
+    .line 3160
     .local v9, preference:I
     move-object/from16 v0, p0
 
@@ -254,7 +254,7 @@
 
     goto/16 :goto_0
 
-    .line 3084
+    .line 3164
     .end local v9           #preference:I
     :pswitch_6
     move-object/from16 v0, p1
@@ -267,7 +267,7 @@
 
     const/4 v3, 0x1
 
-    .line 3085
+    .line 3165
     .local v3, enabled:Z
     :goto_1
     move-object/from16 v0, p0
@@ -279,14 +279,14 @@
 
     goto/16 :goto_0
 
-    .line 3084
+    .line 3164
     .end local v3           #enabled:Z
     :cond_2
     const/4 v3, 0x0
 
     goto :goto_1
 
-    .line 3089
+    .line 3169
     :pswitch_7
     move-object/from16 v0, p0
 
@@ -297,7 +297,7 @@
 
     goto/16 :goto_0
 
-    .line 3093
+    .line 3173
     :pswitch_8
     move-object/from16 v0, p1
 
@@ -309,7 +309,7 @@
 
     const/4 v5, 0x1
 
-    .line 3094
+    .line 3174
     .local v5, met:Z
     :goto_2
     move-object/from16 v0, p0
@@ -325,14 +325,14 @@
 
     goto/16 :goto_0
 
-    .line 3093
+    .line 3173
     .end local v5           #met:Z
     :cond_3
     const/4 v5, 0x0
 
     goto :goto_2
 
-    .line 3098
+    .line 3178
     :pswitch_9
     move-object/from16 v0, p1
 
@@ -340,7 +340,7 @@
 
     check-cast v4, Landroid/content/Intent;
 
-    .line 3099
+    .line 3179
     .local v4, intent:Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -351,14 +351,14 @@
 
     goto/16 :goto_0
 
-    .line 3103
+    .line 3183
     .end local v4           #intent:Landroid/content/Intent;
     :pswitch_a
     move-object/from16 v0, p1
 
     iget v8, v0, Landroid/os/Message;->arg1:I
 
-    .line 3104
+    .line 3184
     .local v8, networkType:I
     move-object/from16 v0, p1
 
@@ -370,7 +370,7 @@
 
     const/4 v3, 0x1
 
-    .line 3105
+    .line 3185
     .restart local v3       #enabled:Z
     :goto_3
     move-object/from16 v0, p0
@@ -382,14 +382,14 @@
 
     goto/16 :goto_0
 
-    .line 3104
+    .line 3184
     .end local v3           #enabled:Z
     :cond_4
     const/4 v3, 0x0
 
     goto :goto_3
 
-    .line 3109
+    .line 3189
     .end local v8           #networkType:I
     :pswitch_b
     move-object/from16 v0, p0
@@ -403,7 +403,7 @@
 
     if-eqz v13, :cond_0
 
-    .line 3110
+    .line 3190
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService$InternalHandler;->this$0:Lcom/android/server/ConnectivityService;
@@ -423,7 +423,7 @@
 
     goto/16 :goto_0
 
-    .line 3115
+    .line 3195
     :pswitch_c
     move-object/from16 v0, p0
 
@@ -438,7 +438,7 @@
 
     move-result v11
 
-    .line 3116
+    .line 3196
     .local v11, tag:I
     move-object/from16 v0, p1
 
@@ -446,7 +446,7 @@
 
     if-ne v13, v11, :cond_5
 
-    .line 3117
+    .line 3197
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService$InternalHandler;->this$0:Lcom/android/server/ConnectivityService;
@@ -462,11 +462,11 @@
 
     check-cast v6, Landroid/net/MobileDataStateTracker;
 
-    .line 3119
+    .line 3199
     .local v6, mobileDst:Landroid/net/MobileDataStateTracker;
     if-eqz v6, :cond_0
 
-    .line 3120
+    .line 3200
     move-object/from16 v0, p1
 
     iget v13, v0, Landroid/os/Message;->arg2:I
@@ -475,7 +475,7 @@
 
     goto/16 :goto_0
 
-    .line 3123
+    .line 3203
     .end local v6           #mobileDst:Landroid/net/MobileDataStateTracker;
     :cond_5
     new-instance v13, Ljava/lang/StringBuilder;
@@ -515,7 +515,7 @@
 
     goto/16 :goto_0
 
-    .line 3129
+    .line 3209
     .end local v11           #tag:I
     :pswitch_d
     move-object/from16 v0, p0
@@ -527,7 +527,7 @@
 
     goto/16 :goto_0
 
-    .line 3133
+    .line 3213
     :pswitch_e
     move-object/from16 v0, p0
 
@@ -544,7 +544,7 @@
 
     goto/16 :goto_0
 
-    .line 3046
+    .line 3126
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_2

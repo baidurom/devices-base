@@ -513,9 +513,9 @@
     .line 233
     iput-boolean v4, v1, Lcom/android/internal/telephony/CallerInfo;->contactExists:Z
 
-    .line 235
     invoke-static {v1, p2}, Lcom/android/internal/telephony/CallerInfo$BaiduInjector;->initCallerInfoExt(Lcom/android/internal/telephony/CallerInfo;Landroid/database/Cursor;)V
 
+    .line 235
     .end local v0           #columnIndex:I
     :cond_6
     invoke-interface {p2}, Landroid/database/Cursor;->close()V
@@ -1325,7 +1325,7 @@
 
     .prologue
     .line 385
-    const v0, 0x1040304
+    const v0, 0x1040308
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1334,7 +1334,7 @@
     iput-object v0, p0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
     .line 387
-    const v0, 0x10804a2
+    const v0, 0x10804a4
 
     iput v0, p0, Lcom/android/internal/telephony/CallerInfo;->photoResource:I
 

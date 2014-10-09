@@ -34,19 +34,19 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 501
+    .line 500
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 502
+    .line 501
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mPdu:[B
 
-    .line 503
+    .line 502
     iput v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
 
-    .line 504
+    .line 503
     iput v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mUserDataSeptetPadding:I
 
-    .line 505
+    .line 504
     return-void
 .end method
 
@@ -261,7 +261,7 @@
     .locals 6
 
     .prologue
-    .line 555
+    .line 554
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mPdu:[B
 
     iget v5, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
@@ -270,7 +270,7 @@
 
     and-int/lit16 v0, v4, 0xff
 
-    .line 556
+    .line 555
     .local v0, addressLength:I
     add-int/lit8 v4, v0, 0x1
 
@@ -278,7 +278,7 @@
 
     add-int/lit8 v2, v4, 0x2
 
-    .line 559
+    .line 558
     .local v2, lengthBytes:I
     :try_start_0
     new-instance v3, Lcom/android/internal/telephony/gsm/GsmSmsAddress;
@@ -293,7 +293,6 @@
 
     .line 565
     .local v3, ret:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
-    :goto_0
     iget v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
 
     add-int/2addr v4, v2
@@ -303,33 +302,33 @@
     .line 567
     return-object v3
 
-    .line 560
+    .line 559
     .end local v3           #ret:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
     :catch_0
     move-exception v1
 
-    .line 561
+    .line 560
     .local v1, e:Ljava/text/ParseException;
-    const-string v4, "SmsMessage"
+    const/4 v3, 0x0
+
+    .line 562
+    .restart local v3       #ret:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
+    new-instance v4, Ljava/lang/RuntimeException;
 
     invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 562
-    const/4 v3, 0x0
-
-    .restart local v3       #ret:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
-    goto :goto_0
+    throw v4
 .end method
 
 .method getByte()I
     .locals 3
 
     .prologue
-    .line 541
+    .line 540
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mPdu:[B
 
     iget v1, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
@@ -349,19 +348,19 @@
     .locals 5
 
     .prologue
-    .line 516
+    .line 515
     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->getByte()I
 
     move-result v0
 
-    .line 518
+    .line 517
     .local v0, len:I
     if-nez v0, :cond_0
 
-    .line 520
+    .line 519
     const/4 v1, 0x0
 
-    .line 532
+    .line 531
     .local v1, ret:Ljava/lang/String;
     :goto_0
     iget v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
@@ -370,10 +369,10 @@
 
     iput v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->mCur:I
 
-    .line 534
+    .line 533
     return-object v1
 
-    .line 524
+    .line 523
     .end local v1           #ret:Ljava/lang/String;
     :cond_0
     :try_start_0
@@ -390,12 +389,12 @@
     .restart local v1       #ret:Ljava/lang/String;
     goto :goto_0
 
-    .line 526
+    .line 525
     .end local v1           #ret:Ljava/lang/String;
     :catch_0
     move-exception v2
 
-    .line 527
+    .line 526
     .local v2, tr:Ljava/lang/RuntimeException;
     const-string v3, "SmsMessage"
 
@@ -403,7 +402,7 @@
 
     invoke-static {v3, v4, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 528
+    .line 527
     const/4 v1, 0x0
 
     .restart local v1       #ret:Ljava/lang/String;

@@ -417,7 +417,7 @@
     .prologue
     const/4 v4, 0x0
 
-    const v10, 0x10404be
+    const v10, 0x10404c2
 
     const/4 v1, 0x0
 
@@ -504,7 +504,7 @@
 
     .line 547
     .local v6, n:Landroid/app/Notification;
-    const v0, 0x1080581
+    const v0, 0x1080583
 
     iput v0, v6, Landroid/app/Notification;->icon:I
 
@@ -534,7 +534,7 @@
 
     iget-object v0, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10404bf
+    const v3, 0x10404c3
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

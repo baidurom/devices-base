@@ -10,6 +10,9 @@
 .method public abstract changeIccLockPassword(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
+.method public abstract getIccFdnAvailable()Z
+.end method
+
 .method public abstract getIccFdnEnabled()Z
 .end method
 
@@ -17,6 +20,12 @@
 .end method
 
 .method public abstract getIccLockEnabled()Z
+.end method
+
+.method public abstract getIccPin2Blocked()Z
+.end method
+
+.method public abstract getIccPuk2Blocked()Z
 .end method
 
 .method public abstract getIccRecords()Lcom/android/internal/telephony/uicc/IccRecords;

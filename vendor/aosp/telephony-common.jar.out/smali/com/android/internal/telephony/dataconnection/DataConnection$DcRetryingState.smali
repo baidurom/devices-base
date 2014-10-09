@@ -243,7 +243,7 @@
 
     sparse-switch v8, :sswitch_data_0
 
-    .line 1207
+    .line 1206
     iget-object v8, p0, Lcom/android/internal/telephony/dataconnection/DataConnection$DcRetryingState;->this$0:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -274,10 +274,10 @@
 
     invoke-virtual {v8, v9}, Lcom/android/internal/telephony/dataconnection/DataConnection;->log(Ljava/lang/String;)V
 
-    .line 1209
+    .line 1208
     const/4 v6, 0x0
 
-    .line 1213
+    .line 1212
     .local v6, retVal:Z
     :goto_0
     return v6
@@ -990,12 +990,6 @@
     .line 1200
     iget-object v8, p0, Lcom/android/internal/telephony/dataconnection/DataConnection$DcRetryingState;->this$0:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
-    #calls: Lcom/android/internal/util/StateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v8, p1}, Lcom/android/internal/telephony/dataconnection/DataConnection;->access$4500(Lcom/android/internal/telephony/dataconnection/DataConnection;Landroid/os/Message;)V
-
-    .line 1201
-    iget-object v8, p0, Lcom/android/internal/telephony/dataconnection/DataConnection$DcRetryingState;->this$0:Lcom/android/internal/telephony/dataconnection/DataConnection;
-
     iget-object v9, p0, Lcom/android/internal/telephony/dataconnection/DataConnection$DcRetryingState;->this$0:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
     #getter for: Lcom/android/internal/telephony/dataconnection/DataConnection;->mInactiveState:Lcom/android/internal/telephony/dataconnection/DataConnection$DcInactiveState;
@@ -1004,18 +998,16 @@
     move-result-object v9
 
     #calls: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v8, v9}, Lcom/android/internal/telephony/dataconnection/DataConnection;->access$4600(Lcom/android/internal/telephony/dataconnection/DataConnection;Lcom/android/internal/util/IState;)V
+    invoke-static {v8, v9}, Lcom/android/internal/telephony/dataconnection/DataConnection;->access$4500(Lcom/android/internal/telephony/dataconnection/DataConnection;Lcom/android/internal/util/IState;)V
 
-    .line 1202
+    .line 1201
     const/4 v6, 0x1
 
-    .line 1203
+    .line 1202
     .restart local v6       #retVal:Z
     goto/16 :goto_0
 
     .line 1096
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x40000 -> :sswitch_3

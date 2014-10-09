@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Umesalia na majaribio %d kabla ya SIM kufungwa.</item>
+        <item quantity="one">Umesalia na majaribio %d kabla ya SIM kufungwa.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">sekunde %d zilizopita</item>
         <item quantity="one">Sekunde 1 iliopita</item>

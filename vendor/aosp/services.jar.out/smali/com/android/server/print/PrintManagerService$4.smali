@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 505
+    .line 510
     iput-object p1, p0, Lcom/android/server/print/PrintManagerService$4;->this$0:Lcom/android/server/print/PrintManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 508
+    .line 513
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 509
+    .line 514
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.intent.action.USER_SWITCHED"
 
@@ -57,7 +57,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 510
+    .line 515
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$4;->this$0:Lcom/android/server/print/PrintManagerService;
 
     const-string v2, "android.intent.extra.user_handle"
@@ -69,12 +69,12 @@
     #calls: Lcom/android/server/print/PrintManagerService;->switchUser(I)V
     invoke-static {v1, v2}, Lcom/android/server/print/PrintManagerService;->access$500(Lcom/android/server/print/PrintManagerService;I)V
 
-    .line 514
+    .line 519
     :cond_0
     :goto_0
     return-void
 
-    .line 511
+    .line 516
     :cond_1
     const-string v1, "android.intent.action.USER_REMOVED"
 
@@ -84,7 +84,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 512
+    .line 517
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$4;->this$0:Lcom/android/server/print/PrintManagerService;
 
     const-string v2, "android.intent.extra.user_handle"

@@ -30,18 +30,18 @@
     .parameter "sequence"
 
     .prologue
-    .line 638
+    .line 851
     iput-object p1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     invoke-direct {p0}, Landroid/print/PrintDocumentAdapter$LayoutResultCallback;-><init>()V
 
-    .line 639
+    .line 852
     iput-object p2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mCallback:Landroid/print/ILayoutResultCallback;
 
-    .line 640
+    .line 853
     iput p3, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mSequence:I
 
-    .line 641
+    .line 854
     return-void
 .end method
 
@@ -51,52 +51,75 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 686
+    .line 914
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     #setter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLayoutOrWriteCancellation:Landroid/os/CancellationSignal;
     invoke-static {v0, v1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$602(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/os/CancellationSignal;)Landroid/os/CancellationSignal;
 
-    .line 687
+    .line 915
     iput-object v1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mCallback:Landroid/print/ILayoutResultCallback;
 
-    .line 688
+    .line 916
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     #calls: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->doPendingWorkLocked()V
-    invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$900(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
+    invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1100(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
 
-    .line 689
+    .line 917
     return-void
 .end method
 
 
 # virtual methods
 .method public onLayoutCancelled()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 680
+    .line 903
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
-    invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
+    invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 681
+    .line 904
     :try_start_0
-    invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->clearLocked()V
+    iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
-    .line 682
+    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
+    invoke-static {v0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 905
+    const-string v0, "PrintManager"
+
+    const-string v2, "PrintDocumentAdapter is destroyed. Did you finish the printing activity before print completion?"
+
+    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 907
     monitor-exit v1
 
-    .line 683
+    .line 911
+    :goto_0
     return-void
 
-    .line 682
+    .line 909
+    :cond_0
+    invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->clearLocked()V
+
+    .line 910
+    monitor-exit v1
+
+    goto :goto_0
+
     :catchall_0
     move-exception v0
 
@@ -108,37 +131,63 @@
 .end method
 
 .method public onLayoutFailed(Ljava/lang/CharSequence;)V
-    .locals 4
+    .locals 5
     .parameter "error"
 
     .prologue
-    .line 665
+    .line 883
     iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
-    invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
+    invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
 
     move-result-object v3
 
     monitor-enter v3
 
-    .line 666
+    .line 884
     :try_start_0
+    iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+
+    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
+    invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 885
+    const-string v2, "PrintManager"
+
+    const-string v4, "PrintDocumentAdapter is destroyed. Did you finish the printing activity before print completion?"
+
+    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 887
+    monitor-exit v3
+
+    .line 899
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 889
+    :cond_1
     iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mCallback:Landroid/print/ILayoutResultCallback;
 
-    .line 667
+    .line 890
     .local v0, callback:Landroid/print/ILayoutResultCallback;
     invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->clearLocked()V
 
-    .line 668
+    .line 891
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 669
+    .line 892
     if-eqz v0, :cond_0
 
-    .line 671
+    .line 894
     :try_start_1
     iget v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mSequence:I
 
@@ -146,29 +195,13 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 676
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
-    .line 668
-    .end local v0           #callback:Landroid/print/ILayoutResultCallback;
-    :catchall_0
-    move-exception v2
-
-    :try_start_2
-    monitor-exit v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v2
-
-    .line 672
-    .restart local v0       #callback:Landroid/print/ILayoutResultCallback;
+    .line 895
     :catch_0
     move-exception v1
 
-    .line 673
+    .line 896
     .local v1, re:Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
@@ -177,68 +210,10 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
-.end method
 
-.method public onLayoutFinished(Landroid/print/PrintDocumentInfo;Z)V
-    .locals 4
-    .parameter "info"
-    .parameter "changed"
-
-    .prologue
-    .line 645
-    if-nez p1, :cond_0
-
-    .line 646
-    new-instance v2, Ljava/lang/NullPointerException;
-
-    const-string v3, "document info cannot be null"
-
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 649
-    :cond_0
-    iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
-
-    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
-    invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$400(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    monitor-enter v3
-
-    .line 650
-    :try_start_0
-    iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mCallback:Landroid/print/ILayoutResultCallback;
-
-    .line 651
-    .local v0, callback:Landroid/print/ILayoutResultCallback;
-    invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->clearLocked()V
-
-    .line 652
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 653
-    if-eqz v0, :cond_1
-
-    .line 655
-    :try_start_1
-    iget v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mSequence:I
-
-    invoke-interface {v0, p1, p2, v2}, Landroid/print/ILayoutResultCallback;->onLayoutFinished(Landroid/print/PrintDocumentInfo;ZI)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    .line 660
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 652
+    .line 891
     .end local v0           #callback:Landroid/print/ILayoutResultCallback;
+    .end local v1           #re:Landroid/os/RemoteException;
     :catchall_0
     move-exception v2
 
@@ -248,13 +223,94 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v2
+.end method
 
-    .line 656
-    .restart local v0       #callback:Landroid/print/ILayoutResultCallback;
+.method public onLayoutFinished(Landroid/print/PrintDocumentInfo;Z)V
+    .locals 5
+    .parameter "info"
+    .parameter "changed"
+
+    .prologue
+    .line 858
+    if-nez p1, :cond_0
+
+    .line 859
+    new-instance v2, Ljava/lang/NullPointerException;
+
+    const-string v3, "document info cannot be null"
+
+    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 862
+    :cond_0
+    iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+
+    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mLock:Ljava/lang/Object;
+    invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$300(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    .line 863
+    :try_start_0
+    iget-object v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+
+    #getter for: Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->mDestroyed:Z
+    invoke-static {v2}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate;->access$1000(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 864
+    const-string v2, "PrintManager"
+
+    const-string v4, "PrintDocumentAdapter is destroyed. Did you finish the printing activity before print completion?"
+
+    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 866
+    monitor-exit v3
+
+    .line 878
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 868
+    :cond_2
+    iget-object v0, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mCallback:Landroid/print/ILayoutResultCallback;
+
+    .line 869
+    .local v0, callback:Landroid/print/ILayoutResultCallback;
+    invoke-direct {p0}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->clearLocked()V
+
+    .line 870
+    monitor-exit v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 871
+    if-eqz v0, :cond_1
+
+    .line 873
+    :try_start_1
+    iget v2, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$MyLayoutResultCallback;->mSequence:I
+
+    invoke-interface {v0, p1, p2, v2}, Landroid/print/ILayoutResultCallback;->onLayoutFinished(Landroid/print/PrintDocumentInfo;ZI)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    .line 874
     :catch_0
     move-exception v1
 
-    .line 657
+    .line 875
     .local v1, re:Landroid/os/RemoteException;
     const-string v2, "PrintManager"
 
@@ -263,4 +319,17 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+
+    .line 870
+    .end local v0           #callback:Landroid/print/ILayoutResultCallback;
+    .end local v1           #re:Landroid/os/RemoteException;
+    :catchall_0
+    move-exception v2
+
+    :try_start_2
+    monitor-exit v3
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v2
 .end method

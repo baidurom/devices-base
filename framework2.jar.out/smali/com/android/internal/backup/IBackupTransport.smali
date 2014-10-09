@@ -87,6 +87,14 @@
     .end annotation
 .end method
 
+.method public abstract name()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract nextRestorePackage()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {

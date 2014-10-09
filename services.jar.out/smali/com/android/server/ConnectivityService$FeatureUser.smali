@@ -42,43 +42,43 @@
     .parameter "binder"
 
     .prologue
-    .line 1190
+    .line 1203
     iput-object p1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->this$0:Lcom/android/server/ConnectivityService;
 
-    .line 1191
+    .line 1204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1192
+    .line 1205
     iput p2, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mNetworkType:I
 
-    .line 1193
+    .line 1206
     iput-object p3, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mFeature:Ljava/lang/String;
 
-    .line 1194
+    .line 1207
     iput-object p4, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
-    .line 1195
+    .line 1208
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mPid:I
 
-    .line 1196
+    .line 1209
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mUid:I
 
-    .line 1197
+    .line 1210
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mCreateTime:J
 
-    .line 1200
+    .line 1213
     :try_start_0
     iget-object v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
@@ -88,15 +88,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1204
+    .line 1217
     :goto_0
     return-void
 
-    .line 1201
+    .line 1214
     :catch_0
     move-exception v0
 
-    .line 1202
+    .line 1215
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/ConnectivityService$FeatureUser;->binderDied()V
 
@@ -109,7 +109,7 @@
     .locals 5
 
     .prologue
-    .line 1211
+    .line 1224
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -181,7 +181,7 @@
     #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/server/ConnectivityService;->access$400(Ljava/lang/String;)V
 
-    .line 1214
+    .line 1227
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->this$0:Lcom/android/server/ConnectivityService;
 
     const/4 v1, 0x0
@@ -189,7 +189,7 @@
     #calls: Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
     invoke-static {v0, p0, v1}, Lcom/android/server/ConnectivityService;->access$500(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
-    .line 1215
+    .line 1228
     return-void
 .end method
 
@@ -197,7 +197,7 @@
     .locals 2
 
     .prologue
-    .line 1223
+    .line 1236
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->this$0:Lcom/android/server/ConnectivityService;
 
     const/4 v1, 0x0
@@ -205,7 +205,7 @@
     #calls: Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
     invoke-static {v0, p0, v1}, Lcom/android/server/ConnectivityService;->access$500(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
-    .line 1224
+    .line 1237
     return-void
 .end method
 
@@ -217,7 +217,7 @@
     .parameter "feature"
 
     .prologue
-    .line 1233
+    .line 1246
     iget v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mPid:I
 
     if-ne v0, p1, :cond_0
@@ -238,10 +238,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 1235
+    .line 1248
     const/4 v0, 0x1
 
-    .line 1237
+    .line 1250
     :goto_0
     return v0
 
@@ -256,12 +256,12 @@
     .parameter "u"
 
     .prologue
-    .line 1227
+    .line 1240
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    .line 1229
+    .line 1242
     :goto_0
     return v0
 
@@ -285,7 +285,7 @@
     .locals 5
 
     .prologue
-    .line 1241
+    .line 1254
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -373,13 +373,13 @@
     .locals 2
 
     .prologue
-    .line 1207
+    .line 1220
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 1208
+    .line 1221
     return-void
 .end method

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:sharedUserId="android.uid.system" android:versionCode="19" android:versionName="4.4-893803" android:sharedUserLabel="@string/android_system_label" package="android" coreApp="true"
+<manifest android:sharedUserId="android.uid.system" android:versionCode="19" android:versionName="4.4.4-1227136" android:sharedUserLabel="@string/android_system_label" package="android" coreApp="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <eat-comment />
     <protected-broadcast android:name="android.intent.action.SCREEN_OFF" />
@@ -313,10 +313,10 @@
     <permission android:label="@string/permlab_bind_call_service" android:name="android.permission.BIND_CALL_SERVICE" android:protectionLevel="system|signature" android:permissionGroup="android.permission-group.PHONE_CALLS" android:description="@string/permdesc_bind_call_service" />
     <eat-comment />
     <permission-group android:label="@string/permgrouplab_storage" android:icon="@drawable/perm_group_storage" android:name="android.permission-group.STORAGE" android:priority="240" android:description="@string/permgroupdesc_storage" android:permissionGroupFlags="personalInfo" />
-    <permission android:label="@string/permlab_sdcardRead" android:name="android.permission.READ_EXTERNAL_STORAGE" android:protectionLevel="normal" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/permdesc_sdcardRead" />
+    <permission android:label="@string/permlab_sdcardRead" android:name="android.permission.READ_EXTERNAL_STORAGE" android:protectionLevel="normal" android:permissionGroup="android.permission-group.STORAGE" android:description="@string/permdesc_sdcardRead" />
     <permission android:label="@string/permlab_sdcardWrite" android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:protectionLevel="dangerous" android:permissionGroup="android.permission-group.STORAGE" android:description="@string/permdesc_sdcardWrite" />
     <permission android:label="@string/permlab_mediaStorageWrite" android:name="android.permission.WRITE_MEDIA_STORAGE" android:protectionLevel="system|signature" android:permissionGroup="android.permission-group.STORAGE" android:description="@string/permdesc_mediaStorageWrite" />
-    <permission android:label="@string/permlab_manageDocs" android:name="android.permission.MANAGE_DOCUMENTS" android:protectionLevel="system|signature" android:permissionGroup="android.permission-group.STORAGE" android:description="@string/permdesc_manageDocs" />
+    <permission android:label="@string/permlab_manageDocs" android:name="android.permission.MANAGE_DOCUMENTS" android:protectionLevel="signature" android:permissionGroup="android.permission-group.STORAGE" android:description="@string/permdesc_manageDocs" />
     <eat-comment />
     <permission-group android:label="@string/permgrouplab_screenlock" android:icon="@drawable/perm_group_screenlock" android:name="android.permission-group.SCREENLOCK" android:priority="230" android:description="@string/permgroupdesc_screenlock" android:permissionGroupFlags="personalInfo" />
     <permission android:label="@string/permlab_disableKeyguard" android:name="android.permission.DISABLE_KEYGUARD" android:protectionLevel="dangerous" android:permissionGroup="android.permission-group.SCREENLOCK" android:description="@string/permdesc_disableKeyguard" />
@@ -362,7 +362,7 @@
     <permission android:label="@string/permlab_changeConfiguration" android:name="android.permission.CHANGE_CONFIGURATION" android:protectionLevel="system|signature|development" android:permissionGroup="android.permission-group.DEVELOPMENT_TOOLS" android:description="@string/permdesc_changeConfiguration" />
     <permission android:label="@string/permlab_writeSettings" android:name="android.permission.WRITE_SETTINGS" android:protectionLevel="normal" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/permdesc_writeSettings" />
     <permission android:label="@string/permlab_writeGservices" android:name="android.permission.WRITE_GSERVICES" android:protectionLevel="system|signature" android:description="@string/permdesc_writeGservices" />
-    <permission android:label="@string/permlab_forceStopPackages" android:name="android.permission.FORCE_STOP_PACKAGES" android:protectionLevel="signature" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/permdesc_forceStopPackages" />
+    <permission android:label="@string/permlab_forceStopPackages" android:name="android.permission.FORCE_STOP_PACKAGES" android:protectionLevel="system|signature" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/permdesc_forceStopPackages" />
     <permission android:label="@string/permlab_retrieve_window_content" android:name="android.permission.RETRIEVE_WINDOW_CONTENT" android:protectionLevel="system|signature" android:permissionGroup="android.permission-group.PERSONAL_INFO" android:description="@string/permdesc_retrieve_window_content" />
     <permission android:label="@string/permlab_setAnimationScale" android:name="android.permission.SET_ANIMATION_SCALE" android:protectionLevel="system|signature|development" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/permdesc_setAnimationScale" />
     <permission android:label="@string/permlab_persistentActivity" android:name="android.permission.PERSISTENT_ACTIVITY" android:protectionLevel="normal" android:permissionGroup="android.permission-group.APP_INFO" android:description="@string/permdesc_persistentActivity" />
@@ -422,6 +422,7 @@
     <permission android:label="@string/permlab_bindTextService" android:name="android.permission.BIND_TEXT_SERVICE" android:protectionLevel="signature" android:description="@string/permdesc_bindTextService" />
     <permission android:label="@string/permlab_bindVpnService" android:name="android.permission.BIND_VPN_SERVICE" android:protectionLevel="signature" android:description="@string/permdesc_bindVpnService" />
     <permission android:label="@string/permlab_bindWallpaper" android:name="android.permission.BIND_WALLPAPER" android:protectionLevel="system|signature" android:description="@string/permdesc_bindWallpaper" />
+    <permission android:label="@string/permlab_bindRemoteDisplay" android:name="android.permission.BIND_REMOTE_DISPLAY" android:protectionLevel="signature" android:description="@string/permdesc_bindRemoteDisplay" />
     <permission android:label="@string/permlab_bindDeviceAdmin" android:name="android.permission.BIND_DEVICE_ADMIN" android:protectionLevel="signature" android:description="@string/permdesc_bindDeviceAdmin" />
     <permission android:label="@string/permlab_manageDeviceAdmins" android:name="android.permission.MANAGE_DEVICE_ADMINS" android:protectionLevel="system|signature" android:description="@string/permdesc_manageDeviceAdmins" />
     <permission android:label="@string/permlab_setOrientation" android:name="android.permission.SET_ORIENTATION" android:protectionLevel="signature" android:description="@string/permdesc_setOrientation" />
@@ -568,5 +569,10 @@
         </receiver>
         <service android:name="com.android.internal.os.storage.ExternalStorageFormatter" android:permission="android.permission.MASTER_CLEAR" android:exported="true" />
         <service android:name="android.hardware.location.GeofenceHardwareService" android:permission="android.permission.LOCATION_HARDWARE" android:exported="false" />
+        <service android:name="com.android.internal.backup.LocalTransportService" android:permission="android.permission.CONFIRM_FULL_BACKUP" android:exported="false">
+            <intent-filter>
+                <action android:name="android.backup.TRANSPORT_HOST" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>

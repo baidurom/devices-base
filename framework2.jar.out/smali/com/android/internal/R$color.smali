@@ -65,13 +65,19 @@
 
 .field public static final tab_indicator_text:I = 0x1060009
 
-.field public static final tab_indicator_text_v4:I = 0x1060082
+.field public static final tab_indicator_text_v4:I = 0x1060085
 
 .field public static final tertiary_text_dark:I = 0x1060010
 
 .field public static final tertiary_text_light:I = 0x1060011
 
 .field public static final transparent:I = 0x106000d
+
+.field public static final webviewchromium_autofill_dark_divider_color:I = 0x1060073
+
+.field public static final webviewchromium_autofill_divider_color:I = 0x1060072
+
+.field public static final webviewchromium_color_picker_background_color:I = 0x1060071
 
 .field public static final webviewchromium_color_picker_border_color:I = 0x1060070
 
@@ -85,7 +91,7 @@
     .locals 0
 
     .prologue
-    .line 12033
+    .line 12045
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

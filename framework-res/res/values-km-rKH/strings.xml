@@ -49,6 +49,7 @@
     <string name="invalidPuk">បញ្ចូល​កូដ PUK ដែល​មាន​ពី​ ៨ លេខ​ ឬ​វែង​ជាង​នេះ។</string>
     <string name="needPuk">ស៊ីមកាត​​របស់​អ្នក​ជាប់​កូដ PUK ។ បញ្ចូល​កូដ PUK ដើម្បី​ដោះ​សោ។</string>
     <string name="needPuk2">បញ្ចូល​កូដ PUK2 ដើម្បី​ដោះ​សោ​ស៊ីម​កាត។</string>
+    <string name="enablePin">បរាជ័យ, បើក​ការ​ចាក់សោ​ស៊ី​ម / RUIM ។</string>
     <string name="imei">IMEI</string>
     <string name="meid">MEID</string>
     <string name="ClipMmi">លេខ​សម្គាល់​អ្នក​ហៅ​​ចូល</string>
@@ -242,7 +243,7 @@
     <string name="permlab_uninstall_shortcut">លុប​ផ្លូវកាត់</string>
     <string name="permdesc_uninstall_shortcut">ឲ្យ​កម្មវិធី​លុប​ផ្លូវកាត់​អេក្រង់​ដើម​ដោយ​គ្មាន​អំពើ​ពី​អ្នកប្រើ។</string>
     <string name="permlab_processOutgoingCalls">នាំ​ផ្លូវ​ការ​ហៅ​ចេញ​ឡើងវិញ</string>
-    <string name="permdesc_processOutgoingCalls">ឲ្យ​កម្មវិធី​ដំណើរការ​ការ​ហៅ​ចេញ និង​ប្ដូរ​លេខ​ត្រូវ​ហៅ។ សិទ្ធិ​នេះ​អនុញ្ញាត​ឲ្យ​កម្មវិធី​តាមដាន ប្ដូរ​ទិស ឬ​ការពារ​ការ​ហៅ​ចេញ។</string>
+    <string name="permdesc_processOutgoingCalls">ឲ្យ​កម្មវិធី​ឃើញ​លេខ​ដែល​កំពុង​ត្រូវ​បាន​ហៅ​អំឡុង​ពេល​ហៅ​ចេញ​​ដោយ​ប្រើ​​ជម្រើស​ ដើម្បី​បញ្ជូន​​ការ​ហៅ​បន្ត​ទៅ​លេខ​ផ្សេង ឬ​បោះបង់​ការ​ហៅ​រួម​គ្នា។</string>
     <string name="permlab_receiveSms">ទទួល​សារ​អត្ថបទ (សារ SMS​)</string>
     <string name="permdesc_receiveSms">ឲ្យ​កម្មវិធី​ទទួល និង​ដំណើរការ​​សារ MMS ។ មាន​ន័យ​ថា កម្មវិធី​អាច​ត្រួតពិនិត្យ​ ឬ​លុប​សារ​ដែល​បាន​ផ្ញើ​ទៅ​ឧបករណ៍​របស់​អ្នក ដោយ​​មិន​បង្ហាញ​អ្នក។</string>
     <string name="permlab_receiveMms">ទទួល​សារ​អត្ថបទ (MMS​)</string>
@@ -365,6 +366,8 @@
     <string name="permdesc_bindVpnService">ឲ្យ​ម្ចាស់​ចង​ចំណុច​ប្រទាក់​កម្រិត​កំពូល​នៃ​សេវាកម្ម Vpn ។​ មិន​គួរ​ចាំបាច់​សម្រាប់​កម្មវិធី​ធម្មតា​ទេ។</string>
     <string name="permlab_bindWallpaper">ចង​ទៅ​ផ្ទាំង​រូបភាព</string>
     <string name="permdesc_bindWallpaper">ឲ្យ​ម្ចាស់​ចង​ចំណុចប្រទាក់​កម្រិត​កំពូល​នៃ​ផ្ទាំង​រូបភាព។ មិន​គួរ​ចាំបាច់​សម្រាប់​កម្មវិធី​ធម្មតា​ទេ។</string>
+    <string name="permlab_bindRemoteDisplay">ភ្ជាប់​ទៅ​ការ​បង្ហាញ​ពី​ចម្ងាយ</string>
+    <string name="permdesc_bindRemoteDisplay">អនុញ្ញាត​ឲ្យ​ម្ចាស់​ភ្ជាប់​​ទៅ​ចំណុច​ប្រទាក់​កម្រិត​កំពូល​នៃ​ការ​បង្ហាញ​ពី​ចម្ងាយ។ មិន​គួរ​ចាំបាច់​សម្រាប់​កម្មវិធី​ធម្មតា​ទេ។</string>
     <string name="permlab_bindRemoteViews">ចង​សេវា​កម្ម​ធាតុ​ក្រាហ្វិក</string>
     <string name="permdesc_bindRemoteViews">ឲ្យ​ម្ចាស់​ចង​ចំណុច​ប្រទាក់​កម្រិត​កំពូល​នៃ​សេវាកម្ម​ធាតុ​ក្រាហ្វិក។ មិន​គួរ​​ចាំបាច់​សម្រាប់​កម្មវិធី​ធម្មតា​ទេ។</string>
     <string name="permlab_bindDeviceAdmin">ទាក់ទង​ជា​មួយ​អ្នកគ្រប់គ្រង​ឧបករណ៍</string>
@@ -689,7 +692,7 @@
     <string name="imProtocolYahoo">Yahoo</string>
     <string name="imProtocolSkype">Skype</string>
     <string name="imProtocolQq">QQ</string>
-    <string name="imProtocolGoogleTalk">ការ​ជជែក</string>
+    <string name="imProtocolGoogleTalk">Hangouts</string>
     <string name="imProtocolIcq">ICQ</string>
     <string name="imProtocolJabber">Jabber</string>
     <string name="imProtocolNetMeeting">NetMeeting</string>
@@ -715,6 +718,7 @@
     <string name="sipAddressTypeHome">គេហ​ទំព័រ</string>
     <string name="sipAddressTypeWork">កន្លែង​ធ្វើការ</string>
     <string name="sipAddressTypeOther">ផ្សេងៗ</string>
+    <string name="quick_contacts_not_available">រក​មិន​ឃើញ​កម្មវិធី ដើម្បី​មើល​ទំនាក់ទំនង​នេះ​ទេ។</string>
     <string name="keyguard_password_enter_pin_code">បញ្ចូល​កូដ PIN</string>
     <string name="keyguard_password_enter_puk_code">បញ្ចូល​កូដ PUK និង​ PIN ថ្មី</string>
     <string name="keyguard_password_enter_puk_prompt">កូដ PUK</string>
@@ -940,7 +944,7 @@
     <string name="noApplications">គ្មាន​កម្មវិធី​អាច​អនុវត្ត​សកម្មភាព​នេះ។</string>
     <string name="aerr_title" />
     <string name="aerr_application">ដោយ​បរាជ័យ %1$s បាន​បញ្ឈប់។</string>
-    <string name="aerr_process">ជា​អកុសល ដំណើរការ %1$s បាន​បញ្ឈប់។</string>
+    <string name="aerr_process">ដោយ​បរាជ័យ ដំណើរការ %1$s បាន​បញ្ឈប់។</string>
     <string name="anr_title" />
     <string name="anr_activity_application">"%2$s មិន​ឆ្លើយតប។
 
@@ -953,7 +957,7 @@
 
 តើ​អ្នក​ចង់​បិទ​វា​ឬ?"</string>
     <string name="force_close">យល់​ព្រម</string>
-    <string name="report">របាយការណ៍</string>
+    <string name="report">រាយការណ៍</string>
     <string name="wait">រង់ចាំ</string>
     <string name="webpage_unresponsive">"ទំព័រ​ក្លាយ​ជា​មិន​ឆ្លើយតប។
 
@@ -1003,7 +1007,7 @@
     <string name="wifi_watchdog_network_disabled">មិន​​អាច​តភ្ជាប់​វ៉ាយហ្វាយ</string>
     <string name="wifi_watchdog_network_disabled_detailed">" មាន​ការ​តភ្ជាប់​អ៊ីនធឺណិត​មិន​ល្អ។"</string>
     <string name="wifi_p2p_dialog_title">វ៉ាយហ្វាយ​ផ្ទាល់</string>
-    <string name="wifi_p2p_turnon_message">ចាប់ផ្ដើម​វ៉ាយហ្វាយ​ដោយ​ផ្ទាល់។ វា​នឹង​បិទ​វ៉ាយហ្វាយ ។</string>
+    <string name="wifi_p2p_turnon_message">ចាប់ផ្ដើម​វ៉ាយហ្វាយ​ផ្ទាល់។ វា​នឹង​បិទ​វ៉ាយហ្វាយ​ហតស្ពត។</string>
     <string name="wifi_p2p_failed_message">មិន​អាច​ចាប់ផ្ដើម​វ៉ាយហ្វា​ដោយ​ផ្ទាល់។</string>
     <string name="wifi_p2p_enabled_notification_title">បើក​​វ៉ាយហ្វាយ​ផ្ទាល់</string>
     <string name="wifi_p2p_enabled_notification_message">ប៉ះ​ ដើម្បី​កំណត់</string>
@@ -1144,7 +1148,7 @@
     <string name="submit">ដាក់​ស្នើ</string>
     <string name="car_mode_disable_notification_title">បាន​បើក​របៀប​រថយន្ត</string>
     <string name="car_mode_disable_notification_message">ប៉ះ​ ដើម្បី​ចេញ​ពី​របៀប​រថយន្ត​។</string>
-    <string name="tethered_notification_title">​ភ្ជាប់ ឬ​ hotspot សកម្ម</string>
+    <string name="tethered_notification_title">ភ្ជាប់ ឬ​ហតស្ពត​សកម្ម</string>
     <string name="tethered_notification_message">ប៉ះ​ ដើម្បី​រៀបចំ។</string>
     <string name="back_button_label">ថយក្រោយ</string>
     <string name="next_button_label">បន្ទាប់</string>
@@ -1206,6 +1210,7 @@
     <string name="keyboardview_keycode_shift">Shift</string>
     <string name="keyboardview_keycode_enter">Enter</string>
     <string name="activitychooserview_choose_application">ជ្រើស​កម្មវិធី</string>
+    <string name="activitychooserview_choose_application_error">មិន​អាច​ចាប់ផ្ដើម %s</string>
     <string name="shareactionprovider_share_with">ចែករំលែក​ជា​មួយ</string>
     <string name="shareactionprovider_share_with_application">ចែក​រំលែក​ជា​មួយ %s</string>
     <string name="content_description_sliding_handle">គ្រប់គ្រង​ការ​រុញ។ ប៉ះ &amp; សង្កត់។</string>
@@ -1274,8 +1279,12 @@
     <string name="default_audio_route_category_name">ប្រព័ន្ធ</string>
     <string name="bluetooth_a2dp_audio_route_name">សំឡេង​ប៊្លូធូស</string>
     <string name="wireless_display_route_description">បង្ហាញ​បណ្ដាញ​ឥត​ខ្សែ</string>
-    <string name="media_route_chooser_grouping_done">រួចរាល់</string>
     <string name="media_route_button_content_description">លទ្ធផល​មេឌៀ</string>
+    <string name="media_route_chooser_title">ភ្ជាប់​ឧបករណ៍</string>
+    <string name="media_route_chooser_title_for_remote_display">ចាត់​ថ្នាក់​អេក្រង់​ទៅ​ឧបករណ៍</string>
+    <string name="media_route_chooser_searching">កំពុង​ស្វែងរក​ឧបករណ៍...</string>
+    <string name="media_route_chooser_extended_settings">ការ​កំណត់</string>
+    <string name="media_route_controller_disconnect">ផ្ដាច់</string>
     <string name="media_route_status_scanning">កំពុង​វិភាគ​រក…</string>
     <string name="media_route_status_connecting">កំពុង​​​ភ្ជាប់​…</string>
     <string name="media_route_status_available">ទំនេរ</string>
@@ -1286,8 +1295,10 @@
     <string name="display_manager_overlay_display_name">\#%1$d ត្រួត​គ្នា</string>
     <string name="display_manager_overlay_display_title">%1$s: %2$dx%3$d, %4$d dpi</string>
     <string name="display_manager_overlay_display_secure_suffix">, សុវត្ថិភាព</string>
-    <string name="wifi_display_notification_title">បាន​ភ្ជាប់​ការ​បង្ហាញ​បណ្ដាញ​ឥត​ខ្សែ</string>
-    <string name="wifi_display_notification_message">អេក្រង់​នេះ​បង្ហាញ​លើ​ឧបករណ៍​ផ្សេង</string>
+    <string name="wifi_display_notification_connecting_title">ចាត់​ថ្នាក់​អេក្រង់</string>
+    <string name="wifi_display_notification_connecting_message">កំពុង​តភ្ជាប់​ទៅ %1$s</string>
+    <string name="wifi_display_notification_connected_title">ចាត់​ថ្នាក់​អេក្រង់</string>
+    <string name="wifi_display_notification_connected_message">តភ្ជាប់​ទៅ %1$s</string>
     <string name="wifi_display_notification_disconnect">ផ្ដាច់</string>
     <string name="kg_emergency_call_label">ការ​ហៅ​ពេល​អាសន្ន</string>
     <string name="kg_forgot_pattern_button_text">ភ្លេច​​លំនាំ</string>
@@ -1447,10 +1458,17 @@
     <string name="webviewchromium_actionbar_share">ចែករំលែក</string>
     <string name="webviewchromium_actionbar_web_search">ស្វែងរក​តំបន់បណ្ដាញ</string>
     <string name="webviewchromium_accessibility_content_view">ទិដ្ឋភាព​តំបន់​បណ្ដាញ</string>
+    <string name="webviewchromium_date_picker_dialog_title">កំណត់​កាលបរិច្ឆេទ</string>
     <string name="webviewchromium_date_picker_dialog_set">កំណត់</string>
     <string name="webviewchromium_date_picker_dialog_clear">សម្អាត</string>
-    <string name="webviewchromium_date_picker_dialog_title">កំណត់​កាលបរិច្ឆេទ</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">ផ្សេងៗ</string>
     <string name="webviewchromium_date_time_picker_dialog_title">កំណត់​កាលបរិច្ឆេទ និង​ពេលវេលា</string>
+    <string name="webviewchromium_time_picker_dialog_title">កំណត់​ម៉ោង</string>
+    <string name="webviewchromium_time_picker_dialog_am">ព្រឹក</string>
+    <string name="webviewchromium_time_picker_dialog_pm">ល្ងាច</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">កំណត់​ខែ</string>
     <string name="webviewchromium_week_picker_dialog_title">កំណត់​សប្ដាហ៍</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">កាលបរិច្ឆេទ</string>
@@ -1458,6 +1476,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">ខែ</string>
     <string name="webviewchromium_accessibility_date_picker_week">សប្ដាហ៍</string>
     <string name="webviewchromium_accessibility_date_picker_year">ឆ្នាំ</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">ម៉ោង</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">នាទី</string>
+    <string name="webviewchromium_accessibility_time_picker_second">វិនាទី</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">មិល្លី​វិនាទី</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">ព្រឹក/ល្ងាច</string>
     <string name="webviewchromium_media_player_error_title">មិន​អាច​ចាក់​វីដេអូ</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">សុំទោស! វីដេអូ​នេះ​មិន​ត្រឹមត្រូវ​សម្រាប់​ចរន្ត​​ទៅ​​ឧបករណ៍​នេះ​ទេ។</string>
     <string name="webviewchromium_media_player_error_text_unknown">សុំទោស! មិន​អាច​ចាក់​វីដេអូ​នេះ​​​បាន​ទេ។</string>
@@ -1470,7 +1493,20 @@
     <string name="webviewchromium_color_picker_button_set">កំណត់</string>
     <string name="webviewchromium_color_picker_button_cancel">បោះ​បង់</string>
     <string name="webviewchromium_color_picker_dialog_title">ជ្រើស​ពណ៌</string>
+    <string name="webviewchromium_color_picker_button_red">ក្រហម</string>
+    <string name="webviewchromium_color_picker_button_cyan">​ផ្ទៃមេឃ</string>
+    <string name="webviewchromium_color_picker_button_blue">ខៀវ</string>
+    <string name="webviewchromium_color_picker_button_green">បៃតង</string>
+    <string name="webviewchromium_color_picker_button_magenta">​ក្រហម​ស្វាយ</string>
+    <string name="webviewchromium_color_picker_button_yellow">លឿង</string>
+    <string name="webviewchromium_color_picker_button_black">ខ្មៅ</string>
+    <string name="webviewchromium_color_picker_button_white">ស</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">បាន​បរាជ័យ​ក្នុង​ការ​ចម្លង​ទៅ​ក្ដារ​តម្បៀត​ខ្ទាស់</string>
     <string name="webviewchromium_low_memory_error">មិន​អាច​បញ្ចប់​ប្រតិបត្តិការ​ពី​មុន​បាន​ព្រោះ​ជិត​អស់​អង្គ​ចងចាំ</string>
     <string name="webviewchromium_opening_file_error">បាន​បរាជ័យ​ក្នុង​ការ​បើក​ឯកសារ​ដែល​បាន​ជ្រើស</string>
     <string name="webviewchromium_private_browsing_warning">មុខងារ​នេះ​មិន​ត្រូវ​បាន​គាំទ្រ​នៅ​ក្នុង​កំណែ​របស់ Android នេះ​ទេ។</string>
+    <string name="webviewchromium_profiler_started_toast">បាន​ចាប់ផ្ដើម​កម្មវិធី​គូស​ព្រាង</string>
+    <string name="webviewchromium_profiler_stopped_toast">បាន​បញ្ចប់​កម្មវិធី​គំនូស​ព្រាង។ លទ្ធផល​គឺ %1$s ។</string>
+    <string name="webviewchromium_profiler_no_storage_toast">មិន​អាច​ចាប់ផ្ដើម​កម្មវិធី​គំនូស​ព្រាង​ ព្រោះ​ឧបករណ៍​ផ្ទុក​ខាងក្រៅ​មិន​ទាន់​រួចរាល់</string>
+    <string name="webviewchromium_profiler_error_toast">បាន​បរាជ័យ​ក្នុង​ការ​ចាប់ផ្ដើម​កម្មវិធី​គូស​ព្រាង</string>
 </resources>

@@ -818,7 +818,7 @@
     :cond_1
     new-instance v42, Ljava/security/SignatureException;
 
-    const-string v43, "no signature in file (no footer)"
+    const-string/jumbo v43, "no signature in file (no footer)"
 
     invoke-direct/range {v42 .. v43}, Ljava/security/SignatureException;-><init>(Ljava/lang/String;)V
 
@@ -977,7 +977,7 @@
     :cond_3
     new-instance v42, Ljava/security/SignatureException;
 
-    const-string v43, "no signature in file (bad footer)"
+    const-string/jumbo v43, "no signature in file (bad footer)"
 
     invoke-direct/range {v42 .. v43}, Ljava/security/SignatureException;-><init>(Ljava/lang/String;)V
 
@@ -1295,7 +1295,7 @@
     :cond_d
     new-instance v42, Ljava/io/IOException;
 
-    const-string v43, "no signer infos!"
+    const-string/jumbo v43, "no signer infos!"
 
     invoke-direct/range {v42 .. v43}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 

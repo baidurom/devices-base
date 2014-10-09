@@ -26,13 +26,13 @@
     .parameter "status"
 
     .prologue
-    .line 220
+    .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 221
+    .line 232
     if-nez p1, :cond_0
 
-    .line 222
+    .line 233
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "printerId cannot be null."
@@ -41,7 +41,7 @@
 
     throw v0
 
-    .line 224
+    .line 235
     :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -49,7 +49,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 225
+    .line 236
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "name cannot be empty."
@@ -58,7 +58,7 @@
 
     throw v0
 
-    .line 227
+    .line 238
     :cond_1
     invoke-direct {p0, p3}, Landroid/print/PrinterInfo$Builder;->isValidStatus(I)Z
 
@@ -66,7 +66,7 @@
 
     if-nez v0, :cond_2
 
-    .line 228
+    .line 239
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "status is invalid."
@@ -75,7 +75,7 @@
 
     throw v0
 
-    .line 230
+    .line 241
     :cond_2
     new-instance v0, Landroid/print/PrinterInfo;
 
@@ -85,25 +85,25 @@
 
     iput-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
-    .line 231
+    .line 242
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mId:Landroid/print/PrinterId;
     invoke-static {v0, p1}, Landroid/print/PrinterInfo;->access$102(Landroid/print/PrinterInfo;Landroid/print/PrinterId;)Landroid/print/PrinterId;
 
-    .line 232
+    .line 243
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mName:Ljava/lang/String;
     invoke-static {v0, p2}, Landroid/print/PrinterInfo;->access$202(Landroid/print/PrinterInfo;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 233
+    .line 244
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mStatus:I
     invoke-static {v0, p3}, Landroid/print/PrinterInfo;->access$302(Landroid/print/PrinterInfo;I)I
 
-    .line 234
+    .line 245
     return-void
 .end method
 
@@ -112,10 +112,10 @@
     .parameter "other"
 
     .prologue
-    .line 241
+    .line 252
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 242
+    .line 253
     new-instance v0, Landroid/print/PrinterInfo;
 
     const/4 v1, 0x0
@@ -124,12 +124,12 @@
 
     iput-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
-    .line 243
+    .line 254
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     invoke-virtual {v0, p1}, Landroid/print/PrinterInfo;->copyFrom(Landroid/print/PrinterInfo;)V
 
-    .line 244
+    .line 255
     return-void
 .end method
 
@@ -140,7 +140,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 304
+    .line 317
     if-eq p1, v0, :cond_0
 
     const/4 v1, 0x2
@@ -164,17 +164,11 @@
 
 # virtual methods
 .method public build()Landroid/print/PrinterInfo;
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 300
-    new-instance v0, Landroid/print/PrinterInfo;
-
-    iget-object v1, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Landroid/print/PrinterInfo;-><init>(Landroid/print/PrinterInfo;Landroid/print/PrinterInfo$1;)V
+    .line 313
+    iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     return-object v0
 .end method
@@ -184,13 +178,13 @@
     .parameter "capabilities"
 
     .prologue
-    .line 290
+    .line 303
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mCapabilities:Landroid/print/PrinterCapabilitiesInfo;
     invoke-static {v0, p1}, Landroid/print/PrinterInfo;->access$502(Landroid/print/PrinterInfo;Landroid/print/PrinterCapabilitiesInfo;)Landroid/print/PrinterCapabilitiesInfo;
 
-    .line 291
+    .line 304
     return-object p0
 .end method
 
@@ -199,13 +193,13 @@
     .parameter "description"
 
     .prologue
-    .line 279
+    .line 292
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mDescription:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/print/PrinterInfo;->access$402(Landroid/print/PrinterInfo;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 280
+    .line 293
     return-object p0
 .end method
 
@@ -214,13 +208,13 @@
     .parameter "name"
 
     .prologue
-    .line 268
+    .line 280
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mName:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/print/PrinterInfo;->access$202(Landroid/print/PrinterInfo;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 269
+    .line 281
     return-object p0
 .end method
 
@@ -229,12 +223,12 @@
     .parameter "status"
 
     .prologue
-    .line 257
+    .line 268
     iget-object v0, p0, Landroid/print/PrinterInfo$Builder;->mPrototype:Landroid/print/PrinterInfo;
 
     #setter for: Landroid/print/PrinterInfo;->mStatus:I
     invoke-static {v0, p1}, Landroid/print/PrinterInfo;->access$302(Landroid/print/PrinterInfo;I)I
 
-    .line 258
+    .line 269
     return-object p0
 .end method

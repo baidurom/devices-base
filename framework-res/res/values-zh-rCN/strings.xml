@@ -54,6 +54,7 @@
     <string name="invalidPuk">请键入至少 8 位数字的 PUK 码。</string>
     <string name="needPuk">已对 SIM 卡进行 PUK 码锁定。键入 PUK 码将其解锁。</string>
     <string name="needPuk2">输入 PUK2 码以解锁 SIM 卡。</string>
+    <string name="enablePin">失败，请启用 SIM/RUIM 卡锁定设置。</string>
     <string name="imei">IMEI</string>
     <string name="meid">MEID</string>
     <string name="ClipMmi">来电显示</string>
@@ -75,7 +76,7 @@
     <string name="CLIRDefaultOffNextCallOff">默认显示本机号码，在下一次通话中也显示</string>
     <string name="serviceNotProvisioned">未提供服务。</string>
     <string name="CLIRPermanent">您无法更改来电显示设置。</string>
-    <string name="RestrictedChangedTitle">访问受限情况已发生变化</string>
+    <string name="RestrictedChangedTitle">网络可用情况发生变化</string>
     <string name="RestrictedOnData">数据服务已禁用。</string>
     <string name="RestrictedOnEmergency">紧急服务已禁用。</string>
     <string name="RestrictedOnNormal">已禁用语音服务。</string>
@@ -124,7 +125,7 @@
     <string name="httpErrorTimeout">与服务器的连接超时。</string>
     <string name="httpErrorRedirectLoop">该页面包含太多服务器重定向。</string>
     <string name="httpErrorFailedSslHandshake">无法建立安全连接。</string>
-    <string name="httpErrorFile">无法访问该文件。</string>
+    <string name="httpErrorFile">无法使用该文件。</string>
     <string name="httpErrorFileNotFound">找不到请求的文件。</string>
     <string name="httpErrorTooManyRequests">正在处理的请求太多，请稍后重试。</string>
     <string name="notification_title">登录 %1$s 时出错</string>
@@ -163,7 +164,7 @@
     <string name="global_action_silent_mode_off_status">声音已开启</string>
     <string name="global_actions_toggle_airplane_mode">飞行模式</string>
     <string name="global_actions_airplane_mode_on_status">已开启飞行模式</string>
-    <string name="global_actions_airplane_mode_off_status">已关闭飞行模式</string>
+    <string name="global_actions_airplane_mode_off_status">未开启飞行模式</string>
     <string name="safeMode">安全模式</string>
     <string name="android_system_label">Android 系统</string>
     <string name="permgrouplab_costMoney">需要您付费的服务</string>
@@ -247,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">卸载快捷方式</string>
     <string name="permdesc_uninstall_shortcut">允许应用自行删除主屏幕快捷方式。</string>
     <string name="permlab_processOutgoingCalls">重新设置外拨电话的路径</string>
-    <string name="permdesc_processOutgoingCalls">允许该应用处理外拨电话以及更改要拨打的号码。此权限可让该应用监视、重定向或阻止外拨电话。</string>
+    <string name="permdesc_processOutgoingCalls">允许应用在拨出电话时查看拨打的电话号码，并选择改为拨打其他号码或完全中止通话。</string>
     <string name="permlab_receiveSms">接收讯息（短信）</string>
     <string name="permdesc_receiveSms">允许该应用接收和处理短信。这就意味着，该应用可能会监视发送到您设备的短信，或删除发送到您设备的短信而不向您显示。</string>
     <string name="permlab_receiveMms">接收讯息（彩信）</string>
@@ -370,6 +371,8 @@
     <string name="permdesc_bindVpnService">允许用户绑定到 VPN 服务的顶级接口。普通应用绝不需要此权限。</string>
     <string name="permlab_bindWallpaper">绑定到壁纸</string>
     <string name="permdesc_bindWallpaper">允许用户绑定到壁纸的顶级接口。普通应用绝不需要此权限。</string>
+    <string name="permlab_bindRemoteDisplay">绑定至远程显示屏</string>
+    <string name="permdesc_bindRemoteDisplay">允许应用绑定至远程显示屏的顶级接口。普通应用绝不需要此权限。</string>
     <string name="permlab_bindRemoteViews">绑定到小部件服务</string>
     <string name="permdesc_bindRemoteViews">允许应用绑定到小部件服务的顶级接口。普通应用绝不需要此权限。</string>
     <string name="permlab_bindDeviceAdmin">与设备管理器交互</string>
@@ -451,9 +454,9 @@
     <string name="permlab_installLocationProvider">允许安装位置信息提供程序</string>
     <string name="permdesc_installLocationProvider">创建用于测试的模拟位置源或安装新的位置提供程序。此权限可让该应用覆盖由其他位置源（如 GPS）或位置提供程序返回的位置和/或状态信息。</string>
     <string name="permlab_accessFineLocation">精确位置（基于 GPS 和网络）</string>
-    <string name="permdesc_accessFineLocation">允许该应用通过全球定位系统 (GPS) 或网络位置信息源（例如基站和 WLAN）获取您的精确位置信息。您必须在设备上开启这些位置服务，应用才能获得位置信息。应用会使用此类服务确定您的位置，这可能会消耗更多电量。</string>
+    <string name="permdesc_accessFineLocation">允许该应用通过全球定位系统(GPS)或网络位置信息源（例如基站和WLAN）获取您的精确位置信息。您必须在设备上开启这些位置信息服务，应用才能获得位置信息。应用会使用此类服务确定您的位置，这可能会消耗更多电量。</string>
     <string name="permlab_accessCoarseLocation">大致位置（基于网络）</string>
-    <string name="permdesc_accessCoarseLocation">允许该应用获取您的大致位置信息。这类位置信息来自于使用网络位置信息源（例如基站和 WLAN）的位置服务。您必须在设备上开启这些位置服务，应用才能获得位置信息。应用会使用此类服务确定您的大概位置。</string>
+    <string name="permdesc_accessCoarseLocation">允许该应用获取您的大致位置信息。这类位置信息来自于使用网络位置信息源（例如基站和WLAN）的位置信息服务。您必须在设备上开启这些位置信息服务，应用才能获得位置信息。应用会使用此类服务确定您的大概位置。</string>
     <string name="permlab_accessSurfaceFlinger">访问 SurfaceFlinger</string>
     <string name="permdesc_accessSurfaceFlinger">允许应用使用 SurfaceFlinger 低级功能。</string>
     <string name="permlab_readFrameBuffer">读取帧缓冲区</string>
@@ -464,8 +467,8 @@
     <string name="permdesc_controlWifiDisplay">允许应用控制 WLAN 显示设备的基础功能。</string>
     <string name="permlab_captureAudioOutput">捕获音频输出</string>
     <string name="permdesc_captureAudioOutput">允许该应用捕获和重定向音频输出。</string>
-    <string name="permlab_captureAudioHotword">检测关键词</string>
-    <string name="permdesc_captureAudioHotword">允许应用捕获音频以便检测语音指令的关键词。捕获操作会在后台进行，但不会妨碍其他音频捕获工具（例如摄像机）。</string>
+    <string name="permlab_captureAudioHotword">启动指令检测</string>
+    <string name="permdesc_captureAudioHotword">允许应用捕获音频以便检测语音启动指令。捕获操作会在后台进行，但不会妨碍其他音频捕获工具（例如摄像机）。</string>
     <string name="permlab_captureVideoOutput">捕获视频输出</string>
     <string name="permdesc_captureVideoOutput">允许该应用捕获和重定向视频输出。</string>
     <string name="permlab_captureSecureVideoOutput">捕获安全视频输出</string>
@@ -519,7 +522,7 @@
     <string name="permlab_checkinProperties">访问检入属性</string>
     <string name="permdesc_checkinProperties">允许应用对登记服务上传的属性拥有读取/写入权限。普通应用不应使用此权限。</string>
     <string name="permlab_bindGadget">选择小部件</string>
-    <string name="permdesc_bindGadget">允许应用告知系统哪些小部件可供哪个应用使用。拥有此权限的应用可向其他应用授予对个人资料的访问权限。普通应用不应使用此权限。</string>
+    <string name="permdesc_bindGadget">允许应用告知系统哪些小部件可供哪个应用使用。拥有此权限的应用可向其他应用授予对个人数据的访问权限。普通应用不应使用此权限。</string>
     <string name="permlab_modifyPhoneState">修改手机状态</string>
     <string name="permdesc_modifyPhoneState">允许应用控制设备的电话功能。拥有此权限的应用可在不通知您的情况下执行切换网络、开关手机无线装置等此类操作。</string>
     <string name="permlab_readPhoneState">读取手机状态和身份</string>
@@ -581,7 +584,7 @@
     <string name="permlab_bluetooth">与蓝牙设备配对</string>
     <string name="permdesc_bluetooth">允许该应用查看手机上的蓝牙配置，以及建立和接受与配对设备的连接。</string>
     <string name="permlab_nfc">控制近距离通信</string>
-    <string name="permdesc_nfc">允许应用与近距离无线通信 (NFC) 标记、卡和阅读器进行通信。</string>
+    <string name="permdesc_nfc">允许应用与近距离无线通信(NFC)标签、卡和读取器通信。</string>
     <string name="permlab_disableKeyguard">停用屏幕锁定</string>
     <string name="permdesc_disableKeyguard">允许该应用停用键锁以及任何关联的密码安全措施。例如，让手机在接听来电时停用键锁，在通话结束后重新启用键锁。</string>
     <string name="permlab_readSyncSettings">读取同步设置</string>
@@ -720,6 +723,7 @@
     <string name="sipAddressTypeHome">住宅</string>
     <string name="sipAddressTypeWork">单位</string>
     <string name="sipAddressTypeOther">其他</string>
+    <string name="quick_contacts_not_available">找不到可用来查看此联系人的应用。</string>
     <string name="keyguard_password_enter_pin_code">输入 PIN 码</string>
     <string name="keyguard_password_enter_puk_code">请输入 PUK 码和新的 PIN 码</string>
     <string name="keyguard_password_enter_puk_prompt">PUK 码</string>
@@ -934,7 +938,7 @@
     <string name="app_running_notification_title">“%1$s”正在运行</string>
     <string name="app_running_notification_text">触摸即可了解详情或停止应用。</string>
     <string name="loading">正在加载...</string>
-    <string name="capital_on">打开</string>
+    <string name="capital_on">开启</string>
     <string name="capital_off">关闭</string>
     <string name="whichApplication">选择要使用的应用：</string>
     <string name="whichHomeApplication">选择主屏幕应用</string>
@@ -1211,6 +1215,7 @@
     <string name="keyboardview_keycode_shift">Shift</string>
     <string name="keyboardview_keycode_enter">Enter</string>
     <string name="activitychooserview_choose_application">选择应用</string>
+    <string name="activitychooserview_choose_application_error">无法启动“%s”</string>
     <string name="shareactionprovider_share_with">分享方式</string>
     <string name="shareactionprovider_share_with_application">使用%s分享</string>
     <string name="content_description_sliding_handle">滑动手柄。触摸并按住。</string>
@@ -1279,8 +1284,12 @@
     <string name="default_audio_route_category_name">系统</string>
     <string name="bluetooth_a2dp_audio_route_name">蓝牙音频</string>
     <string name="wireless_display_route_description">无线显示</string>
-    <string name="media_route_chooser_grouping_done">完成</string>
     <string name="media_route_button_content_description">媒体输出线路</string>
+    <string name="media_route_chooser_title">连接到设备</string>
+    <string name="media_route_chooser_title_for_remote_display">将屏幕投射到设备上</string>
+    <string name="media_route_chooser_searching">正在搜索设备…</string>
+    <string name="media_route_chooser_extended_settings">设置</string>
+    <string name="media_route_controller_disconnect">断开连接</string>
     <string name="media_route_status_scanning">正在扫描...</string>
     <string name="media_route_status_connecting">正在连接...</string>
     <string name="media_route_status_available">可连接</string>
@@ -1291,8 +1300,10 @@
     <string name="display_manager_overlay_display_name">叠加视图 #%1$d</string>
     <string name="display_manager_overlay_display_title">%1$s：%2$dx%3$d，%4$d dpi</string>
     <string name="display_manager_overlay_display_secure_suffix">，安全</string>
-    <string name="wifi_display_notification_title">已连接到无线显示设备</string>
-    <string name="wifi_display_notification_message">此屏幕的内容正显示在另一台设备上</string>
+    <string name="wifi_display_notification_connecting_title">正在投射屏幕</string>
+    <string name="wifi_display_notification_connecting_message">正在连接到“%1$s”</string>
+    <string name="wifi_display_notification_connected_title">正在投射屏幕</string>
+    <string name="wifi_display_notification_connected_message">已连接到“%1$s”</string>
     <string name="wifi_display_notification_disconnect">断开连接</string>
     <string name="kg_emergency_call_label">紧急呼救</string>
     <string name="kg_forgot_pattern_button_text">忘记了图案</string>
@@ -1452,10 +1463,17 @@
     <string name="webviewchromium_actionbar_share">分享</string>
     <string name="webviewchromium_actionbar_web_search">网络搜索</string>
     <string name="webviewchromium_accessibility_content_view">网页视图</string>
+    <string name="webviewchromium_date_picker_dialog_title">设置日期</string>
     <string name="webviewchromium_date_picker_dialog_set">设置</string>
     <string name="webviewchromium_date_picker_dialog_clear">清除</string>
-    <string name="webviewchromium_date_picker_dialog_title">设置日期</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">其他</string>
     <string name="webviewchromium_date_time_picker_dialog_title">设置日期和时间</string>
+    <string name="webviewchromium_time_picker_dialog_title">设置时间</string>
+    <string name="webviewchromium_time_picker_dialog_am">上午</string>
+    <string name="webviewchromium_time_picker_dialog_pm">下午</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">设置月份</string>
     <string name="webviewchromium_week_picker_dialog_title">设置星期</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">日期</string>
@@ -1463,6 +1481,11 @@
     <string name="webviewchromium_accessibility_date_picker_month">月</string>
     <string name="webviewchromium_accessibility_date_picker_week">周</string>
     <string name="webviewchromium_accessibility_date_picker_year">年</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">小时</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">分钟</string>
+    <string name="webviewchromium_accessibility_time_picker_second">秒</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">毫秒</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">上午/下午</string>
     <string name="webviewchromium_media_player_error_title">无法播放视频</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">抱歉，该视频无法流式传输到此设备。</string>
     <string name="webviewchromium_media_player_error_text_unknown">抱歉，无法播放此视频。</string>
@@ -1475,7 +1498,20 @@
     <string name="webviewchromium_color_picker_button_set">设置</string>
     <string name="webviewchromium_color_picker_button_cancel">取消</string>
     <string name="webviewchromium_color_picker_dialog_title">选择颜色</string>
+    <string name="webviewchromium_color_picker_button_red">红色</string>
+    <string name="webviewchromium_color_picker_button_cyan">青色</string>
+    <string name="webviewchromium_color_picker_button_blue">蓝色</string>
+    <string name="webviewchromium_color_picker_button_green">绿色</string>
+    <string name="webviewchromium_color_picker_button_magenta">紫红色</string>
+    <string name="webviewchromium_color_picker_button_yellow">黄色</string>
+    <string name="webviewchromium_color_picker_button_black">黑色</string>
+    <string name="webviewchromium_color_picker_button_white">白色</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">无法复制到剪贴板</string>
     <string name="webviewchromium_low_memory_error">内存不足，无法完成先前的操作</string>
     <string name="webviewchromium_opening_file_error">无法打开所选文件</string>
     <string name="webviewchromium_private_browsing_warning">此版本的 Android 系统不支持该功能。</string>
+    <string name="webviewchromium_profiler_started_toast">已启动分析器</string>
+    <string name="webviewchromium_profiler_stopped_toast">分析器已完成操作。请在 %1$s 中查看分析结果。</string>
+    <string name="webviewchromium_profiler_no_storage_toast">外部存储设备尚未准备就绪，无法启动分析器</string>
+    <string name="webviewchromium_profiler_error_toast">无法启动分析器</string>
 </resources>

@@ -26,10 +26,10 @@
     .parameter "binder"
 
     .prologue
-    .line 1458
+    .line 1497
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$Multicaster;->this$0:Lcom/android/server/wifi/WifiService;
 
-    .line 1459
+    .line 1498
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v2
@@ -46,7 +46,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/wifi/WifiService$DeathRecipient;-><init>(Lcom/android/server/wifi/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
 
-    .line 1460
+    .line 1499
     return-void
 .end method
 
@@ -56,14 +56,14 @@
     .locals 4
 
     .prologue
-    .line 1463
+    .line 1502
     const-string v1, "WifiService"
 
     const-string v2, "Multicaster binderDied"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1464
+    .line 1503
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$Multicaster;->this$0:Lcom/android/server/wifi/WifiService;
 
     #getter for: Lcom/android/server/wifi/WifiService;->mMulticasters:Ljava/util/List;
@@ -73,7 +73,7 @@
 
     monitor-enter v2
 
-    .line 1465
+    .line 1504
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$Multicaster;->this$0:Lcom/android/server/wifi/WifiService;
 
@@ -86,13 +86,13 @@
 
     move-result v0
 
-    .line 1466
+    .line 1505
     .local v0, i:I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 1467
+    .line 1506
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$Multicaster;->this$0:Lcom/android/server/wifi/WifiService;
 
     iget v3, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mMode:I
@@ -100,14 +100,14 @@
     #calls: Lcom/android/server/wifi/WifiService;->removeMulticasterLocked(II)V
     invoke-static {v1, v0, v3}, Lcom/android/server/wifi/WifiService;->access$1700(Lcom/android/server/wifi/WifiService;II)V
 
-    .line 1469
+    .line 1508
     :cond_0
     monitor-exit v2
 
-    .line 1470
+    .line 1509
     return-void
 
-    .line 1469
+    .line 1508
     .end local v0           #i:I
     :catchall_0
     move-exception v1
@@ -123,7 +123,7 @@
     .locals 1
 
     .prologue
-    .line 1477
+    .line 1516
     iget v0, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mMode:I
 
     return v0
@@ -133,7 +133,7 @@
     .locals 2
 
     .prologue
-    .line 1473
+    .line 1512
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

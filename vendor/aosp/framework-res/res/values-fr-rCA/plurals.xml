@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Il vous reste %d tentative(s) avant que votre carte SIM soit verrouillée.</item>
+        <item quantity="one">Il vous reste %d tentative avant que votre carte SIM soit verrouillée.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">Il y a %d secondes</item>
         <item quantity="one">il y a 1 seconde</item>

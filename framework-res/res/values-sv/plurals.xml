@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Du har %d försök kvar innan SIM-kortet låses.</item>
+        <item quantity="one">Du har %d försök kvar innan SIM-kortet låses.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">för %d sekunder sedan</item>
         <item quantity="one">för 1 sekund sedan</item>

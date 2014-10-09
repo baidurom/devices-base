@@ -22,7 +22,7 @@
 # static fields
 .field private static final DBG:Z = false
 
-.field private static final MAX_RETRIES_ON_ASSOCIATION_REJECT:I = 0x4
+.field private static final MAX_RETRIES_ON_ASSOCIATION_REJECT:I = 0x10
 
 .field private static final MAX_RETRIES_ON_AUTHENTICATION_FAILURE:I = 0x2
 
@@ -504,7 +504,7 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 151
-    const-string v1, "newState"
+    const-string/jumbo v1, "newState"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 

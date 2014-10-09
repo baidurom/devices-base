@@ -48,7 +48,7 @@
     .parameter
 
     .prologue
-    .line 318
+    .line 319
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$Archive$1;->this$0:Lcom/android/server/NotificationManagerService$Archive;
 
     iput-object p2, p0, Lcom/android/server/NotificationManagerService$Archive$1;->val$iter:Ljava/util/Iterator;
@@ -59,7 +59,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 319
+    .line 320
     invoke-direct {p0}, Lcom/android/server/NotificationManagerService$Archive$1;->findNext()Landroid/service/notification/StatusBarNotification;
 
     move-result-object v0
@@ -73,7 +73,7 @@
     .locals 3
 
     .prologue
-    .line 322
+    .line 323
     :cond_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$Archive$1;->val$iter:Ljava/util/Iterator;
 
@@ -83,7 +83,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 323
+    .line 324
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$Archive$1;->val$iter:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -92,7 +92,7 @@
 
     check-cast v0, Landroid/service/notification/StatusBarNotification;
 
-    .line 324
+    .line 325
     .local v0, nr:Landroid/service/notification/StatusBarNotification;
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$Archive$1;->val$pkg:Ljava/lang/String;
 
@@ -121,7 +121,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 329
+    .line 330
     .end local v0           #nr:Landroid/service/notification/StatusBarNotification;
     :cond_2
     :goto_0
@@ -139,7 +139,7 @@
     .locals 1
 
     .prologue
-    .line 334
+    .line 335
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$Archive$1;->mNext:Landroid/service/notification/StatusBarNotification;
 
     if-nez v0, :cond_0
@@ -159,21 +159,21 @@
     .locals 2
 
     .prologue
-    .line 339
+    .line 340
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$Archive$1;->mNext:Landroid/service/notification/StatusBarNotification;
 
-    .line 340
+    .line 341
     .local v0, next:Landroid/service/notification/StatusBarNotification;
     if-nez v0, :cond_0
 
-    .line 341
+    .line 342
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v1
 
-    .line 343
+    .line 344
     :cond_0
     invoke-direct {p0}, Lcom/android/server/NotificationManagerService$Archive$1;->findNext()Landroid/service/notification/StatusBarNotification;
 
@@ -181,7 +181,7 @@
 
     iput-object v1, p0, Lcom/android/server/NotificationManagerService$Archive$1;->mNext:Landroid/service/notification/StatusBarNotification;
 
-    .line 344
+    .line 345
     return-object v0
 .end method
 
@@ -189,7 +189,7 @@
     .locals 1
 
     .prologue
-    .line 318
+    .line 319
     invoke-virtual {p0}, Lcom/android/server/NotificationManagerService$Archive$1;->next()Landroid/service/notification/StatusBarNotification;
 
     move-result-object v0
@@ -201,11 +201,11 @@
     .locals 1
 
     .prologue
-    .line 349
+    .line 350
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$Archive$1;->val$iter:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 350
+    .line 351
     return-void
 .end method

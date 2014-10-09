@@ -825,8 +825,25 @@
 
     .line 247
     :goto_0
+    iget v0, p1, Landroid/graphics/Rect;->left:I
+
+    iget v1, p1, Landroid/graphics/Rect;->top:I
+
+    or-int/2addr v0, v1
+
+    iget v1, p1, Landroid/graphics/Rect;->right:I
+
+    or-int/2addr v0, v1
+
+    iget v1, p1, Landroid/graphics/Rect;->bottom:I
+
+    or-int/2addr v0, v1
+
+    if-eqz v0, :cond_1
+
     const/4 v0, 0x1
 
+    :goto_1
     return v0
 
     .line 245
@@ -836,6 +853,12 @@
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     goto :goto_0
+
+    .line 247
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method public getPaint()Landroid/graphics/Paint;

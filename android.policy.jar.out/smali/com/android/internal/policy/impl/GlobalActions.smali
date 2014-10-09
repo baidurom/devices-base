@@ -630,7 +630,7 @@
     :goto_2
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$5;
 
-    const v2, 0x108033a
+    const v2, 0x1080338
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -868,11 +868,11 @@
 
     const v3, 0x10802ea
 
-    const v4, 0x10400cc
+    const v4, 0x10400cd
 
-    const v5, 0x10400cd
+    const v5, 0x10400ce
 
-    const v6, 0x10400ce
+    const v6, 0x10400cf
 
     move-object v1, p0
 
@@ -897,24 +897,24 @@
 
     const v2, 0x1080030
 
-    const v3, 0x10400c5
+    const v3, 0x10400c6
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/internal/policy/impl/GlobalActions$2;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 264
     invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector;->addRebootMenu(Lcom/android/internal/policy/impl/GlobalActions;)V
 
+    .line 264
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneModeOn:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 267
     invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector;->addScreenShotMenu(Lcom/android/internal/policy/impl/GlobalActions;)V
 
+    .line 267
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -940,9 +940,9 @@
 
     new-instance v1, Lcom/android/internal/policy/impl/GlobalActions$3;
 
-    const v2, 0x108058b
+    const v2, 0x108058d
 
-    const v3, 0x10400c6
+    const v3, 0x10400c7
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/internal/policy/impl/GlobalActions$3;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 

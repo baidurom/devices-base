@@ -48,34 +48,34 @@
     .parameter "surface"
 
     .prologue
-    .line 665
+    .line 693
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    .line 666
+    .line 694
     invoke-direct {p0, p1, p2}, Lcom/android/server/display/DisplayDevice;-><init>(Lcom/android/server/display/DisplayAdapter;Landroid/os/IBinder;)V
 
-    .line 667
+    .line 695
     iput-object p3, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mName:Ljava/lang/String;
 
-    .line 668
+    .line 696
     iput p4, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mWidth:I
 
-    .line 669
+    .line 697
     iput p5, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mHeight:I
 
-    .line 670
+    .line 698
     iput p6, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mRefreshRate:F
 
-    .line 671
+    .line 699
     iput p7, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
 
-    .line 672
+    .line 700
     iput-object p8, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mAddress:Ljava/lang/String;
 
-    .line 673
+    .line 701
     iput-object p9, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
-    .line 674
+    .line 702
     return-void
 .end method
 
@@ -85,22 +85,22 @@
     .locals 1
 
     .prologue
-    .line 677
+    .line 705
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
     if-eqz v0, :cond_0
 
-    .line 678
+    .line 706
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v0}, Landroid/view/Surface;->release()V
 
-    .line 679
+    .line 707
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
-    .line 681
+    .line 709
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getDisplayTokenLocked()Landroid/os/IBinder;
 
@@ -108,7 +108,7 @@
 
     invoke-static {v0}, Landroid/view/SurfaceControl;->destroyDisplay(Landroid/os/IBinder;)V
 
-    .line 682
+    .line 710
     return-void
 .end method
 
@@ -116,75 +116,75 @@
     .locals 3
 
     .prologue
-    .line 698
+    .line 726
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     if-nez v0, :cond_0
 
-    .line 699
+    .line 727
     new-instance v0, Lcom/android/server/display/DisplayDeviceInfo;
 
     invoke-direct {v0}, Lcom/android/server/display/DisplayDeviceInfo;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    .line 700
+    .line 728
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mName:Ljava/lang/String;
 
     iput-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
 
-    .line 701
+    .line 729
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mWidth:I
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
-    .line 702
+    .line 730
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mHeight:I
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
-    .line 703
+    .line 731
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mRefreshRate:F
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->refreshRate:F
 
-    .line 704
+    .line 732
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    .line 705
+    .line 733
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     const/4 v1, 0x3
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->type:I
 
-    .line 706
+    .line 734
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mAddress:Ljava/lang/String;
 
     iput-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->address:Ljava/lang/String;
 
-    .line 707
+    .line 735
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     const/4 v1, 0x2
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
 
-    .line 708
+    .line 736
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mWidth:I
@@ -193,7 +193,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/display/DisplayDeviceInfo;->setAssumedDensityForExternalDisplay(II)V
 
-    .line 710
+    .line 738
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -204,17 +204,17 @@
     .locals 1
 
     .prologue
-    .line 691
+    .line 719
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
     if-eqz v0, :cond_0
 
-    .line 692
+    .line 720
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {p0, v0}, Lcom/android/server/display/DisplayDevice;->setSurfaceInTransactionLocked(Landroid/view/Surface;)V
 
-    .line 694
+    .line 722
     :cond_0
     return-void
 .end method
@@ -224,14 +224,14 @@
     .parameter "name"
 
     .prologue
-    .line 685
+    .line 713
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mName:Ljava/lang/String;
 
-    .line 686
+    .line 714
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    .line 687
+    .line 715
     return-void
 .end method

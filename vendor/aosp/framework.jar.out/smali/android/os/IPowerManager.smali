@@ -135,6 +135,14 @@
     .end annotation
 .end method
 
+.method public abstract updateWakeLockUids(Landroid/os/IBinder;[I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract updateWakeLockWorkSource(Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

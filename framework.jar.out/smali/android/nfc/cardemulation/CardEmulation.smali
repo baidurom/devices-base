@@ -293,7 +293,7 @@
 
     move-result-object v1
 
-    const-string v2, "nfc_payment_default_component"
+    const-string/jumbo v2, "nfc_payment_default_component"
 
     invoke-static {v1, v2}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 

@@ -225,21 +225,21 @@
 
     const/16 v11, 0x1f40
 
-    .line 273
+    .line 277
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->sIdToMediaSizeMap:Ljava/util/Map;
 
-    .line 283
+    .line 287
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "UNKNOWN_PORTRAIT"
 
     const-string v2, "android"
 
-    const v3, 0x10405cf
+    const v3, 0x10405da
 
     const v5, 0x7fffffff
 
@@ -247,14 +247,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->UNKNOWN_PORTRAIT:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 294
+    .line 298
     new-instance v5, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v6, "UNKNOWN_LANDSCAPE"
 
     const-string v7, "android"
 
-    const v8, 0x10405d0
+    const v8, 0x10405db
 
     const v9, 0x7fffffff
 
@@ -264,14 +264,14 @@
 
     sput-object v5, Landroid/print/PrintAttributes$MediaSize;->UNKNOWN_LANDSCAPE:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 301
+    .line 305
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A0"
 
     const-string v2, "android"
 
-    const v3, 0x104057e
+    const v3, 0x1040589
 
     const v4, 0x8156
 
@@ -281,14 +281,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A0:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 304
+    .line 308
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A1"
 
     const-string v2, "android"
 
-    const v3, 0x104057f
+    const v3, 0x104058a
 
     const/16 v4, 0x5b5e
 
@@ -298,14 +298,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A1:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 307
+    .line 311
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A2"
 
     const-string v2, "android"
 
-    const v3, 0x1040580
+    const v3, 0x104058b
 
     const/16 v4, 0x409c
 
@@ -315,14 +315,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 310
+    .line 314
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A3"
 
     const-string v2, "android"
 
-    const v3, 0x1040581
+    const v3, 0x104058c
 
     const/16 v4, 0x2daa
 
@@ -332,14 +332,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A3:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 313
+    .line 317
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A4"
 
     const-string v2, "android"
 
-    const v3, 0x1040582
+    const v3, 0x104058d
 
     const/16 v4, 0x204e
 
@@ -349,14 +349,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A4:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 316
+    .line 320
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A5"
 
     const-string v2, "android"
 
-    const v3, 0x1040583
+    const v3, 0x104058e
 
     const/16 v4, 0x16c6
 
@@ -366,14 +366,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A5:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 319
+    .line 323
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A6"
 
     const-string v2, "android"
 
-    const v3, 0x1040584
+    const v3, 0x104058f
 
     const/16 v4, 0x1022
 
@@ -383,14 +383,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A6:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 322
+    .line 326
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A7"
 
     const-string v2, "android"
 
-    const v3, 0x1040585
+    const v3, 0x1040590
 
     const/16 v4, 0xb5e
 
@@ -400,14 +400,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A7:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 325
+    .line 329
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A8"
 
     const-string v2, "android"
 
-    const v3, 0x1040586
+    const v3, 0x1040591
 
     const/16 v4, 0x802
 
@@ -417,14 +417,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A8:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 328
+    .line 332
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A9"
 
     const-string v2, "android"
 
-    const v3, 0x1040587
+    const v3, 0x1040592
 
     const/16 v4, 0x5b4
 
@@ -434,14 +434,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A9:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 331
+    .line 335
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_A10"
 
     const-string v2, "android"
 
-    const v3, 0x1040588
+    const v3, 0x1040593
 
     const/16 v4, 0x3fc
 
@@ -451,14 +451,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_A10:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 335
+    .line 339
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B0"
 
     const-string v2, "android"
 
-    const v3, 0x1040589
+    const v3, 0x1040594
 
     const v4, 0x99ca
 
@@ -468,14 +468,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B0:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 338
+    .line 342
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B1"
 
     const-string v2, "android"
 
-    const v3, 0x104058a
+    const v3, 0x1040595
 
     const/16 v4, 0x6cb6
 
@@ -485,14 +485,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B1:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 341
+    .line 345
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B2"
 
     const-string v2, "android"
 
-    const v3, 0x104058b
+    const v3, 0x1040596
 
     const/16 v4, 0x4cea
 
@@ -502,14 +502,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 344
+    .line 348
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B3"
 
     const-string v2, "android"
 
-    const v3, 0x104058c
+    const v3, 0x1040597
 
     const/16 v4, 0x364c
 
@@ -519,14 +519,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B3:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 347
+    .line 351
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B4"
 
     const-string v2, "android"
 
-    const v3, 0x104058d
+    const v3, 0x1040598
 
     const/16 v4, 0x2670
 
@@ -536,14 +536,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B4:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 350
+    .line 354
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B5"
 
     const-string v2, "android"
 
-    const v3, 0x104058e
+    const v3, 0x1040599
 
     const/16 v4, 0x1b12
 
@@ -553,14 +553,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B5:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 353
+    .line 357
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B6"
 
     const-string v2, "android"
 
-    const v3, 0x104058f
+    const v3, 0x104059a
 
     const/16 v4, 0x1338
 
@@ -570,14 +570,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B6:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 356
+    .line 360
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B7"
 
     const-string v2, "android"
 
-    const v3, 0x1040590
+    const v3, 0x104059b
 
     const/16 v4, 0xd84
 
@@ -587,14 +587,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B7:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 359
+    .line 363
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B8"
 
     const-string v2, "android"
 
-    const v3, 0x1040591
+    const v3, 0x104059c
 
     const/16 v4, 0x988
 
@@ -604,14 +604,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B8:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 362
+    .line 366
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B9"
 
     const-string v2, "android"
 
-    const v3, 0x1040592
+    const v3, 0x104059d
 
     const/16 v4, 0x6c2
 
@@ -621,14 +621,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B9:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 365
+    .line 369
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_B10"
 
     const-string v2, "android"
 
-    const v3, 0x1040593
+    const v3, 0x104059e
 
     const/16 v4, 0x4c4
 
@@ -638,14 +638,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_B10:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 369
+    .line 373
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C0"
 
     const-string v2, "android"
 
-    const v3, 0x1040594
+    const v3, 0x104059f
 
     const v4, 0x8d04
 
@@ -655,14 +655,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C0:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 372
+    .line 376
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C1"
 
     const-string v2, "android"
 
-    const v3, 0x1040595
+    const v3, 0x10405a0
 
     const/16 v4, 0x63a6
 
@@ -672,14 +672,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C1:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 375
+    .line 379
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C2"
 
     const-string v2, "android"
 
-    const v3, 0x1040596
+    const v3, 0x10405a1
 
     const/16 v4, 0x466e
 
@@ -689,14 +689,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 378
+    .line 382
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C3"
 
     const-string v2, "android"
 
-    const v3, 0x1040597
+    const v3, 0x10405a2
 
     const/16 v4, 0x31d8
 
@@ -706,14 +706,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C3:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 381
+    .line 385
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C4"
 
     const-string v2, "android"
 
-    const v3, 0x1040598
+    const v3, 0x10405a3
 
     const/16 v4, 0x233c
 
@@ -723,14 +723,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C4:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 384
+    .line 388
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C5"
 
     const-string v2, "android"
 
-    const v3, 0x1040599
+    const v3, 0x10405a4
 
     const/16 v4, 0x18ec
 
@@ -740,14 +740,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C5:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 387
+    .line 391
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C6"
 
     const-string v2, "android"
 
-    const v3, 0x104059a
+    const v3, 0x10405a5
 
     const/16 v4, 0x118a
 
@@ -757,14 +757,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C6:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 390
+    .line 394
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C7"
 
     const-string v2, "android"
 
-    const v3, 0x104059b
+    const v3, 0x10405a6
 
     const/16 v4, 0xc76
 
@@ -774,14 +774,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C7:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 393
+    .line 397
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C8"
 
     const-string v2, "android"
 
-    const v3, 0x104059c
+    const v3, 0x10405a7
 
     const/16 v4, 0x8c0
 
@@ -791,14 +791,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C8:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 396
+    .line 400
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C9"
 
     const-string v2, "android"
 
-    const v3, 0x104059d
+    const v3, 0x10405a8
 
     const/16 v4, 0x622
 
@@ -808,14 +808,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C9:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 399
+    .line 403
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ISO_C10"
 
     const-string v2, "android"
 
-    const v3, 0x104059e
+    const v3, 0x10405a9
 
     const/16 v4, 0x44c
 
@@ -825,14 +825,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ISO_C10:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 405
+    .line 409
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_LETTER"
 
     const-string v2, "android"
 
-    const v3, 0x104059f
+    const v3, 0x10405aa
 
     const/16 v4, 0x2134
 
@@ -842,14 +842,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_LETTER:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 408
+    .line 412
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_GOVT_LETTER"
 
     const-string v2, "android"
 
-    const v3, 0x10405a0
+    const v3, 0x10405ab
 
     const/16 v5, 0x2904
 
@@ -859,14 +859,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_GOVT_LETTER:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 412
+    .line 416
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_LEGAL"
 
     const-string v2, "android"
 
-    const v3, 0x10405a1
+    const v3, 0x10405ac
 
     const/16 v4, 0x2134
 
@@ -876,14 +876,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_LEGAL:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 415
+    .line 419
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_JUNIOR_LEGAL"
 
     const-string v2, "android"
 
-    const v3, 0x10405a2
+    const v3, 0x10405ad
 
     move v4, v11
 
@@ -893,14 +893,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_JUNIOR_LEGAL:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 419
+    .line 423
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_LEDGER"
 
     const-string v2, "android"
 
-    const v3, 0x10405a3
+    const v3, 0x10405ae
 
     const/16 v4, 0x4268
 
@@ -910,14 +910,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_LEDGER:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 422
+    .line 426
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_TABLOID"
 
     const-string v2, "android"
 
-    const v3, 0x10405a4
+    const v3, 0x10405af
 
     const/16 v5, 0x4268
 
@@ -927,14 +927,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_TABLOID:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 426
+    .line 430
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_INDEX_3X5"
 
     const-string v2, "android"
 
-    const v3, 0x10405a5
+    const v3, 0x10405b0
 
     const/16 v4, 0xbb8
 
@@ -944,14 +944,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_INDEX_3X5:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 430
+    .line 434
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_INDEX_4X6"
 
     const-string v2, "android"
 
-    const v3, 0x10405a6
+    const v3, 0x10405b1
 
     const/16 v4, 0xfa0
 
@@ -961,14 +961,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_INDEX_4X6:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 434
+    .line 438
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_INDEX_5X8"
 
     const-string v2, "android"
 
-    const v3, 0x10405a7
+    const v3, 0x10405b2
 
     move v4, v13
 
@@ -978,14 +978,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_INDEX_5X8:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 438
+    .line 442
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_MONARCH"
 
     const-string v2, "android"
 
-    const v3, 0x10405a8
+    const v3, 0x10405b3
 
     const/16 v4, 0x1c52
 
@@ -995,14 +995,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_MONARCH:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 442
+    .line 446
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_QUARTO"
 
     const-string v2, "android"
 
-    const v3, 0x10405a9
+    const v3, 0x10405b4
 
     const/16 v5, 0x2710
 
@@ -1012,14 +1012,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_QUARTO:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 446
+    .line 450
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "NA_FOOLSCAP"
 
     const-string v2, "android"
 
-    const v3, 0x10405aa
+    const v3, 0x10405b5
 
     const/16 v5, 0x32c8
 
@@ -1029,14 +1029,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->NA_FOOLSCAP:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 453
+    .line 457
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ROC_8K"
 
     const-string v2, "android"
 
-    const v3, 0x10405ab
+    const v3, 0x10405b6
 
     const/16 v4, 0x2985
 
@@ -1046,14 +1046,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ROC_8K:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 457
+    .line 461
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "ROC_16K"
 
     const-string v2, "android"
 
-    const v3, 0x10405ac
+    const v3, 0x10405b7
 
     const/16 v4, 0x1dfd
 
@@ -1063,14 +1063,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->ROC_16K:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 462
+    .line 466
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_1"
 
     const-string v2, "android"
 
-    const v3, 0x10405ad
+    const v3, 0x10405b8
 
     const/16 v4, 0xfaf
 
@@ -1080,14 +1080,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_1:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 466
+    .line 470
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_2"
 
     const-string v2, "android"
 
-    const v3, 0x10405ae
+    const v3, 0x10405b9
 
     const/16 v4, 0xfaf
 
@@ -1097,14 +1097,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 470
+    .line 474
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_3"
 
     const-string v2, "android"
 
-    const v3, 0x10405af
+    const v3, 0x10405ba
 
     const/16 v4, 0x1339
 
@@ -1114,14 +1114,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_3:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 474
+    .line 478
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_4"
 
     const-string v2, "android"
 
-    const v3, 0x10405b0
+    const v3, 0x10405bb
 
     const/16 v4, 0x10ea
 
@@ -1131,14 +1131,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_4:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 478
+    .line 482
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_5"
 
     const-string v2, "android"
 
-    const v3, 0x10405b1
+    const v3, 0x10405bc
 
     const/16 v4, 0x10ea
 
@@ -1148,14 +1148,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_5:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 482
+    .line 486
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_6"
 
     const-string v2, "android"
 
-    const v3, 0x10405b2
+    const v3, 0x10405bd
 
     const/16 v5, 0x3137
 
@@ -1165,14 +1165,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_6:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 486
+    .line 490
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_7"
 
     const-string v2, "android"
 
-    const v3, 0x10405b3
+    const v3, 0x10405be
 
     const/16 v4, 0x189b
 
@@ -1182,14 +1182,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_7:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 490
+    .line 494
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_8"
 
     const-string v2, "android"
 
-    const v3, 0x10405b4
+    const v3, 0x10405bf
 
     const/16 v5, 0x2f85
 
@@ -1199,14 +1199,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_8:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 494
+    .line 498
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_9"
 
     const-string v2, "android"
 
-    const v3, 0x10405b5
+    const v3, 0x10405c0
 
     const/16 v4, 0x2338
 
@@ -1216,14 +1216,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_9:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 498
+    .line 502
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_10"
 
     const-string v2, "android"
 
-    const v3, 0x10405b6
+    const v3, 0x10405c1
 
     const/16 v4, 0x31d4
 
@@ -1233,14 +1233,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_10:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 503
+    .line 507
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "PRC_16K"
 
     const-string v2, "android"
 
-    const v3, 0x10405b7
+    const v3, 0x10405c2
 
     const/16 v4, 0x1675
 
@@ -1250,14 +1250,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->PRC_16K:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 507
+    .line 511
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "OM_PA_KAI"
 
     const-string v2, "android"
 
-    const v3, 0x10405b8
+    const v3, 0x10405c3
 
     const/16 v4, 0x2910
 
@@ -1267,14 +1267,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->OM_PA_KAI:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 511
+    .line 515
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "OM_DAI_PA_KAI"
 
     const-string v2, "android"
 
-    const v3, 0x10405b9
+    const v3, 0x10405c4
 
     const/16 v4, 0x2a4b
 
@@ -1284,14 +1284,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->OM_DAI_PA_KAI:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 515
+    .line 519
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "OM_JUURO_KU_KAI"
 
     const-string v2, "android"
 
-    const v3, 0x10405ba
+    const v3, 0x10405c5
 
     const/16 v4, 0x1e74
 
@@ -1301,14 +1301,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->OM_JUURO_KU_KAI:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 522
+    .line 526
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B10"
 
     const-string v2, "android"
 
-    const v3, 0x10405bb
+    const v3, 0x10405c6
 
     const/16 v4, 0x4eb
 
@@ -1318,14 +1318,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B10:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 526
+    .line 530
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B9"
 
     const-string v2, "android"
 
-    const v3, 0x10405bc
+    const v3, 0x10405c7
 
     const/16 v4, 0x6ec
 
@@ -1335,14 +1335,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B9:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 530
+    .line 534
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B8"
 
     const-string v2, "android"
 
-    const v3, 0x10405bd
+    const v3, 0x10405c8
 
     const/16 v4, 0x9d8
 
@@ -1352,14 +1352,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B8:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 534
+    .line 538
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B7"
 
     const-string v2, "android"
 
-    const v3, 0x10405be
+    const v3, 0x10405c9
 
     const/16 v4, 0xdff
 
@@ -1369,14 +1369,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B7:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 538
+    .line 542
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B6"
 
     const-string v2, "android"
 
-    const v3, 0x10405bf
+    const v3, 0x10405ca
 
     const/16 v4, 0x13b9
 
@@ -1386,14 +1386,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B6:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 542
+    .line 546
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B5"
 
     const-string v2, "android"
 
-    const v3, 0x10405c0
+    const v3, 0x10405cb
 
     const/16 v4, 0x1bfd
 
@@ -1403,14 +1403,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B5:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 546
+    .line 550
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B4"
 
     const-string v2, "android"
 
-    const v3, 0x10405c1
+    const v3, 0x10405cc
 
     const/16 v4, 0x2786
 
@@ -1420,14 +1420,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B4:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 550
+    .line 554
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B3"
 
     const-string v2, "android"
 
-    const v3, 0x10405c2
+    const v3, 0x10405cd
 
     const/16 v4, 0x37fb
 
@@ -1437,14 +1437,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B3:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 554
+    .line 558
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B2"
 
     const-string v2, "android"
 
-    const v3, 0x10405c3
+    const v3, 0x10405ce
 
     const/16 v4, 0x4f34
 
@@ -1454,14 +1454,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 558
+    .line 562
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B1"
 
     const-string v2, "android"
 
-    const v3, 0x10405c4
+    const v3, 0x10405cf
 
     const/16 v4, 0x6ff5
 
@@ -1471,14 +1471,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B1:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 562
+    .line 566
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_B0"
 
     const-string v2, "android"
 
-    const v3, 0x10405c5
+    const v3, 0x10405d0
 
     const v4, 0x9e67
 
@@ -1488,14 +1488,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_B0:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 567
+    .line 571
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JIS_EXEC"
 
     const-string v2, "android"
 
-    const v3, 0x10405c6
+    const v3, 0x10405d1
 
     const/16 v4, 0x2138
 
@@ -1505,14 +1505,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JIS_EXEC:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 572
+    .line 576
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_CHOU4"
 
     const-string v2, "android"
 
-    const v3, 0x10405c7
+    const v3, 0x10405d2
 
     const/16 v4, 0xdd7
 
@@ -1522,14 +1522,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_CHOU4:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 576
+    .line 580
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_CHOU3"
 
     const-string v2, "android"
 
-    const v3, 0x10405c8
+    const v3, 0x10405d3
 
     const/16 v5, 0x2424
 
@@ -1539,14 +1539,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_CHOU3:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 580
+    .line 584
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_CHOU2"
 
     const-string v2, "android"
 
-    const v3, 0x10405c9
+    const v3, 0x10405d4
 
     const/16 v4, 0x1116
 
@@ -1556,14 +1556,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_CHOU2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 585
+    .line 589
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_HAGAKI"
 
     const-string v2, "android"
 
-    const v3, 0x10405ca
+    const v3, 0x10405d5
 
     const/16 v4, 0xf61
 
@@ -1573,14 +1573,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_HAGAKI:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 589
+    .line 593
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_OUFUKU"
 
     const-string v2, "android"
 
-    const v3, 0x10405cb
+    const v3, 0x10405d6
 
     const/16 v4, 0x16c3
 
@@ -1590,14 +1590,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_OUFUKU:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 594
+    .line 598
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_KAHU"
 
     const-string v2, "android"
 
-    const v3, 0x10405cc
+    const v3, 0x10405d7
 
     const/16 v4, 0x24e9
 
@@ -1607,14 +1607,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_KAHU:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 598
+    .line 602
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_KAKU2"
 
     const-string v2, "android"
 
-    const v3, 0x10405cd
+    const v3, 0x10405d8
 
     const/16 v4, 0x24e9
 
@@ -1624,14 +1624,14 @@
 
     sput-object v0, Landroid/print/PrintAttributes$MediaSize;->JPN_KAKU2:Landroid/print/PrintAttributes$MediaSize;
 
-    .line 603
+    .line 607
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     const-string v1, "JPN_YOU4"
 
     const-string v2, "android"
 
-    const v3, 0x10405ce
+    const v3, 0x10405d9
 
     const/16 v4, 0x1026
 
@@ -1750,17 +1750,17 @@
     .parameter "heightMils"
 
     .prologue
-    .line 636
+    .line 637
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 637
+    .line 638
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 638
+    .line 639
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "id cannot be empty."
@@ -1769,7 +1769,7 @@
 
     throw v0
 
-    .line 640
+    .line 641
     :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1777,7 +1777,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 641
+    .line 642
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "packageName cannot be empty."
@@ -1786,11 +1786,11 @@
 
     throw v0
 
-    .line 643
+    .line 644
     :cond_1
     if-gtz p3, :cond_2
 
-    .line 644
+    .line 645
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "labelResId must be greater than zero."
@@ -1799,11 +1799,11 @@
 
     throw v0
 
-    .line 646
+    .line 647
     :cond_2
     if-gtz p4, :cond_3
 
-    .line 647
+    .line 648
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "widthMils cannot be less than or equal to zero."
@@ -1812,11 +1812,11 @@
 
     throw v0
 
-    .line 650
+    .line 651
     :cond_3
     if-gtz p5, :cond_4
 
-    .line 651
+    .line 652
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "heightMils cannot be less than or euqual to zero."
@@ -1825,35 +1825,35 @@
 
     throw v0
 
-    .line 654
+    .line 655
     :cond_4
     iput-object p2, p0, Landroid/print/PrintAttributes$MediaSize;->mPackageName:Ljava/lang/String;
 
-    .line 655
+    .line 656
     iput-object p1, p0, Landroid/print/PrintAttributes$MediaSize;->mId:Ljava/lang/String;
 
-    .line 656
+    .line 657
     iput p3, p0, Landroid/print/PrintAttributes$MediaSize;->mLabelResId:I
 
-    .line 657
+    .line 658
     iput p4, p0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
 
-    .line 658
+    .line 659
     iput p5, p0, Landroid/print/PrintAttributes$MediaSize;->mHeightMils:I
 
-    .line 659
+    .line 660
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/print/PrintAttributes$MediaSize;->mLabel:Ljava/lang/String;
 
-    .line 662
+    .line 663
     sget-object v0, Landroid/print/PrintAttributes$MediaSize;->sIdToMediaSizeMap:Ljava/util/Map;
 
     iget-object v1, p0, Landroid/print/PrintAttributes$MediaSize;->mId:Ljava/lang/String;
 
     invoke-interface {v0, v1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 663
+    .line 664
     return-void
 .end method
 
@@ -1897,7 +1897,7 @@
     .parameter "parcel"
 
     .prologue
-    .line 814
+    .line 822
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -1934,7 +1934,7 @@
     .parameter "id"
 
     .prologue
-    .line 876
+    .line 884
     sget-object v0, Landroid/print/PrintAttributes$MediaSize;->sIdToMediaSizeMap:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1952,7 +1952,20 @@
     .locals 7
 
     .prologue
-    .line 798
+    .line 803
+    invoke-virtual {p0}, Landroid/print/PrintAttributes$MediaSize;->isPortrait()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 806
+    .end local p0
+    :goto_0
+    return-object p0
+
+    .restart local p0
+    :cond_0
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     iget-object v1, p0, Landroid/print/PrintAttributes$MediaSize;->mId:Ljava/lang/String;
@@ -1981,14 +1994,29 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/print/PrintAttributes$MediaSize;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;III)V
 
-    return-object v0
+    move-object p0, v0
+
+    goto :goto_0
 .end method
 
 .method public asPortrait()Landroid/print/PrintAttributes$MediaSize;
     .locals 7
 
     .prologue
-    .line 785
+    .line 786
+    invoke-virtual {p0}, Landroid/print/PrintAttributes$MediaSize;->isPortrait()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 789
+    .end local p0
+    :goto_0
+    return-object p0
+
+    .restart local p0
+    :cond_0
     new-instance v0, Landroid/print/PrintAttributes$MediaSize;
 
     iget-object v1, p0, Landroid/print/PrintAttributes$MediaSize;->mId:Ljava/lang/String;
@@ -2017,7 +2045,9 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/print/PrintAttributes$MediaSize;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;III)V
 
-    return-object v0
+    move-object p0, v0
+
+    goto :goto_0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -2029,24 +2059,24 @@
 
     const/4 v2, 0x0
 
-    .line 834
+    .line 842
     if-ne p0, p1, :cond_1
 
-    .line 850
+    .line 858
     :cond_0
     :goto_0
     return v1
 
-    .line 837
+    .line 845
     :cond_1
     if-nez p1, :cond_2
 
     move v1, v2
 
-    .line 838
+    .line 846
     goto :goto_0
 
-    .line 840
+    .line 848
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -2060,16 +2090,16 @@
 
     move v1, v2
 
-    .line 841
+    .line 849
     goto :goto_0
 
     :cond_3
     move-object v0, p1
 
-    .line 843
+    .line 851
     check-cast v0, Landroid/print/PrintAttributes$MediaSize;
 
-    .line 844
+    .line 852
     .local v0, other:Landroid/print/PrintAttributes$MediaSize;
     iget v3, p0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
 
@@ -2079,10 +2109,10 @@
 
     move v1, v2
 
-    .line 845
+    .line 853
     goto :goto_0
 
-    .line 847
+    .line 855
     :cond_4
     iget v3, p0, Landroid/print/PrintAttributes$MediaSize;->mHeightMils:I
 
@@ -2092,7 +2122,7 @@
 
     move v1, v2
 
-    .line 848
+    .line 856
     goto :goto_0
 .end method
 
@@ -2264,27 +2294,27 @@
     .locals 4
 
     .prologue
-    .line 825
+    .line 833
     const/16 v0, 0x1f
 
-    .line 826
+    .line 834
     .local v0, prime:I
     const/4 v1, 0x1
 
-    .line 827
+    .line 835
     .local v1, result:I
     iget v2, p0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
 
     add-int/lit8 v1, v2, 0x1f
 
-    .line 828
+    .line 836
     mul-int/lit8 v2, v1, 0x1f
 
     iget v3, p0, Landroid/print/PrintAttributes$MediaSize;->mHeightMils:I
 
     add-int v1, v2, v3
 
-    .line 829
+    .line 837
     return v1
 .end method
 
@@ -2314,18 +2344,18 @@
     .locals 3
 
     .prologue
-    .line 855
+    .line 863
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 856
+    .line 864
     .local v0, builder:Ljava/lang/StringBuilder;
     const-string v1, "MediaSize{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 857
+    .line 865
     const-string v1, "id: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2336,7 +2366,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 858
+    .line 866
     const-string v1, ", label: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2347,7 +2377,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 859
+    .line 867
     const-string v1, ", packageName: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2358,7 +2388,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 860
+    .line 868
     const-string v1, ", heightMils: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2369,7 +2399,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 861
+    .line 869
     const-string v1, ", widthMils: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2380,7 +2410,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 862
+    .line 870
     const-string v1, ", labelResId: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2391,12 +2421,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 863
+    .line 871
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 864
+    .line 872
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2409,36 +2439,36 @@
     .parameter "parcel"
 
     .prologue
-    .line 805
+    .line 813
     iget-object v0, p0, Landroid/print/PrintAttributes$MediaSize;->mId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 806
+    .line 814
     iget-object v0, p0, Landroid/print/PrintAttributes$MediaSize;->mLabel:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 807
+    .line 815
     iget-object v0, p0, Landroid/print/PrintAttributes$MediaSize;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 808
+    .line 816
     iget v0, p0, Landroid/print/PrintAttributes$MediaSize;->mWidthMils:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 809
+    .line 817
     iget v0, p0, Landroid/print/PrintAttributes$MediaSize;->mHeightMils:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 810
+    .line 818
     iget v0, p0, Landroid/print/PrintAttributes$MediaSize;->mLabelResId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 811
+    .line 819
     return-void
 .end method

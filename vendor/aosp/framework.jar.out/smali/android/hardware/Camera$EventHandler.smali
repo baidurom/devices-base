@@ -28,16 +28,16 @@
     .parameter "looper"
 
     .prologue
-    .line 895
+    .line 896
     iput-object p1, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
-    .line 896
+    .line 897
     invoke-direct {p0, p3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 897
+    .line 898
     iput-object p2, p0, Landroid/hardware/Camera$EventHandler;->mCamera:Landroid/hardware/Camera;
 
-    .line 898
+    .line 899
     return-void
 .end method
 
@@ -52,12 +52,12 @@
 
     const/4 v2, 0x0
 
-    .line 902
+    .line 903
     iget v4, p1, Landroid/os/Message;->what:I
 
     sparse-switch v4, :sswitch_data_0
 
-    .line 982
+    .line 983
     const-string v3, "Camera"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -82,12 +82,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 983
+    .line 984
     :cond_0
     :goto_0
     return-void
 
-    .line 904
+    .line 905
     :sswitch_0
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -98,7 +98,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 905
+    .line 906
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mShutterCallback:Landroid/hardware/Camera$ShutterCallback;
@@ -110,7 +110,7 @@
 
     goto :goto_0
 
-    .line 910
+    .line 911
     :sswitch_1
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -121,7 +121,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 911
+    .line 912
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mRawImageCallback:Landroid/hardware/Camera$PictureCallback;
@@ -141,7 +141,7 @@
 
     goto :goto_0
 
-    .line 916
+    .line 917
     :sswitch_2
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -152,7 +152,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 917
+    .line 918
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mJpegCallback:Landroid/hardware/Camera$PictureCallback;
@@ -172,7 +172,7 @@
 
     goto :goto_0
 
-    .line 922
+    .line 923
     :sswitch_3
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -181,11 +181,11 @@
 
     move-result-object v1
 
-    .line 923
+    .line 924
     .local v1, pCb:Landroid/hardware/Camera$PreviewCallback;
     if-eqz v1, :cond_0
 
-    .line 924
+    .line 925
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mOneShot:Z
@@ -195,7 +195,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 928
+    .line 929
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     const/4 v4, 0x0
@@ -203,7 +203,7 @@
     #setter for: Landroid/hardware/Camera;->mPreviewCallback:Landroid/hardware/Camera$PreviewCallback;
     invoke-static {v3, v4}, Landroid/hardware/Camera;->access$302(Landroid/hardware/Camera;Landroid/hardware/Camera$PreviewCallback;)Landroid/hardware/Camera$PreviewCallback;
 
-    .line 935
+    .line 936
     :cond_1
     :goto_1
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -218,7 +218,7 @@
 
     goto :goto_0
 
-    .line 929
+    .line 930
     :cond_2
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -229,7 +229,7 @@
 
     if-nez v4, :cond_1
 
-    .line 933
+    .line 934
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #calls: Landroid/hardware/Camera;->setHasPreviewCallback(ZZ)V
@@ -237,7 +237,7 @@
 
     goto :goto_1
 
-    .line 940
+    .line 941
     .end local v1           #pCb:Landroid/hardware/Camera$PreviewCallback;
     :sswitch_4
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
@@ -249,7 +249,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 941
+    .line 942
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mPostviewCallback:Landroid/hardware/Camera$PictureCallback;
@@ -269,11 +269,11 @@
 
     goto/16 :goto_0
 
-    .line 946
+    .line 947
     :sswitch_5
     const/4 v0, 0x0
 
-    .line 947
+    .line 948
     .local v0, cb:Landroid/hardware/Camera$AutoFocusCallback;
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -284,7 +284,7 @@
 
     monitor-enter v4
 
-    .line 948
+    .line 949
     :try_start_0
     iget-object v5, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -293,20 +293,20 @@
 
     move-result-object v0
 
-    .line 949
+    .line 950
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 950
+    .line 951
     if-eqz v0, :cond_0
 
-    .line 951
+    .line 952
     iget v4, p1, Landroid/os/Message;->arg1:I
 
     if-nez v4, :cond_3
 
-    .line 952
+    .line 953
     .local v2, success:Z
     :goto_2
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->mCamera:Landroid/hardware/Camera;
@@ -315,7 +315,7 @@
 
     goto/16 :goto_0
 
-    .line 949
+    .line 950
     .end local v2           #success:Z
     :catchall_0
     move-exception v3
@@ -330,10 +330,10 @@
     :cond_3
     move v2, v3
 
-    .line 951
+    .line 952
     goto :goto_2
 
-    .line 957
+    .line 958
     .end local v0           #cb:Landroid/hardware/Camera$AutoFocusCallback;
     :sswitch_6
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
@@ -345,7 +345,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 958
+    .line 959
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mZoomListener:Landroid/hardware/Camera$OnZoomChangeListener;
@@ -371,7 +371,7 @@
 
     goto :goto_3
 
-    .line 963
+    .line 964
     :sswitch_7
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -382,7 +382,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 964
+    .line 965
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mFaceListener:Landroid/hardware/Camera$FaceDetectionListener;
@@ -402,7 +402,7 @@
 
     goto/16 :goto_0
 
-    .line 969
+    .line 970
     :sswitch_8
     const-string v3, "Camera"
 
@@ -428,7 +428,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 970
+    .line 971
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mErrorCallback:Landroid/hardware/Camera$ErrorCallback;
@@ -438,7 +438,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 971
+    .line 972
     iget-object v3, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mErrorCallback:Landroid/hardware/Camera$ErrorCallback;
@@ -454,7 +454,7 @@
 
     goto/16 :goto_0
 
-    .line 976
+    .line 977
     :sswitch_9
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
@@ -465,7 +465,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 977
+    .line 978
     iget-object v4, p0, Landroid/hardware/Camera$EventHandler;->this$0:Landroid/hardware/Camera;
 
     #getter for: Landroid/hardware/Camera;->mAutoFocusMoveCallback:Landroid/hardware/Camera$AutoFocusMoveCallback;
@@ -489,7 +489,7 @@
 
     goto :goto_4
 
-    .line 902
+    .line 903
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_8

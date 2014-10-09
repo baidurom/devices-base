@@ -696,7 +696,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 449
+    .line 453
     iget v1, p0, Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
 
     if-ne v1, v0, :cond_0
@@ -716,7 +716,7 @@
     .locals 1
 
     .prologue
-    .line 525
+    .line 529
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mCurrSpan:F
 
     return v0
@@ -726,7 +726,7 @@
     .locals 1
 
     .prologue
-    .line 535
+    .line 539
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mCurrSpanX:F
 
     return v0
@@ -736,7 +736,7 @@
     .locals 1
 
     .prologue
-    .line 545
+    .line 549
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mCurrSpanY:F
 
     return v0
@@ -746,7 +746,7 @@
     .locals 2
 
     .prologue
-    .line 615
+    .line 619
     iget-wide v0, p0, Landroid/view/ScaleGestureDetector;->mCurrTime:J
 
     return-wide v0
@@ -756,7 +756,7 @@
     .locals 1
 
     .prologue
-    .line 501
+    .line 505
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mFocusX:F
 
     return v0
@@ -766,7 +766,7 @@
     .locals 1
 
     .prologue
-    .line 515
+    .line 519
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mFocusY:F
 
     return v0
@@ -776,7 +776,7 @@
     .locals 1
 
     .prologue
-    .line 555
+    .line 559
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mPrevSpan:F
 
     return v0
@@ -786,7 +786,7 @@
     .locals 1
 
     .prologue
-    .line 565
+    .line 569
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mPrevSpanX:F
 
     return v0
@@ -796,7 +796,7 @@
     .locals 1
 
     .prologue
-    .line 575
+    .line 579
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mPrevSpanY:F
 
     return v0
@@ -810,14 +810,14 @@
 
     const/high16 v2, 0x3f80
 
-    .line 586
+    .line 590
     invoke-direct {p0}, Landroid/view/ScaleGestureDetector;->inDoubleTapMode()Z
 
     move-result v3
 
     if-eqz v3, :cond_6
 
-    .line 590
+    .line 594
     iget-boolean v3, p0, Landroid/view/ScaleGestureDetector;->mEventBeforeOrAboveStartingGestureEvent:Z
 
     if-eqz v3, :cond_0
@@ -846,7 +846,7 @@
     :cond_1
     const/4 v0, 0x1
 
-    .line 593
+    .line 597
     .local v0, scaleUp:Z
     :goto_0
     iget v3, p0, Landroid/view/ScaleGestureDetector;->mCurrSpan:F
@@ -865,7 +865,7 @@
 
     mul-float v1, v3, v4
 
-    .line 594
+    .line 598
     .local v1, spanDiff:F
     iget v3, p0, Landroid/view/ScaleGestureDetector;->mPrevSpan:F
 
@@ -873,20 +873,20 @@
 
     if-gtz v3, :cond_4
 
-    .line 596
+    .line 600
     .end local v0           #scaleUp:Z
     .end local v1           #spanDiff:F
     :cond_2
     :goto_1
     return v2
 
-    .line 590
+    .line 594
     :cond_3
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 594
+    .line 598
     .restart local v0       #scaleUp:Z
     .restart local v1       #spanDiff:F
     :cond_4
@@ -901,7 +901,7 @@
 
     goto :goto_1
 
-    .line 596
+    .line 600
     .end local v0           #scaleUp:Z
     .end local v1           #spanDiff:F
     :cond_6
@@ -924,7 +924,7 @@
     .locals 4
 
     .prologue
-    .line 606
+    .line 610
     iget-wide v0, p0, Landroid/view/ScaleGestureDetector;->mCurrTime:J
 
     iget-wide v2, p0, Landroid/view/ScaleGestureDetector;->mPrevTime:J
@@ -938,7 +938,7 @@
     .locals 1
 
     .prologue
-    .line 487
+    .line 491
     iget-boolean v0, p0, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
     return v0
@@ -948,7 +948,7 @@
     .locals 1
 
     .prologue
-    .line 480
+    .line 484
     iget-boolean v0, p0, Landroid/view/ScaleGestureDetector;->mQuickScaleEnabled:Z
 
     return v0
@@ -1047,7 +1047,7 @@
     :goto_0
     if-eqz v3, :cond_3
 
-    if-eqz v20, :cond_6
+    if-eqz v20, :cond_7
 
     .line 321
     :cond_3
@@ -1057,7 +1057,7 @@
 
     move/from16 v26, v0
 
-    if-eqz v26, :cond_4
+    if-eqz v26, :cond_6
 
     .line 322
     move-object/from16 v0, p0
@@ -1099,18 +1099,19 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
 
-    .line 328
+    .line 332
     :cond_4
-    if-eqz v20, :cond_6
+    :goto_1
+    if-eqz v20, :cond_7
 
-    .line 329
+    .line 333
     invoke-direct/range {p0 .. p0}, Landroid/view/ScaleGestureDetector;->clearTouchHistory()V
 
-    .line 330
+    .line 334
     const/16 v26, 0x1
 
-    .line 444
-    :goto_1
+    .line 448
+    :goto_2
     return v26
 
     .line 314
@@ -1120,69 +1121,9 @@
 
     goto :goto_0
 
-    .line 334
+    .line 326
     .restart local v20       #streamComplete:Z
     :cond_6
-    if-eqz v3, :cond_7
-
-    const/16 v26, 0x6
-
-    move/from16 v0, v26
-
-    if-eq v3, v0, :cond_7
-
-    const/16 v26, 0x5
-
-    move/from16 v0, v26
-
-    if-ne v3, v0, :cond_8
-
-    :cond_7
-    const/4 v4, 0x1
-
-    .line 339
-    .local v4, configChanged:Z
-    :goto_2
-    const/16 v26, 0x6
-
-    move/from16 v0, v26
-
-    if-ne v3, v0, :cond_9
-
-    const/4 v15, 0x1
-
-    .line 340
-    .local v15, pointerUp:Z
-    :goto_3
-    if-eqz v15, :cond_a
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
-
-    move-result v16
-
-    .line 343
-    .local v16, skipIndex:I
-    :goto_4
-    const/16 v21, 0x0
-
-    .local v21, sumX:F
-    const/16 v22, 0x0
-
-    .line 344
-    .local v22, sumY:F
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
-
-    move-result v5
-
-    .line 345
-    .local v5, count:I
-    if-eqz v15, :cond_b
-
-    add-int/lit8 v10, v5, -0x1
-
-    .line 348
-    .local v10, div:I
-    :goto_5
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
@@ -1195,9 +1136,116 @@
 
     move/from16 v1, v27
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_4
 
-    .line 351
+    if-eqz v20, :cond_4
+
+    .line 327
+    const/16 v26, 0x0
+
+    move/from16 v0, v26
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/view/ScaleGestureDetector;->mInProgress:Z
+
+    .line 328
+    const/16 v26, 0x0
+
+    move/from16 v0, v26
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/view/ScaleGestureDetector;->mInitialSpan:F
+
+    .line 329
+    const/16 v26, 0x0
+
+    move/from16 v0, v26
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
+
+    goto :goto_1
+
+    .line 338
+    :cond_7
+    if-eqz v3, :cond_8
+
+    const/16 v26, 0x6
+
+    move/from16 v0, v26
+
+    if-eq v3, v0, :cond_8
+
+    const/16 v26, 0x5
+
+    move/from16 v0, v26
+
+    if-ne v3, v0, :cond_9
+
+    :cond_8
+    const/4 v4, 0x1
+
+    .line 343
+    .local v4, configChanged:Z
+    :goto_3
+    const/16 v26, 0x6
+
+    move/from16 v0, v26
+
+    if-ne v3, v0, :cond_a
+
+    const/4 v15, 0x1
+
+    .line 344
+    .local v15, pointerUp:Z
+    :goto_4
+    if-eqz v15, :cond_b
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
+
+    move-result v16
+
+    .line 347
+    .local v16, skipIndex:I
+    :goto_5
+    const/16 v21, 0x0
+
+    .local v21, sumX:F
+    const/16 v22, 0x0
+
+    .line 348
+    .local v22, sumY:F
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
+
+    move-result v5
+
+    .line 349
+    .local v5, count:I
+    if-eqz v15, :cond_c
+
+    add-int/lit8 v10, v5, -0x1
+
+    .line 352
+    .local v10, div:I
+    :goto_6
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
+
+    move/from16 v26, v0
+
+    const/16 v27, 0x1
+
+    move/from16 v0, v26
+
+    move/from16 v1, v27
+
+    if-ne v0, v1, :cond_e
+
+    .line 355
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ScaleGestureDetector;->mDoubleTapEvent:Landroid/view/MotionEvent;
@@ -1208,7 +1256,7 @@
 
     move-result v11
 
-    .line 352
+    .line 356
     .local v11, focusX:F
     move-object/from16 v0, p0
 
@@ -1220,7 +1268,7 @@
 
     move-result v12
 
-    .line 353
+    .line 357
     .local v12, focusY:F
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -1228,9 +1276,9 @@
 
     cmpg-float v26, v26, v12
 
-    if-gez v26, :cond_c
+    if-gez v26, :cond_d
 
-    .line 354
+    .line 358
     const/16 v26, 0x1
 
     move/from16 v0, v26
@@ -1239,36 +1287,36 @@
 
     iput-boolean v0, v1, Landroid/view/ScaleGestureDetector;->mEventBeforeOrAboveStartingGestureEvent:Z
 
-    .line 369
-    :goto_6
+    .line 373
+    :goto_7
     invoke-direct/range {p0 .. p1}, Landroid/view/ScaleGestureDetector;->addTouchHistory(Landroid/view/MotionEvent;)V
 
-    .line 372
+    .line 376
     const/4 v6, 0x0
 
     .local v6, devSumX:F
     const/4 v7, 0x0
 
-    .line 373
+    .line 377
     .local v7, devSumY:F
     const/4 v13, 0x0
 
     .local v13, i:I
-    :goto_7
-    if-ge v13, v5, :cond_11
+    :goto_8
+    if-ge v13, v5, :cond_12
 
-    .line 374
+    .line 378
     move/from16 v0, v16
 
-    if-ne v0, v13, :cond_10
+    if-ne v0, v13, :cond_11
 
-    .line 373
-    :goto_8
+    .line 377
+    :goto_9
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_7
+    goto :goto_8
 
-    .line 334
+    .line 338
     .end local v4           #configChanged:Z
     .end local v5           #count:I
     .end local v6           #devSumX:F
@@ -1281,40 +1329,40 @@
     .end local v16           #skipIndex:I
     .end local v21           #sumX:F
     .end local v22           #sumY:F
-    :cond_8
-    const/4 v4, 0x0
-
-    goto :goto_2
-
-    .line 339
-    .restart local v4       #configChanged:Z
     :cond_9
-    const/4 v15, 0x0
+    const/4 v4, 0x0
 
     goto :goto_3
 
-    .line 340
-    .restart local v15       #pointerUp:Z
+    .line 343
+    .restart local v4       #configChanged:Z
     :cond_a
-    const/16 v16, -0x1
+    const/4 v15, 0x0
 
     goto :goto_4
+
+    .line 344
+    .restart local v15       #pointerUp:Z
+    :cond_b
+    const/16 v16, -0x1
+
+    goto :goto_5
 
     .restart local v5       #count:I
     .restart local v16       #skipIndex:I
     .restart local v21       #sumX:F
     .restart local v22       #sumY:F
-    :cond_b
+    :cond_c
     move v10, v5
 
-    .line 345
-    goto :goto_5
+    .line 349
+    goto :goto_6
 
-    .line 356
+    .line 360
     .restart local v10       #div:I
     .restart local v11       #focusX:F
     .restart local v12       #focusY:F
-    :cond_c
+    :cond_d
     const/16 v26, 0x0
 
     move/from16 v0, v26
@@ -1323,31 +1371,31 @@
 
     iput-boolean v0, v1, Landroid/view/ScaleGestureDetector;->mEventBeforeOrAboveStartingGestureEvent:Z
 
-    goto :goto_6
+    goto :goto_7
 
-    .line 359
+    .line 363
     .end local v11           #focusX:F
     .end local v12           #focusY:F
-    :cond_d
+    :cond_e
     const/4 v13, 0x0
 
     .restart local v13       #i:I
-    :goto_9
-    if-ge v13, v5, :cond_f
+    :goto_a
+    if-ge v13, v5, :cond_10
 
-    .line 360
+    .line 364
     move/from16 v0, v16
 
-    if-ne v0, v13, :cond_e
+    if-ne v0, v13, :cond_f
 
-    .line 359
-    :goto_a
+    .line 363
+    :goto_b
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_9
+    goto :goto_a
 
-    .line 361
-    :cond_e
+    .line 365
+    :cond_f
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getX(I)F
@@ -1356,7 +1404,7 @@
 
     add-float v21, v21, v26
 
-    .line 362
+    .line 366
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getY(I)F
@@ -1365,17 +1413,17 @@
 
     add-float v22, v22, v26
 
-    goto :goto_a
+    goto :goto_b
 
-    .line 365
-    :cond_f
+    .line 369
+    :cond_10
     int-to-float v0, v10
 
     move/from16 v26, v0
 
     div-float v11, v21, v26
 
-    .line 366
+    .line 370
     .restart local v11       #focusX:F
     int-to-float v0, v10
 
@@ -1384,12 +1432,12 @@
     div-float v12, v22, v26
 
     .restart local v12       #focusY:F
-    goto :goto_6
+    goto :goto_7
 
-    .line 377
+    .line 381
     .restart local v6       #devSumX:F
     .restart local v7       #devSumY:F
-    :cond_10
+    :cond_11
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ScaleGestureDetector;->mTouchHistoryLastAccepted:F
@@ -1400,7 +1448,7 @@
 
     div-float v23, v26, v27
 
-    .line 378
+    .line 382
     .local v23, touchSize:F
     move-object/from16 v0, p1
 
@@ -1418,7 +1466,7 @@
 
     add-float v6, v6, v26
 
-    .line 379
+    .line 383
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getY(I)F
@@ -1435,18 +1483,18 @@
 
     add-float v7, v7, v26
 
-    goto :goto_8
+    goto :goto_9
 
-    .line 381
+    .line 385
     .end local v23           #touchSize:F
-    :cond_11
+    :cond_12
     int-to-float v0, v10
 
     move/from16 v26, v0
 
     div-float v8, v6, v26
 
-    .line 382
+    .line 386
     .local v8, devX:F
     int-to-float v0, v10
 
@@ -1454,55 +1502,55 @@
 
     div-float v9, v7, v26
 
-    .line 387
+    .line 391
     .local v9, devY:F
     const/high16 v26, 0x4000
 
     mul-float v18, v8, v26
 
-    .line 388
+    .line 392
     .local v18, spanX:F
     const/high16 v26, 0x4000
 
     mul-float v19, v9, v26
 
-    .line 390
+    .line 394
     .local v19, spanY:F
     invoke-direct/range {p0 .. p0}, Landroid/view/ScaleGestureDetector;->inDoubleTapMode()Z
 
     move-result v26
 
-    if-eqz v26, :cond_19
+    if-eqz v26, :cond_1a
 
-    .line 391
+    .line 395
     move/from16 v17, v19
 
-    .line 399
+    .line 403
     .local v17, span:F
-    :goto_b
+    :goto_c
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
     move/from16 v25, v0
 
-    .line 400
+    .line 404
     .local v25, wasInProgress:Z
     move-object/from16 v0, p0
 
     iput v11, v0, Landroid/view/ScaleGestureDetector;->mFocusX:F
 
-    .line 401
+    .line 405
     move-object/from16 v0, p0
 
     iput v12, v0, Landroid/view/ScaleGestureDetector;->mFocusY:F
 
-    .line 402
+    .line 406
     invoke-direct/range {p0 .. p0}, Landroid/view/ScaleGestureDetector;->inDoubleTapMode()Z
 
     move-result v26
 
-    if-nez v26, :cond_13
+    if-nez v26, :cond_14
 
     move-object/from16 v0, p0
 
@@ -1510,7 +1558,7 @@
 
     move/from16 v26, v0
 
-    if-eqz v26, :cond_13
+    if-eqz v26, :cond_14
 
     move-object/from16 v0, p0
 
@@ -1526,12 +1574,12 @@
 
     cmpg-float v26, v17, v26
 
-    if-ltz v26, :cond_12
+    if-ltz v26, :cond_13
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_14
 
-    .line 403
-    :cond_12
+    .line 407
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ScaleGestureDetector;->mListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
@@ -1544,7 +1592,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/ScaleGestureDetector$OnScaleGestureListener;->onScaleEnd(Landroid/view/ScaleGestureDetector;)V
 
-    .line 404
+    .line 408
     const/16 v26, 0x0
 
     move/from16 v0, v26
@@ -1553,14 +1601,14 @@
 
     iput-boolean v0, v1, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
-    .line 405
+    .line 409
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mInitialSpan:F
 
-    .line 406
+    .line 410
     const/16 v26, 0x0
 
     move/from16 v0, v26
@@ -1569,11 +1617,11 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mDoubleTapMode:I
 
-    .line 408
-    :cond_13
-    if-eqz v4, :cond_14
+    .line 412
+    :cond_14
+    if-eqz v4, :cond_15
 
-    .line 409
+    .line 413
     move/from16 v0, v18
 
     move-object/from16 v1, p0
@@ -1586,7 +1634,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpanX:F
 
-    .line 410
+    .line 414
     move/from16 v0, v19
 
     move-object/from16 v1, p0
@@ -1599,7 +1647,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpanY:F
 
-    .line 411
+    .line 415
     move/from16 v0, v17
 
     move-object/from16 v1, p0
@@ -1618,28 +1666,28 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mInitialSpan:F
 
-    .line 414
-    :cond_14
+    .line 418
+    :cond_15
     invoke-direct/range {p0 .. p0}, Landroid/view/ScaleGestureDetector;->inDoubleTapMode()Z
 
     move-result v26
 
-    if-eqz v26, :cond_1a
+    if-eqz v26, :cond_1b
 
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/view/ScaleGestureDetector;->mSpanSlop:I
 
-    .line 415
+    .line 419
     .local v14, minSpan:I
-    :goto_c
+    :goto_d
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
     move/from16 v26, v0
 
-    if-nez v26, :cond_16
+    if-nez v26, :cond_17
 
     int-to-float v0, v14
 
@@ -1647,9 +1695,9 @@
 
     cmpl-float v26, v17, v26
 
-    if-ltz v26, :cond_16
+    if-ltz v26, :cond_17
 
-    if-nez v25, :cond_15
+    if-nez v25, :cond_16
 
     move-object/from16 v0, p0
 
@@ -1677,10 +1725,10 @@
 
     cmpl-float v26, v26, v27
 
-    if-lez v26, :cond_16
+    if-lez v26, :cond_17
 
-    .line 417
-    :cond_15
+    .line 421
+    :cond_16
     move/from16 v0, v18
 
     move-object/from16 v1, p0
@@ -1693,7 +1741,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpanX:F
 
-    .line 418
+    .line 422
     move/from16 v0, v19
 
     move-object/from16 v1, p0
@@ -1706,7 +1754,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpanY:F
 
-    .line 419
+    .line 423
     move/from16 v0, v17
 
     move-object/from16 v1, p0
@@ -1719,7 +1767,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpan:F
 
-    .line 420
+    .line 424
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/view/ScaleGestureDetector;->mCurrTime:J
@@ -1732,7 +1780,7 @@
 
     iput-wide v0, v2, Landroid/view/ScaleGestureDetector;->mPrevTime:J
 
-    .line 421
+    .line 425
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ScaleGestureDetector;->mListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
@@ -1753,39 +1801,39 @@
 
     iput-boolean v0, v1, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
-    .line 425
-    :cond_16
+    .line 429
+    :cond_17
     const/16 v26, 0x2
 
     move/from16 v0, v26
 
-    if-ne v3, v0, :cond_18
+    if-ne v3, v0, :cond_19
 
-    .line 426
+    .line 430
     move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mCurrSpanX:F
 
-    .line 427
+    .line 431
     move/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mCurrSpanY:F
 
-    .line 428
+    .line 432
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mCurrSpan:F
 
-    .line 430
+    .line 434
     const/16 v24, 0x1
 
-    .line 432
+    .line 436
     .local v24, updatePrev:Z
     move-object/from16 v0, p0
 
@@ -1793,9 +1841,9 @@
 
     move/from16 v26, v0
 
-    if-eqz v26, :cond_17
+    if-eqz v26, :cond_18
 
-    .line 433
+    .line 437
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ScaleGestureDetector;->mListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
@@ -1810,11 +1858,11 @@
 
     move-result v24
 
-    .line 436
-    :cond_17
-    if-eqz v24, :cond_18
+    .line 440
+    :cond_18
+    if-eqz v24, :cond_19
 
-    .line 437
+    .line 441
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ScaleGestureDetector;->mCurrSpanX:F
@@ -1827,7 +1875,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpanX:F
 
-    .line 438
+    .line 442
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ScaleGestureDetector;->mCurrSpanY:F
@@ -1840,7 +1888,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpanY:F
 
-    .line 439
+    .line 443
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ScaleGestureDetector;->mCurrSpan:F
@@ -1853,7 +1901,7 @@
 
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mPrevSpan:F
 
-    .line 440
+    .line 444
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/view/ScaleGestureDetector;->mCurrTime:J
@@ -1866,18 +1914,18 @@
 
     iput-wide v0, v2, Landroid/view/ScaleGestureDetector;->mPrevTime:J
 
-    .line 444
+    .line 448
     .end local v24           #updatePrev:Z
-    :cond_18
+    :cond_19
     const/16 v26, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 393
+    .line 397
     .end local v14           #minSpan:I
     .end local v17           #span:F
     .end local v25           #wasInProgress:Z
-    :cond_19
+    :cond_1a
     mul-float v26, v18, v18
 
     mul-float v27, v19, v19
@@ -1889,16 +1937,16 @@
     move-result v17
 
     .restart local v17       #span:F
-    goto/16 :goto_b
+    goto/16 :goto_c
 
-    .line 414
+    .line 418
     .restart local v25       #wasInProgress:Z
-    :cond_1a
+    :cond_1b
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/view/ScaleGestureDetector;->mMinSpan:I
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 .end method
 
 .method public setQuickScaleEnabled(Z)V
@@ -1906,10 +1954,10 @@
     .parameter "scales"
 
     .prologue
-    .line 459
+    .line 463
     iput-boolean p1, p0, Landroid/view/ScaleGestureDetector;->mQuickScaleEnabled:Z
 
-    .line 460
+    .line 464
     iget-boolean v1, p0, Landroid/view/ScaleGestureDetector;->mQuickScaleEnabled:Z
 
     if-eqz v1, :cond_0
@@ -1918,12 +1966,12 @@
 
     if-nez v1, :cond_0
 
-    .line 461
+    .line 465
     new-instance v0, Landroid/view/ScaleGestureDetector$1;
 
     invoke-direct {v0, p0}, Landroid/view/ScaleGestureDetector$1;-><init>(Landroid/view/ScaleGestureDetector;)V
 
-    .line 471
+    .line 475
     .local v0, gestureListener:Landroid/view/GestureDetector$SimpleOnGestureListener;
     new-instance v1, Landroid/view/GestureDetector;
 
@@ -1935,7 +1983,7 @@
 
     iput-object v1, p0, Landroid/view/ScaleGestureDetector;->mGestureDetector:Landroid/view/GestureDetector;
 
-    .line 473
+    .line 477
     .end local v0           #gestureListener:Landroid/view/GestureDetector$SimpleOnGestureListener;
     :cond_0
     return-void

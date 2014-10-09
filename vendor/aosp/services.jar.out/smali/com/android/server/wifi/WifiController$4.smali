@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 252
+    .line 262
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$4;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,12 +40,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 255
+    .line 265
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$4;->this$0:Lcom/android/server/wifi/WifiController;
 
     #calls: Lcom/android/server/wifi/WifiController;->readWifiSleepPolicy()V
     invoke-static {v0}, Lcom/android/server/wifi/WifiController;->access$200(Lcom/android/server/wifi/WifiController;)V
 
-    .line 256
+    .line 266
     return-void
 .end method

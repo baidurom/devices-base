@@ -434,9 +434,9 @@
     if-le v12, v13, :cond_9
 
     .line 145
-    const v12, 0x10404b8
+    const v12, 0x10404bc
 
-    const v13, 0x1080675
+    const v13, 0x1080676
 
     invoke-direct {p0, v12, v13}, Lcom/android/server/net/LockdownVpnTracker;->showNotification(II)V
 
@@ -476,9 +476,9 @@
     invoke-static {v6}, Lcom/android/server/EventLogTags;->writeLockdownVpnConnecting(I)V
 
     .line 151
-    const v12, 0x10404b6
+    const v12, 0x10404ba
 
-    const v13, 0x1080675
+    const v13, 0x1080676
 
     invoke-direct {p0, v12, v13}, Lcom/android/server/net/LockdownVpnTracker;->showNotification(II)V
 
@@ -523,9 +523,9 @@
     invoke-static {v12, v13, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 159
-    const v12, 0x10404b8
+    const v12, 0x10404bc
 
-    const v13, 0x1080675
+    const v13, 0x1080676
 
     invoke-direct {p0, v12, v13}, Lcom/android/server/net/LockdownVpnTracker;->showNotification(II)V
 
@@ -541,9 +541,9 @@
     invoke-static {v12, v13}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 163
-    const v12, 0x10404b8
+    const v12, 0x10404bc
 
-    const v13, 0x1080675
+    const v13, 0x1080676
 
     invoke-direct {p0, v12, v13}, Lcom/android/server/net/LockdownVpnTracker;->showNotification(II)V
 
@@ -626,9 +626,9 @@
     invoke-static {v6}, Lcom/android/server/EventLogTags;->writeLockdownVpnConnected(I)V
 
     .line 178
-    const v12, 0x10404b7
+    const v12, 0x10404bb
 
-    const v13, 0x1080674
+    const v13, 0x1080675
 
     invoke-direct {p0, v12, v13}, Lcom/android/server/net/LockdownVpnTracker;->showNotification(II)V
 
@@ -924,7 +924,7 @@
     .line 311
     iget-object v1, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
 
-    const v2, 0x10404b9
+    const v2, 0x10404bd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -948,11 +948,11 @@
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     .line 315
-    const v1, 0x108035e
+    const v1, 0x108035c
 
     iget-object v2, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
 
-    const v3, 0x10404bc
+    const v3, 0x10404c0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

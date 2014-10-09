@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Varat mēģināt vēl %d reizi(-es), pirms SIM karte tiks bloķēta.</item>
+        <item quantity="one">Varat mēģināt vēl %d reizi, pirms SIM karte tiks bloķēta.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">Pirms %d sekundes(-ēm)</item>
         <item quantity="one">Pirms 1 sekundes</item>

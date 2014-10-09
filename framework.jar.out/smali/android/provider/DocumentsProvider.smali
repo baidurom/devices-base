@@ -200,12 +200,12 @@
     .parameter "extras"
 
     .prologue
-    .line 484
+    .line 505
     invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    .line 486
+    .line 507
     .local v2, context:Landroid/content/Context;
     const-string v11, "android:"
 
@@ -215,17 +215,17 @@
 
     if-nez v11, :cond_1
 
-    .line 488
+    .line 509
     invoke-super/range {p0 .. p3}, Landroid/content/ContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v10
 
-    .line 536
+    .line 554
     :cond_0
     :goto_0
     return-object v10
 
-    .line 491
+    .line 512
     :cond_1
     const-string v11, "document_id"
 
@@ -235,7 +235,7 @@
 
     move-result-object v4
 
-    .line 492
+    .line 513
     .local v4, documentId:Ljava/lang/String;
     iget-object v11, p0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
 
@@ -243,7 +243,7 @@
 
     move-result-object v5
 
-    .line 495
+    .line 516
     .local v5, documentUri:Landroid/net/Uri;
     const-string v11, "android.permission.MANAGE_DOCUMENTS"
 
@@ -251,31 +251,21 @@
 
     move-result v11
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_2
 
     const/4 v1, 0x1
 
-    .line 498
+    .line 519
     .local v1, callerHasManage:Z
     :goto_1
-    if-nez v1, :cond_2
+    invoke-virtual {p0, v5}, Landroid/content/ContentProvider;->enforceWritePermissionInner(Landroid/net/Uri;)V
 
-    .line 499
-    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v11
-
-    const/4 v12, 0x2
-
-    invoke-virtual {v11, v5, v12, p1}, Landroid/content/Context;->enforceCallingOrSelfUriPermission(Landroid/net/Uri;ILjava/lang/String;)V
-
-    .line 503
-    :cond_2
+    .line 521
     new-instance v10, Landroid/os/Bundle;
 
     invoke-direct {v10}, Landroid/os/Bundle;-><init>()V
 
-    .line 505
+    .line 523
     .local v10, out:Landroid/os/Bundle;
     :try_start_0
     const-string v11, "android:createDocument"
@@ -284,9 +274,9 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_3
 
-    .line 506
+    .line 524
     const-string v11, "mime_type"
 
     move-object/from16 v0, p3
@@ -295,7 +285,7 @@
 
     move-result-object v7
 
-    .line 507
+    .line 525
     .local v7, mimeType:Ljava/lang/String;
     const-string v11, "_display_name"
 
@@ -305,29 +295,29 @@
 
     move-result-object v3
 
-    .line 509
+    .line 527
     .local v3, displayName:Ljava/lang/String;
     invoke-virtual {p0, v4, v7, v3}, Landroid/provider/DocumentsProvider;->createDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 510
+    .line 528
     .local v8, newDocumentId:Ljava/lang/String;
     const-string v11, "document_id"
 
     invoke-virtual {v10, v11, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 513
+    .line 531
     if-nez v1, :cond_0
 
-    .line 514
+    .line 532
     iget-object v11, p0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
 
     invoke-static {v11, v8}, Landroid/provider/DocumentsContract;->buildDocumentUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v9
 
-    .line 516
+    .line 534
     .local v9, newDocumentUri:Landroid/net/Uri;
     invoke-virtual {p0}, Landroid/content/ContentProvider;->getCallingPackage()Ljava/lang/String;
 
@@ -341,7 +331,7 @@
 
     goto :goto_0
 
-    .line 533
+    .line 551
     .end local v3           #displayName:Ljava/lang/String;
     .end local v7           #mimeType:Ljava/lang/String;
     .end local v8           #newDocumentId:Ljava/lang/String;
@@ -349,7 +339,7 @@
     :catch_0
     move-exception v6
 
-    .line 534
+    .line 552
     .local v6, e:Ljava/io/FileNotFoundException;
     new-instance v11, Ljava/lang/IllegalStateException;
 
@@ -375,19 +365,19 @@
 
     throw v11
 
-    .line 495
+    .line 516
     .end local v1           #callerHasManage:Z
     .end local v6           #e:Ljava/io/FileNotFoundException;
     .end local v10           #out:Landroid/os/Bundle;
-    :cond_3
+    :cond_2
     const/4 v1, 0x0
 
     goto :goto_1
 
-    .line 522
+    .line 540
     .restart local v1       #callerHasManage:Z
     .restart local v10       #out:Landroid/os/Bundle;
-    :cond_4
+    :cond_3
     :try_start_1
     const-string v11, "android:deleteDocument"
 
@@ -395,20 +385,20 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_4
 
-    .line 523
+    .line 541
     invoke-virtual {p0, v4}, Landroid/provider/DocumentsProvider;->deleteDocument(Ljava/lang/String;)V
 
-    .line 526
+    .line 544
     const/16 v11, 0x43
 
     invoke-virtual {v2, v5, v11}, Landroid/content/Context;->revokeUriPermission(Landroid/net/Uri;I)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 531
-    :cond_5
+    .line 549
+    :cond_4
     new-instance v11, Ljava/lang/UnsupportedOperationException;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -465,7 +455,7 @@
     .parameter "selectionArgs"
 
     .prologue
-    .line 460
+    .line 481
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Delete not supported"
@@ -507,12 +497,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 315
+    .line 340
     invoke-virtual {p0, p1, v1}, Landroid/provider/DocumentsProvider;->queryDocument(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v0
 
-    .line 317
+    .line 342
     .local v0, cursor:Landroid/database/Cursor;
     :try_start_0
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
@@ -521,7 +511,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 318
+    .line 343
     const-string v1, "mime_type"
 
     invoke-interface {v0, v1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
@@ -534,7 +524,7 @@
 
     move-result-object v1
 
-    .line 323
+    .line 348
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     :goto_0
@@ -560,7 +550,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 427
+    .line 448
     :try_start_0
     iget-object v2, p0, Landroid/provider/DocumentsProvider;->mMatcher:Landroid/content/UriMatcher;
 
@@ -570,18 +560,18 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 437
+    .line 458
     :goto_0
     :pswitch_0
     return-object v1
 
-    .line 429
+    .line 450
     :pswitch_1
     const-string/jumbo v1, "vnd.android.document/root"
 
     goto :goto_0
 
-    .line 431
+    .line 452
     :pswitch_2
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -595,11 +585,11 @@
 
     goto :goto_0
 
-    .line 435
+    .line 456
     :catch_0
     move-exception v0
 
-    .line 436
+    .line 457
     .local v0, e:Ljava/io/FileNotFoundException;
     const-string v2, "DocumentsProvider"
 
@@ -609,7 +599,7 @@
 
     goto :goto_0
 
-    .line 427
+    .line 448
     nop
 
     :pswitch_data_0
@@ -627,7 +617,7 @@
     .parameter "values"
 
     .prologue
-    .line 449
+    .line 470
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Insert not supported"
@@ -657,7 +647,7 @@
     .end annotation
 
     .prologue
-    .line 377
+    .line 398
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Thumbnails not supported"
@@ -678,7 +668,7 @@
     .end annotation
 
     .prologue
-    .line 546
+    .line 564
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v0
@@ -704,7 +694,7 @@
     .end annotation
 
     .prologue
-    .line 557
+    .line 575
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v0
@@ -728,7 +718,7 @@
     .end annotation
 
     .prologue
-    .line 568
+    .line 586
     if-eqz p3, :cond_0
 
     const-string/jumbo v1, "thumbnail_size"
@@ -739,7 +729,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 569
+    .line 587
     const-string/jumbo v1, "thumbnail_size"
 
     invoke-virtual {p3, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -748,7 +738,7 @@
 
     check-cast v0, Landroid/graphics/Point;
 
-    .line 570
+    .line 588
     .local v0, sizeHint:Landroid/graphics/Point;
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -760,7 +750,7 @@
 
     move-result-object v1
 
-    .line 572
+    .line 590
     .end local v0           #sizeHint:Landroid/graphics/Point;
     :goto_0
     return-object v1
@@ -786,7 +776,7 @@
     .end annotation
 
     .prologue
-    .line 585
+    .line 603
     if-eqz p3, :cond_0
 
     const-string/jumbo v1, "thumbnail_size"
@@ -797,7 +787,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 586
+    .line 604
     const-string/jumbo v1, "thumbnail_size"
 
     invoke-virtual {p3, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -806,7 +796,7 @@
 
     check-cast v0, Landroid/graphics/Point;
 
-    .line 587
+    .line 605
     .local v0, sizeHint:Landroid/graphics/Point;
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -816,7 +806,7 @@
 
     move-result-object v1
 
-    .line 589
+    .line 607
     .end local v0           #sizeHint:Landroid/graphics/Point;
     :goto_0
     return-object v1
@@ -838,7 +828,7 @@
     .parameter "sortOrder"
 
     .prologue
-    .line 393
+    .line 414
     :try_start_0
     iget-object v1, p0, Landroid/provider/DocumentsProvider;->mMatcher:Landroid/content/UriMatcher;
 
@@ -848,7 +838,7 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 411
+    .line 432
     :pswitch_0
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
@@ -876,11 +866,11 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 413
+    .line 434
     :catch_0
     move-exception v0
 
-    .line 414
+    .line 435
     .local v0, e:Ljava/io/FileNotFoundException;
     const-string v1, "DocumentsProvider"
 
@@ -888,14 +878,14 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 415
+    .line 436
     const/4 v1, 0x0
 
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :goto_0
     return-object v1
 
-    .line 395
+    .line 416
     :pswitch_1
     :try_start_1
     invoke-virtual {p0, p2}, Landroid/provider/DocumentsProvider;->queryRoots([Ljava/lang/String;)Landroid/database/Cursor;
@@ -904,7 +894,7 @@
 
     goto :goto_0
 
-    .line 397
+    .line 418
     :pswitch_2
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getRootId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -916,7 +906,7 @@
 
     goto :goto_0
 
-    .line 399
+    .line 420
     :pswitch_3
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getRootId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -932,7 +922,7 @@
 
     goto :goto_0
 
-    .line 402
+    .line 423
     :pswitch_4
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -944,7 +934,7 @@
 
     goto :goto_0
 
-    .line 404
+    .line 425
     :pswitch_5
     invoke-static {p1}, Landroid/provider/DocumentsContract;->isManageMode(Landroid/net/Uri;)Z
 
@@ -952,7 +942,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 405
+    .line 426
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
@@ -963,7 +953,7 @@
 
     goto :goto_0
 
-    .line 408
+    .line 429
     :cond_0
     invoke-static {p1}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -977,7 +967,7 @@
 
     goto :goto_0
 
-    .line 393
+    .line 414
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -1009,7 +999,7 @@
     .end annotation
 
     .prologue
-    .line 279
+    .line 290
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Manage not supported"
@@ -1038,7 +1028,7 @@
     .end annotation
 
     .prologue
-    .line 228
+    .line 231
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Recent not supported"
@@ -1068,7 +1058,7 @@
     .end annotation
 
     .prologue
-    .line 305
+    .line 330
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Search not supported"
@@ -1086,7 +1076,7 @@
     .parameter "selectionArgs"
 
     .prologue
-    .line 470
+    .line 491
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Update not supported"

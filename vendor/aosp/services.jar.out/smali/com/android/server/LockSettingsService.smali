@@ -247,7 +247,7 @@
 .end method
 
 .method private final checkPasswordReadPermission(I)V
-    .locals 2
+    .locals 3
     .parameter "userId"
 
     .prologue
@@ -256,7 +256,9 @@
 
     const-string v1, "android.permission.ACCESS_KEYGUARD_SECURE_STORAGE"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    const-string v2, "LockSettingsRead"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 162
     return-void
@@ -378,7 +380,7 @@
 .end method
 
 .method private final checkWritePermission(I)V
-    .locals 2
+    .locals 3
     .parameter "userId"
 
     .prologue
@@ -387,7 +389,9 @@
 
     const-string v1, "android.permission.ACCESS_KEYGUARD_SECURE_STORAGE"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    const-string v2, "LockSettingsWrite"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 158
     return-void

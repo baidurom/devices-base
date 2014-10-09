@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 449
+    .line 457
     iput-object p1, p0, Lcom/android/server/print/UserState$3;->this$0:Lcom/android/server/print/UserState;
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;-><init>(Lcom/android/server/print/UserState;Landroid/print/IPrintJobStateChangeListener;I)V
@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 452
+    .line 460
     iget-object v0, p0, Lcom/android/server/print/UserState$3;->this$0:Lcom/android/server/print/UserState;
 
     #getter for: Lcom/android/server/print/UserState;->mPrintJobStateChangeListenerRecords:Ljava/util/List;
@@ -50,6 +50,6 @@
 
     invoke-interface {v0, p0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 453
+    .line 461
     return-void
 .end method

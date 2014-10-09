@@ -274,7 +274,7 @@
     .line 41
     sparse-switch p1, :sswitch_data_0
 
-    .line 907
+    .line 909
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -2820,104 +2820,111 @@
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 868
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v1
+    move-result-object v1
 
     .line 870
-    .local v1, _arg0:I
+    .restart local v1       #_arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 871
-    .restart local v2       #_arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->clearDnsInterfaceForUidRange(II)V
-
     .line 872
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    .restart local v2       #_arg1:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
 
     .line 873
+    .restart local v3       #_arg2:I
+    invoke-virtual {p0, v1, v2, v3}, Landroid/os/INetworkManagementService$Stub;->clearDnsInterfaceForUidRange(Ljava/lang/String;II)V
+
+    .line 874
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 875
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 877
-    .end local v1           #_arg0:I
+    .line 879
+    .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:I
+    .end local v3           #_arg2:I
     :sswitch_4c
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 878
+    .line 880
     invoke-virtual {p0}, Landroid/os/INetworkManagementService$Stub;->clearDnsInterfaceMaps()V
 
-    .line 879
+    .line 881
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 880
+    .line 882
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 884
+    .line 886
     :sswitch_4d
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 886
+    .line 888
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 887
-    .local v1, _arg0:Ljava/lang/String;
+    .line 889
+    .restart local v1       #_arg0:Ljava/lang/String;
     invoke-virtual {p0, v1}, Landroid/os/INetworkManagementService$Stub;->startClatd(Ljava/lang/String;)V
 
-    .line 888
+    .line 890
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 889
+    .line 891
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 893
+    .line 895
     .end local v1           #_arg0:Ljava/lang/String;
     :sswitch_4e
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 894
+    .line 896
     invoke-virtual {p0}, Landroid/os/INetworkManagementService$Stub;->stopClatd()V
 
-    .line 895
+    .line 897
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 896
+    .line 898
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 900
+    .line 902
     :sswitch_4f
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 901
+    .line 903
     invoke-virtual {p0}, Landroid/os/INetworkManagementService$Stub;->isClatdStarted()Z
 
     move-result v10
 
-    .line 902
+    .line 904
     .local v10, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 903
+    .line 905
     if-eqz v10, :cond_1d
 
     const/4 v0, 0x1
@@ -2925,12 +2932,12 @@
     :goto_1e
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 904
+    .line 906
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
-    .line 903
+    .line 905
     :cond_1d
     const/4 v0, 0x0
 

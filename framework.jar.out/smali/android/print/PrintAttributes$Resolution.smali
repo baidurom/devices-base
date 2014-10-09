@@ -33,17 +33,17 @@
     .parameter "verticalDpi"
 
     .prologue
-    .line 907
+    .line 914
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 908
+    .line 915
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 909
+    .line 916
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "id cannot be empty."
@@ -52,7 +52,7 @@
 
     throw v0
 
-    .line 911
+    .line 918
     :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -60,7 +60,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 912
+    .line 919
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "label cannot be empty."
@@ -69,11 +69,11 @@
 
     throw v0
 
-    .line 914
+    .line 921
     :cond_1
     if-gtz p3, :cond_2
 
-    .line 915
+    .line 922
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "horizontalDpi cannot be less than or equal to zero."
@@ -82,11 +82,11 @@
 
     throw v0
 
-    .line 918
+    .line 925
     :cond_2
     if-gtz p4, :cond_3
 
-    .line 919
+    .line 926
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "verticalDpi cannot be less than or equal to zero."
@@ -95,20 +95,20 @@
 
     throw v0
 
-    .line 922
+    .line 929
     :cond_3
     iput-object p1, p0, Landroid/print/PrintAttributes$Resolution;->mId:Ljava/lang/String;
 
-    .line 923
+    .line 930
     iput-object p2, p0, Landroid/print/PrintAttributes$Resolution;->mLabel:Ljava/lang/String;
 
-    .line 924
+    .line 931
     iput p3, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
-    .line 925
+    .line 932
     iput p4, p0, Landroid/print/PrintAttributes$Resolution;->mVerticalDpi:I
 
-    .line 926
+    .line 933
     return-void
 .end method
 
@@ -117,7 +117,7 @@
     .parameter "parcel"
 
     .prologue
-    .line 977
+    .line 984
     new-instance v0, Landroid/print/PrintAttributes$Resolution;
 
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -152,24 +152,24 @@
 
     const/4 v2, 0x0
 
-    .line 995
+    .line 1002
     if-ne p0, p1, :cond_1
 
-    .line 1011
+    .line 1018
     :cond_0
     :goto_0
     return v1
 
-    .line 998
+    .line 1005
     :cond_1
     if-nez p1, :cond_2
 
     move v1, v2
 
-    .line 999
+    .line 1006
     goto :goto_0
 
-    .line 1001
+    .line 1008
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -183,16 +183,16 @@
 
     move v1, v2
 
-    .line 1002
+    .line 1009
     goto :goto_0
 
     :cond_3
     move-object v0, p1
 
-    .line 1004
+    .line 1011
     check-cast v0, Landroid/print/PrintAttributes$Resolution;
 
-    .line 1005
+    .line 1012
     .local v0, other:Landroid/print/PrintAttributes$Resolution;
     iget v3, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
@@ -202,10 +202,10 @@
 
     move v1, v2
 
-    .line 1006
+    .line 1013
     goto :goto_0
 
-    .line 1008
+    .line 1015
     :cond_4
     iget v3, p0, Landroid/print/PrintAttributes$Resolution;->mVerticalDpi:I
 
@@ -215,7 +215,7 @@
 
     move v1, v2
 
-    .line 1009
+    .line 1016
     goto :goto_0
 .end method
 
@@ -223,7 +223,7 @@
     .locals 1
 
     .prologue
-    .line 957
+    .line 964
     iget v0, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
     return v0
@@ -233,7 +233,7 @@
     .locals 1
 
     .prologue
-    .line 939
+    .line 946
     iget-object v0, p0, Landroid/print/PrintAttributes$Resolution;->mId:Ljava/lang/String;
 
     return-object v0
@@ -243,7 +243,7 @@
     .locals 1
 
     .prologue
-    .line 948
+    .line 955
     iget-object v0, p0, Landroid/print/PrintAttributes$Resolution;->mLabel:Ljava/lang/String;
 
     return-object v0
@@ -253,7 +253,7 @@
     .locals 1
 
     .prologue
-    .line 966
+    .line 973
     iget v0, p0, Landroid/print/PrintAttributes$Resolution;->mVerticalDpi:I
 
     return v0
@@ -263,27 +263,27 @@
     .locals 4
 
     .prologue
-    .line 986
+    .line 993
     const/16 v0, 0x1f
 
-    .line 987
+    .line 994
     .local v0, prime:I
     const/4 v1, 0x1
 
-    .line 988
+    .line 995
     .local v1, result:I
     iget v2, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
     add-int/lit8 v1, v2, 0x1f
 
-    .line 989
+    .line 996
     mul-int/lit8 v2, v1, 0x1f
 
     iget v3, p0, Landroid/print/PrintAttributes$Resolution;->mVerticalDpi:I
 
     add-int v1, v2, v3
 
-    .line 990
+    .line 997
     return v1
 .end method
 
@@ -291,18 +291,18 @@
     .locals 3
 
     .prologue
-    .line 1016
+    .line 1023
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1017
+    .line 1024
     .local v0, builder:Ljava/lang/StringBuilder;
     const-string v1, "Resolution{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1018
+    .line 1025
     const-string v1, "id: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -313,7 +313,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1019
+    .line 1026
     const-string v1, ", label: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -324,7 +324,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1020
+    .line 1027
     const-string v1, ", horizontalDpi: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -335,7 +335,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1021
+    .line 1028
     const-string v1, ", verticalDpi: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -346,12 +346,12 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1022
+    .line 1029
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1023
+    .line 1030
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -364,26 +364,26 @@
     .parameter "parcel"
 
     .prologue
-    .line 970
+    .line 977
     iget-object v0, p0, Landroid/print/PrintAttributes$Resolution;->mId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 971
+    .line 978
     iget-object v0, p0, Landroid/print/PrintAttributes$Resolution;->mLabel:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 972
+    .line 979
     iget v0, p0, Landroid/print/PrintAttributes$Resolution;->mHorizontalDpi:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 973
+    .line 980
     iget v0, p0, Landroid/print/PrintAttributes$Resolution;->mVerticalDpi:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 974
+    .line 981
     return-void
 .end method

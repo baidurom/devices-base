@@ -155,6 +155,8 @@
 
 .field public static final REASON_SIM_LOADED:Ljava/lang/String; = "simLoaded"
 
+.field public static final REASON_SINGLE_PDN_ARBITRATION:Ljava/lang/String; = "SinglePdnArbitration"
+
 .field public static final REASON_VOICE_CALL_ENDED:Ljava/lang/String; = "2GVoiceCallEnded"
 
 .field public static final REASON_VOICE_CALL_STARTED:Ljava/lang/String; = "2GVoiceCallStarted"

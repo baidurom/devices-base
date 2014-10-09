@@ -219,7 +219,7 @@
 
     if-nez v0, :cond_1
 
-    const-string v1, "no component name"
+    const-string/jumbo v1, "no component name"
 
     :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

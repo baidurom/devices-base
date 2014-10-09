@@ -53,7 +53,7 @@
     .locals 1
 
     .prologue
-    .line 477
+    .line 488
     new-instance v0, Landroid/view/inputmethod/InputMethodInfo$1;
 
     invoke-direct {v0}, Landroid/view/inputmethod/InputMethodInfo$1;-><init>()V
@@ -75,12 +75,12 @@
     .end annotation
 
     .prologue
-    .line 103
+    .line 114
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Landroid/view/inputmethod/InputMethodInfo;-><init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;Ljava/util/Map;)V
 
-    .line 104
+    .line 115
     return-void
 .end method
 
@@ -112,11 +112,11 @@
     .end annotation
 
     .prologue
-    .line 117
+    .line 128
     .local p3, additionalSubtypesMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;>;"
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
+    .line 91
     new-instance v21, Ljava/util/ArrayList;
 
     invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
@@ -127,21 +127,21 @@
 
     iput-object v0, v1, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
-    .line 118
+    .line 129
     move-object/from16 v0, p2
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
-    .line 119
+    .line 130
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     move-object/from16 v17, v0
 
-    .line 120
+    .line 131
     .local v17, si:Landroid/content/pm/ServiceInfo;
     new-instance v21, Landroid/content/ComponentName;
 
@@ -169,14 +169,14 @@
 
     iput-object v0, v1, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
-    .line 121
+    .line 132
     const/4 v9, 0x1
 
-    .line 122
+    .line 133
     .local v9, isAuxIme:Z
     const/16 v19, 0x0
 
-    .line 123
+    .line 134
     .local v19, supportsSwitchingToNextInputMethod:Z
     const/16 v21, 0x0
 
@@ -186,24 +186,24 @@
 
     iput-boolean v0, v1, Landroid/view/inputmethod/InputMethodInfo;->mForceDefault:Z
 
-    .line 125
+    .line 136
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v13
 
-    .line 126
+    .line 137
     .local v13, pm:Landroid/content/pm/PackageManager;
     const/16 v16, 0x0
 
-    .line 127
+    .line 138
     .local v16, settingsActivityComponent:Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 129
+    .line 140
     .local v10, isDefaultResId:I
     const/4 v12, 0x0
 
-    .line 131
+    .line 142
     .local v12, parser:Landroid/content/res/XmlResourceParser;
     :try_start_0
     const-string v21, "android.view.im"
@@ -216,10 +216,10 @@
 
     move-result-object v12
 
-    .line 132
+    .line 143
     if-nez v12, :cond_1
 
-    .line 133
+    .line 144
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v22, "No android.view.im meta-data"
@@ -231,11 +231,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 201
+    .line 212
     :catch_0
     move-exception v7
 
-    .line 202
+    .line 213
     .local v7, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_1
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
@@ -270,7 +270,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 205
+    .line 216
     .end local v7           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v21
@@ -282,7 +282,7 @@
     :cond_0
     throw v21
 
-    .line 137
+    .line 148
     :cond_1
     :try_start_2
     move-object/from16 v0, v17
@@ -297,13 +297,13 @@
 
     move-result-object v14
 
-    .line 139
+    .line 150
     .local v14, res:Landroid/content/res/Resources;
     invoke-static {v12}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v5
 
-    .line 143
+    .line 154
     .local v5, attrs:Landroid/util/AttributeSet;
     :cond_2
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->next()I
@@ -327,13 +327,13 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 146
+    .line 157
     :cond_3
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 147
+    .line 158
     .local v11, nodeName:Ljava/lang/String;
     const-string v21, "input-method"
 
@@ -345,7 +345,7 @@
 
     if-nez v21, :cond_4
 
-    .line 148
+    .line 159
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v22, "Meta-data does not start with input-method tag"
@@ -354,7 +354,7 @@
 
     throw v21
 
-    .line 152
+    .line 163
     :cond_4
     sget-object v21, Lcom/android/internal/R$styleable;->InputMethod:[I
 
@@ -364,7 +364,7 @@
 
     move-result-object v15
 
-    .line 154
+    .line 165
     .local v15, sa:Landroid/content/res/TypedArray;
     const/16 v21, 0x1
 
@@ -374,7 +374,7 @@
 
     move-result-object v16
 
-    .line 156
+    .line 167
     const/16 v21, 0x0
 
     const/16 v22, 0x0
@@ -387,7 +387,7 @@
 
     move-result v10
 
-    .line 158
+    .line 169
     const/16 v21, 0x2
 
     const/16 v22, 0x0
@@ -400,15 +400,15 @@
 
     move-result v19
 
-    .line 161
+    .line 172
     invoke-virtual {v15}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 163
+    .line 174
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v6
 
-    .line 166
+    .line 177
     .local v6, depth:I
     :cond_5
     :goto_0
@@ -441,7 +441,7 @@
 
     if-eq v0, v1, :cond_9
 
-    .line 167
+    .line 178
     const/16 v21, 0x2
 
     move/from16 v0, v20
@@ -450,12 +450,12 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 168
+    .line 179
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 169
+    .line 180
     const-string/jumbo v21, "subtype"
 
     move-object/from16 v0, v21
@@ -466,7 +466,7 @@
 
     if-nez v21, :cond_7
 
-    .line 170
+    .line 181
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v22, "Meta-data in input-method does not start with subtype tag"
@@ -475,7 +475,7 @@
 
     throw v21
 
-    .line 173
+    .line 184
     :cond_7
     sget-object v21, Lcom/android/internal/R$styleable;->InputMethod_Subtype:[I
 
@@ -485,7 +485,7 @@
 
     move-result-object v3
 
-    .line 175
+    .line 186
     .local v3, a:Landroid/content/res/TypedArray;
     new-instance v21, Landroid/view/inputmethod/InputMethodSubtype$InputMethodSubtypeBuilder;
 
@@ -627,7 +627,7 @@
 
     move-result-object v18
 
-    .line 195
+    .line 206
     .local v18, subtype:Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual/range {v18 .. v18}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
 
@@ -635,10 +635,10 @@
 
     if-nez v21, :cond_8
 
-    .line 196
+    .line 207
     const/4 v9, 0x0
 
-    .line 198
+    .line 209
     :cond_8
     move-object/from16 v0, p0
 
@@ -657,7 +657,7 @@
 
     goto/16 :goto_0
 
-    .line 205
+    .line 216
     .end local v3           #a:Landroid/content/res/TypedArray;
     .end local v18           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
     :cond_9
@@ -665,7 +665,7 @@
 
     invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 208
+    .line 219
     :cond_a
     move-object/from16 v0, p0
 
@@ -679,10 +679,10 @@
 
     if-nez v21, :cond_b
 
-    .line 209
+    .line 220
     const/4 v9, 0x0
 
-    .line 212
+    .line 223
     :cond_b
     if-eqz p3, :cond_d
 
@@ -702,7 +702,7 @@
 
     if-eqz v21, :cond_d
 
-    .line 213
+    .line 224
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
@@ -719,13 +719,13 @@
 
     check-cast v4, Ljava/util/List;
 
-    .line 214
+    .line 225
     .local v4, additionalSubtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .line 215
+    .line 226
     .local v2, N:I
     const/4 v8, 0x0
 
@@ -733,14 +733,14 @@
     :goto_1
     if-ge v8, v2, :cond_d
 
-    .line 216
+    .line 227
     invoke-interface {v4, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v18
 
     check-cast v18, Landroid/view/inputmethod/InputMethodSubtype;
 
-    .line 217
+    .line 228
     .restart local v18       #subtype:Landroid/view/inputmethod/InputMethodSubtype;
     move-object/from16 v0, p0
 
@@ -758,7 +758,7 @@
 
     if-nez v21, :cond_c
 
-    .line 218
+    .line 229
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
@@ -771,13 +771,13 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 215
+    .line 226
     :goto_2
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 220
+    .line 231
     :cond_c
     const-string v21, "InputMethodInfo"
 
@@ -821,7 +821,7 @@
 
     goto :goto_2
 
-    .line 225
+    .line 236
     .end local v2           #N:I
     .end local v4           #additionalSubtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     .end local v8           #i:I
@@ -833,24 +833,24 @@
 
     iput-object v0, v1, Landroid/view/inputmethod/InputMethodInfo;->mSettingsActivityName:Ljava/lang/String;
 
-    .line 226
+    .line 237
     move-object/from16 v0, p0
 
     iput v10, v0, Landroid/view/inputmethod/InputMethodInfo;->mIsDefaultResId:I
 
-    .line 227
+    .line 238
     move-object/from16 v0, p0
 
     iput-boolean v9, v0, Landroid/view/inputmethod/InputMethodInfo;->mIsAuxIme:Z
 
-    .line 228
+    .line 239
     move/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/view/inputmethod/InputMethodInfo;->mSupportsSwitchingToNextInputMethod:Z
 
-    .line 229
+    .line 240
     return-void
 .end method
 
@@ -876,25 +876,25 @@
     .end annotation
 
     .prologue
-    .line 257
+    .line 268
     .local p4, subtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
+    .line 91
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
-    .line 258
+    .line 269
     iget-object v0, p1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 259
+    .line 270
     .local v0, si:Landroid/content/pm/ServiceInfo;
     iput-object p1, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
-    .line 260
+    .line 271
     new-instance v1, Landroid/content/ComponentName;
 
     iget-object v2, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
@@ -909,33 +909,33 @@
 
     iput-object v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
-    .line 261
+    .line 272
     iput-object p3, p0, Landroid/view/inputmethod/InputMethodInfo;->mSettingsActivityName:Ljava/lang/String;
 
-    .line 262
+    .line 273
     iput p5, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsDefaultResId:I
 
-    .line 263
+    .line 274
     iput-boolean p2, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsAuxIme:Z
 
-    .line 264
+    .line 275
     if-eqz p4, :cond_0
 
-    .line 265
+    .line 276
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 267
+    .line 278
     :cond_0
     iput-boolean p6, p0, Landroid/view/inputmethod/InputMethodInfo;->mForceDefault:Z
 
-    .line 268
+    .line 279
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mSupportsSwitchingToNextInputMethod:Z
 
-    .line 269
+    .line 280
     return-void
 .end method
 
@@ -948,38 +948,38 @@
 
     const/4 v1, 0x1
 
-    .line 231
+    .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
+    .line 91
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
-    .line 232
+    .line 243
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
-    .line 233
+    .line 244
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSettingsActivityName:Ljava/lang/String;
 
-    .line 234
+    .line 245
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsDefaultResId:I
 
-    .line 235
+    .line 246
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -991,7 +991,7 @@
     :goto_0
     iput-boolean v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsAuxIme:Z
 
-    .line 236
+    .line 247
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1001,7 +1001,7 @@
     :goto_1
     iput-boolean v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mSupportsSwitchingToNextInputMethod:Z
 
-    .line 237
+    .line 248
     sget-object v0, Landroid/content/pm/ResolveInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1012,29 +1012,29 @@
 
     iput-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
-    .line 238
+    .line 249
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
     sget-object v1, Landroid/view/inputmethod/InputMethodSubtype;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
 
-    .line 239
+    .line 250
     iput-boolean v2, p0, Landroid/view/inputmethod/InputMethodInfo;->mForceDefault:Z
 
-    .line 240
+    .line 251
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 235
+    .line 246
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 236
+    .line 247
     goto :goto_1
 .end method
 
@@ -1048,7 +1048,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 247
+    .line 258
     invoke-static {p1, p2, p3}, Landroid/view/inputmethod/InputMethodInfo;->buildDummyResolveInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/pm/ResolveInfo;
 
     move-result-object v1
@@ -1065,7 +1065,7 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/view/inputmethod/InputMethodInfo;-><init>(Landroid/content/pm/ResolveInfo;ZLjava/lang/String;Ljava/util/List;IZ)V
 
-    .line 249
+    .line 260
     return-void
 .end method
 
@@ -1078,52 +1078,52 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 273
+    .line 284
     new-instance v1, Landroid/content/pm/ResolveInfo;
 
     invoke-direct {v1}, Landroid/content/pm/ResolveInfo;-><init>()V
 
-    .line 274
+    .line 285
     .local v1, ri:Landroid/content/pm/ResolveInfo;
     new-instance v2, Landroid/content/pm/ServiceInfo;
 
     invoke-direct {v2}, Landroid/content/pm/ServiceInfo;-><init>()V
 
-    .line 275
+    .line 286
     .local v2, si:Landroid/content/pm/ServiceInfo;
     new-instance v0, Landroid/content/pm/ApplicationInfo;
 
     invoke-direct {v0}, Landroid/content/pm/ApplicationInfo;-><init>()V
 
-    .line 276
+    .line 287
     .local v0, ai:Landroid/content/pm/ApplicationInfo;
     iput-object p0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    .line 277
+    .line 288
     iput-boolean v3, v0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    .line 278
+    .line 289
     iput-object v0, v2, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 279
+    .line 290
     iput-boolean v3, v2, Landroid/content/pm/ServiceInfo;->enabled:Z
 
-    .line 280
+    .line 291
     iput-object p0, v2, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    .line 281
+    .line 292
     iput-object p1, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
-    .line 282
+    .line 293
     iput-boolean v3, v2, Landroid/content/pm/ServiceInfo;->exported:Z
 
-    .line 283
+    .line 294
     iput-object p2, v2, Landroid/content/pm/ServiceInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    .line 284
+    .line 295
     iput-object v2, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 285
+    .line 296
     return-object v1
 .end method
 
@@ -1133,7 +1133,7 @@
     .locals 1
 
     .prologue
-    .line 492
+    .line 503
     const/4 v0, 0x0
 
     return v0
@@ -1145,7 +1145,7 @@
     .parameter "prefix"
 
     .prologue
-    .line 404
+    .line 415
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1184,7 +1184,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 406
+    .line 417
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1215,7 +1215,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 408
+    .line 419
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1236,7 +1236,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    .line 409
+    .line 420
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1259,7 +1259,7 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/content/pm/ResolveInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
-    .line 410
+    .line 421
     return-void
 .end method
 
@@ -1270,31 +1270,31 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 428
+    .line 439
     if-ne p1, p0, :cond_1
 
     const/4 v1, 0x1
 
-    .line 434
+    .line 445
     :cond_0
     :goto_0
     return v1
 
-    .line 429
+    .line 440
     :cond_1
     if-eqz p1, :cond_0
 
-    .line 431
+    .line 442
     instance-of v2, p1, Landroid/view/inputmethod/InputMethodInfo;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 433
+    .line 444
     check-cast v0, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 434
+    .line 445
     .local v0, obj:Landroid/view/inputmethod/InputMethodInfo;
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
@@ -1311,7 +1311,7 @@
     .locals 3
 
     .prologue
-    .line 324
+    .line 335
     new-instance v0, Landroid/content/ComponentName;
 
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
@@ -1335,7 +1335,7 @@
     .locals 1
 
     .prologue
-    .line 293
+    .line 304
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
     return-object v0
@@ -1345,7 +1345,7 @@
     .locals 1
 
     .prologue
-    .line 384
+    .line 395
     iget v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsDefaultResId:I
 
     return v0
@@ -1355,7 +1355,7 @@
     .locals 1
 
     .prologue
-    .line 300
+    .line 311
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -1369,7 +1369,7 @@
     .locals 1
 
     .prologue
-    .line 316
+    .line 327
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -1381,7 +1381,7 @@
     .locals 1
 
     .prologue
-    .line 308
+    .line 319
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -1395,7 +1395,7 @@
     .locals 1
 
     .prologue
-    .line 359
+    .line 370
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSettingsActivityName:Ljava/lang/String;
 
     return-object v0
@@ -1406,7 +1406,7 @@
     .parameter "index"
 
     .prologue
-    .line 375
+    .line 386
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1422,7 +1422,7 @@
     .locals 1
 
     .prologue
-    .line 366
+    .line 377
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -1436,7 +1436,7 @@
     .locals 1
 
     .prologue
-    .line 439
+    .line 450
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
@@ -1450,7 +1450,7 @@
     .locals 1
 
     .prologue
-    .line 446
+    .line 457
     iget-boolean v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsAuxIme:Z
 
     return v0
@@ -1463,19 +1463,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 392
+    .line 403
     iget-boolean v3, p0, Landroid/view/inputmethod/InputMethodInfo;->mForceDefault:Z
 
     if-eqz v3, :cond_0
 
-    .line 393
+    .line 404
     const/4 v2, 0x1
 
-    .line 399
+    .line 410
     :goto_0
     return v2
 
-    .line 396
+    .line 407
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
@@ -1492,7 +1492,7 @@
 
     move-result-object v1
 
-    .line 397
+    .line 408
     .local v1, res:Landroid/content/res/Resources;
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getIsDefaultResourceId()I
 
@@ -1506,12 +1506,12 @@
 
     goto :goto_0
 
-    .line 398
+    .line 409
     .end local v1           #res:Landroid/content/res/Resources;
     :catch_0
     move-exception v0
 
-    .line 399
+    .line 410
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     goto :goto_0
 .end method
@@ -1521,7 +1521,7 @@
     .parameter "pm"
 
     .prologue
-    .line 345
+    .line 356
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     invoke-virtual {v0, p1}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
@@ -1536,7 +1536,7 @@
     .parameter "pm"
 
     .prologue
-    .line 335
+    .line 346
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     invoke-virtual {v0, p1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
@@ -1550,7 +1550,7 @@
     .locals 1
 
     .prologue
-    .line 454
+    .line 465
     iget-boolean v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSupportsSwitchingToNextInputMethod:Z
 
     return v0
@@ -1560,7 +1560,7 @@
     .locals 2
 
     .prologue
-    .line 414
+    .line 425
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1612,22 +1612,22 @@
 
     const/4 v2, 0x0
 
-    .line 465
+    .line 476
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mId:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 466
+    .line 477
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSettingsActivityName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 467
+    .line 478
     iget v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsDefaultResId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 468
+    .line 479
     iget-boolean v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mIsAuxIme:Z
 
     if-eqz v0, :cond_0
@@ -1637,7 +1637,7 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 469
+    .line 480
     iget-boolean v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSupportsSwitchingToNextInputMethod:Z
 
     if-eqz v0, :cond_1
@@ -1645,28 +1645,28 @@
     :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 470
+    .line 481
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     invoke-virtual {v0, p1, p2}, Landroid/content/pm/ResolveInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 471
+    .line 482
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodInfo;->mSubtypes:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 472
+    .line 483
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 468
+    .line 479
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 469
+    .line 480
     goto :goto_1
 .end method

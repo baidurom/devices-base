@@ -1,6 +1,9 @@
-.class synthetic Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;
+.class Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;
 .super Ljava/lang/Object;
 .source "DcTrackerBase.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -9,156 +12,106 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$com$android$internal$telephony$DctConstants$State:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/android/internal/telephony/dataconnection/DcTrackerBase;)V
+    .locals 0
+    .parameter
 
     .prologue
-    .line 1038
-    invoke-static {}, Lcom/android/internal/telephony/DctConstants$State;->values()[Lcom/android/internal/telephony/DctConstants$State;
+    .line 362
+    iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    move-result-object v0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    array-length v0, v0
+    return-void
+.end method
 
-    new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
+# virtual methods
+.method public run()V
+    .locals 4
 
-    :try_start_0
-    sget-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
+    .prologue
+    .line 365
+    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->IDLE:Lcom/android/internal/telephony/DctConstants$State;
+    invoke-virtual {v0}, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->updateDataActivity()V
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    .line 367
+    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
+
+    iget-boolean v0, v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mIsScreenOn:Z
+
+    if-eqz v0, :cond_1
+
+    .line 368
+    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
+
+    iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
+
+    iget-object v1, v1, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mResolver:Landroid/content/ContentResolver;
+
+    const-string v2, "pdp_watchdog_poll_interval_ms"
+
+    const/16 v3, 0x3e8
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    const/4 v2, 0x1
+    iput v1, v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mNetStatPollPeriod:I
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_5
-
+    .line 376
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
+    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->RETRYING:Lcom/android/internal/telephony/DctConstants$State;
+    iget-boolean v0, v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mNetStatPollEnabled:Z
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    if-eqz v0, :cond_0
 
-    move-result v1
+    .line 377
+    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    const/4 v2, 0x2
+    iget-object v0, v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mDataConnectionTracker:Landroid/os/Handler;
 
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_4
+    iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
+    iget v1, v1, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mNetStatPollPeriod:I
 
-    sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->CONNECTING:Lcom/android/internal/telephony/DctConstants$State;
+    int-to-long v1, v1
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_3
-
-    :goto_2
-    :try_start_3
-    sget-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
-
-    sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->SCANNING:Lcom/android/internal/telephony/DctConstants$State;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_2
-
-    :goto_3
-    :try_start_4
-    sget-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
-
-    sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->CONNECTED:Lcom/android/internal/telephony/DctConstants$State;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x5
-
-    aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_1
-
-    :goto_4
-    :try_start_5
-    sget-object v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->$SwitchMap$com$android$internal$telephony$DctConstants$State:[I
-
-    sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->DISCONNECTING:Lcom/android/internal/telephony/DctConstants$State;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x6
-
-    aput v2, v0, v1
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_0
-
-    :goto_5
+    .line 379
+    :cond_0
     return-void
 
-    :catch_0
-    move-exception v0
+    .line 371
+    :cond_1
+    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    goto :goto_5
+    iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase$3;->this$0:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
-    :catch_1
-    move-exception v0
+    iget-object v1, v1, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mResolver:Landroid/content/ContentResolver;
 
-    goto :goto_4
+    const-string v2, "pdp_watchdog_long_poll_interval_ms"
 
-    :catch_2
-    move-exception v0
+    const v3, 0x927c0
 
-    goto :goto_3
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    :catch_3
-    move-exception v0
+    move-result v1
 
-    goto :goto_2
-
-    :catch_4
-    move-exception v0
-
-    goto :goto_1
-
-    :catch_5
-    move-exception v0
+    iput v1, v0, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->mNetStatPollPeriod:I
 
     goto :goto_0
 .end method

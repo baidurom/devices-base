@@ -44,11 +44,23 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 42
+    const/4 v0, 0x1
+
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 47
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$KeyguardState;->showing:Z
+
+    .line 48
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$KeyguardState;->showingAndNotHidden:Z
+
+    .line 49
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$KeyguardState;->secure:Z
+
+    .line 50
     return-void
 .end method

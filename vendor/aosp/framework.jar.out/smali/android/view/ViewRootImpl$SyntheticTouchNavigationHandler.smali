@@ -92,38 +92,38 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 4506
+    .line 4528
     iput-object p1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->this$0:Landroid/view/ViewRootImpl;
 
-    .line 4507
+    .line 4529
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Z)V
 
-    .line 4452
+    .line 4474
     iput v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mCurrentDeviceId:I
 
-    .line 4472
+    .line 4494
     iput v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mActivePointerId:I
 
-    .line 4495
+    .line 4517
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
-    .line 4504
+    .line 4526
     const-wide v0, 0x7fffffffffffffffL
 
     iput-wide v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mLastConfirmKeyTime:J
 
-    .line 4797
+    .line 4819
     new-instance v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler$1;
 
     invoke-direct {v0, p0}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler$1;-><init>(Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;)V
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingRunnable:Ljava/lang/Runnable;
 
-    .line 4508
+    .line 4530
     return-void
 .end method
 
@@ -132,7 +132,7 @@
     .parameter "x0"
 
     .prologue
-    .line 4420
+    .line 4442
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
     return v0
@@ -143,7 +143,7 @@
     .parameter "x0"
 
     .prologue
-    .line 4420
+    .line 4442
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyMetaState:I
 
     return v0
@@ -157,7 +157,7 @@
     .parameter "x3"
 
     .prologue
-    .line 4420
+    .line 4442
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->sendKeyDownOrRepeat(JII)V
 
     return-void
@@ -169,7 +169,7 @@
     .parameter "x1"
 
     .prologue
-    .line 4420
+    .line 4442
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
 
     mul-float/2addr v0, p1
@@ -185,7 +185,7 @@
     .parameter "x1"
 
     .prologue
-    .line 4420
+    .line 4442
     invoke-direct {p0, p1, p2}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->postFling(J)Z
 
     move-result v0
@@ -199,7 +199,7 @@
     .parameter "x1"
 
     .prologue
-    .line 4420
+    .line 4442
     iput-boolean p1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlinging:Z
 
     return p1
@@ -211,7 +211,7 @@
     .parameter "x1"
 
     .prologue
-    .line 4420
+    .line 4442
     invoke-direct {p0, p1, p2}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
     return-void
@@ -221,22 +221,22 @@
     .locals 1
 
     .prologue
-    .line 4791
+    .line 4813
     iget-boolean v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlinging:Z
 
     if-eqz v0, :cond_0
 
-    .line 4792
+    .line 4814
     iget-object v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 4793
+    .line 4815
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlinging:Z
 
-    .line 4795
+    .line 4817
     :cond_0
     return-void
 .end method
@@ -250,7 +250,7 @@
     .parameter "positiveKeyCode"
 
     .prologue
-    .line 4678
+    .line 4700
     :goto_0
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
@@ -260,17 +260,17 @@
 
     if-gtz v0, :cond_0
 
-    .line 4679
+    .line 4701
     invoke-direct {p0, p1, p2, p5, p3}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->sendKeyDownOrRepeat(JII)V
 
-    .line 4680
+    .line 4702
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
     add-float/2addr p4, v0
 
     goto :goto_0
 
-    .line 4682
+    .line 4704
     :cond_0
     :goto_1
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
@@ -279,17 +279,17 @@
 
     if-ltz v0, :cond_1
 
-    .line 4683
+    .line 4705
     invoke-direct {p0, p1, p2, p6, p3}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->sendKeyDownOrRepeat(JII)V
 
-    .line 4684
+    .line 4706
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
     sub-float/2addr p4, v0
 
     goto :goto_1
 
-    .line 4686
+    .line 4708
     :cond_1
     return p4
 .end method
@@ -304,14 +304,14 @@
 
     const/4 v9, 0x0
 
-    .line 4657
+    .line 4679
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedX:F
 
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result v7
 
-    .line 4658
+    .line 4680
     .local v7, absX:F
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
 
@@ -319,20 +319,20 @@
 
     move-result v8
 
-    .line 4659
+    .line 4681
     .local v8, absY:F
     cmpl-float v0, v7, v8
 
     if-ltz v0, :cond_1
 
-    .line 4660
+    .line 4682
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
     cmpl-float v0, v7, v0
 
     if-ltz v0, :cond_0
 
-    .line 4661
+    .line 4683
     iget v4, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedX:F
 
     const/16 v5, 0x15
@@ -351,18 +351,18 @@
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedX:F
 
-    .line 4663
+    .line 4685
     iput v9, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
 
-    .line 4664
+    .line 4686
     iput-boolean v10, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConsumedMovement:Z
 
-    .line 4674
+    .line 4696
     :cond_0
     :goto_0
     return-void
 
-    .line 4667
+    .line 4689
     :cond_1
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
@@ -370,7 +370,7 @@
 
     if-ltz v0, :cond_0
 
-    .line 4668
+    .line 4690
     iget v4, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
 
     const/16 v5, 0x13
@@ -389,10 +389,10 @@
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
 
-    .line 4670
+    .line 4692
     iput v9, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedX:F
 
-    .line 4671
+    .line 4693
     iput-boolean v10, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConsumedMovement:Z
 
     goto :goto_0
@@ -403,13 +403,13 @@
     .parameter "time"
 
     .prologue
-    .line 4644
+    .line 4666
     invoke-direct {p0}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->cancelFling()V
 
-    .line 4645
+    .line 4667
     invoke-direct {p0, p1, p2}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->sendKeyUp(J)V
 
-    .line 4646
+    .line 4668
     return-void
 .end method
 
@@ -418,27 +418,27 @@
     .parameter "time"
 
     .prologue
-    .line 4649
+    .line 4671
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mActivePointerId:I
 
     if-ltz v0, :cond_0
 
-    .line 4650
+    .line 4672
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mActivePointerId:I
 
-    .line 4651
+    .line 4673
     iget-object v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->recycle()V
 
-    .line 4652
+    .line 4674
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 4654
+    .line 4676
     :cond_0
     return-void
 .end method
@@ -448,7 +448,7 @@
     .parameter "time"
 
     .prologue
-    .line 4777
+    .line 4799
     iget v2, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
 
     iget v3, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigMinFlingVelocity:F
@@ -457,7 +457,7 @@
 
     if-ltz v2, :cond_0
 
-    .line 4778
+    .line 4800
     iget v2, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
     iget v3, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
@@ -470,7 +470,7 @@
 
     float-to-long v0, v2
 
-    .line 4779
+    .line 4801
     .local v0, delay:J
     iget-object v2, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingRunnable:Ljava/lang/Runnable;
 
@@ -478,10 +478,10 @@
 
     invoke-virtual {p0, v2, v3, v4}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
 
-    .line 4785
+    .line 4807
     const/4 v2, 0x1
 
-    .line 4787
+    .line 4809
     .end local v0           #delay:J
     :goto_0
     return v2
@@ -499,36 +499,36 @@
     .parameter "metaState"
 
     .prologue
-    .line 4690
+    .line 4712
     iget v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
     move/from16 v0, p3
 
     if-eq v1, v0, :cond_0
 
-    .line 4691
+    .line 4713
     invoke-direct/range {p0 .. p2}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->sendKeyUp(J)V
 
-    .line 4692
+    .line 4714
     iput-wide p1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyDownTime:J
 
-    .line 4693
+    .line 4715
     move/from16 v0, p3
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
-    .line 4694
+    .line 4716
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyRepeatCount:I
 
-    .line 4698
+    .line 4720
     :goto_0
     move/from16 v0, p4
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyMetaState:I
 
-    .line 4707
+    .line 4729
     iget-object v13, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->this$0:Landroid/view/ViewRootImpl;
 
     new-instance v1, Landroid/view/KeyEvent;
@@ -555,10 +555,10 @@
 
     invoke-virtual {v13, v1}, Landroid/view/ViewRootImpl;->enqueueInputEvent(Landroid/view/InputEvent;)V
 
-    .line 4711
+    .line 4733
     return-void
 
-    .line 4696
+    .line 4718
     :cond_0
     iget v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyRepeatCount:I
 
@@ -574,12 +574,12 @@
     .parameter "time"
 
     .prologue
-    .line 4714
+    .line 4736
     iget v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
     if-eqz v0, :cond_0
 
-    .line 4719
+    .line 4741
     iget-object v13, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->this$0:Landroid/view/ViewRootImpl;
 
     new-instance v0, Landroid/view/KeyEvent;
@@ -608,12 +608,12 @@
 
     invoke-virtual {v13, v0}, Landroid/view/ViewRootImpl;->enqueueInputEvent(Landroid/view/InputEvent;)V
 
-    .line 4723
+    .line 4745
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
-    .line 4725
+    .line 4747
     :cond_0
     return-void
 .end method
@@ -627,12 +627,12 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 4734
+    .line 4756
     iget v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mPendingKeyCode:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 4769
+    .line 4791
     :goto_0
     invoke-direct {p0, p1, p2}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->postFling(J)Z
 
@@ -640,13 +640,13 @@
 
     iput-boolean v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlinging:Z
 
-    .line 4770
+    .line 4792
     iget-boolean v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlinging:Z
 
     :cond_0
     return v0
 
-    .line 4736
+    .line 4758
     :pswitch_0
     neg-float v1, p3
 
@@ -666,14 +666,14 @@
 
     if-gez v1, :cond_0
 
-    .line 4738
+    .line 4760
     neg-float v0, p3
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
 
     goto :goto_0
 
-    .line 4744
+    .line 4766
     :pswitch_1
     iget v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigMinFlingVelocity:F
 
@@ -691,12 +691,12 @@
 
     if-gez v1, :cond_0
 
-    .line 4746
+    .line 4768
     iput p3, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
 
     goto :goto_0
 
-    .line 4752
+    .line 4774
     :pswitch_2
     neg-float v1, p4
 
@@ -716,14 +716,14 @@
 
     if-gez v1, :cond_0
 
-    .line 4754
+    .line 4776
     neg-float v0, p4
 
     iput v0, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
 
     goto :goto_0
 
-    .line 4760
+    .line 4782
     :pswitch_3
     iget v1, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigMinFlingVelocity:F
 
@@ -741,12 +741,12 @@
 
     if-gez v1, :cond_0
 
-    .line 4762
+    .line 4784
     iput p4, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlingVelocity:F
 
     goto :goto_0
 
-    .line 4734
+    .line 4756
     nop
 
     :pswitch_data_0
@@ -765,7 +765,7 @@
     .parameter "event"
 
     .prologue
-    .line 4635
+    .line 4657
     iget v2, p0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mCurrentDeviceId:I
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getDeviceId()I
@@ -782,19 +782,19 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 4637
+    .line 4659
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v0
 
-    .line 4638
+    .line 4660
     .local v0, time:J
     invoke-direct {p0, v0, v1}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
-    .line 4639
+    .line 4661
     invoke-direct {p0, v0, v1}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishTracking(J)V
 
-    .line 4641
+    .line 4663
     .end local v0           #time:J
     :cond_0
     return-void
@@ -805,24 +805,24 @@
     .parameter "event"
 
     .prologue
-    .line 4512
+    .line 4534
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v10
 
-    .line 4513
+    .line 4535
     .local v10, time:J
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
 
     move-result v5
 
-    .line 4514
+    .line 4536
     .local v5, deviceId:I
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v9
 
-    .line 4515
+    .line 4537
     .local v9, source:I
     move-object/from16 v0, p0
 
@@ -844,28 +844,28 @@
 
     if-eq v0, v9, :cond_3
 
-    .line 4516
+    .line 4538
     :cond_0
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
-    .line 4517
+    .line 4539
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishTracking(J)V
 
-    .line 4518
+    .line 4540
     move-object/from16 v0, p0
 
     iput v5, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mCurrentDeviceId:I
 
-    .line 4519
+    .line 4541
     move-object/from16 v0, p0
 
     iput v9, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mCurrentSource:I
 
-    .line 4520
+    .line 4542
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -874,16 +874,16 @@
 
     iput-boolean v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mCurrentDeviceSupported:Z
 
-    .line 4521
+    .line 4543
     invoke-virtual/range {p1 .. p1}, Landroid/view/InputEvent;->getDevice()Landroid/view/InputDevice;
 
     move-result-object v4
 
-    .line 4522
+    .line 4544
     .local v4, device:Landroid/view/InputDevice;
     if-eqz v4, :cond_3
 
-    .line 4525
+    .line 4547
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -892,7 +892,7 @@
 
     move-result-object v15
 
-    .line 4526
+    .line 4548
     .local v15, xRange:Landroid/view/InputDevice$MotionRange;
     const/16 v20, 0x1
 
@@ -902,13 +902,13 @@
 
     move-result-object v18
 
-    .line 4527
+    .line 4549
     .local v18, yRange:Landroid/view/InputDevice$MotionRange;
     if-eqz v15, :cond_3
 
     if-eqz v18, :cond_3
 
-    .line 4528
+    .line 4550
     const/16 v20, 0x1
 
     move/from16 v0, v20
@@ -917,12 +917,12 @@
 
     iput-boolean v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mCurrentDeviceSupported:Z
 
-    .line 4531
+    .line 4553
     invoke-virtual {v15}, Landroid/view/InputDevice$MotionRange;->getResolution()F
 
     move-result v16
 
-    .line 4532
+    .line 4554
     .local v16, xRes:F
     const/16 v20, 0x0
 
@@ -930,7 +930,7 @@
 
     if-gtz v20, :cond_1
 
-    .line 4533
+    .line 4555
     invoke-virtual {v15}, Landroid/view/InputDevice$MotionRange;->getRange()F
 
     move-result v20
@@ -939,13 +939,13 @@
 
     div-float v16, v20, v21
 
-    .line 4535
+    .line 4557
     :cond_1
     invoke-virtual/range {v18 .. v18}, Landroid/view/InputDevice$MotionRange;->getResolution()F
 
     move-result v19
 
-    .line 4536
+    .line 4558
     .local v19, yRes:F
     const/16 v20, 0x0
 
@@ -953,7 +953,7 @@
 
     if-gtz v20, :cond_2
 
-    .line 4537
+    .line 4559
     invoke-virtual/range {v18 .. v18}, Landroid/view/InputDevice$MotionRange;->getRange()F
 
     move-result v20
@@ -962,7 +962,7 @@
 
     div-float v19, v20, v21
 
-    .line 4539
+    .line 4561
     :cond_2
     add-float v20, v16, v19
 
@@ -970,7 +970,7 @@
 
     mul-float v8, v20, v21
 
-    .line 4542
+    .line 4564
     .local v8, nominalRes:F
     const/high16 v20, 0x4140
 
@@ -982,7 +982,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigTickDistance:F
 
-    .line 4543
+    .line 4565
     const/high16 v20, 0x40c0
 
     move-object/from16 v0, p0
@@ -999,7 +999,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigMinFlingVelocity:F
 
-    .line 4545
+    .line 4567
     const/high16 v20, 0x41a0
 
     move-object/from16 v0, p0
@@ -1016,7 +1016,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConfigMaxFlingVelocity:F
 
-    .line 4558
+    .line 4580
     .end local v4           #device:Landroid/view/InputDevice;
     .end local v8           #nominalRes:F
     .end local v15           #xRange:Landroid/view/InputDevice$MotionRange;
@@ -1032,41 +1032,41 @@
 
     if-nez v20, :cond_5
 
-    .line 4632
+    .line 4654
     :cond_4
     :goto_0
     return-void
 
-    .line 4563
+    .line 4585
     :cond_5
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v2
 
-    .line 4564
+    .line 4586
     .local v2, action:I
     packed-switch v2, :pswitch_data_0
 
     goto :goto_0
 
-    .line 4566
+    .line 4588
     :pswitch_0
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mFlinging:Z
 
-    .line 4567
+    .line 4589
     .local v3, caughtFling:Z
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
-    .line 4568
+    .line 4590
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishTracking(J)V
 
-    .line 4569
+    .line 4591
     const/16 v20, 0x0
 
     move-object/from16 v0, p1
@@ -1083,7 +1083,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mActivePointerId:I
 
-    .line 4570
+    .line 4592
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
     move-result-object v20
@@ -1094,7 +1094,7 @@
 
     iput-object v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 4571
+    .line 4593
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -1107,12 +1107,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    .line 4572
+    .line 4594
     move-object/from16 v0, p0
 
     iput-wide v10, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mStartTime:J
 
-    .line 4573
+    .line 4595
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v20
@@ -1123,7 +1123,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mStartX:F
 
-    .line 4574
+    .line 4596
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v20
@@ -1134,7 +1134,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mStartY:F
 
-    .line 4575
+    .line 4597
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mStartX:F
@@ -1147,7 +1147,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mLastX:F
 
-    .line 4576
+    .line 4598
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mStartY:F
@@ -1160,7 +1160,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mLastY:F
 
-    .line 4577
+    .line 4599
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -1169,7 +1169,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedX:F
 
-    .line 4578
+    .line 4600
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -1178,14 +1178,14 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
 
-    .line 4582
+    .line 4604
     move-object/from16 v0, p0
 
     iput-boolean v3, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConsumedMovement:Z
 
     goto/16 :goto_0
 
-    .line 4588
+    .line 4610
     .end local v3           #caughtFling:Z
     :pswitch_1
     move-object/from16 v0, p0
@@ -1196,7 +1196,7 @@
 
     if-ltz v20, :cond_4
 
-    .line 4591
+    .line 4613
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mActivePointerId:I
@@ -1211,23 +1211,23 @@
 
     move-result v6
 
-    .line 4592
+    .line 4614
     .local v6, index:I
     if-gez v6, :cond_6
 
-    .line 4593
+    .line 4615
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
-    .line 4594
+    .line 4616
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishTracking(J)V
 
     goto/16 :goto_0
 
-    .line 4598
+    .line 4620
     :cond_6
     move-object/from16 v0, p0
 
@@ -1241,14 +1241,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    .line 4599
+    .line 4621
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v6}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v14
 
-    .line 4600
+    .line 4622
     .local v14, x:F
     move-object/from16 v0, p1
 
@@ -1256,7 +1256,7 @@
 
     move-result v17
 
-    .line 4601
+    .line 4623
     .local v17, y:F
     move-object/from16 v0, p0
 
@@ -1280,7 +1280,7 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedX:F
 
-    .line 4602
+    .line 4624
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
@@ -1303,37 +1303,37 @@
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mAccumulatedY:F
 
-    .line 4603
+    .line 4625
     move-object/from16 v0, p0
 
     iput v14, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mLastX:F
 
-    .line 4604
+    .line 4626
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mLastY:F
 
-    .line 4607
+    .line 4629
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getMetaState()I
 
     move-result v7
 
-    .line 4608
+    .line 4630
     .local v7, metaState:I
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11, v7}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->consumeAccumulatedMovement(JI)V
 
-    .line 4611
+    .line 4633
     const/16 v20, 0x1
 
     move/from16 v0, v20
 
     if-ne v2, v0, :cond_4
 
-    .line 4612
+    .line 4634
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mConsumedMovement:Z
@@ -1350,7 +1350,7 @@
 
     if-eqz v20, :cond_7
 
-    .line 4614
+    .line 4636
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -1367,7 +1367,7 @@
 
     invoke-virtual/range {v20 .. v22}, Landroid/view/VelocityTracker;->computeCurrentVelocity(IF)V
 
-    .line 4615
+    .line 4637
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -1384,7 +1384,7 @@
 
     move-result v12
 
-    .line 4616
+    .line 4638
     .local v12, vx:F
     move-object/from16 v0, p0
 
@@ -1402,7 +1402,7 @@
 
     move-result v13
 
-    .line 4617
+    .line 4639
     .local v13, vy:F
     move-object/from16 v0, p0
 
@@ -1412,12 +1412,12 @@
 
     if-nez v20, :cond_7
 
-    .line 4618
+    .line 4640
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
-    .line 4621
+    .line 4643
     .end local v12           #vx:F
     .end local v13           #vy:F
     :cond_7
@@ -1427,7 +1427,7 @@
 
     goto/16 :goto_0
 
-    .line 4627
+    .line 4649
     .end local v6           #index:I
     .end local v7           #metaState:I
     .end local v14           #x:F
@@ -1437,14 +1437,14 @@
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishKeys(J)V
 
-    .line 4628
+    .line 4650
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10, v11}, Landroid/view/ViewRootImpl$SyntheticTouchNavigationHandler;->finishTracking(J)V
 
     goto/16 :goto_0
 
-    .line 4564
+    .line 4586
     nop
 
     :pswitch_data_0

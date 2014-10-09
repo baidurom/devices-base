@@ -201,9 +201,9 @@
 
     sget-object v12, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
-    new-instance v13, Ljava/net/InetSocketAddress;
+    invoke-static {v2, v6}, Ljava/net/InetSocketAddress;->createUnresolved(Ljava/lang/String;I)Ljava/net/InetSocketAddress;
 
-    invoke-direct {v13, v2, v6}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
+    move-result-object v13
 
     invoke-direct {v11, v12, v13}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
 

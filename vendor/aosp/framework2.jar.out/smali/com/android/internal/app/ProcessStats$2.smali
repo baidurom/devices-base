@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 2052
+    .line 2100
     iput-object p1, p0, Lcom/android/internal/app/ProcessStats$2;->this$0:Lcom/android/internal/app/ProcessStats;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
     .parameter "rhs"
 
     .prologue
-    .line 2055
+    .line 2103
     iget-wide v0, p1, Lcom/android/internal/app/ProcessStats$ProcessState;->mTmpTotalTime:J
 
     iget-wide v2, p2, Lcom/android/internal/app/ProcessStats$ProcessState;->mTmpTotalTime:J
@@ -62,14 +62,14 @@
 
     if-gez v0, :cond_0
 
-    .line 2056
+    .line 2104
     const/4 v0, -0x1
 
-    .line 2060
+    .line 2108
     :goto_0
     return v0
 
-    .line 2057
+    .line 2105
     :cond_0
     iget-wide v0, p1, Lcom/android/internal/app/ProcessStats$ProcessState;->mTmpTotalTime:J
 
@@ -79,12 +79,12 @@
 
     if-lez v0, :cond_1
 
-    .line 2058
+    .line 2106
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 2060
+    .line 2108
     :cond_1
     const/4 v0, 0x0
 
@@ -97,7 +97,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2052
+    .line 2100
     check-cast p1, Lcom/android/internal/app/ProcessStats$ProcessState;
 
     .end local p1

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 4733
+    .line 4928
     iput-object p1, p0, Lcom/android/server/ConnectivityService$7;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/16 v3, -0x2710
 
-    .line 4736
+    .line 4931
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 4737
+    .line 4932
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.intent.extra.user_handle"
 
@@ -55,16 +55,16 @@
 
     move-result v1
 
-    .line 4738
+    .line 4933
     .local v1, userId:I
     if-ne v1, v3, :cond_1
 
-    .line 4745
+    .line 4940
     :cond_0
     :goto_0
     return-void
 
-    .line 4740
+    .line 4935
     :cond_1
     const-string v2, "android.intent.action.USER_STARTING"
 
@@ -74,15 +74,15 @@
 
     if-eqz v2, :cond_2
 
-    .line 4741
+    .line 4936
     iget-object v2, p0, Lcom/android/server/ConnectivityService$7;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->onUserStart(I)V
-    invoke-static {v2, v1}, Lcom/android/server/ConnectivityService;->access$5100(Lcom/android/server/ConnectivityService;I)V
+    invoke-static {v2, v1}, Lcom/android/server/ConnectivityService;->access$5400(Lcom/android/server/ConnectivityService;I)V
 
     goto :goto_0
 
-    .line 4742
+    .line 4937
     :cond_2
     const-string v2, "android.intent.action.USER_STOPPING"
 
@@ -92,11 +92,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 4743
+    .line 4938
     iget-object v2, p0, Lcom/android/server/ConnectivityService$7;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->onUserStop(I)V
-    invoke-static {v2, v1}, Lcom/android/server/ConnectivityService;->access$5200(Lcom/android/server/ConnectivityService;I)V
+    invoke-static {v2, v1}, Lcom/android/server/ConnectivityService;->access$5500(Lcom/android/server/ConnectivityService;I)V
 
     goto :goto_0
 .end method

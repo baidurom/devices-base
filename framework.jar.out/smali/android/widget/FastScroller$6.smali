@@ -29,7 +29,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1468
+    .line 1499
     invoke-direct {p0, p1}, Landroid/util/IntProperty;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -42,7 +42,7 @@
     .parameter "object"
 
     .prologue
-    .line 1476
+    .line 1507
     invoke-virtual {p1}, Landroid/view/View;->getRight()I
 
     move-result v0
@@ -59,7 +59,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1468
+    .line 1499
     check-cast p1, Landroid/view/View;
 
     .end local p1
@@ -76,10 +76,10 @@
     .parameter "value"
 
     .prologue
-    .line 1471
+    .line 1502
     invoke-virtual {p1, p2}, Landroid/view/View;->setRight(I)V
 
-    .line 1472
+    .line 1503
     return-void
 .end method
 
@@ -89,7 +89,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1468
+    .line 1499
     check-cast p1, Landroid/view/View;
 
     .end local p1

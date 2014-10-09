@@ -46,44 +46,44 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 2040
+    .line 2045
     iput-object p1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->this$0:Landroid/media/MediaFocusControl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2034
+    .line 2039
     iput v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
 
-    .line 2035
+    .line 2040
     iput v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
 
-    .line 2036
+    .line 2041
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
 
-    .line 2038
+    .line 2043
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
 
-    .line 2042
+    .line 2047
     iput-object p2, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
 
-    .line 2043
+    .line 2048
     invoke-interface {p2}, Landroid/media/IRemoteControlDisplay;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplayBinder:Landroid/os/IBinder;
 
-    .line 2044
+    .line 2049
     iput p3, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
 
-    .line 2045
+    .line 2050
     iput p4, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
 
-    .line 2046
+    .line 2051
     return-void
 .end method
 
@@ -92,7 +92,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2030
+    .line 2035
     iget v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
 
     return v0
@@ -104,7 +104,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2030
+    .line 2035
     iput p1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedHeight:I
 
     return p1
@@ -115,7 +115,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2030
+    .line 2035
     iget-boolean v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
 
     return v0
@@ -127,7 +127,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2030
+    .line 2035
     iput-boolean p1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mWantsPositionSync:Z
 
     return p1
@@ -138,7 +138,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2030
+    .line 2035
     iget-object v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
 
     return-object v0
@@ -150,7 +150,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2030
+    .line 2035
     iput-object p1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mClientNotifListComp:Landroid/content/ComponentName;
 
     return-object p1
@@ -161,7 +161,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2030
+    .line 2035
     iget-boolean v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
 
     return v0
@@ -173,7 +173,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2030
+    .line 2035
     iput-boolean p1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mEnabled:Z
 
     return p1
@@ -184,7 +184,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2030
+    .line 2035
     iget-object v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
 
     return-object v0
@@ -195,7 +195,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2030
+    .line 2035
     iget v0, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
 
     return v0
@@ -207,7 +207,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2030
+    .line 2035
     iput p1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mArtworkExpectedWidth:I
 
     return p1
@@ -219,7 +219,7 @@
     .locals 6
 
     .prologue
-    .line 2069
+    .line 2074
     iget-object v2, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->this$0:Landroid/media/MediaFocusControl;
 
     #getter for: Landroid/media/MediaFocusControl;->mRCStack:Ljava/util/Stack;
@@ -229,7 +229,7 @@
 
     monitor-enter v3
 
-    .line 2070
+    .line 2075
     :try_start_0
     const-string v2, "MediaFocusControl"
 
@@ -261,7 +261,7 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2072
+    .line 2077
     iget-object v2, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->this$0:Landroid/media/MediaFocusControl;
 
     #getter for: Landroid/media/MediaFocusControl;->mRcDisplays:Ljava/util/ArrayList;
@@ -273,7 +273,7 @@
 
     move-result-object v1
 
-    .line 2073
+    .line 2078
     .local v1, displayIterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/media/MediaFocusControl$DisplayInfoForServer;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -282,14 +282,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 2074
+    .line 2079
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;
 
-    .line 2075
+    .line 2080
     .local v0, di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
     iget-object v2, v0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
 
@@ -297,18 +297,18 @@
 
     if-ne v2, v4, :cond_0
 
-    .line 2077
+    .line 2082
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
-    .line 2078
+    .line 2083
     monitor-exit v3
 
-    .line 2082
+    .line 2087
     .end local v0           #di:Landroid/media/MediaFocusControl$DisplayInfoForServer;
     :goto_0
     return-void
 
-    .line 2081
+    .line 2086
     :cond_1
     monitor-exit v3
 
@@ -331,7 +331,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2050
+    .line 2055
     :try_start_0
     iget-object v2, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplayBinder:Landroid/os/IBinder;
 
@@ -341,17 +341,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2056
+    .line 2061
     const/4 v1, 0x1
 
     :goto_0
     return v1
 
-    .line 2051
+    .line 2056
     :catch_0
     move-exception v0
 
-    .line 2053
+    .line 2058
     .local v0, e:Landroid/os/RemoteException;
     const-string v2, "MediaFocusControl"
 
@@ -384,7 +384,7 @@
     .locals 3
 
     .prologue
-    .line 2061
+    .line 2066
     :try_start_0
     iget-object v1, p0, Landroid/media/MediaFocusControl$DisplayInfoForServer;->mRcDisplayBinder:Landroid/os/IBinder;
 
@@ -394,15 +394,15 @@
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2066
+    .line 2071
     :goto_0
     return-void
 
-    .line 2062
+    .line 2067
     :catch_0
     move-exception v0
 
-    .line 2064
+    .line 2069
     .local v0, e:Ljava/util/NoSuchElementException;
     const-string v1, "MediaFocusControl"
 

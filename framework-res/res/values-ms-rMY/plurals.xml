@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Anda mempunyai %d percubaan lagi sebelum SIM dikunci.</item>
+        <item quantity="one">Anda mempunyai %d percubaan lagi sebelum SIM dikunci.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d saat yang lalu</item>
         <item quantity="one">1 saat yang lalu</item>

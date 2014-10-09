@@ -24,10 +24,10 @@
     .parameter "prototype"
 
     .prologue
-    .line 616
+    .line 680
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 617
+    .line 681
     if-eqz p1, :cond_0
 
     new-instance v0, Landroid/print/PrintJobInfo;
@@ -37,10 +37,10 @@
     :goto_0
     iput-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
-    .line 620
+    .line 684
     return-void
 
-    .line 617
+    .line 681
     :cond_0
     new-instance v0, Landroid/print/PrintJobInfo;
 
@@ -55,29 +55,91 @@
     .locals 1
 
     .prologue
-    .line 675
+    .line 745
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     return-object v0
 .end method
 
 .method public putAdvancedOption(Ljava/lang/String;I)V
-    .locals 0
+    .locals 2
     .parameter "key"
     .parameter "value"
 
     .prologue
-    .line 667
+    .line 733
+    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
+
+    #getter for: Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+    invoke-static {v0}, Landroid/print/PrintJobInfo;->access$300(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 734
+    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
+
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    #setter for: Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+    invoke-static {v0, v1}, Landroid/print/PrintJobInfo;->access$302(Landroid/print/PrintJobInfo;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    .line 736
+    :cond_0
+    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
+
+    #getter for: Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+    invoke-static {v0}, Landroid/print/PrintJobInfo;->access$300(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    .line 737
     return-void
 .end method
 
 .method public putAdvancedOption(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .locals 2
     .parameter "key"
     .parameter "value"
 
     .prologue
-    .line 657
+    .line 720
+    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
+
+    #getter for: Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+    invoke-static {v0}, Landroid/print/PrintJobInfo;->access$300(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 721
+    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
+
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    #setter for: Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+    invoke-static {v0, v1}, Landroid/print/PrintJobInfo;->access$302(Landroid/print/PrintJobInfo;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    .line 723
+    :cond_0
+    iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
+
+    #getter for: Landroid/print/PrintJobInfo;->mAdvancedOptions:Landroid/os/Bundle;
+    invoke-static {v0}, Landroid/print/PrintJobInfo;->access$300(Landroid/print/PrintJobInfo;)Landroid/os/Bundle;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 724
     return-void
 .end method
 
@@ -86,13 +148,13 @@
     .parameter "attributes"
 
     .prologue
-    .line 637
+    .line 701
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     #setter for: Landroid/print/PrintJobInfo;->mAttributes:Landroid/print/PrintAttributes;
     invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->access$102(Landroid/print/PrintJobInfo;Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes;
 
-    .line 638
+    .line 702
     return-void
 .end method
 
@@ -101,13 +163,13 @@
     .parameter "copies"
 
     .prologue
-    .line 628
+    .line 692
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     #setter for: Landroid/print/PrintJobInfo;->mCopies:I
     invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->access$002(Landroid/print/PrintJobInfo;I)I
 
-    .line 629
+    .line 693
     return-void
 .end method
 
@@ -116,12 +178,12 @@
     .parameter "pages"
 
     .prologue
-    .line 646
+    .line 710
     iget-object v0, p0, Landroid/print/PrintJobInfo$Builder;->mPrototype:Landroid/print/PrintJobInfo;
 
     #setter for: Landroid/print/PrintJobInfo;->mPageRanges:[Landroid/print/PageRange;
     invoke-static {v0, p1}, Landroid/print/PrintJobInfo;->access$202(Landroid/print/PrintJobInfo;[Landroid/print/PageRange;)[Landroid/print/PageRange;
 
-    .line 647
+    .line 711
     return-void
 .end method

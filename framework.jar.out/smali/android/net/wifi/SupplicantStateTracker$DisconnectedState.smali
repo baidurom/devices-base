@@ -35,11 +35,9 @@
 
 # virtual methods
 .method public enter()V
-    .locals 7
+    .locals 6
 
     .prologue
-    const/4 v6, 0x4
-
     const/4 v5, 0x0
 
     .line 231
@@ -124,7 +122,9 @@
 
     move-result v2
 
-    if-lt v2, v6, :cond_0
+    const/16 v3, 0x10
+
+    if-lt v2, v3, :cond_0
 
     .line 242
     const-string v2, "SupplicantStateTracker"
@@ -156,8 +156,10 @@
 
     iget v3, v1, Landroid/net/wifi/StateChangeResult;->networkId:I
 
+    const/4 v4, 0x4
+
     #calls: Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(II)V
-    invoke-static {v2, v3, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$900(Landroid/net/wifi/SupplicantStateTracker;II)V
+    invoke-static {v2, v3, v4}, Landroid/net/wifi/SupplicantStateTracker;->access$900(Landroid/net/wifi/SupplicantStateTracker;II)V
 
     .line 246
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DisconnectedState;->this$0:Landroid/net/wifi/SupplicantStateTracker;

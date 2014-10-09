@@ -170,7 +170,7 @@
     iput-boolean v4, p0, Landroid/preference/Preference;->mShouldDisableView:Z
 
     .line 125
-    const v3, 0x1090075
+    const v3, 0x1090072
 
     iput v3, p0, Landroid/preference/Preference;->mLayoutResId:I
 
@@ -794,23 +794,14 @@
     .parameter "another"
 
     .prologue
-    const v1, 0x7fffffff
-
-    .line 1073
+    .line 1074
     iget v0, p0, Landroid/preference/Preference;->mOrder:I
 
-    if-ne v0, v1, :cond_0
+    iget v1, p1, Landroid/preference/Preference;->mOrder:I
 
-    iget v0, p0, Landroid/preference/Preference;->mOrder:I
-
-    if-ne v0, v1, :cond_1
-
-    iget v0, p1, Landroid/preference/Preference;->mOrder:I
-
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_0
 
     .line 1076
-    :cond_0
     iget v0, p0, Landroid/preference/Preference;->mOrder:I
 
     iget v1, p1, Landroid/preference/Preference;->mOrder:I
@@ -822,12 +813,12 @@
     return v0
 
     .line 1077
-    :cond_1
+    :cond_0
     iget-object v0, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
     iget-object v1, p1, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
     .line 1079
     const/4 v0, 0x0
@@ -835,10 +826,10 @@
     goto :goto_0
 
     .line 1080
-    :cond_2
+    :cond_1
     iget-object v0, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     .line 1081
     const/4 v0, 0x1
@@ -846,10 +837,10 @@
     goto :goto_0
 
     .line 1082
-    :cond_3
+    :cond_2
     iget-object v0, p1, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     .line 1083
     const/4 v0, -0x1
@@ -857,7 +848,7 @@
     goto :goto_0
 
     .line 1086
-    :cond_4
+    :cond_3
     iget-object v0, p0, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
     iget-object v1, p1, Landroid/preference/Preference;->mTitle:Ljava/lang/CharSequence;

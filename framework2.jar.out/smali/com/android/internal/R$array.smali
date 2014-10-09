@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final carrier_properties:I = 0x1070033
+.field public static final carrier_properties:I = 0x1070034
 
-.field public static final common_nicknames:I = 0x1070031
+.field public static final common_nicknames:I = 0x1070032
 
 .field public static final config_autoBrightnessButtonBacklightValues:I = 0x1070021
 
@@ -27,15 +27,15 @@
 
 .field public static final config_autoBrightnessLevels:I = 0x107001f
 
-.field public static final config_callBarringMMI:I = 0x107002e
+.field public static final config_callBarringMMI:I = 0x107002f
 
 .field public static final config_cdma_dun_supported_types:I = 0x1070016
 
 .field public static final config_data_usage_network_types:I = 0x107000e
 
-.field public static final config_defaultNotificationVibePattern:I = 0x1070028
+.field public static final config_defaultNotificationVibePattern:I = 0x1070029
 
-.field public static final config_disabledUntilUsedPreinstalledImes:I = 0x107002a
+.field public static final config_disabledUntilUsedPreinstalledImes:I = 0x107002b
 
 .field public static final config_keyboardTapVibePattern:I = 0x107001b
 
@@ -47,13 +47,15 @@
 
 .field public static final config_mobile_hotspot_provision_app:I = 0x1070014
 
-.field public static final config_notificationFallbackVibePattern:I = 0x1070029
+.field public static final config_notificationFallbackVibePattern:I = 0x107002a
 
-.field public static final config_notificationScorers:I = 0x107002b
+.field public static final config_notificationScorers:I = 0x107002c
 
 .field public static final config_oemUsbModeOverride:I = 0x1070027
 
-.field public static final config_operatorConsideredNonRoaming:I = 0x107002c
+.field public static final config_onlySingleDcAllowed:I = 0x1070028
+
+.field public static final config_operatorConsideredNonRoaming:I = 0x107002d
 
 .field public static final config_protectedNetworks:I = 0x107000c
 
@@ -61,7 +63,7 @@
 
 .field public static final config_safeModeEnabledVibePattern:I = 0x107001d
 
-.field public static final config_sameNamedOperatorConsideredRoaming:I = 0x107002d
+.field public static final config_sameNamedOperatorConsideredRoaming:I = 0x107002e
 
 .field public static final config_serialPorts:I = 0x1070018
 
@@ -91,9 +93,9 @@
 
 .field public static final imProtocols:I = 0x1070001
 
-.field public static final maps_starting_lat_lng:I = 0x107002f
+.field public static final maps_starting_lat_lng:I = 0x1070030
 
-.field public static final maps_starting_zoom:I = 0x1070030
+.field public static final maps_starting_zoom:I = 0x1070031
 
 .field public static final networkAttributes:I = 0x107000b
 

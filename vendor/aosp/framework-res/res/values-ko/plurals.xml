@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">%d회 이상 실패할 경우 SIM이 잠깁니다.</item>
+        <item quantity="one">%d회 이상 실패할 경우 SIM이 잠깁니다.</item>
+    </plurals>
     <plurals name="num_seconds_ago">
         <item quantity="other">%d초 전</item>
         <item quantity="one">1초 전</item>

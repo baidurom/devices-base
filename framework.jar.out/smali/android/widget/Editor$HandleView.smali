@@ -419,9 +419,9 @@
     .locals 1
 
     .prologue
-    .line 3096
     invoke-static {}, Landroid/widget/Editor$BaiduEditorInjector;->dismiss()V
 
+    .line 3096
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/Editor$HandleView;->mIsDragging:Z
@@ -448,9 +448,9 @@
     .locals 1
 
     .prologue
-    .line 3102
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Editor$HandleView;->hideActionPopupWindow()V
 
+    .line 3102
     invoke-virtual {p0}, Landroid/widget/Editor$HandleView;->dismiss()V
 
     .line 3104
@@ -950,9 +950,9 @@
 
     iput v4, p0, Landroid/widget/Editor$HandleView;->mPositionY:I
 
-    .line 3176
     invoke-virtual {p0, v1}, Landroid/widget/Editor$HandleView;->recaculateHandleViewVerticalPosition(I)V
 
+    .line 3176
     iget v4, p0, Landroid/widget/Editor$HandleView;->mPositionX:I
 
     iget-object v5, p0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;

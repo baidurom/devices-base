@@ -52,8 +52,9 @@
     <string name="mismatchPin">A beírt PIN kódok nem egyeznek.</string>
     <string name="invalidPin">Írjon be egy 4-8 számjegyű PIN-kódot.</string>
     <string name="invalidPuk">8 számjegyű vagy hosszabb PUK kódot írjon be.</string>
-    <string name="needPuk">A SIM-kártya le van zárva a PUK-kóddal. A feloldáshoz adja meg a PUK-kódot.</string>
-    <string name="needPuk2">A SIM-kártya feloldásához adja meg a PUK2-kódot.</string>
+    <string name="needPuk">A SIM kártya le van zárva a PUK kóddal. A feloldáshoz adja meg a PUK kódot.</string>
+    <string name="needPuk2">A SIM kártya feloldásához adja meg a PUK2 kódot.</string>
+    <string name="enablePin">Sikertelen, engedélyezze a SIM-/RUIM-zárolást.</string>
     <string name="imei">IMEI</string>
     <string name="meid">MEID</string>
     <string name="ClipMmi">Beérkező hívóazonosító</string>
@@ -247,7 +248,7 @@
     <string name="permlab_uninstall_shortcut">parancsikonok eltávolítása</string>
     <string name="permdesc_uninstall_shortcut">Lehetővé teszi egy alkalmazás számára, hogy felhasználói beavatkozás nélkül távolítson el parancsikonokat a kezdőképernyőről.</string>
     <string name="permlab_processOutgoingCalls">kimenő hívások átirányítása</string>
-    <string name="permdesc_processOutgoingCalls">Lehetővé teszi az alkalmazás számára a kimenő hívások kezdeményezését, és a tárcsázandó szám módosítását. Az engedéllyel rendelkező alkalmazás felügyelheti, átirányíthatja vagy megakadályozhatja a kimenő hívásokat.</string>
+    <string name="permdesc_processOutgoingCalls">Lehetővé teszi, hogy az alkalmazás kimenő híváskor lássa a tárcsázott számot, valamint a hívást átirányítsa egy másik számra, vagy megszakítsa.</string>
     <string name="permlab_receiveSms">szöveges üzenetek (SMS) fogadása</string>
     <string name="permdesc_receiveSms">Lehetővé teszi az alkalmazás számára, hogy SMS-eket fogadjon és dolgozzon fel. Ez azt jelenti, hogy az alkalmazás megfigyelheti vagy törölheti a beérkező üzeneteket anélkül, hogy Ön látná azokat.</string>
     <string name="permlab_receiveMms">szöveges üzenetek (MMS) fogadása</string>
@@ -370,6 +371,8 @@
     <string name="permdesc_bindVpnService">Lehetővé teszi a használó számára, hogy csatlakozzon egy VPN-szolgáltatás legfelső szintű kezelőfelületéhez. A normál alkalmazásoknak erre soha nincs szüksége.</string>
     <string name="permlab_bindWallpaper">összekapcsolás háttérképpel</string>
     <string name="permdesc_bindWallpaper">Lehetővé teszi, hogy a tulajdonos kötelezővé tegye egy háttérkép legfelső szintű felületét. A normál alkalmazásoknak erre soha nincs szüksége.</string>
+    <string name="permlab_bindRemoteDisplay">csatlakozás egy távoli kijelzőhöz</string>
+    <string name="permdesc_bindRemoteDisplay">Lehetővé teszi a használó számára, hogy csatlakozzon egy távoli kijelző legfelső szintű kezelőfelületéhez. A normál alkalmazásoknak erre soha nincs szükségük.</string>
     <string name="permlab_bindRemoteViews">csatlakozás modulszolgáltatáshoz</string>
     <string name="permdesc_bindRemoteViews">Lehetővé teszi a használó számára, hogy csatlakozzon egy modulszolgáltatás legfelső szintű kezelőfelületéhez. A normál alkalmazásoknak erre soha nincs szüksége.</string>
     <string name="permlab_bindDeviceAdmin">az eszközkezelő használata</string>
@@ -720,6 +723,7 @@
     <string name="sipAddressTypeHome">Otthoni</string>
     <string name="sipAddressTypeWork">Munkahely</string>
     <string name="sipAddressTypeOther">Egyéb</string>
+    <string name="quick_contacts_not_available">Nem található alkalmazás a névjegy megtekintéshez.</string>
     <string name="keyguard_password_enter_pin_code">Írja be a PIN kódot</string>
     <string name="keyguard_password_enter_puk_code">Írja be a PUK kódot, majd az új PIN kódot</string>
     <string name="keyguard_password_enter_puk_prompt">PUK kód</string>
@@ -746,7 +750,7 @@
     <string name="lockscreen_battery_short">%d%%</string>
     <string name="lockscreen_low_battery">Csatlakoztassa a töltőt.</string>
     <string name="lockscreen_missing_sim_message_short">Nincs SIM kártya.</string>
-    <string name="lockscreen_missing_sim_message">Nincs SIM-kártya a telefonban.</string>
+    <string name="lockscreen_missing_sim_message">Nincs SIM kártya a telefonban.</string>
     <string name="lockscreen_missing_sim_instructions">Helyezzen be egy SIM kártyát.</string>
     <string name="lockscreen_missing_sim_instructions_long">A SIM kártya hiányzik vagy nem olvasható. Helyezzen be egy SIM kártyát.</string>
     <string name="lockscreen_permanent_disabled_sim_message_short">A SIM kártya nem használható.</string>
@@ -761,8 +765,8 @@
     <string name="lockscreen_network_locked_message">A hálózat lezárva</string>
     <string name="lockscreen_sim_puk_locked_message">A SIM-kártya le van zárva a PUK-kóddal.</string>
     <string name="lockscreen_sim_puk_locked_instructions">Nézze meg a felhasználói útmutatót, vagy vegye fel a kapcsolatot az ügyfélszolgálattal.</string>
-    <string name="lockscreen_sim_locked_message">A SIM-kártya le van zárva.</string>
-    <string name="lockscreen_sim_unlock_progress_dialog_message">SIM-kártya feloldása...</string>
+    <string name="lockscreen_sim_locked_message">A SIM kártya le van zárva.</string>
+    <string name="lockscreen_sim_unlock_progress_dialog_message">SIM kártya feloldása...</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message" formatted="false">"%d alkalommal rosszul rajzolta le feloldási mintát. 
 
 Kérjük, %d másodperc múlva próbálja újra."</string>
@@ -781,7 +785,7 @@ Kérjük, %d másodperc múlva próbálja újra."</string>
     <string name="lockscreen_forgot_pattern_button_text">Elfelejtette a mintát?</string>
     <string name="lockscreen_glogin_forgot_pattern">Fiók feloldása</string>
     <string name="lockscreen_glogin_too_many_attempts">Túl sok mintarajzolási próbálkozás</string>
-    <string name="lockscreen_glogin_instructions">A feloldáshoz jelentkezzen be Google Fiókjával.</string>
+    <string name="lockscreen_glogin_instructions">A feloldáshoz jelentkezzen be Google-fiókjával.</string>
     <string name="lockscreen_glogin_username_hint">Felhasználónév (e-mail cím)</string>
     <string name="lockscreen_glogin_password_hint">Jelszó</string>
     <string name="lockscreen_glogin_submit_button">Bejelentkezés</string>
@@ -1035,10 +1039,10 @@ Szeretné bezárni?"</string>
     <string name="sms_short_code_remember_undo_instruction">Módosítás: Beállítások > Alkalmazások</string>
     <string name="sms_short_code_confirm_always_allow">Engedélyezés mindig</string>
     <string name="sms_short_code_confirm_never_allow">Soha nem engedélyezem</string>
-    <string name="sim_removed_title">SIM-kártya eltávolítva</string>
+    <string name="sim_removed_title">SIM kártya eltávolítva</string>
     <string name="sim_removed_message">A mobilhálózat nem lesz elérhető, amíg újra nem indítja egy érvényes SIM kártya behelyezése után.</string>
     <string name="sim_done_button">Kész</string>
-    <string name="sim_added_title">SIM-kártya hozzáadva</string>
+    <string name="sim_added_title">SIM kártya hozzáadva</string>
     <string name="sim_added_message">A mobilhálózathoz eléréséhez indítsa újra az eszközt.</string>
     <string name="sim_restart_button">Újraindítás</string>
     <string name="time_picker_dialog_title">Idő beállítása</string>
@@ -1211,6 +1215,7 @@ a(z) %s fiók számára."</string>
     <string name="keyboardview_keycode_shift">Shift</string>
     <string name="keyboardview_keycode_enter">Enter</string>
     <string name="activitychooserview_choose_application">Válasszon ki egy alkalmazást</string>
+    <string name="activitychooserview_choose_application_error">A(z) %s alkalmazást indítása nem sikerült</string>
     <string name="shareactionprovider_share_with">Megosztás a következővel:</string>
     <string name="shareactionprovider_share_with_application">Ossza meg a következő alkalmazással: %s</string>
     <string name="content_description_sliding_handle">Csúsztatható fogantyú. Érintse meg és tartsa.</string>
@@ -1279,8 +1284,12 @@ a(z) %s fiók számára."</string>
     <string name="default_audio_route_category_name">Rendszer</string>
     <string name="bluetooth_a2dp_audio_route_name">Bluetooth hang</string>
     <string name="wireless_display_route_description">Vezeték nélküli kijelző</string>
-    <string name="media_route_chooser_grouping_done">Kész</string>
     <string name="media_route_button_content_description">Médiakimenet</string>
+    <string name="media_route_chooser_title">Csatlakozás adott eszközhöz</string>
+    <string name="media_route_chooser_title_for_remote_display">Képernyő átküldése az eszközre</string>
+    <string name="media_route_chooser_searching">Eszközkeresés…</string>
+    <string name="media_route_chooser_extended_settings">Beállítások</string>
+    <string name="media_route_controller_disconnect">Leválasztás</string>
     <string name="media_route_status_scanning">Keresés...</string>
     <string name="media_route_status_connecting">Kapcsolódás...</string>
     <string name="media_route_status_available">Elérhető</string>
@@ -1291,8 +1300,10 @@ a(z) %s fiók számára."</string>
     <string name="display_manager_overlay_display_name">%1$d. fedvény</string>
     <string name="display_manager_overlay_display_title">%1$s: %2$d x %3$d, %4$d képpont</string>
     <string name="display_manager_overlay_display_secure_suffix">, biztonságos</string>
-    <string name="wifi_display_notification_title">Vezeték nélküli kijelző csatlakoztatva</string>
-    <string name="wifi_display_notification_message">Ez a kijelző megjelenítést végez egy másik eszközön</string>
+    <string name="wifi_display_notification_connecting_title">Képernyő átküldése…</string>
+    <string name="wifi_display_notification_connecting_message">Csatlakozás a következőhöz: %1$s</string>
+    <string name="wifi_display_notification_connected_title">Képernyő átküldése…</string>
+    <string name="wifi_display_notification_connected_message">Csatlakozva a következőhöz: %1$s</string>
     <string name="wifi_display_notification_disconnect">Szétkapcsol</string>
     <string name="kg_emergency_call_label">Segélyhívás</string>
     <string name="kg_forgot_pattern_button_text">Elfelejtett minta</string>
@@ -1314,7 +1325,7 @@ a(z) %s fiók számára."</string>
     <string name="kg_invalid_puk">Adja meg újra a helyes PUK kódot. Az ismételt próbálkozással véglegesen letiltja a SIM kártyát.</string>
     <string name="kg_invalid_confirm_pin_hint">A PIN kódok nem egyeznek.</string>
     <string name="kg_login_too_many_attempts">Túl sok mintarajzolási próbálkozás</string>
-    <string name="kg_login_instructions">A feloldáshoz jelentkezzen be Google Fiókjával.</string>
+    <string name="kg_login_instructions">A feloldáshoz jelentkezzen be Google-fiókjával.</string>
     <string name="kg_login_username_hint">Felhasználónév (e-mail cím)</string>
     <string name="kg_login_password_hint">Jelszó</string>
     <string name="kg_login_submit_button">Bejelentkezés</string>
@@ -1448,14 +1459,21 @@ Ha hosszú ideig hangosan hallgatja a zenét, az károsíthatja a hallását."</
     <string name="restr_pin_error_doesnt_match">A PIN kódok nem egyeznek. Próbálja újra.</string>
     <string name="restr_pin_error_too_short">A PIN kód túl rövid. Legalább 4 számjegyből kell állnia.</string>
     <string name="restr_pin_try_later">Próbálkozzon később</string>
-    <string name="immersive_mode_confirmation">A teljes képernyős nézetből való kilépéshez húzza ujját a tetejétől lefelé.</string>
+    <string name="immersive_mode_confirmation">A teljes képernyős nézetből való kilépéshez húzza ujját a képernyő tetejétől lefelé.</string>
     <string name="webviewchromium_actionbar_share">Megosztás</string>
     <string name="webviewchromium_actionbar_web_search">Internetes keresés</string>
     <string name="webviewchromium_accessibility_content_view">Internetes nézet</string>
+    <string name="webviewchromium_date_picker_dialog_title">Dátum beállítása</string>
     <string name="webviewchromium_date_picker_dialog_set">Beállítás</string>
     <string name="webviewchromium_date_picker_dialog_clear">Törlés</string>
-    <string name="webviewchromium_date_picker_dialog_title">Dátum beállítása</string>
+    <string name="webviewchromium_date_picker_dialog_other_button_label">Egyéb</string>
     <string name="webviewchromium_date_time_picker_dialog_title">Dátum és idő beállítása</string>
+    <string name="webviewchromium_time_picker_dialog_title">Idő beállítása</string>
+    <string name="webviewchromium_time_picker_dialog_am">de.</string>
+    <string name="webviewchromium_time_picker_dialog_pm">du.</string>
+    <string name="webviewchromium_time_picker_dialog_hour_minute_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_minute_second_separator">:</string>
+    <string name="webviewchromium_time_picker_dialog_second_subsecond_separator">.</string>
     <string name="webviewchromium_month_picker_dialog_title">Hónap beállítása</string>
     <string name="webviewchromium_week_picker_dialog_title">Hét beállítása</string>
     <string name="webviewchromium_accessibility_datetime_picker_date">Dátum</string>
@@ -1463,6 +1481,11 @@ Ha hosszú ideig hangosan hallgatja a zenét, az károsíthatja a hallását."</
     <string name="webviewchromium_accessibility_date_picker_month">Hónap</string>
     <string name="webviewchromium_accessibility_date_picker_week">Hét</string>
     <string name="webviewchromium_accessibility_date_picker_year">Év</string>
+    <string name="webviewchromium_accessibility_time_picker_hour">Óra</string>
+    <string name="webviewchromium_accessibility_time_picker_minute">Perc</string>
+    <string name="webviewchromium_accessibility_time_picker_second">Másodperc</string>
+    <string name="webviewchromium_accessibility_time_picker_milli">Ezredmásodperc</string>
+    <string name="webviewchromium_accessibility_time_picker_ampm">de./du.</string>
     <string name="webviewchromium_media_player_error_title">Nem lehet lejátszani a videót</string>
     <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Sajnáljuk, ezt a videót nem lehet streamelni ezen az eszközön.</string>
     <string name="webviewchromium_media_player_error_text_unknown">Sajnáljuk, ezt a videót nem lehet lejátszani.</string>
@@ -1475,7 +1498,20 @@ Ha hosszú ideig hangosan hallgatja a zenét, az károsíthatja a hallását."</
     <string name="webviewchromium_color_picker_button_set">Beállítás</string>
     <string name="webviewchromium_color_picker_button_cancel">Mégse</string>
     <string name="webviewchromium_color_picker_dialog_title">Szín kiválasztása</string>
+    <string name="webviewchromium_color_picker_button_red">Piros</string>
+    <string name="webviewchromium_color_picker_button_cyan">Cián</string>
+    <string name="webviewchromium_color_picker_button_blue">Kék</string>
+    <string name="webviewchromium_color_picker_button_green">Zöld</string>
+    <string name="webviewchromium_color_picker_button_magenta">Magenta</string>
+    <string name="webviewchromium_color_picker_button_yellow">Sárga</string>
+    <string name="webviewchromium_color_picker_button_black">Fekete</string>
+    <string name="webviewchromium_color_picker_button_white">Fehér</string>
+    <string name="webviewchromium_copy_to_clipboard_failure_message">Nem sikerült a vágólapra másolni</string>
     <string name="webviewchromium_low_memory_error">Az előző műveletet nem lehetett végrehajtani, mivel kevés a memória</string>
     <string name="webviewchromium_opening_file_error">Nem lehetett megnyitni a fájlt</string>
     <string name="webviewchromium_private_browsing_warning">Ez a funkció nem támogatott az Android ezen verzióján.</string>
+    <string name="webviewchromium_profiler_started_toast">A teljesítményelemző elindult</string>
+    <string name="webviewchromium_profiler_stopped_toast">A teljesítményelemző befejezte a munkát. Az eredmények itt találhatók: %1$s.</string>
+    <string name="webviewchromium_profiler_no_storage_toast">Nem lehet elindítani a teljesítményelemzőt; a külső tárhely még nem áll készen.</string>
+    <string name="webviewchromium_profiler_error_toast">Nem sikerült elindítani a teljesítményelemzőt</string>
 </resources>

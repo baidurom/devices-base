@@ -110,7 +110,7 @@
 
     move-result-object v1
 
-    const-string v2, "newState:"
+    const-string/jumbo v2, "newState:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -48,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 131
+    .line 146
     new-instance v0, Landroid/renderscript/RenderScript$ContextType;
 
     const-string v1, "NORMAL"
@@ -57,7 +57,7 @@
 
     sput-object v0, Landroid/renderscript/RenderScript$ContextType;->NORMAL:Landroid/renderscript/RenderScript$ContextType;
 
-    .line 138
+    .line 153
     new-instance v0, Landroid/renderscript/RenderScript$ContextType;
 
     const-string v1, "DEBUG"
@@ -66,7 +66,7 @@
 
     sput-object v0, Landroid/renderscript/RenderScript$ContextType;->DEBUG:Landroid/renderscript/RenderScript$ContextType;
 
-    .line 145
+    .line 160
     new-instance v0, Landroid/renderscript/RenderScript$ContextType;
 
     const-string v1, "PROFILE"
@@ -75,7 +75,7 @@
 
     sput-object v0, Landroid/renderscript/RenderScript$ContextType;->PROFILE:Landroid/renderscript/RenderScript$ContextType;
 
-    .line 126
+    .line 141
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/renderscript/RenderScript$ContextType;
@@ -109,13 +109,13 @@
     .end annotation
 
     .prologue
-    .line 148
+    .line 163
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 149
+    .line 164
     iput p3, p0, Landroid/renderscript/RenderScript$ContextType;->mID:I
 
-    .line 150
+    .line 165
     return-void
 .end method
 
@@ -124,7 +124,7 @@
     .parameter "name"
 
     .prologue
-    .line 126
+    .line 141
     const-class v0, Landroid/renderscript/RenderScript$ContextType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -140,7 +140,7 @@
     .locals 1
 
     .prologue
-    .line 126
+    .line 141
     sget-object v0, Landroid/renderscript/RenderScript$ContextType;->$VALUES:[Landroid/renderscript/RenderScript$ContextType;
 
     invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;

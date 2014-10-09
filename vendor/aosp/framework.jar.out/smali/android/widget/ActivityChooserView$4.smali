@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 242
+    .line 246
     iput-object p1, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-direct {p0, p2}, Landroid/widget/ListPopupWindow$ForwardingListener;-><init>(Landroid/view/View;)V
@@ -39,7 +39,7 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 249
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     #calls: Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
@@ -54,12 +54,12 @@
     .locals 1
 
     .prologue
-    .line 250
+    .line 254
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/widget/ActivityChooserView;->showPopup()Z
 
-    .line 251
+    .line 255
     const/4 v0, 0x1
 
     return v0
@@ -69,12 +69,12 @@
     .locals 1
 
     .prologue
-    .line 256
+    .line 260
     iget-object v0, p0, Landroid/widget/ActivityChooserView$4;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-virtual {v0}, Landroid/widget/ActivityChooserView;->dismissPopup()Z
 
-    .line 257
+    .line 261
     const/4 v0, 0x1
 
     return v0

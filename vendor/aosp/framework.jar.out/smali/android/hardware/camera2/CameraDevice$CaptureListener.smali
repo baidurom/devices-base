@@ -34,7 +34,7 @@
     .parameter "result"
 
     .prologue
-    .line 653
+    .line 683
     return-void
 .end method
 
@@ -45,7 +45,18 @@
     .parameter "failure"
 
     .prologue
-    .line 682
+    .line 712
+    return-void
+.end method
+
+.method public onCapturePartial(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
+    .locals 0
+    .parameter "camera"
+    .parameter "request"
+    .parameter "result"
+
+    .prologue
+    .line 661
     return-void
 .end method
 
@@ -56,7 +67,7 @@
     .parameter "frameNumber"
 
     .prologue
-    .line 705
+    .line 735
     return-void
 .end method
 

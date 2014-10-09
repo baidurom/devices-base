@@ -97,7 +97,7 @@
 
     .prologue
     .line 101
-    const-string v0, "exif_jni"
+    const-string v0, "jhead_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 

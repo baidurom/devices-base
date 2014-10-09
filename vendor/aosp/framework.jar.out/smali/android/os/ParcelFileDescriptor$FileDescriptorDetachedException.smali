@@ -23,11 +23,11 @@
     .locals 1
 
     .prologue
-    .line 939
+    .line 941
     const-string v0, "Remote side is detached"
 
     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .line 940
+    .line 942
     return-void
 .end method

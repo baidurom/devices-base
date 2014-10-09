@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract addAppToken(ILandroid/view/IApplicationToken;IIIZZI)V
+.method public abstract addAppToken(ILandroid/view/IApplicationToken;IIIZZII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

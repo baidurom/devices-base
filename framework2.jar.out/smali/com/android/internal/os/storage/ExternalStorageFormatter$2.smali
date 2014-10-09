@@ -107,7 +107,7 @@
     .local v0, e:Ljava/lang/Exception;
     iget-object v2, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;->this$0:Lcom/android/internal/os/storage/ExternalStorageFormatter;
 
-    const v3, 0x10404ce
+    const v3, 0x10404d2
 
     const/4 v4, 0x1
 

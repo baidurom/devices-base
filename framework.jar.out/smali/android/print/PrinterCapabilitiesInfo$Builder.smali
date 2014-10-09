@@ -24,13 +24,13 @@
     .parameter "printerId"
 
     .prologue
-    .line 376
+    .line 384
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 377
+    .line 385
     if-nez p1, :cond_0
 
-    .line 378
+    .line 386
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "printerId cannot be null."
@@ -39,7 +39,7 @@
 
     throw v0
 
-    .line 380
+    .line 388
     :cond_0
     new-instance v0, Landroid/print/PrinterCapabilitiesInfo;
 
@@ -47,7 +47,7 @@
 
     iput-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
-    .line 381
+    .line 389
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .parameter "propertyIndex"
 
     .prologue
-    .line 528
+    .line 542
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mDefaults:[I
@@ -70,7 +70,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 529
+    .line 543
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Default already specified."
@@ -79,7 +79,7 @@
 
     throw v0
 
-    .line 531
+    .line 545
     :cond_0
     return-void
 .end method
@@ -94,7 +94,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 398
+    .line 406
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mMediaSizes:Ljava/util/List;
@@ -104,7 +104,7 @@
 
     if-nez v1, :cond_0
 
-    .line 399
+    .line 407
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     new-instance v2, Ljava/util/ArrayList;
@@ -114,7 +114,7 @@
     #setter for: Landroid/print/PrinterCapabilitiesInfo;->mMediaSizes:Ljava/util/List;
     invoke-static {v1, v2}, Landroid/print/PrinterCapabilitiesInfo;->access$002(Landroid/print/PrinterCapabilitiesInfo;Ljava/util/List;)Ljava/util/List;
 
-    .line 401
+    .line 409
     :cond_0
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -127,7 +127,7 @@
 
     move-result v0
 
-    .line 402
+    .line 410
     .local v0, insertionIndex:I
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -138,13 +138,13 @@
 
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 403
+    .line 411
     if-eqz p2, :cond_1
 
-    .line 404
+    .line 412
     invoke-direct {p0, v3}, Landroid/print/PrinterCapabilitiesInfo$Builder;->throwIfDefaultAlreadySpecified(I)V
 
-    .line 405
+    .line 413
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mDefaults:[I
@@ -154,7 +154,7 @@
 
     aput v0, v1, v3
 
-    .line 407
+    .line 415
     :cond_1
     return-object p0
 .end method
@@ -167,7 +167,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 426
+    .line 434
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mResolutions:Ljava/util/List;
@@ -177,7 +177,7 @@
 
     if-nez v1, :cond_0
 
-    .line 427
+    .line 435
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     new-instance v2, Ljava/util/ArrayList;
@@ -187,7 +187,7 @@
     #setter for: Landroid/print/PrinterCapabilitiesInfo;->mResolutions:Ljava/util/List;
     invoke-static {v1, v2}, Landroid/print/PrinterCapabilitiesInfo;->access$202(Landroid/print/PrinterCapabilitiesInfo;Ljava/util/List;)Ljava/util/List;
 
-    .line 429
+    .line 437
     :cond_0
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -200,7 +200,7 @@
 
     move-result v0
 
-    .line 430
+    .line 438
     .local v0, insertionIndex:I
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -211,13 +211,13 @@
 
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 431
+    .line 439
     if-eqz p2, :cond_1
 
-    .line 432
+    .line 440
     invoke-direct {p0, v3}, Landroid/print/PrinterCapabilitiesInfo$Builder;->throwIfDefaultAlreadySpecified(I)V
 
-    .line 433
+    .line 441
     iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mDefaults:[I
@@ -227,7 +227,7 @@
 
     aput v0, v1, v3
 
-    .line 435
+    .line 443
     :cond_1
     return-object p0
 .end method
@@ -238,7 +238,7 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 503
+    .line 517
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mMediaSizes:Ljava/util/List;
@@ -261,7 +261,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 504
+    .line 518
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -271,7 +271,7 @@
 
     throw v0
 
-    .line 506
+    .line 520
     :cond_1
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -286,7 +286,7 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 507
+    .line 521
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "No default media size specified."
@@ -295,7 +295,7 @@
 
     throw v0
 
-    .line 509
+    .line 523
     :cond_2
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -319,7 +319,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 510
+    .line 524
     :cond_3
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -329,7 +329,7 @@
 
     throw v0
 
-    .line 512
+    .line 526
     :cond_4
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -344,7 +344,7 @@
 
     if-ne v0, v2, :cond_5
 
-    .line 513
+    .line 527
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "No default resolution specified."
@@ -353,7 +353,7 @@
 
     throw v0
 
-    .line 515
+    .line 529
     :cond_5
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -364,7 +364,7 @@
 
     if-nez v0, :cond_6
 
-    .line 516
+    .line 530
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "No color mode specified."
@@ -373,7 +373,7 @@
 
     throw v0
 
-    .line 518
+    .line 532
     :cond_6
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -388,7 +388,7 @@
 
     if-ne v0, v2, :cond_7
 
-    .line 519
+    .line 533
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "No default color mode specified."
@@ -397,7 +397,7 @@
 
     throw v0
 
-    .line 521
+    .line 535
     :cond_7
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
@@ -408,7 +408,7 @@
 
     if-nez v0, :cond_8
 
-    .line 522
+    .line 536
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "margins cannot be null"
@@ -417,13 +417,9 @@
 
     throw v0
 
-    .line 524
+    .line 538
     :cond_8
-    new-instance v0, Landroid/print/PrinterCapabilitiesInfo;
-
-    iget-object v1, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
-
-    invoke-direct {v0, v1}, Landroid/print/PrinterCapabilitiesInfo;-><init>(Landroid/print/PrinterCapabilitiesInfo;)V
+    iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     return-object v0
 .end method
@@ -434,15 +430,15 @@
     .parameter "defaultColorMode"
 
     .prologue
-    .line 478
+    .line 492
     move v1, p1
 
-    .line 479
+    .line 493
     .local v1, currentModes:I
     :goto_0
     if-lez v1, :cond_0
 
-    .line 480
+    .line 494
     const/4 v2, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
@@ -451,25 +447,25 @@
 
     shl-int v0, v2, v3
 
-    .line 481
+    .line 495
     .local v0, currentMode:I
     xor-int/lit8 v2, v0, -0x1
 
     and-int/2addr v1, v2
 
-    .line 482
+    .line 496
     invoke-static {v0}, Landroid/print/PrintAttributes;->enforceValidColorMode(I)V
 
     goto :goto_0
 
-    .line 484
+    .line 498
     .end local v0           #currentMode:I
     :cond_0
     and-int v2, p1, p2
 
     if-nez v2, :cond_1
 
-    .line 485
+    .line 499
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Default color mode not in color modes."
@@ -478,17 +474,17 @@
 
     throw v2
 
-    .line 487
+    .line 501
     :cond_1
     invoke-static {p1}, Landroid/print/PrintAttributes;->enforceValidColorMode(I)V
 
-    .line 488
+    .line 502
     iget-object v2, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #setter for: Landroid/print/PrinterCapabilitiesInfo;->mColorModes:I
     invoke-static {v2, p1}, Landroid/print/PrinterCapabilitiesInfo;->access$402(Landroid/print/PrinterCapabilitiesInfo;I)I
 
-    .line 489
+    .line 503
     iget-object v2, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #getter for: Landroid/print/PrinterCapabilitiesInfo;->mDefaults:[I
@@ -500,7 +496,7 @@
 
     aput p2, v2, v3
 
-    .line 490
+    .line 504
     return-object p0
 .end method
 
@@ -509,10 +505,10 @@
     .parameter "margins"
 
     .prologue
-    .line 454
+    .line 462
     if-nez p1, :cond_0
 
-    .line 455
+    .line 463
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "margins cannot be null"
@@ -521,13 +517,13 @@
 
     throw v0
 
-    .line 457
+    .line 465
     :cond_0
     iget-object v0, p0, Landroid/print/PrinterCapabilitiesInfo$Builder;->mPrototype:Landroid/print/PrinterCapabilitiesInfo;
 
     #setter for: Landroid/print/PrinterCapabilitiesInfo;->mMinMargins:Landroid/print/PrintAttributes$Margins;
     invoke-static {v0, p1}, Landroid/print/PrinterCapabilitiesInfo;->access$302(Landroid/print/PrinterCapabilitiesInfo;Landroid/print/PrintAttributes$Margins;)Landroid/print/PrintAttributes$Margins;
 
-    .line 458
+    .line 466
     return-object p0
 .end method

@@ -170,7 +170,7 @@
 
     .line 216
     .local v1, pd:Landroid/app/ProgressDialog;
-    const v2, 0x10400b8
+    const v2, 0x10400b9
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -179,7 +179,7 @@
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 217
-    const v2, 0x10400bc
+    const v2, 0x10400bd
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -621,7 +621,7 @@
 
     if-eqz v3, :cond_2
 
-    const v2, 0x10400c0
+    const v2, 0x10400c1
 
     .line 125
     .local v2, resourceId:I
@@ -677,7 +677,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x10400bf
+    const v3, 0x10400c0
 
     :goto_2
     invoke-virtual {v4, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -763,12 +763,12 @@
 
     if-ne v1, v3, :cond_3
 
-    const v2, 0x10400be
+    const v2, 0x10400bf
 
     goto :goto_1
 
     :cond_3
-    const v2, 0x10400bd
+    const v2, 0x10400be
 
     goto :goto_1
 
@@ -776,7 +776,7 @@
     .restart local v0       #closer:Lcom/android/server/power/ShutdownThread$CloseDialogReceiver;
     .restart local v2       #resourceId:I
     :cond_4
-    const v3, 0x10400b8
+    const v3, 0x10400b9
 
     goto :goto_2
 

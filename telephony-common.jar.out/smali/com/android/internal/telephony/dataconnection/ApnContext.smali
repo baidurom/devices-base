@@ -41,68 +41,76 @@
 
 .field private mWaitingApnsPermanentFailureCountDown:Ljava/util/concurrent/atomic/AtomicInteger;
 
+.field public final priority:I
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/net/NetworkConfig;)V
     .locals 3
     .parameter "context"
     .parameter "apnType"
     .parameter "logTag"
+    .parameter "config"
 
     .prologue
     const/4 v2, 0x0
 
-    .line 71
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
+    .line 49
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
-    .line 72
+    .line 75
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mContext:Landroid/content/Context;
 
-    .line 73
+    .line 76
     iput-object p2, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnType:Ljava/lang/String;
 
-    .line 74
+    .line 77
     sget-object v0, Lcom/android/internal/telephony/DctConstants$State;->IDLE:Lcom/android/internal/telephony/DctConstants$State;
 
     iput-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mState:Lcom/android/internal/telephony/DctConstants$State;
 
-    .line 75
+    .line 78
     const-string v0, "dataEnabled"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/dataconnection/ApnContext;->setReason(Ljava/lang/String;)V
 
-    .line 76
+    .line 79
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDataEnabled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 77
+    .line 80
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v1, 0x1
+    iget-boolean v1, p4, Landroid/net/NetworkConfig;->dependencyMet:Z
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDependencyMet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 78
+    .line 81
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-direct {v0, v2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApnsPermanentFailureCountDown:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 79
+    .line 82
+    iget v0, p4, Landroid/net/NetworkConfig;->priority:I
+
+    iput v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->priority:I
+
+    .line 83
     iput-object p3, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->LOG_TAG:Ljava/lang/String;
 
-    .line 80
+    .line 84
     return-void
 .end method
 
@@ -112,12 +120,12 @@
     .locals 1
 
     .prologue
-    .line 126
+    .line 130
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApnsPermanentFailureCountDown:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 127
+    .line 131
     return-void
 .end method
 
@@ -128,7 +136,7 @@
     .parameter "args"
 
     .prologue
-    .line 250
+    .line 254
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -153,7 +161,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 251
+    .line 255
     return-void
 .end method
 
@@ -161,7 +169,7 @@
     .locals 2
 
     .prologue
-    .line 107
+    .line 111
     monitor-enter p0
 
     :try_start_0
@@ -187,7 +195,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/dataconnection/ApnContext;->log(Ljava/lang/String;)V
 
-    .line 108
+    .line 112
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnSetting:Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -196,7 +204,7 @@
 
     return-object v0
 
-    .line 107
+    .line 111
     :catchall_0
     move-exception v0
 
@@ -209,7 +217,7 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 87
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnType:Ljava/lang/String;
 
     return-object v0
@@ -219,7 +227,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 91
     monitor-enter p0
 
     :try_start_0
@@ -243,7 +251,7 @@
     .locals 1
 
     .prologue
-    .line 223
+    .line 227
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDependencyMet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -257,28 +265,28 @@
     .locals 3
 
     .prologue
-    .line 130
+    .line 134
     monitor-enter p0
 
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
-    .line 131
+    .line 135
     .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
     const/4 v0, 0x0
 
-    .line 133
+    .line 137
     .local v0, apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
     if-eqz v1, :cond_0
 
-    .line 134
+    .line 138
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 135
+    .line 139
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -290,14 +298,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 138
+    .line 142
     .restart local v0       #apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :cond_0
     monitor-exit p0
 
     return-object v0
 
-    .line 130
+    .line 134
     .end local v0           #apn:Lcom/android/internal/telephony/dataconnection/ApnSetting;
     .end local v1           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
     :catchall_0
@@ -312,7 +320,7 @@
     .locals 1
 
     .prologue
-    .line 183
+    .line 187
     monitor-enter p0
 
     :try_start_0
@@ -336,7 +344,7 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 103
     monitor-enter p0
 
     :try_start_0
@@ -360,7 +368,7 @@
     .locals 1
 
     .prologue
-    .line 166
+    .line 170
     monitor-enter p0
 
     :try_start_0
@@ -393,7 +401,7 @@
     .end annotation
 
     .prologue
-    .line 148
+    .line 152
     monitor-enter p0
 
     :try_start_0
@@ -417,7 +425,7 @@
     .locals 1
 
     .prologue
-    .line 122
+    .line 126
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApnsPermanentFailureCountDown:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -431,7 +439,7 @@
     .locals 2
 
     .prologue
-    .line 191
+    .line 195
     invoke-virtual {p0}, Lcom/android/internal/telephony/dataconnection/ApnContext;->isReady()Z
 
     move-result v0
@@ -478,7 +486,7 @@
     .locals 2
 
     .prologue
-    .line 198
+    .line 202
     invoke-virtual {p0}, Lcom/android/internal/telephony/dataconnection/ApnContext;->isReady()Z
 
     move-result v0
@@ -525,12 +533,12 @@
     .locals 2
 
     .prologue
-    .line 170
+    .line 174
     invoke-virtual {p0}, Lcom/android/internal/telephony/dataconnection/ApnContext;->getState()Lcom/android/internal/telephony/DctConstants$State;
 
     move-result-object v0
 
-    .line 171
+    .line 175
     .local v0, currentState:Lcom/android/internal/telephony/DctConstants$State;
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->IDLE:Lcom/android/internal/telephony/DctConstants$State;
 
@@ -556,7 +564,7 @@
     .locals 1
 
     .prologue
-    .line 212
+    .line 216
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDataEnabled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -570,7 +578,7 @@
     .locals 3
 
     .prologue
-    .line 227
+    .line 231
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -583,7 +591,7 @@
 
     move-result-object v0
 
-    .line 229
+    .line 233
     .local v0, provisioningApn:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnSetting:Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
@@ -595,7 +603,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 230
+    .line 234
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnSetting:Lcom/android/internal/telephony/dataconnection/ApnSetting;
 
     iget-object v1, v1, Lcom/android/internal/telephony/dataconnection/ApnSetting;->apn:Ljava/lang/String;
@@ -604,7 +612,7 @@
 
     move-result v1
 
-    .line 232
+    .line 236
     :goto_0
     return v1
 
@@ -618,7 +626,7 @@
     .locals 1
 
     .prologue
-    .line 187
+    .line 191
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDataEnabled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -651,7 +659,7 @@
     .parameter "s"
 
     .prologue
-    .line 246
+    .line 250
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -686,7 +694,7 @@
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 247
+    .line 251
     return-void
 .end method
 
@@ -695,7 +703,7 @@
     .parameter "apn"
 
     .prologue
-    .line 142
+    .line 146
     monitor-enter p0
 
     :try_start_0
@@ -703,20 +711,20 @@
 
     if-eqz v0, :cond_0
 
-    .line 143
+    .line 147
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 145
+    .line 149
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 142
+    .line 146
     :catchall_0
     move-exception v0
 
@@ -730,7 +738,7 @@
     .parameter "apnSetting"
 
     .prologue
-    .line 112
+    .line 116
     monitor-enter p0
 
     :try_start_0
@@ -754,17 +762,17 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/dataconnection/ApnContext;->log(Ljava/lang/String;)V
 
-    .line 113
+    .line 117
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mApnSetting:Lcom/android/internal/telephony/dataconnection/ApnSetting;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 114
+    .line 118
     monitor-exit p0
 
     return-void
 
-    .line 112
+    .line 116
     :catchall_0
     move-exception v0
 
@@ -778,7 +786,7 @@
     .parameter "dcac"
 
     .prologue
-    .line 95
+    .line 99
     monitor-enter p0
 
     :try_start_0
@@ -786,12 +794,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 96
+    .line 100
     monitor-exit p0
 
     return-void
 
-    .line 95
+    .line 99
     :catchall_0
     move-exception v0
 
@@ -805,12 +813,12 @@
     .parameter "met"
 
     .prologue
-    .line 219
+    .line 223
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDependencyMet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 220
+    .line 224
     return-void
 .end method
 
@@ -819,12 +827,12 @@
     .parameter "enabled"
 
     .prologue
-    .line 208
+    .line 212
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mDataEnabled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 209
+    .line 213
     return-void
 .end method
 
@@ -833,7 +841,7 @@
     .parameter "reason"
 
     .prologue
-    .line 179
+    .line 183
     monitor-enter p0
 
     :try_start_0
@@ -841,12 +849,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 180
+    .line 184
     monitor-exit p0
 
     return-void
 
-    .line 179
+    .line 183
     :catchall_0
     move-exception v0
 
@@ -860,7 +868,7 @@
     .parameter "intent"
 
     .prologue
-    .line 103
+    .line 107
     monitor-enter p0
 
     :try_start_0
@@ -868,12 +876,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 104
+    .line 108
     monitor-exit p0
 
     return-void
 
-    .line 103
+    .line 107
     :catchall_0
     move-exception v0
 
@@ -887,38 +895,38 @@
     .parameter "s"
 
     .prologue
-    .line 156
+    .line 160
     monitor-enter p0
 
     :try_start_0
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mState:Lcom/android/internal/telephony/DctConstants$State;
 
-    .line 158
+    .line 162
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mState:Lcom/android/internal/telephony/DctConstants$State;
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->FAILED:Lcom/android/internal/telephony/DctConstants$State;
 
     if-ne v0, v1, :cond_0
 
-    .line 159
+    .line 163
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 160
+    .line 164
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 163
+    .line 167
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 156
+    .line 160
     :catchall_0
     move-exception v0
 
@@ -941,14 +949,14 @@
     .end annotation
 
     .prologue
-    .line 117
+    .line 121
     .local p1, waitingApns:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/dataconnection/ApnSetting;>;"
     monitor-enter p0
 
     :try_start_0
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
 
-    .line 118
+    .line 122
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApnsPermanentFailureCountDown:Ljava/util/concurrent/atomic/AtomicInteger;
 
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mWaitingApns:Ljava/util/ArrayList;
@@ -961,12 +969,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 119
+    .line 123
     monitor-exit p0
 
     return-void
 
-    .line 117
+    .line 121
     :catchall_0
     move-exception v0
 
@@ -979,7 +987,7 @@
     .locals 2
 
     .prologue
-    .line 239
+    .line 243
     monitor-enter p0
 
     :try_start_0
