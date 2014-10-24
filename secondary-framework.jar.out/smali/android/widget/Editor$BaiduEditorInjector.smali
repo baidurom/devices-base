@@ -43,12 +43,12 @@
     .locals 1
 
     .prologue
-    .line 234
+    .line 239
     const/4 v0, 0x0
 
     sput-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
-    .line 235
+    .line 240
     return-void
 .end method
 
@@ -56,58 +56,73 @@
     .locals 1
 
     .prologue
-    .line 238
+    .line 243
     sget-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     if-eqz v0, :cond_0
 
-    .line 239
+    .line 244
     sget-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     invoke-virtual {v0}, Landroid/widget/MagnifierController;->dismiss()V
 
-    .line 241
+    .line 246
     :cond_0
     return-void
 .end method
 
-.method public static enableMagnifier(Landroid/widget/Editor;)V
-    .locals 2
-    .parameter "editor"
+.method public static enableMagnifier(Landroid/widget/TextView;)V
+    .locals 1
+    .parameter "textView"
 
     .prologue
     .line 226
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {p0}, Landroid/widget/Editor;->access$iget-mTextView-e80fac(Landroid/widget/Editor;)Landroid/widget/TextView;
+    if-eqz p0, :cond_0
 
-    move-result-object v0
+    invoke-virtual {p0}, Landroid/widget/TextView;->getDefaultEditable()Z
 
-    .line 227
-    .local v0, textView:Landroid/widget/TextView;
+    move-result v0
+
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->getDefaultEditable()Z
+    instance-of v0, p0, Landroid/widget/EditText;
 
-    move-result v1
+    if-nez v0, :cond_1
 
-    if-eqz v1, :cond_0
-
-    instance-of v1, v0, Landroid/widget/EditText;
-
-    if-nez v1, :cond_1
-
-    .line 231
+    .line 236
     :cond_0
     :goto_0
     return-void
 
-    .line 230
+    .line 229
     :cond_1
-    new-instance v1, Landroid/widget/MagnifierController;
+    sget-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
-    invoke-direct {v1, v0}, Landroid/widget/MagnifierController;-><init>(Landroid/widget/TextView;)V
+    if-nez v0, :cond_2
 
-    sput-object v1, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
+    .line 230
+    new-instance v0, Landroid/widget/MagnifierController;
+
+    invoke-direct {v0, p0}, Landroid/widget/MagnifierController;-><init>(Landroid/widget/TextView;)V
+
+    sput-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
+
+    goto :goto_0
+
+    .line 232
+    :cond_2
+    sget-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
+
+    iget-object v0, v0, Landroid/widget/MagnifierController;->mParent:Landroid/widget/TextView;
+
+    if-eq v0, p0, :cond_0
+
+    .line 233
+    new-instance v0, Landroid/widget/MagnifierController;
+
+    invoke-direct {v0, p0}, Landroid/widget/MagnifierController;-><init>(Landroid/widget/TextView;)V
+
+    sput-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     goto :goto_0
 .end method
@@ -118,19 +133,19 @@
     .parameter "line"
 
     .prologue
-    .line 268
+    .line 274
     #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {p0}, Landroid/widget/Editor;->access$iget-mTextView-e80fac(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {p0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
 
-    .line 269
+    .line 275
     .local v4, textView:Landroid/widget/TextView;
     invoke-virtual {v4}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
 
     move-result-object v2
 
-    .line 270
+    .line 276
     .local v2, layout:Landroid/text/Layout;
     add-int/lit8 v5, p1, 0x1
 
@@ -138,7 +153,7 @@
 
     move-result v0
 
-    .line 271
+    .line 277
     .local v0, bottom:I
     invoke-virtual {v4}, Landroid/widget/TextView;->getLineSpacingMultiplier()F
 
@@ -164,7 +179,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 272
+    .line 278
     :cond_0
     invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
@@ -178,7 +193,7 @@
 
     move-result-object v1
 
-    .line 273
+    .line 279
     .local v1, displayMetrics:Landroid/util/DisplayMetrics;
     iget v5, v1, Landroid/util/DisplayMetrics;->density:F
 
@@ -188,7 +203,7 @@
 
     float-to-int v3, v5
 
-    .line 275
+    .line 281
     .local v3, offsetToBaseLine:I
     invoke-virtual {v2, p1}, Landroid/text/Layout;->getLineBaseline(I)I
 
@@ -196,7 +211,7 @@
 
     add-int v0, v5, v3
 
-    .line 278
+    .line 284
     .end local v1           #displayMetrics:Landroid/util/DisplayMetrics;
     .end local v3           #offsetToBaseLine:I
     :cond_1
@@ -207,17 +222,17 @@
     .locals 1
 
     .prologue
-    .line 244
+    .line 249
     sget-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     if-eqz v0, :cond_0
 
-    .line 245
+    .line 250
     sget-object v0, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     invoke-virtual {v0}, Landroid/widget/MagnifierController;->hideDelayed()V
 
-    .line 247
+    .line 252
     :cond_0
     return-void
 .end method
@@ -229,7 +244,7 @@
     .prologue
     .line 222
     #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {p0}, Landroid/widget/Editor;->access$iget-mTextView-e80fac(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {p0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -252,7 +267,7 @@
     .prologue
     .line 218
     #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {p0}, Landroid/widget/Editor;->access$iget-mTextView-e80fac(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {p0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -268,68 +283,72 @@
     return-void
 .end method
 
-.method public static update(Landroid/widget/Editor$HandleView;)V
+.method public static update(Landroid/widget/TextView;Landroid/widget/Editor$HandleView;)V
     .locals 2
+    .parameter "textView"
     .parameter "view"
 
     .prologue
-    .line 250
-    invoke-virtual {p0}, Landroid/widget/Editor$HandleView;->isShowing()Z
+    .line 255
+    invoke-virtual {p1}, Landroid/widget/Editor$HandleView;->isShowing()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 264
+    .line 270
     :cond_0
     :goto_0
     return-void
 
-    .line 253
+    .line 258
     :cond_1
     const/4 v0, -0x1
 
-    .line 254
+    .line 259
     .local v0, type:I
-    instance-of v1, p0, Landroid/widget/Editor$InsertionHandleView;
+    instance-of v1, p1, Landroid/widget/Editor$InsertionHandleView;
 
     if-eqz v1, :cond_3
 
-    .line 255
+    .line 260
     const/4 v0, 0x1
 
-    .line 261
+    .line 266
     :cond_2
     :goto_1
+    invoke-static {p0}, Landroid/widget/Editor$BaiduEditorInjector;->enableMagnifier(Landroid/widget/TextView;)V
+
+    .line 267
     sget-object v1, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     if-eqz v1, :cond_0
 
-    .line 262
+    .line 268
     sget-object v1, Landroid/widget/Editor$BaiduEditorInjector;->mMagnifierController:Landroid/widget/MagnifierController;
 
     invoke-virtual {v1, v0}, Landroid/widget/MagnifierController;->update(I)V
 
     goto :goto_0
 
-    .line 256
+    .line 261
     :cond_3
-    instance-of v1, p0, Landroid/widget/Editor$SelectionStartHandleView;
+    instance-of v1, p1, Landroid/widget/Editor$SelectionStartHandleView;
 
     if-eqz v1, :cond_4
 
-    .line 257
+    .line 262
     const/4 v0, 0x0
 
     goto :goto_1
 
-    .line 258
+    .line 263
     :cond_4
-    instance-of v1, p0, Landroid/widget/Editor$SelectionEndHandleView;
+    instance-of v1, p1, Landroid/widget/Editor$SelectionEndHandleView;
 
     if-eqz v1, :cond_2
 
-    .line 259
+    .line 264
     const/4 v0, 0x2
 
     goto :goto_1

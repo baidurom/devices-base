@@ -18,6 +18,7 @@
         Landroid/widget/Editor$SelectionStartHandleView;,
         Landroid/widget/Editor$InsertionHandleView;,
         Landroid/widget/Editor$HandleView;,
+        Landroid/widget/Editor$BaiduClipboardPopupWindow;,
         Landroid/widget/Editor$BaiduActionPopupWindow;,
         Landroid/widget/Editor$ActionPopupWindow;,
         Landroid/widget/Editor$SelectionActionModeCallback;,
@@ -207,8 +208,6 @@
 
     .line 196
     iput-object p1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-
-    invoke-static {p0}, Landroid/widget/Editor$BaiduEditorInjector;->enableMagnifier(Landroid/widget/Editor;)V
 
     .line 197
     return-void
@@ -7528,15 +7527,3 @@
     .line 1478
     goto :goto_1
 .end method
-
-.method static synthetic access$iget-mTextView-e80fac(Landroid/widget/Editor;)Landroid/widget/TextView;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 113
-    iget-object v0, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
