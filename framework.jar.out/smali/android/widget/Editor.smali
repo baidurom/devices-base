@@ -19,6 +19,7 @@
         Landroid/widget/Editor$SelectionStartHandleView;,
         Landroid/widget/Editor$InsertionHandleView;,
         Landroid/widget/Editor$HandleView;,
+        Landroid/widget/Editor$BaiduClipboardPopupWindow;,
         Landroid/widget/Editor$BaiduActionPopupWindow;,
         Landroid/widget/Editor$ActionPopupWindow;,
         Landroid/widget/Editor$SelectionActionModeCallback;,
@@ -206,8 +207,6 @@
 
     .line 209
     iput-object p1, p0, Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-
-    invoke-static/range {p0 .. p0}, Landroid/widget/Editor$BaiduEditorInjector;->enableMagnifier(Landroid/widget/Editor;)V
 
     .line 210
     return-void

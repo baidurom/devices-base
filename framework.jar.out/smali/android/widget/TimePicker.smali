@@ -765,6 +765,8 @@
 
     move-result v2
 
+    const/4 v2, 0x0
+
     return v2
 .end method
 

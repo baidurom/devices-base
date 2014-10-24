@@ -126,19 +126,19 @@ vendor_modify_jars := framework framework2 pm services telephony-common android.
 ##############################################################################
 # baidu_remove_apps: those baidu apk you want remove 
 #-----------------------------------------------------------------------------
-# baidu_remove_apps := BaiduUserFeedback.apk
+baidu_remove_apps := NfcNci Tag
 
 ##############################################################################
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-baidu_modify_apps := TeleService BaiduServiceFramework Keyguard
+baidu_modify_apps := TeleService BaiduServiceFramework Keyguard MediaProvider Settings
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar
 # just append *.smali.part
 #-----------------------------------------------------------------------------
-# baidu_modify_jars := android.policy
+baidu_modify_jars := framework-yi
 
 ##############################################################################
 # override_property: this property will override the build.prop
