@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/BatteryService$Led;
+        Lcom/android/server/BatteryService$Led;,
+        Lcom/android/server/BatteryService$BaiduInjector;
     }
 .end annotation
 
@@ -255,6 +256,8 @@
 
     .line 148
     :cond_0
+    invoke-static {p0}, Lcom/android/server/BatteryService$BaiduInjector;->init(Lcom/android/server/BatteryService;)V
+
     invoke-direct {p0}, Lcom/android/server/BatteryService;->update()V
 
     .line 149
@@ -1102,7 +1105,7 @@
 
     .line 259
     :goto_2
-    invoke-direct {p0}, Lcom/android/server/BatteryService;->shutdownIfNoPower()V
+    invoke-direct {p0}, Lcom/android/server/BatteryService;->shutdownIfNoPowerBaidu()V
 
     .line 260
     invoke-direct {p0}, Lcom/android/server/BatteryService;->shutdownIfOverTemp()V
@@ -2402,5 +2405,23 @@
     invoke-direct {p0}, Lcom/android/server/BatteryService;->shutdownIfOverTemp()V
 
     .line 206
+    return-void
+.end method
+
+.method static synthetic access$sget-TAG-a1732f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    sget-object v0, Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method private shutdownIfNoPowerBaidu()V
+    .locals 0
+
+    .prologue
+    invoke-static {p0}, Lcom/android/server/BatteryService$BaiduInjector;->shutdownIfNoPowerBaidu(Lcom/android/server/BatteryService;)V
+
     return-void
 .end method
