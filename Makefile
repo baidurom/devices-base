@@ -27,12 +27,12 @@ DENSITY := xxhdpi
 RESOLUTION := 1080x1920
 
 ##############################################################################
-# Default MINI_SYSTEM is false
+# Default MINI_SYSTEM is true
 # Cut the useless resource or not
 # 	if MINI_SYSTEM is true, it will cost much more time to build, and of course
 # the size of system size will be reduced.
 #-----------------------------------------------------------------------------
-MINI_SYSTEM := false
+MINI_SYSTEM := true
 
 ##############################################################################
 # Defaul NO_SYSTEM_IMG is true
