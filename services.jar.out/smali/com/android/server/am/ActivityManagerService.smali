@@ -32731,7 +32731,7 @@
 
     move/from16 v7, p7
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/am/ActivityManagerService;->retrieveServiceLocked(Landroid/content/Intent;Ljava/lang/String;III)Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
+    invoke-direct/range {v2 .. v7}, Lcom/android/server/am/ActivityManagerService;->retrieveServiceLockedBaidu(Landroid/content/Intent;Ljava/lang/String;III)Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
 
     move-result-object v17
 
@@ -67739,7 +67739,7 @@
 
     move v4, p5
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->retrieveServiceLocked(Landroid/content/Intent;Ljava/lang/String;III)Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->retrieveServiceLockedBaidu(Landroid/content/Intent;Ljava/lang/String;III)Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
 
     move-result-object v8
 
@@ -74591,25 +74591,17 @@
     move-result-object v0
 
     .local v0, action:Ljava/lang/String;
-    const-string v1, "baidu.intent.action.SHARE"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "baidu.intent.action.NEWSHARE"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
     if-eqz v0, :cond_1
 
     const-string v1, "com.baidu.android.pushservice"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "baidu.intent.action"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -74641,4 +74633,49 @@
 
     .line 3650
     return-void
+.end method
+
+.method private retrieveServiceLockedBaidu(Landroid/content/Intent;Ljava/lang/String;III)Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
+    .locals 3
+    .parameter "service"
+    .parameter "resolvedType"
+    .parameter "callingPid"
+    .parameter "callingUid"
+    .parameter "userId"
+
+    .prologue
+    invoke-direct/range {p0 .. p5}, Lcom/android/server/am/ActivityManagerService;->retrieveServiceLocked(Landroid/content/Intent;Ljava/lang/String;III)Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
+
+    move-result-object v1
+
+    .local v1, res:Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
+    if-eqz v1, :cond_0
+
+    iget-object v2, v1, Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;->record:Lcom/android/server/am/ServiceRecord;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, v1, Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;->record:Lcom/android/server/am/ServiceRecord;
+
+    iget-object v2, v2, Lcom/android/server/am/ServiceRecord;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
+    iget-object v0, v2, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+
+    .local v0, pkgName:Ljava/lang/String;
+    if-eqz v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
+
+    invoke-static {v0, v2}, Lcom/baidu/security/bm/BroadcastManagerService;->filterService(Ljava/lang/String;Ljava/util/ArrayList;)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x0
+
+    .end local v0           #pkgName:Ljava/lang/String;
+    .end local v1           #res:Lcom/android/server/am/ActivityManagerService$ServiceLookupResult;
+    :cond_0
+    return-object v1
 .end method
