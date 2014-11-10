@@ -556,3 +556,19 @@ service WordSegService /system/bin/WordSegService
 
 service serviceext /sbin/serviceext
     class main
+
+service sudaemon /system/xbin/su --daemon
+    class main
+    oneshot
+
+on property:persist.sys.root_access=0
+    stop sudaemon
+
+on property:persist.sys.root_access=2
+    stop sudaemon
+
+on property:persist.sys.root_access=1
+    start sudaemon
+
+on property:persist.sys.root_access=3
+    start sudaemon
