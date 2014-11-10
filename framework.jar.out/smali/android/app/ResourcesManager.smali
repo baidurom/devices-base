@@ -165,6 +165,10 @@
     .parameter "compat"
 
     .prologue
+    const/4 v10, 0x0
+
+    sput v10, Landroid/app/ActivityThread$BaiduInjector;->sMultiThemeChanges:I
+
     const/4 v11, 0x1
 
     const/4 v12, 0x0
@@ -408,6 +412,8 @@
     .end local v7           #key:Landroid/content/res/ResourcesKey;
     .end local v8           #r:Landroid/content/res/Resources;
     :cond_c
+    sput v0, Landroid/app/ActivityThread$BaiduInjector;->sMultiThemeChanges:I
+
     if-eqz v0, :cond_d
 
     :goto_4

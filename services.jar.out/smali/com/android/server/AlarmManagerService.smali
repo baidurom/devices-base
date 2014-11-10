@@ -1516,47 +1516,6 @@
     goto :goto_1
 .end method
 
-.method private setImplLocked(IJJJJLandroid/app/PendingIntent;ZZLandroid/os/WorkSource;)V
-    .locals 16
-    .parameter "type"
-    .parameter "when"
-    .parameter "whenElapsed"
-    .parameter "maxWhen"
-    .parameter "interval"
-    .parameter "operation"
-    .parameter "isStandalone"
-    .parameter "doValidate"
-    .parameter "workSource"
-
-    .prologue
-    .line 755
-    move-object/from16 v0, p0
-
-    move/from16 v1, p1
-
-    move-wide/from16 v2, p2
-
-    move-wide/from16 v4, p4
-
-    const-wide/16 v6, 0x0
-
-    move-wide/from16 v8, p6
-
-    move-wide/from16 v10, p8
-
-    move-object/from16 v12, p10
-
-    move/from16 v13, p11
-
-    move/from16 v14, p12
-
-    move-object/from16 v15, p13
-
-    invoke-direct/range {v0 .. v15}, Lcom/android/server/AlarmManagerService;->setImplLocked(IJJJJJLandroid/app/PendingIntent;ZZLandroid/os/WorkSource;)V
-
-    return-void
-.end method
-
 .method private native setKernelTimezone(II)I
 .end method
 
@@ -4524,7 +4483,7 @@
 .end method
 
 .method private triggerAlarmsLockedBaidu(Ljava/util/ArrayList;JJ)V
-    .locals 37
+    .locals 39
     .parameter
     .parameter "nowELAPSED"
     .parameter "nowRTC"
@@ -4566,20 +4525,20 @@
 
     const-wide/16 v8, 0x3e8
 
-    mul-long v30, v4, v8
+    mul-long v32, v4, v8
 
-    .local v30, interval:J
+    .local v32, interval:J
     move-wide/from16 v0, p2
 
-    move-wide/from16 v2, v30
+    move-wide/from16 v2, v32
 
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/AlarmManagerService$BaiduInjector;->next(JJ)J
 
     move-result-wide p2
 
-    const/16 v29, 0x0
+    const/16 v31, 0x0
 
-    .local v29, i:I
+    .local v31, i:I
     :goto_0
     move-object/from16 v0, p0
 
@@ -4589,7 +4548,7 @@
 
     move-result v4
 
-    move/from16 v0, v29
+    move/from16 v0, v31
 
     if-ge v0, v4, :cond_0
 
@@ -4597,16 +4556,16 @@
 
     iget-object v4, v0, Lcom/android/server/AlarmManagerService;->mAlarmBatches:Ljava/util/ArrayList;
 
-    move/from16 v0, v29
+    move/from16 v0, v31
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v27
 
-    check-cast v25, Lcom/android/server/AlarmManagerService$Batch;
+    check-cast v27, Lcom/android/server/AlarmManagerService$Batch;
 
-    .local v25, batch:Lcom/android/server/AlarmManagerService$Batch;
-    move-object/from16 v0, v25
+    .local v27, batch:Lcom/android/server/AlarmManagerService$Batch;
+    move-object/from16 v0, v27
 
     iget-wide v4, v0, Lcom/android/server/AlarmManagerService$Batch;->start:J
 
@@ -4614,58 +4573,58 @@
 
     if-gtz v4, :cond_0
 
-    invoke-virtual/range {v25 .. v25}, Lcom/android/server/AlarmManagerService$Batch;->hasWakeups()Z
+    invoke-virtual/range {v27 .. v27}, Lcom/android/server/AlarmManagerService$Batch;->hasWakeups()Z
 
     move-result v4
 
     if-nez v4, :cond_3
 
     :cond_2
-    add-int/lit8 v29, v29, 0x1
+    add-int/lit8 v31, v31, 0x1
 
     goto :goto_0
 
     :cond_3
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-object v4, v0, Lcom/android/server/AlarmManagerService$Batch;->alarms:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v35
+    move-result v37
 
-    .local v35, len:I
-    const/16 v32, 0x0
-
-    .local v32, isWhiteApp:Z
+    .local v37, len:I
     const/16 v34, 0x0
 
-    .local v34, j:I
-    :goto_1
-    move/from16 v0, v34
+    .local v34, isWhiteApp:Z
+    const/16 v36, 0x0
 
-    move/from16 v1, v35
+    .local v36, j:I
+    :goto_1
+    move/from16 v0, v36
+
+    move/from16 v1, v37
 
     if-ge v0, v1, :cond_5
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-object v4, v0, Lcom/android/server/AlarmManagerService$Batch;->alarms:Ljava/util/ArrayList;
 
-    move/from16 v0, v34
+    move/from16 v0, v36
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v25
 
-    check-cast v23, Lcom/android/server/AlarmManagerService$Alarm;
+    check-cast v25, Lcom/android/server/AlarmManagerService$Alarm;
 
-    .local v23, a:Lcom/android/server/AlarmManagerService$Alarm;
-    move-object/from16 v0, v23
+    .local v25, a:Lcom/android/server/AlarmManagerService$Alarm;
+    move-object/from16 v0, v25
 
     iget-wide v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v8, v0, Lcom/android/server/AlarmManagerService$Batch;->start:J
 
@@ -4677,7 +4636,7 @@
 
     iget-object v4, v0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v25
 
     invoke-static {v4, v0}, Lcom/android/server/AlarmManagerService$BaiduInjector;->isWhiteApp(Landroid/content/Context;Lcom/android/server/AlarmManagerService$Alarm;)Z
 
@@ -4685,98 +4644,98 @@
 
     if-eqz v4, :cond_4
 
-    const/16 v32, 0x1
+    const/16 v34, 0x1
 
     :cond_4
-    add-int/lit8 v34, v34, 0x1
+    add-int/lit8 v36, v36, 0x1
 
     goto :goto_1
 
-    .end local v23           #a:Lcom/android/server/AlarmManagerService$Alarm;
+    .end local v25           #a:Lcom/android/server/AlarmManagerService$Alarm;
     :cond_5
-    if-nez v32, :cond_2
+    if-nez v34, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/AlarmManagerService;->mAlarmBatches:Ljava/util/ArrayList;
 
-    move/from16 v0, v29
+    move/from16 v0, v31
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    add-int/lit8 v29, v29, -0x1
+    add-int/lit8 v31, v31, -0x1
 
-    invoke-virtual/range {v25 .. v25}, Lcom/android/server/AlarmManagerService$Batch;->size()I
+    invoke-virtual/range {v27 .. v27}, Lcom/android/server/AlarmManagerService$Batch;->size()I
 
-    move-result v22
+    move-result v24
 
-    .local v22, N:I
-    const/16 v34, 0x0
+    .local v24, N:I
+    const/16 v36, 0x0
 
     :goto_2
-    move/from16 v0, v34
+    move/from16 v0, v36
 
-    move/from16 v1, v22
+    move/from16 v1, v24
 
     if-ge v0, v1, :cond_2
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
-    move/from16 v1, v34
+    move/from16 v1, v36
 
     invoke-virtual {v0, v1}, Lcom/android/server/AlarmManagerService$Batch;->get(I)Lcom/android/server/AlarmManagerService$Alarm;
 
-    move-result-object v24
+    move-result-object v26
 
-    .local v24, alarm:Lcom/android/server/AlarmManagerService$Alarm;
-    const/16 v28, 0x0
+    .local v26, alarm:Lcom/android/server/AlarmManagerService$Alarm;
+    const/16 v30, 0x0
 
-    .local v28, hasFound:Z
+    .local v30, hasFound:Z
     invoke-virtual/range {p1 .. p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v33
+    move-result-object v35
 
-    .local v33, iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/AlarmManagerService$Alarm;>;"
+    .local v35, iterator:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/server/AlarmManagerService$Alarm;>;"
     :cond_6
-    invoke-interface/range {v33 .. v33}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v35 .. v35}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     if-eqz v4, :cond_7
 
-    invoke-interface/range {v33 .. v33}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v35 .. v35}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v36
+    move-result-object v38
 
-    check-cast v36, Lcom/android/server/AlarmManagerService$Alarm;
+    check-cast v38, Lcom/android/server/AlarmManagerService$Alarm;
 
-    .local v36, temp:Lcom/android/server/AlarmManagerService$Alarm;
-    move-object/from16 v0, v24
+    .local v38, temp:Lcom/android/server/AlarmManagerService$Alarm;
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v38
 
     if-ne v0, v1, :cond_6
 
-    const/16 v28, 0x1
+    const/16 v30, 0x1
 
-    .end local v36           #temp:Lcom/android/server/AlarmManagerService$Alarm;
+    .end local v38           #temp:Lcom/android/server/AlarmManagerService$Alarm;
     :cond_7
-    if-nez v28, :cond_8
+    if-nez v30, :cond_8
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iput v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->count:I
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_8
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-wide v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
@@ -4786,19 +4745,19 @@
 
     if-lez v4, :cond_9
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->count:I
 
     int-to-long v4, v4
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-wide v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
 
     sub-long v8, p2, v8
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-wide v10, v0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
@@ -4808,41 +4767,45 @@
 
     long-to-int v4, v4
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iput v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->count:I
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->count:I
 
     int-to-long v4, v4
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-wide v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
-    mul-long v26, v4, v8
+    mul-long v28, v4, v8
 
-    .local v26, delta:J
-    move-object/from16 v0, v24
+    .local v28, delta:J
+    move-object/from16 v0, v26
 
     iget-wide v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
 
-    add-long v6, v4, v26
+    add-long v6, v4, v28
 
     .local v6, nextElapsed:J
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-wide v4, v0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
-    add-long v10, v4, v26
+    add-long v10, v4, v28
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
+
+    iget-wide v14, v0, Lcom/android/server/AlarmManagerService$Alarm;->windowLength:J
+
+    move-object/from16 v0, v26
 
     iget-wide v8, v0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
@@ -4850,33 +4813,33 @@
 
     invoke-static/range {v4 .. v9}, Lcom/android/server/AlarmManagerService;->maxTriggerTime(JJJ)J
 
-    move-result-wide v14
+    move-result-wide v16
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
-    move-wide/from16 v16, v0
+    move-wide/from16 v18, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-boolean v0, v0, Lcom/android/server/AlarmManagerService$Batch;->standalone:Z
 
-    move/from16 v19, v0
+    move/from16 v21, v0
 
-    const/16 v20, 0x1
+    const/16 v22, 0x1
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerService$Alarm;->workSource:Landroid/os/WorkSource;
 
-    move-object/from16 v21, v0
+    move-object/from16 v23, v0
 
     move-object/from16 v8, p0
 
@@ -4884,12 +4847,12 @@
 
     move-wide v12, v6
 
-    invoke-direct/range {v8 .. v21}, Lcom/android/server/AlarmManagerService;->setImplLocked(IJJJJLandroid/app/PendingIntent;ZZLandroid/os/WorkSource;)V
+    invoke-direct/range {v8 .. v23}, Lcom/android/server/AlarmManagerService;->setImplLocked(IJJJJJLandroid/app/PendingIntent;ZZLandroid/os/WorkSource;)V
 
     .end local v6           #nextElapsed:J
-    .end local v26           #delta:J
+    .end local v28           #delta:J
     :cond_9
-    add-int/lit8 v34, v34, 0x1
+    add-int/lit8 v36, v36, 0x1
 
     goto/16 :goto_2
 .end method

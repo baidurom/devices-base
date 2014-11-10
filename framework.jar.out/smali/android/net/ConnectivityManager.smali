@@ -162,20 +162,6 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/net/IConnectivityManager;)V
-    .locals 1
-    .parameter "service"
-
-    .prologue
-    .line 904
-    const-string v0, "android"
-
-    invoke-direct {p0, p1, v0}, Landroid/net/ConnectivityManager;-><init>(Landroid/net/IConnectivityManager;Ljava/lang/String;)V
-
-    .line 906
-    return-void
-.end method
-
 .method public static from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
     .locals 1
     .parameter "context"

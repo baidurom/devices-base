@@ -65728,7 +65728,7 @@
 
     move-result-object v2
 
-    const v3, #android:layout@safe_mode#t
+    const v3, 0x109008b
 
     const/4 v4, 0x0
 
@@ -77333,25 +77333,17 @@
     move-result-object v0
 
     .local v0, action:Ljava/lang/String;
-    const-string v1, "baidu.intent.action.SHARE"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "baidu.intent.action.NEWSHARE"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
     if-eqz v0, :cond_1
 
     const-string v1, "com.baidu.android.pushservice"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "baidu.intent.action"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -77368,6 +77360,7 @@
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    .line 9537
     :cond_1
     return-void
 .end method
@@ -77380,5 +77373,6 @@
 
     invoke-static {v0}, Lcom/baidu/service/YiServiceLoader;->main(Landroid/content/Context;)V
 
+    .line 4410
     return-void
 .end method
