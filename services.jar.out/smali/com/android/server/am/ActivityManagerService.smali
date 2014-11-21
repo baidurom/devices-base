@@ -5755,7 +5755,9 @@
 
     move-object/from16 v3, v44
 
-    invoke-static {v0, v1, v3, v5}, Lcom/baidu/security/bm/BroadcastManagerService;->filterBroadcastReceiver(Ljava/util/List;Ljava/util/List;Landroid/content/Intent;Ljava/util/ArrayList;)I
+    move/from16 v9, p13
+
+    invoke-static {v0, v1, v3, v5, v9}, Lcom/baidu/security/bm/BroadcastManagerService;->filterBroadcastReceiver(Ljava/util/List;Ljava/util/List;Landroid/content/Intent;Ljava/util/ArrayList;I)I
 
     invoke-virtual/range {v44 .. v44}, Landroid/content/Intent;->getFlags()I
 
@@ -74666,7 +74668,7 @@
 
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
 
-    invoke-static {v0, v2}, Lcom/baidu/security/bm/BroadcastManagerService;->filterService(Ljava/lang/String;Ljava/util/ArrayList;)I
+    invoke-static {v0, v2, p4}, Lcom/baidu/security/bm/BroadcastManagerService;->filterService(Ljava/lang/String;Ljava/util/ArrayList;I)I
 
     move-result v2
 
