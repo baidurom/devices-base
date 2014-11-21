@@ -419,6 +419,19 @@
     throw v4
 .end method
 
+.method public static getWindowSession(Landroid/os/Looper;)Landroid/view/IWindowSession;
+    .locals 1
+    .parameter "mainLooper"
+
+    .prologue
+    .line 140
+    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowSession()Landroid/view/IWindowSession;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static peekWindowSession()Landroid/view/IWindowSession;
     .locals 2
 
