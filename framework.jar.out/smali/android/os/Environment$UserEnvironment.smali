@@ -885,11 +885,11 @@
 
     move-result-object v0
 
-    const-string v5, "USB"
+    invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v5
+    const-string v5, "usb"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -910,6 +910,27 @@
     .end local v4           #volumeItem:Landroid/os/storage/StorageVolume;
     .end local v2           #volumes:[Landroid/os/storage/StorageVolume;
     :cond_2
+    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+
+    move-result v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "usb"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_3
     const/4 v0, 0x1
 
     :goto_1
