@@ -791,42 +791,6 @@
     .locals 3
 
     .prologue
-    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getExternalDirsForApp()[Ljava/io/File;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    array-length v1, v0
-
-    const/4 v2, 0x1
-
-    if-ge v2, v1, :cond_0
-
-    const/4 v2, 0x1
-
-    aget-object v1, v0, v2
-
-    invoke-direct {p0, v1}, Landroid/os/Environment$UserEnvironment;->isSecondaryExternalStorageValid(Ljava/io/File;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    :goto_0
-    return-object v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method private isSecondaryExternalStorageValid(Ljava/io/File;)Z
-    .locals 5
-
-    .prologue
-    .line 99
     #calls: Landroid/os/Environment;->getSecondaryVolume()Landroid/os/storage/StorageVolume;
     invoke-static {}, Landroid/os/Environment;->access$invoke-getSecondaryVolume-32cf99()Landroid/os/storage/StorageVolume;
 
@@ -835,27 +799,19 @@
     .local v0, SecondaryVolume:Landroid/os/storage/StorageVolume;
     if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v1
+    new-instance v1, Ljava/io/File;
 
     invoke-virtual {v0}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v4, 0x1
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     :goto_0
-    return v4
+    return-object v1
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
