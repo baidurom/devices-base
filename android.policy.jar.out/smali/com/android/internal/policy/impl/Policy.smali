@@ -187,9 +187,9 @@
 
     .prologue
     .line 68
-    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager;
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManagerBaidu;
 
-    invoke-direct {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;-><init>()V
+    invoke-direct {v0}, Lcom/android/internal/policy/impl/PhoneWindowManagerBaidu;-><init>()V
 
     return-object v0
 .end method
