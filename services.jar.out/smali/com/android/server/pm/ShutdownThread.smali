@@ -185,8 +185,6 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    invoke-static {p0, v1}, Lcom/android/server/pm/ShutdownThread$BaiduInjector;->rebootProgressDialogBaidu(Landroid/content/Context;Landroid/app/ProgressDialog;)V
-
     .line 213
     invoke-virtual {v1, v5}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
@@ -203,7 +201,7 @@
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
     .line 217
-    invoke-virtual {v1}, Landroid/app/ProgressDialog;->show()V
+    invoke-static/range {p0 .. p0}, Lcom/android/server/pm/ShutdownThread$BaiduInjector;->showBaiduShutdownOrRebootProgressDialog(Landroid/content/Context;)V
 
     .line 219
     sget-object v2, Lcom/android/server/pm/ShutdownThread;->sInstance:Lcom/android/server/pm/ShutdownThread;
@@ -710,10 +708,6 @@
 
     .line 139
     .local v1, dialog:Landroid/app/AlertDialog;
-    invoke-static {p0, v1}, Lcom/android/server/pm/ShutdownThread$BaiduInjector;->createRebootDialogBaidu(Landroid/content/Context;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
-
-    move-result-object v1
-
     iput-object v1, v0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;->dialog:Landroid/app/Dialog;
 
     .line 140
@@ -729,7 +723,7 @@
     invoke-virtual {v4, v5}, Landroid/view/Window;->setType(I)V
 
     .line 142
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-static/range {p0 .. p0}, Lcom/android/server/pm/ShutdownThread$BaiduInjector;->showBaiduShutdownOrRebootDialog(Landroid/content/Context;)V
 
     goto :goto_0
 
@@ -1346,4 +1340,13 @@
     sput-boolean p0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
     return p0
+.end method
+
+.method static synthetic access$sget-mRebootSafeMode-259b09()Z
+    .locals 1
+
+    .prologue
+    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
+
+    return v0
 .end method
