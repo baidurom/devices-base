@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/power/ShutdownThread$CloseDialogReceiver;
+        Lcom/android/server/power/ShutdownThread$CloseDialogReceiver;,
+        Lcom/android/server/power/ShutdownThread$BaiduInjector;
     }
 .end annotation
 
@@ -2260,8 +2261,6 @@
     sput-object v5, Lcom/android/server/power/ShutdownThread;->sConfirmDialog:Landroid/app/AlertDialog;
 
     .line 262
-    invoke-static {p0}, Lcom/android/server/power/ShutdownThread$BaiduInjector;->createRebootDialogBaidu(Landroid/content/Context;)V
-
     sget-object v5, Lcom/android/server/power/ShutdownThread;->sConfirmDialog:Landroid/app/AlertDialog;
 
     const/4 v6, 0x0
@@ -2311,7 +2310,7 @@
     .line 285
     sget-object v5, Lcom/android/server/power/ShutdownThread;->sConfirmDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v5}, Landroid/app/AlertDialog;->show()V
+    invoke-static {p0}, Lcom/android/server/power/ShutdownThread$BaiduInjector;->showBaiduShutdownOrRebootDialog(Landroid/content/Context;)V
 
     goto/16 :goto_0
 
