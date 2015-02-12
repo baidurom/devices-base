@@ -20,6 +20,7 @@
         Lcom/android/server/pm/PackageManagerService$AppDirObserver;,
         Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;,
         Lcom/android/server/pm/PackageManagerService$ActivityIntentResolver;,
+        Lcom/android/server/pm/PackageManagerService$BaiduInjector;,
         Lcom/android/server/pm/PackageManagerService$PackageHandler;,
         Lcom/android/server/pm/PackageManagerService$PostInstallData;,
         Lcom/android/server/pm/PackageManagerService$DefaultContainerConnection;

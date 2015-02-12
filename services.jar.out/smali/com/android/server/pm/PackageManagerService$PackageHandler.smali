@@ -1209,6 +1209,17 @@
 
     .line 706
     :cond_15
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    move-object/from16 v0, v28
+
+    iget v3, v0, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
+
+    #calls: Lcom/android/server/pm/PackageManagerService$BaiduInjector;->reportInstallOrMoveStatus(Lcom/android/server/pm/PackageManagerService;I)V
+    invoke-static {v2, v3}, Lcom/android/server/pm/PackageManagerService$BaiduInjector;->access$invoke-reportInstallOrMoveStatus-ca0a1d(Lcom/android/server/pm/PackageManagerService;I)V
+
     iget-object v2, v11, Lcom/android/server/pm/PackageManagerService$InstallArgs;->observer:Landroid/content/pm/IPackageInstallObserver;
 
     if-eqz v2, :cond_0

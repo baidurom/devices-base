@@ -403,6 +403,15 @@
     .end local v13           #pkgList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v17           #uidArr:[I
     :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    move/from16 v1, v16
+
+    #calls: Lcom/android/server/pm/PackageManagerService$BaiduInjector;->reportInstallOrMoveStatus(Lcom/android/server/pm/PackageManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService$BaiduInjector;->access$invoke-reportInstallOrMoveStatus-ca0a1d(Lcom/android/server/pm/PackageManagerService;I)V
+
     const/16 v19, 0x1
 
     move/from16 v0, v16
